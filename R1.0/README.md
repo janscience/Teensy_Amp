@@ -5,10 +5,14 @@ by [Stefan Mucha](https://github.com/muchaste)
 with support by [Avner Wallach](https://github.com/avner-wallach) and
 [Jan Benda](https://github.com/janscience).
 
+- [EAGLE circuit board](teensy_amp_loads_of_switches.brd)
+- [EAGLE design rule](teensy_amp_loads_of_switches.dru)
+- [EAGLE schematics file](teensy_amp_loads_of_switches.sch)
+- [EAGLE autorouter statistics](teensy_amp_loads_of_switches.pro)
 
 ## Circuit
 
-![circuit](images/teensy amp switches circuit.png)
+![circuit](images/teensy_amp_switches_circuit.png)
 
 - VCC: 5V
 - VDD: 0V
@@ -22,7 +26,7 @@ with support by [Avner Wallach](https://github.com/avner-wallach) and
 
 Input pins to the left, "TeensyAmp R1.0" bottom right.
 
-![pins](images/teensy amp switches PCB.png)
+![pins](images/teensy_amp_switches_PCB.png)
 
 ### JP1
 
@@ -63,7 +67,7 @@ right column: VCC and VDD is used to create GND1 (1.6V)
 
 ## High-pass filter
 
-| position                     | R1      | Ci    | taui   | fcutoff |
+| switch/jumper position       | R1      | Ci    | taui   | fcutoff |
 | :--------------------------- | ------: | ----: | -----: | ------: |
 | p1 (upper jumper right)      | 100kOhm | 15uF  | 1.5s   | 0.1Hz   |
 | p2 (upper jumper left)       | 100kOhm | 15nF  | 1.5ms  | 106Hz   |
@@ -75,21 +79,33 @@ high-pass filter are switched!
 
 ## Power consumption
 
+### Powered by 5V (power bank)
+
 | Configuration     | Voltage | Current | Power | Runtime |
 | :---------------- | ------: | ------: | ----: | ------: |
-| Teensy 3.5        | 5V      | 75mA    | 370mW | 133h    |
-| Teensy 3.5        | 3.3V    | 68mA    | 225mW | 147h    |
-| Teensy + SD       | 5V      | 103mA   | 515mW | 97h     |
-| Teensy + SD       | 3.3V    | 96mA    | 315mW | 104h    |
 | Amplifier         | 5V      | 11.4mA  | 57mW  | 877h    |
-| Amplifier         | 3.3V    | 6.5mA   | 21mW  | 1588h   |
+| Teensy 3.5        | 5V      | 75mA    | 370mW | 133h    |
+| Teensy + SD       | 5V      | 103mA   | 515mW | 97h     |
 | Teensy + Amp      | 5V      | 87mA    | 433mW | 115h    |
-| Teensy + Amp      | 3.3V    | 75mA    | 249mW | 133h    |
 | Teensy + Amp + SD | 5V      | 115mA   | 575mW | 87h     |
+
+The amplifier takes just 11.5mA (57mW).
+
+The Teensy consumes about seven to ten (with SD card writes) times
+more power than the amplifier.
+
+If we want to cut power consumption, we need to cut it on the Teensy!
+
+
+### Powered by 3.3V
+
+| Configuration     | Voltage | Current | Power | Runtime |
+| :---------------- | ------: | ------: | ----: | ------: |
+| Amplifier         | 3.3V    | 6.5mA   | 21mW  | 1588h   |
+| Teensy 3.5        | 3.3V    | 68mA    | 225mW | 147h    |
+| Teensy + SD       | 3.3V    | 96mA    | 315mW | 104h    |
+| Teensy + Amp      | 3.3V    | 75mA    | 249mW | 133h    |
 | Teensy + Amp + SD | 3.3V    | 102mA   | 336mW | 98h     |
 
 The last colum is the run time to be expected for a 10Ah battery (10Ah
 divided by current).
-
-So, the Teensy consumes about seven to ten times more power than the amplifier.
-If we want to cut power consumption, we need to cut it on the Teensy.
