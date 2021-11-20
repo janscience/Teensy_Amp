@@ -6,7 +6,9 @@ with support by [Avner Wallach](https://github.com/avner-wallach) and
 [Jan Benda](https://github.com/janscience).
 
 
-## Signals
+## Circuit
+
+![circuit](images/teensy amp switches circuit.png)
 
 - VCC: 5V
 - VDD: 0V
@@ -19,6 +21,8 @@ with support by [Avner Wallach](https://github.com/avner-wallach) and
 ## Pins
 
 Input pins to the left, "TeensyAmp R1.0" bottom right.
+
+![pins](images/teensy amp switches PCB.png)
 
 ### JP1
 
