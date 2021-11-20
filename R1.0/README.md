@@ -8,50 +8,53 @@ with support by [Avner Wallach](https://github.com/avner-wallach) and
 
 ## Signals
 
-VCC: 5V
-VDD: 0V
-GND1: 1.66V
+- VCC: 5V
+- VDD: 0V
+- GND1: 1.66V
 
-VPP: 5V
-VSS: 0V
-GND2: 1.66V
+- VPP: 5V
+- VSS: 0V
+- GND2: 1.66V
 
 ## Pins
 
 Input pins to the left, "TeensyAmp R1.0" bottom right.
 
 ### JP1
-1: IN+ (bottom)
-2: IN- (top)
+
+- 1 IN+ (bottom)
+- 2 IN- (top)
 
 ### JP2
-1: IN+ (bottom)
-2: IN- (top)
+
+- 1 IN+ (bottom)
+- 2 IN- (top)
 
 ### JP3
 
 top row:
-1 (left):  OUTB (JP2)
-2 (right): OUTA (JP1)
+- 1 (left):  OUTB (JP2)
+- 2 (right): OUTA (JP1)
 
 bottom row (you might power the Teensy from these two pins):
-3 (left):  VPP  5V
-4 (right): VSS  0V -> this does not need to be connected to AGND or GND!
+- 3 (left):  VPP  5V
+- 4 (right): VSS  0V -> this does not need to be connected to AGND or GND!
 
 ### JP4
 
-1, 2 (top):    VCC
-3, 4 (center): VDD
-5, 6 (bottom): GND1
+- 1, 2 (top):    VCC
+- 3, 4 (center): VDD
+- 5, 6 (bottom): GND1
 
 left column: connected to JP5
 
 right column: VCC and VDD is used to create GND1 (1.6V)
 
 ### JP5
-1 (top):     VPP = VCC
-2 (center):  VSS = VDD
-3 (bottom):  GND2 = GND1
+
+- 1 (top):     VPP = VCC
+- 2 (center):  VSS = VDD
+- 3 (bottom):  GND2 = GND1
 
 
 ## High-pass filter
@@ -84,5 +87,5 @@ high-pass filter are switched!
 The last colum is the run time to be expected for a 10Ah battery (10Ah
 divided by current).
 
-So, the Teensy consumes about seven times more power than the amplifier.
+So, the Teensy consumes about seven to ten times more power than the amplifier.
 If we want to cut power consumption, we need to cut it on the Teensy.
