@@ -81,9 +81,24 @@ right column: VCC and VDD is used to create GND1 (1.6V)
 - 3 (bottom):  GND2 = GND1
 
 
-## High-pass filter
+## Filter
 
-| S1/S2 switch/jumper position | R1      | Ci    | taui   | fcutoff |
+In files [`tests/filter-*.wav`](tests) the frequency of a 23mV signal
+was increased as follows: 10Hz, 12.5Hz, 16Hz, 20Hz, 25Hz, 31.5Hz,
+40Hz, 50Hz, 63Hz, 80Hz, 100Hz, 125Hz, 160Hz, 200Hz, 250Hz, 315Hz,
+400Hz, 500Hz, 630Hz, 800Hz, 1000Hz, 1250Hz, 1600Hz, 2000Hz, 2500Hz,
+3150Hz, 4000Hz, 5000Hz, 6300Hz, 8000Hz, 10000Hz.
+
+100Hz high-pass, 7kHz low-pass:
+![filter 100Hz-7kHz](images/filter-100Hz-7kHz-gain30-23mV-traces.png)
+
+100Hz high-pass, 33kHz low-pass:
+![filter 100Hz-33kHz](images/filter-100Hz-33kHz-gain30-23mV-traces.png)
+
+
+### High-pass filter
+
+| S1/S2 switch/jumper position | R1      | Ci    | tau    | fcutoff |
 | :--------------------------- | ------: | ----: | -----: | ------: |
 | p1 (upper jumper right)      | 100kOhm | 15uF  | 1.5s   | 0.1Hz   |
 | p2 (upper jumper left)       | 100kOhm | 15nF  | 1.5ms  | 106Hz   |
@@ -91,6 +106,14 @@ right column: VCC and VDD is used to create GND1 (1.6V)
 
 WARNING: in AmplifierConfiguration2021-10-25.pdf 100Hz and 300Hz
 high-pass filter are switched!
+
+
+### Low-pass filter
+
+| S5/S6 switch position | fcutoff |
+| :-------------------- | ------: |
+| p1 (left)             |  7kHz   |
+| p2 (right)            | 33kHz   |
 
 
 ## Power consumption
