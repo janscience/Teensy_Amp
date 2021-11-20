@@ -10,6 +10,22 @@ with support by [Avner Wallach](https://github.com/avner-wallach) and
 - [EAGLE schematics file](teensy_amp_loads_of_switches.sch)
 - [EAGLE autorouter statistics](teensy_amp_loads_of_switches.pro)
 
+The input signals are processed in the following way:
+
+- simple RC high-pass filtering, cutoff frequencies selectable via
+  S1/S2 switches (0.1Hz, 100Hz, 300Hz)
+
+- amplification ([Analog devices
+  AD8224HACPZ-WP](https://www.analog.com/media/en/technical-documentation/data-sheets/AD8224.pdf)),
+  gain selectable via S3/S4 switches (x5, x30, x180)
+
+- low-pass filtering ([Analog devices
+  OP2177ARZ](https://www.analog.com/media/en/technical-documentation/data-sheets/op1177_2177_4177.pdf)),
+  cutoff frequencies selectable via S5/S6 switches (10kHz, 33kHz)
+
+- a voltage-divider generates the 1.66V reference/ground potential ([Analog devices OP1177R](https://www.analog.com/media/en/technical-documentation/data-sheets/op1177_2177_4177.pdf))
+
+
 ## Circuit
 
 ![circuit](images/teensy_amp_switches_circuit.png)
@@ -28,17 +44,17 @@ Input pins to the left, "TeensyAmp R1.0" bottom right.
 
 ![pins](images/teensy_amp_switches_PCB.png)
 
-### JP1
+### JP1: differential input signal 1
 
 - 1 IN+ (bottom)
 - 2 IN- (top)
 
-### JP2
+### JP2: differential input signal 2
 
 - 1 IN+ (bottom)
 - 2 IN- (top)
 
-### JP3
+### JP3: output signals and power fowarding
 
 top row:
 - 1 (left):  OUTB (JP2)
@@ -48,7 +64,7 @@ bottom row (you might power the Teensy from these two pins):
 - 3 (left):  VPP  5V
 - 4 (right): VSS  0V -> this does not need to be connected to AGND or GND!
 
-### JP4
+### JP4: power and reference input and forwarding
 
 - 1, 2 (top):    VCC
 - 3, 4 (center): VDD
@@ -58,7 +74,7 @@ left column: connected to JP5
 
 right column: VCC and VDD is used to create GND1 (1.6V)
 
-### JP5
+### JP5: power for voltage divider
 
 - 1 (top):     VPP = VCC
 - 2 (center):  VSS = VDD
@@ -67,7 +83,7 @@ right column: VCC and VDD is used to create GND1 (1.6V)
 
 ## High-pass filter
 
-| switch/jumper position       | R1      | Ci    | taui   | fcutoff |
+| S1/S2 switch/jumper position | R1      | Ci    | taui   | fcutoff |
 | :--------------------------- | ------: | ----: | -----: | ------: |
 | p1 (upper jumper right)      | 100kOhm | 15uF  | 1.5s   | 0.1Hz   |
 | p2 (upper jumper left)       | 100kOhm | 15nF  | 1.5ms  | 106Hz   |
