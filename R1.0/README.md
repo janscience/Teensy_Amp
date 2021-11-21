@@ -5,11 +5,6 @@ by [Stefan Mucha](https://github.com/muchaste)
 with support by [Avner Wallach](https://github.com/avner-wallach) and
 [Jan Benda](https://github.com/janscience).
 
-- [EAGLE circuit board](teensy_amp_loads_of_switches.brd)
-- [EAGLE design rule](teensy_amp_loads_of_switches.dru)
-- [EAGLE schematics file](teensy_amp_loads_of_switches.sch)
-- [EAGLE autorouter statistics](teensy_amp_loads_of_switches.pro)
-
 The input signals are processed in the following way:
 
 - simple RC high-pass filtering, cutoff frequencies selectable via
@@ -27,6 +22,11 @@ The input signals are processed in the following way:
 
 
 ## Circuit
+
+- [EAGLE circuit board](teensy_amp_loads_of_switches.brd)
+- [EAGLE design rule](teensy_amp_loads_of_switches.dru)
+- [EAGLE schematics file](teensy_amp_loads_of_switches.sch)
+- [EAGLE autorouter statistics](teensy_amp_loads_of_switches.pro)
 
 ![circuit](images/teensy_amp_switches_circuit.png)
 
@@ -91,7 +91,7 @@ right column: VCC and VDD is used to create GND1 (1.6V)
 | p2 (upper jumper left)       | 100kOhm | 15nF  | 1.5ms  | 106Hz   |
 | p3 (upper jumper cable left) | 100kOhm | 5.6nF | 0.56ms | 283Hz   |
 
-WARNING: in AmplifierConfiguration2021-10-25.pdf 100Hz and 300Hz
+*WARNING:* in AmplifierConfiguration2021-10-25.pdf 100Hz and 300Hz
 high-pass filter are switched!
 
 
@@ -196,6 +196,28 @@ If we want to cut power consumption, we need to cut it on the Teensy!
 | Teensy + Amp      | 3.3V    | 75mA    | 249mW | 133h    |
 | Teensy + Amp + SD | 3.3V    | 102mA   | 336mW | 98h     |
 
+
+## SD write artifacts
+
+The files [`tests/sdwrites-gain*.wav`](tests) recorded 10s of
+short-circuited inputs (zero signal).
+
+![sdwrites gain5](images/sdwrites-gain5-zero-traces.png)
+
+![sdwrites gain30](images/sdwrites-gain30-zero-traces.png)
+
+![sdwrites gain180](images/sdwrites-gain180-zero-traces.png)
+
+With a sampling rate of 44kHz and two channels, an SD write occurs
+every almost 200ms. This is visible in the traces as elevated noise
+levels for about 2ms.
+
+What is the reason for the irregularly appearing dips in the voltage?
+
+These plots were generated via
+```
+python3 ~/Arduino/libraries/TeeRec/extras/viewwave.py -s -a -o 0.37 -t 0.03 ../tests/sdwrites-gain180-zero.wav
+```
 
 ## Noise
 
