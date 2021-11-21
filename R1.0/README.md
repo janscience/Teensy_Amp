@@ -83,20 +83,6 @@ right column: VCC and VDD is used to create GND1 (1.6V)
 
 ## Filter
 
-In files [`tests/filter-*.wav`](tests) a 23mV signal was sampled with
-100kHz and its frequency was increased as follows: 10Hz, 12.5Hz, 16Hz,
-20Hz, 25Hz, 31.5Hz, 40Hz, 50Hz, 63Hz, 80Hz, 100Hz, 125Hz, 160Hz,
-200Hz, 250Hz, 315Hz, 400Hz, 500Hz, 630Hz, 800Hz, 1000Hz, 1250Hz,
-1600Hz, 2000Hz, 2500Hz, 3150Hz, 4000Hz, 5000Hz, 6300Hz, 8000Hz,
-10000Hz.
-
-100Hz high-pass, 7kHz low-pass:
-![filter 100Hz-7kHz](images/filter-100Hz-7kHz-gain30-23mV-traces.png)
-
-100Hz high-pass, 33kHz low-pass:
-![filter 100Hz-33kHz](images/filter-100Hz-33kHz-gain30-23mV-traces.png)
-
-
 ### High-pass filter
 
 | S1/S2 switch/jumper position | R1      | Ci    | tau    | fcutoff |
@@ -117,6 +103,66 @@ high-pass filter are switched!
 | p2 (right)            | 33kHz   |
 
 
+### Filter tests
+
+In files [`tests/filter-*.wav`](tests) a 23mV signal was sampled with
+100kHz and its frequency was increased as follows: 10Hz, 12.5Hz, 16Hz,
+20Hz, 25Hz, 31.5Hz, 40Hz, 50Hz, 63Hz, 80Hz, 100Hz, 125Hz, 160Hz,
+200Hz, 250Hz, 315Hz, 400Hz, 500Hz, 630Hz, 800Hz, 1000Hz, 1250Hz,
+1600Hz, 2000Hz, 2500Hz, 3150Hz, 4000Hz, 5000Hz, 6300Hz, 8000Hz,
+10kHz, 12.5kHz, 16kHz, 20kHz.
+
+100Hz high-pass, 7kHz low-pass:
+
+![filter 100Hz-7kHz](images/filter-100Hz-7kHz-gain30-23mV-traces.png)
+
+100Hz high-pass, 33kHz low-pass:
+
+![filter 100Hz-33kHz](images/filter-100Hz-33kHz-gain30-23mV-traces.png)
+
+0.1Hz high-pass, 33kHz low-pass:
+
+![filter 0.1Hz-33kHz](images/filter-0.1Hz-33kHz-gain30-23mV-traces.png)
+
+These plots were generated via
+```
+python3 ~/Arduino/libraries/TeeRec/extras/viewwave.py -s -c 0 -t 23 -a ../tests/filter-0.1Hz-33kHz-gain30-23mV.wav
+```
+
+## Gains and clipping
+
+| S3/S4 switch position | gain |
+| :-------------------- | ---: |
+| p1 (left)             |   x5 |
+| p2 (center)           |  x30 |
+| p3 (right)            | x180 |
+
+### Gain tests
+
+To be done.
+
+### Clipping tests
+
+In files [`tests/clipping-gain*-*mV-step*mV.wav`](tests) the amplitude
+of a 630Hz signal was increased from a start voltage in steps as
+specified in the file name.
+
+![clipping gain5](images/clipping-gain5-100mV-step10mV-traces.png)
+
+![clipping gain30](images/clipping-gain30-20mV-step1mV-traces.png)
+
+![clipping gain180](images/clipping-gain180-3.5mV-step0.1mV-traces.png)
+
+These plots were generated via
+```
+python3 ~/Arduino/libraries/TeeRec/extras/viewwave.py -s -c 0 -t 10 ../tests/clipping-gain30-20mV-step1mV.wav
+```
+
+*The signals are clipped at the bottom!* This looks the same for all
+channels and gains. Also, it does not matter whether the amplifier is
+powered by 5V or 3.3V. Why?
+
+
 ## Power consumption
 
 ### Powered by 5V (power bank)
@@ -128,6 +174,9 @@ high-pass filter are switched!
 | Teensy + SD       | 5V      | 103mA   | 515mW | 97h     |
 | Teensy + Amp      | 5V      | 87mA    | 433mW | 115h    |
 | Teensy + Amp + SD | 5V      | 115mA   | 575mW | 87h     |
+
+The last colum is the run time to be expected for a 10Ah battery (10Ah
+divided by current).
 
 The amplifier takes just 11.5mA (57mW).
 
@@ -146,9 +195,6 @@ If we want to cut power consumption, we need to cut it on the Teensy!
 | Teensy + SD       | 3.3V    | 96mA    | 315mW | 104h    |
 | Teensy + Amp      | 3.3V    | 75mA    | 249mW | 133h    |
 | Teensy + Amp + SD | 3.3V    | 102mA   | 336mW | 98h     |
-
-The last colum is the run time to be expected for a 10Ah battery (10Ah
-divided by current).
 
 
 ## Noise

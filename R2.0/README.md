@@ -31,8 +31,8 @@ developing an improved version.
   (DP3T) as a switch to selectthe filter settings (same as for gain)?
   This one is not so wide!
 
-- Low-pass filters: 7kHz, 15kHz, 33kHz for sampling rates of
-  	           20kHz, 44kHz, 100kHz.
+- Low-pass filters: 7kHz, 15kHz, 33kHz for sampling rates of 20kHz,
+  44kHz, 100kHz.
 
 - Do we need USB connector?
 
