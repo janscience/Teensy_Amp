@@ -8,11 +8,18 @@ developing an improved version.
 
 - The signal is clipped at the bottom above Teensy 0V. Independent of
   gain.  Maybe we need to provide 3.3Volt to make it work -> no, this
-  does not solve the issue..
+  does not solve the issue.
+
+  See [AD8224 data
+  sheet](https://www.analog.com/media/en/technical-documentation/data-sheets/AD8224.pdf),
+  figures 25-28, in particular Fig 28. There is some asymmetry!
+
+  ![AD8224-Fig28](images/AD8224-Fig28.png)
 
 - Make it smaller!
 
-- Power supply down to 3.3V!? How?
+- Power supply down to 3.3V!? not really, the AD8224 does not support
+  this.
 
 - The amplifier should generate 3.3V in addition to 1.6V,
   both for running the Amplifier and the Teensy.
