@@ -120,13 +120,13 @@ In files [`tests/filter-*.wav`](tests) a 23mV signal was sampled with
 
 ![filter 100Hz-33kHz](images/filter-100Hz-33kHz-gain30-23mV-traces.png)
 
-0.1Hz high-pass, 33kHz low-pass:
-
-![filter 0.1Hz-33kHz](images/filter-0.1Hz-33kHz-gain30-23mV-traces.png)
-
 300Hz high-pass, 33kHz low-pass:
 
 ![filter 300Hz-33kHz](images/filter-300Hz-33kHz-gain30-23mV-traces.png)
+
+0.1Hz high-pass, 33kHz low-pass:
+
+![filter 0.1Hz-33kHz](images/filter-0.1Hz-33kHz-gain30-23mV-traces.png)
 
 These plots were generated via
 ```
