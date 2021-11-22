@@ -124,9 +124,13 @@ In files [`tests/filter-*.wav`](tests) a 23mV signal was sampled with
 
 ![filter 0.1Hz-33kHz](images/filter-0.1Hz-33kHz-gain30-23mV-traces.png)
 
+300Hz high-pass, 33kHz low-pass:
+
+![filter 300Hz-33kHz](images/filter-300Hz-33kHz-gain30-23mV-traces.png)
+
 These plots were generated via
 ```
-python3 ~/Arduino/libraries/TeeRec/extras/viewwave.py -s -c 0 -t 23 -a ../tests/filter-0.1Hz-33kHz-gain30-23mV.wav
+python3 ~/Arduino/libraries/TeeRec/extras/viewwave.py -s -c 0 -t 23 -a ../tests/filter-300Hz-33kHz-gain30-23mV.wav
 ```
 
 ## Gains and clipping
