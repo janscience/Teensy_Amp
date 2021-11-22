@@ -143,7 +143,19 @@ python3 ~/Arduino/libraries/TeeRec/extras/viewwave.py -s -c 0 -t 23 -a ../tests/
 
 ### Gain tests
 
-To be done.
+In files [`tests/gain*.wav`](tests) a sinewave of a 630Hz was
+amplified and recorded with both channels.
+
+![gain 5](images/gain5-120mV-traces.png)
+
+![gain 30](images/gain30-23mV-traces.png)
+
+![gain 180](images/gain180-3.8mV-traces.png)
+
+These plots were generated via
+```
+python3 ~/Arduino/libraries/TeeRec/extras/viewwave.py -o 0.1 -t 0.005 -g 30 -s  ../tests/gain30-23mV.wav
+```
 
 ### Clipping tests
 
