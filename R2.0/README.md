@@ -69,3 +69,5 @@ AD8224 will not provide voltages outside VSS and VPP.
 
 - LED less bright!
 
+- Annotate all jumper pins on the PCB.
+

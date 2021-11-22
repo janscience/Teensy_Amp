@@ -146,11 +146,19 @@ python3 ~/Arduino/libraries/TeeRec/extras/viewwave.py -s -c 0 -t 23 -a ../tests/
 In files [`tests/gain*.wav`](tests) a sinewave of a 630Hz was
 amplified and recorded with both channels.
 
+120mV rms amplitude (340mV p-p):
+
 ![gain 5](images/gain5-120mV-traces.png)
+
+23mV rms amplitude (65mV p-p):
 
 ![gain 30](images/gain30-23mV-traces.png)
 
+3.8mV rms amplitude (10.7mV p-p):
+
 ![gain 180](images/gain180-3.8mV-traces.png)
+
+Nicely amplified, with a gain that seems a bit higher than specified.
 
 These plots were generated via
 ```
@@ -170,16 +178,15 @@ it (0-3.3V).
 
 ![clipping gain180](images/clipping-gain180-3.5mV-step0.1mV-traces.png)
 
-These plots were generated via
-```
-python3 ~/Arduino/libraries/TeeRec/extras/viewwave.py -s -c 0 -t 10 -r -g 1 ../tests/clipping-gain30-20mV-step1mV.wav
-```
-
 *The signals are clipped at the bottom at about 680mV!*
 
 This is independent on gain. Also, it does not matter whether the
 amplifier is powered by 5V or 3.3V.
 
+These plots were generated via
+```
+python3 ~/Arduino/libraries/TeeRec/extras/viewwave.py -s -c 0 -t 10 -r -g 1 ../tests/clipping-gain30-20mV-step1mV.wav
+```
 
 ## Power consumption
 
