@@ -145,7 +145,8 @@ To be done.
 
 In files [`tests/clipping-gain*-*mV-step*mV.wav`](tests) the amplitude
 of a 630Hz signal was increased from a start voltage in steps as
-specified in the file name.
+specified in the file name. Shown is the voltage as the Teensy records
+it (0-3.3V).
 
 ![clipping gain5](images/clipping-gain5-100mV-step10mV-traces.png)
 
@@ -155,12 +156,13 @@ specified in the file name.
 
 These plots were generated via
 ```
-python3 ~/Arduino/libraries/TeeRec/extras/viewwave.py -s -c 0 -t 10 ../tests/clipping-gain30-20mV-step1mV.wav
+python3 ~/Arduino/libraries/TeeRec/extras/viewwave.py -s -c 0 -t 10 -r -g 1 ../tests/clipping-gain30-20mV-step1mV.wav
 ```
 
-*The signals are clipped at the bottom!* This looks the same for all
-channels and gains. Also, it does not matter whether the amplifier is
-powered by 5V or 3.3V. Why?
+*The signals are clipped at the bottom at about 680mV!*
+
+This is independent on gain. Also, it does not matter whether the
+amplifier is powered by 5V or 3.3V.
 
 
 ## Power consumption
