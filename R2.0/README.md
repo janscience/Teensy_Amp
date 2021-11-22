@@ -12,9 +12,21 @@ developing an improved version.
 
   See [AD8224 data
   sheet](https://www.analog.com/media/en/technical-documentation/data-sheets/AD8224.pdf),
-  figures 25-28, in particular Fig 28. There is some asymmetry!
+  figures 25-28, in particular Fig 28:
 
   ![AD8224-Fig28](images/AD8224-Fig28.png)
+
+  When operated with +5V single supply (as we do it), and using a
+  reference of 2.5V, the lowest voltage the AD8224 puts out is 100mV,
+  not 0V. So there is some minor clipping occuring.
+
+  We need to test, how the AD8224 behaves with a 1.6V reference. Maybe
+  this gets larger.
+
+  Or it happens at later stages.
+
+  Culprit could be the diodes D1/D2. We actually do not need them. The
+  AD8224 will not provide voltages outside VSS and VPP.
 
 - Make it smaller!
 
