@@ -5,6 +5,8 @@ by [Stefan Mucha](https://github.com/muchaste)
 with support by [Avner Wallach](https://github.com/avner-wallach) and
 [Jan Benda](https://github.com/janscience).
 
+![TeensyAmpR1](images/TeensyAmpR1.png)
+
 The input signals are processed in the following way:
 
 - simple RC high-pass filtering, cutoff frequencies selectable via
@@ -19,6 +21,9 @@ The input signals are processed in the following way:
   cutoff frequencies selectable via S5/S6 switches (10kHz, 33kHz)
 
 - a voltage-divider generates the 1.66V reference/ground potential ([Analog devices OP1177R](https://www.analog.com/media/en/technical-documentation/data-sheets/op1177_2177_4177.pdf))
+
+How to configure gain and filter settings is described in
+[AmplifierConfiguration.pdf](AmplifierConfiguration.pdf).
 
 
 ## Circuit
@@ -83,6 +88,9 @@ right column: VCC and VDD is used to create GND1 (1.6V)
 
 ## Filter
 
+For selecting high- and low-pass filter settings see
+[AmplifierConfiguration.pdf](AmplifierConfiguration.pdf).
+
 ### High-pass filter
 
 | S1/S2 switch/jumper position | R1      | Ci    | tau    | fcutoff |
@@ -90,10 +98,6 @@ right column: VCC and VDD is used to create GND1 (1.6V)
 | p1 (upper jumper right)      | 100kOhm | 15uF  | 1.5s   | 0.1Hz   |
 | p2 (upper jumper left)       | 100kOhm | 15nF  | 1.5ms  | 106Hz   |
 | p3 (upper jumper cable left) | 100kOhm | 5.6nF | 0.56ms | 283Hz   |
-
-*WARNING:* in AmplifierConfiguration2021-10-25.pdf 100Hz and 300Hz
-high-pass filter are switched!
-
 
 ### Low-pass filter
 
@@ -134,6 +138,9 @@ python3 ~/Arduino/libraries/TeeRec/extras/viewwave.py -s -c 0 -t 23 -a ../tests/
 ```
 
 ## Gains and clipping
+
+For selecting gains see
+[AmplifierConfiguration.pdf](AmplifierConfiguration.pdf).
 
 | S3/S4 switch position | gain |
 | :-------------------- | ---: |
