@@ -12,6 +12,7 @@ and potential for more.
 
 - [EOD-Logger](https://github.com/muchaste/EOD-Logger): 2-channel
   logger for recording EODs of electric fish.
+  ![EOD_Logger](https://github.com/muchaste/Teensy_Amp/blob/main/R1.0/images/amp%20configuration%20R1.png)
 
 - [8-channel
   logger](https://github.com/janscience/TeeGrid/blob/main/8channel-logger):
