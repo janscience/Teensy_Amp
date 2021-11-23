@@ -47,8 +47,6 @@ Input pins to the left, "TeensyAmp R1.0" bottom right.
 
 ![pcb](images/teensy_amp_switches_PCB.png)
 
-![pins](images/pins.png)
-
 ### JP1 and JP2: differential inputs 1 and 2
 
 | pin  | signal | position |
@@ -86,6 +84,8 @@ Input pins to the left, "TeensyAmp R1.0" bottom right.
 |    1 | VPP = VCC   | top      |
 |    2 | VSS = VDD   | center   |
 |    3 | GND2 = GND1 | bottom   |
+
+![pins](images/pins.png)
 
 
 ## Filter
