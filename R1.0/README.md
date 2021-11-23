@@ -35,55 +35,57 @@ How to configure gain and filter settings is described in
 
 ![circuit](images/teensy_amp_switches_circuit.png)
 
-- VCC: 5V
-- VDD: 0V
-- GND1: 1.66V
-
-- VPP: 5V
-- VSS: 0V
-- GND2: 1.66V
+| Name1 | Name2 | Potential |
+| :---- | :---- | --------: |
+| VCC   | VPP   | 5V        |
+| VDD   | VSS   | 0V        |
+| GND1  | GND2  | 1.66V     |
 
 ## Pins
 
 Input pins to the left, "TeensyAmp R1.0" bottom right.
 
-![pins](images/teensy_amp_switches_PCB.png)
+![pcb](images/teensy_amp_switches_PCB.png)
 
-### JP1: differential input signal 1
+![pins](images/pins.png)
 
-- 1 IN+ (bottom)
-- 2 IN- (top)
+### JP1 and JP2: differential inputs 1 and 2
 
-### JP2: differential input signal 2
-
-- 1 IN+ (bottom)
-- 2 IN- (top)
+| pin  | signal | position |
+| ---: | :----  | :------- |
+|    1 | IN+    | bottom   |
+|    2 | IN-    | top      |
 
 ### JP3: output signals and power fowarding
 
-top row:
-- 1 (left):  OUTB (JP2)
-- 2 (right): OUTA (JP1)
+| pin  | signal     | position     |
+| ---: | :--------  | :----------- |
+|    1 | OUT2 (JP2) | top left     |
+|    2 | OUT1 (JP1) | top right    |
+|    3 | VPP        | bottom left  |
+|    4 | VSS        | bottom right |
 
-bottom row (you might power the Teensy from these two pins):
-- 3 (left):  VPP  5V
-- 4 (right): VSS  0V -> this does not need to be connected to AGND or GND!
+- VPP and VSS could be used to power the Teensy.
+- VSS does not need to be connected to AGND or GND of the Teensy!
 
-### JP4: power and reference input and forwarding
+### JP4: power input and reference generation
 
-- 1, 2 (top):    VCC
-- 3, 4 (center): VDD
-- 5, 6 (bottom): GND1
+| pins | signal | position |
+| ---: | :----- | :------- |
+| 1, 2 | VCC    | top      |
+| 3, 4 | VDD    | center   |
+| 5, 6 | GND1   | bottom   |
 
-left column: connected to JP5
+- right column: VCC and VDD is used to create GND1 (1.66V)
+- left column: connected to JP5
 
-right column: VCC and VDD is used to create GND1 (1.6V)
+### JP5: power forwarding
 
-### JP5: power for voltage divider
-
-- 1 (top):     VPP = VCC
-- 2 (center):  VSS = VDD
-- 3 (bottom):  GND2 = GND1
+| pin  | signal      | position |
+| ---: | :---------- | :------- |
+|    1 | VPP = VCC   | top      |
+|    2 | VSS = VDD   | center   |
+|    3 | GND2 = GND1 | bottom   |
 
 
 ## Filter
