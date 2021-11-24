@@ -63,6 +63,8 @@ Input pins to the left, "TeensyAmp R1.0" bottom right.
 |    3 | VPP        | bottom left  |
 |    4 | VSS        | bottom right |
 
+- connect the amplified signals OUT1 and OUT2 to analog inputs of
+  the Teensy.
 - VPP and VSS could be used to power the Teensy.
 - VSS does not need to be connected to AGND or GND of the Teensy!
 
@@ -74,8 +76,18 @@ Input pins to the left, "TeensyAmp R1.0" bottom right.
 | 3, 4 | VDD    | center   |
 | 5, 6 | GND1   | bottom   |
 
-- right column: VCC and VDD is used to create GND1 (1.66V)
-- left column: connected to JP5
+- right column: VCC and VDD is used to create GND1 (1.66V).
+- left column: input power and GND for the amplifier. Connected to JP5.
+- when using a single amplifier,
+  - connect power to both columns, in order to drive both the
+    generation of the GND1 potential (right column) and the amplifier
+    (left column).
+  - connect the generated GND1 from the right column to GND1 of the
+    left column by means of a jumper.
+- additional slave amplifiers do not need to generate their GND1
+  potential themselves. They receive it from the JP5 pins of the
+  master amplifier on the left column of the JP4 pins.
+    
 
 ### JP5: power forwarding
 
@@ -84,6 +96,11 @@ Input pins to the left, "TeensyAmp R1.0" bottom right.
 |    1 | VPP = VCC   | top      |
 |    2 | VSS = VDD   | center   |
 |    3 | GND2 = GND1 | bottom   |
+
+- connect these to the left column of JP4 of a another amplifier in
+  order to provide power and reference. The other amplifier then does
+  not need any power input to the right column of JP4.
+- if only a single amplifier is used, these pins are not used.
 
 ![pins](images/pins.png)
 

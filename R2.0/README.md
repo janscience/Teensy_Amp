@@ -64,6 +64,8 @@ AD8224 will not provide voltages outside VSS and VPP.
 
 - Do we really need an USB connector?
 
+- Do we really need the bottom row of JP3?
+
 
 ## Further issues
 
