@@ -218,16 +218,17 @@ python3 ~/Arduino/libraries/TeeRec/extras/viewwave.py -s -c 0 -t 10 -r -g 1 ../t
 
 ### Powered by 5V (power bank)
 
-| Configuration     | Voltage | Current | Power | Runtime |
-| :---------------- | ------: | ------: | ----: | ------: |
-| Amplifier         | 5V      | 11.4mA  | 57mW  | 543h    |
-| Teensy 3.5        | 5V      | 75mA    | 370mW | 82h    |
-| Teensy + SD       | 5V      | 103mA   | 515mW | 60h     |
-| Teensy + Amp      | 5V      | 87mA    | 433mW | 71h    |
-| Teensy + Amp + SD | 5V      | 115mA   | 575mW | 54h     |
+| Configuration     | Voltage | Current | Power | Run time |
+| :---------------- | ------: | ------: | ----: | -------: |
+| Amplifier         | 5V      | 11.4mA  |  57mW |  543h    |
+| Teensy 3.5        | 5V      |  75mA   | 370mW |   82h    |
+| Teensy + SD       | 5V      | 103mA   | 515mW |   60h    |
+| Teensy + Amp      | 5V      |  87mA   | 433mW |   71h    |
+| Teensy + Amp + SD | 5V      | 115mA   | 575mW |   54h    |
 
 The last colum is the run time to be expected for a 10Ah battery (10Ah
-times 3.7V/5.1V times 85% (=0.62) divided by current).
+times 3.7V LiPo voltage divided by 5.1V output voltage times 85%
+efficiancy (=0.62) divided by current).
 
 The amplifier takes just 11.5mA (57mW).
 
@@ -239,13 +240,17 @@ If we want to cut power consumption, we need to cut it on the Teensy!
 
 ### Powered by 3.3V
 
-| Configuration     | Voltage | Current | Power | Runtime |
-| :---------------- | ------: | ------: | ----: | ------: |
-| Amplifier         | 3.3V    | 6.5mA   | 21mW  | 984h   |
-| Teensy 3.5        | 3.3V    | 68mA    | 225mW | 91h    |
-| Teensy + SD       | 3.3V    | 96mA    | 315mW | 65h    |
-| Teensy + Amp      | 3.3V    | 75mA    | 249mW | 82h    |
-| Teensy + Amp + SD | 3.3V    | 102mA   | 336mW | 60h     |
+| Configuration     | Voltage | Current | Power |
+| :---------------- | ------: | ------: | ----: |
+| Amplifier         | 3.3V    | 6.5mA   |  21mW |
+| Teensy 3.5        | 3.3V    |  68mA   | 225mW |
+| Teensy + SD       | 3.3V    |  96mA   | 315mW |
+| Teensy + Amp      | 3.3V    |  75mA   | 249mW |
+| Teensy + Amp + SD | 3.3V    | 102mA   | 336mW |
+
+This cuts down power consumption by almost a factor of two.  We should
+power the system directly from the LiPo battery and not over the 5V
+USB voltage.
 
 
 ## SD write artifacts
