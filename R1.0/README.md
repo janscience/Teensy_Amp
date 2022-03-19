@@ -5,6 +5,8 @@ by [Stefan Mucha](https://github.com/muchaste)
 with support by [Avner Wallach](https://github.com/avner-wallach) and
 [Jan Benda](https://github.com/janscience).
 
+![TeensyAmpR1](images/TeensyAmpR1.png)
+
 The input signals are processed in the following way:
 
 - simple RC high-pass filtering, cutoff frequencies selectable via
@@ -20,6 +22,9 @@ The input signals are processed in the following way:
 
 - a voltage-divider generates the 1.66V reference/ground potential ([Analog devices OP1177R](https://www.analog.com/media/en/technical-documentation/data-sheets/op1177_2177_4177.pdf))
 
+How to configure gain and filter settings is described in
+[AmplifierConfiguration.pdf](AmplifierConfiguration.pdf).
+
 
 ## Circuit
 
@@ -30,58 +35,80 @@ The input signals are processed in the following way:
 
 ![circuit](images/teensy_amp_switches_circuit.png)
 
-- VCC: 5V
-- VDD: 0V
-- GND1: 1.66V
-
-- VPP: 5V
-- VSS: 0V
-- GND2: 1.66V
+| Name1 | Name2 | Potential |
+| :---- | :---- | --------: |
+| VCC   | VPP   | 5V        |
+| VDD   | VSS   | 0V        |
+| GND1  | GND2  | 1.66V     |
 
 ## Pins
 
 Input pins to the left, "TeensyAmp R1.0" bottom right.
 
-![pins](images/teensy_amp_switches_PCB.png)
+![pcb](images/teensy_amp_switches_PCB.png)
 
-### JP1: differential input signal 1
+### JP1 and JP2: differential inputs 1 and 2
 
-- 1 IN+ (bottom)
-- 2 IN- (top)
-
-### JP2: differential input signal 2
-
-- 1 IN+ (bottom)
-- 2 IN- (top)
+| pin  | signal | position |
+| ---: | :----  | :------- |
+|    1 | IN+    | bottom   |
+|    2 | IN-    | top      |
 
 ### JP3: output signals and power fowarding
 
-top row:
-- 1 (left):  OUTB (JP2)
-- 2 (right): OUTA (JP1)
+| pin  | signal     | position     |
+| ---: | :--------  | :----------- |
+|    1 | OUT2 (JP2) | top left     |
+|    2 | OUT1 (JP1) | top right    |
+|    3 | VPP        | bottom left  |
+|    4 | VSS        | bottom right |
 
-bottom row (you might power the Teensy from these two pins):
-- 3 (left):  VPP  5V
-- 4 (right): VSS  0V -> this does not need to be connected to AGND or GND!
+- connect the amplified signals OUT1 and OUT2 to analog inputs of
+  the Teensy.
+- VPP and VSS could be used to power the Teensy.
+- VSS does not need to be connected to AGND or GND of the Teensy!
 
-### JP4: power and reference input and forwarding
+### JP4: power input and reference generation
 
-- 1, 2 (top):    VCC
-- 3, 4 (center): VDD
-- 5, 6 (bottom): GND1
+| pins | signal | position |
+| ---: | :----- | :------- |
+| 1, 2 | VCC    | top      |
+| 3, 4 | VDD    | center   |
+| 5, 6 | GND1   | bottom   |
 
-left column: connected to JP5
+- right column: VCC and VDD is used to create GND1 (1.66V).
+- left column: input power and GND for the amplifier. Connected to JP5.
+- when using a single amplifier,
+  - connect power to both columns, in order to drive both the
+    generation of the GND1 potential (right column) and the amplifier
+    (left column).
+  - connect the generated GND1 from the right column to GND1 of the
+    left column by means of a jumper.
+- additional slave amplifiers do not need to generate their GND1
+  potential themselves. They receive it from the JP5 pins of the
+  master amplifier on the left column of the JP4 pins.
+    
 
-right column: VCC and VDD is used to create GND1 (1.6V)
+### JP5: power forwarding
 
-### JP5: power for voltage divider
+| pin  | signal      | position |
+| ---: | :---------- | :------- |
+|    1 | VPP = VCC   | top      |
+|    2 | VSS = VDD   | center   |
+|    3 | GND2 = GND1 | bottom   |
 
-- 1 (top):     VPP = VCC
-- 2 (center):  VSS = VDD
-- 3 (bottom):  GND2 = GND1
+- connect these to the left column of JP4 of a another amplifier in
+  order to provide power and reference. The other amplifier then does
+  not need any power input to the right column of JP4.
+- if only a single amplifier is used, these pins are not used.
+
+![pins](images/pins.png)
 
 
 ## Filter
+
+For selecting high- and low-pass filter settings see
+[AmplifierConfiguration.pdf](AmplifierConfiguration.pdf).
 
 ### High-pass filter
 
@@ -90,10 +117,6 @@ right column: VCC and VDD is used to create GND1 (1.6V)
 | p1 (upper jumper right)      | 100kOhm | 15uF  | 1.5s   | 0.1Hz   |
 | p2 (upper jumper left)       | 100kOhm | 15nF  | 1.5ms  | 106Hz   |
 | p3 (upper jumper cable left) | 100kOhm | 5.6nF | 0.56ms | 283Hz   |
-
-*WARNING:* in AmplifierConfiguration2021-10-25.pdf 100Hz and 300Hz
-high-pass filter are switched!
-
 
 ### Low-pass filter
 
@@ -134,6 +157,9 @@ python3 ~/Arduino/libraries/TeeRec/extras/viewwave.py -s -c 0 -t 23 -a ../tests/
 ```
 
 ## Gains and clipping
+
+For selecting gains see
+[AmplifierConfiguration.pdf](AmplifierConfiguration.pdf).
 
 | S3/S4 switch position | gain |
 | :-------------------- | ---: |
@@ -192,16 +218,17 @@ python3 ~/Arduino/libraries/TeeRec/extras/viewwave.py -s -c 0 -t 10 -r -g 1 ../t
 
 ### Powered by 5V (power bank)
 
-| Configuration     | Voltage | Current | Power | Runtime |
-| :---------------- | ------: | ------: | ----: | ------: |
-| Amplifier         | 5V      | 11.4mA  | 57mW  | 877h    |
-| Teensy 3.5        | 5V      | 75mA    | 370mW | 133h    |
-| Teensy + SD       | 5V      | 103mA   | 515mW | 97h     |
-| Teensy + Amp      | 5V      | 87mA    | 433mW | 115h    |
-| Teensy + Amp + SD | 5V      | 115mA   | 575mW | 87h     |
+| Configuration     | Voltage | Current | Power | Run time |
+| :---------------- | ------: | ------: | ----: | -------: |
+| Amplifier         | 5V      | 11.4mA  |  57mW |  543h    |
+| Teensy 3.5        | 5V      |  75mA   | 370mW |   82h    |
+| Teensy + SD       | 5V      | 103mA   | 515mW |   60h    |
+| Teensy + Amp      | 5V      |  87mA   | 433mW |   71h    |
+| Teensy + Amp + SD | 5V      | 115mA   | 575mW |   54h    |
 
 The last colum is the run time to be expected for a 10Ah battery (10Ah
-divided by current).
+times 3.7V LiPo voltage divided by 5.1V output voltage times 85%
+efficiancy (=0.62) divided by current).
 
 The amplifier takes just 11.5mA (57mW).
 
@@ -213,13 +240,17 @@ If we want to cut power consumption, we need to cut it on the Teensy!
 
 ### Powered by 3.3V
 
-| Configuration     | Voltage | Current | Power | Runtime |
-| :---------------- | ------: | ------: | ----: | ------: |
-| Amplifier         | 3.3V    | 6.5mA   | 21mW  | 1588h   |
-| Teensy 3.5        | 3.3V    | 68mA    | 225mW | 147h    |
-| Teensy + SD       | 3.3V    | 96mA    | 315mW | 104h    |
-| Teensy + Amp      | 3.3V    | 75mA    | 249mW | 133h    |
-| Teensy + Amp + SD | 3.3V    | 102mA   | 336mW | 98h     |
+| Configuration     | Voltage | Current | Power |
+| :---------------- | ------: | ------: | ----: |
+| Amplifier         | 3.3V    | 6.5mA   |  21mW |
+| Teensy 3.5        | 3.3V    |  68mA   | 225mW |
+| Teensy + SD       | 3.3V    |  96mA   | 315mW |
+| Teensy + Amp      | 3.3V    |  75mA   | 249mW |
+| Teensy + Amp + SD | 3.3V    | 102mA   | 336mW |
+
+This cuts down power consumption by almost a factor of two.  We should
+power the system directly from the LiPo battery and not over the 5V
+USB voltage.
 
 
 ## SD write artifacts
