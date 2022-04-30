@@ -31,11 +31,13 @@ AD8224 will not provide voltages outside VSS and VPP.
 
 ## 3.3V
 
-- Power supply down to 3.3V!? not really, the AD8224 does not support
-  this.
+- Power supply down to 3.3V! The AD8224 supports this.
 
-- The amplifier should generate 3.3V in addition to 1.6V,
-  both for running the Amplifier and the Teensy.
+- No USB input needed. The Teensy provides up to 250mA on the 3.3V
+  pin. This enough for powering 35 amplifiers!
+
+- The amplifier should simply generate 1.6V, given the 3.3 V input
+  from the Teensy.
 
 
 ## Filter and gain settings
@@ -57,12 +59,12 @@ AD8224 will not provide voltages outside VSS and VPP.
   In a smart way! So that the amps can be easily soldered and connected
   to a base pcb, or directly on the Teensy! Like the Audio shield.
   Consider two use cases: (i) single amp directly soldered to Teensy,
-  (ii) several amps.
+  (ii) several amps not soldered directly on Teensy.
 
 - Screw terminals for inputs? Yes! Then one can easily combine the
   references or have them separated. And we do cut down on hight.
 
-- Do we really need an USB connector?
+- Do we really need an USB connector? No! See above.
 
 - Do we really need the bottom row of JP3?
 
