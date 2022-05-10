@@ -31,7 +31,8 @@ AD8224 will not provide voltages outside VSS and VPP.
 
 ## 3.3V
 
-- Power supply down to 3.3V! The AD8224 supports this.
+- Power supply down to 3.3V! But the AD8224 does not support this. We
+  need to replace the OP amps by some low power versions.
 
 - No USB input needed. The Teensy provides up to 250mA on the 3.3V
   pin. This enough for powering 35 amplifiers!
@@ -66,7 +67,7 @@ AD8224 will not provide voltages outside VSS and VPP.
 
 - Do we really need an USB connector? No! See above.
 
-- Do we really need the bottom row of JP3?
+- Do we really need the bottom row of JP3? No!
 
 
 ## Further issues
@@ -74,4 +75,3 @@ AD8224 will not provide voltages outside VSS and VPP.
 - LED less bright!
 
 - Annotate all jumper pins on the PCB.
-
