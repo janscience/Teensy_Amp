@@ -20,3 +20,8 @@ and potential for more.
   A mini electrode-array for recording electric fish behaviors.
   ![8channel](https://github.com/janscience/TeeGrid/blob/main/8channel-logger/images/amplifier-bottom.png)
 
+- [FishFinder](https://github.com/janscience/FishFinder): A
+  replacement for the usual and horrible RadioShack/MP3 player
+  combination for recording electric fish EODs in their natural
+  habitats with lot's of additional features (display, online
+  analysis, environmental parameters).
