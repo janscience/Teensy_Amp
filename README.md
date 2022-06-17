@@ -27,3 +27,4 @@ and potential for more.
   combination for recording electric fish EODs in their natural
   habitats with lot's of additional features (display, online
   analysis, acoustiv feedabck, environmental parameters).
+  analysis, environmental parameters).
