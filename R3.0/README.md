@@ -12,9 +12,8 @@ where *R1 = RGAIN1* and *R2 = R9 = 100*kOhm.
 | ------: | ---: |
 |   1MOhm |  5.5 |
 | 100kOhm |   10 |
-|   5kOhm |  105 |
-| 2.7kOhm |  190 |
-|   2kOhm |  255 |
+| 5.6kOhm |   94 |
+| 2.2kOhm |  232 |
 |   1kOhm |  505 |
 
 ## Filter
