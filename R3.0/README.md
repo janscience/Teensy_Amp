@@ -51,7 +51,13 @@ where *R1 = RGAIN1* and *R2* = *R9* = 100kOhm.
 
 Much more stable baseline compared to [R1.0](../R1.0):
 
+Gain x15:
+
 ![trace](images/sdwrites-gain015-zero-traces.png)
+
+Gain x50:
+
+![trace](images/sdwrites-gain050-zero-traces.png)
 
 
 ## Noise
