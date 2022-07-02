@@ -113,8 +113,10 @@ where *R1 = RGAIN1* and *R2* = *R9* = 100kOhm.
 
 | R1-R4   | CHP1A-CHP2B | tau    | fcutoff |
 | ------: | ----------: | -----: | ------: |
-| 100kOhm | 150nF       | 15ms   | 10.6Hz  |
-| 100kOhm | 15nF        | 1.5ms  | 106Hz   |
+| 100kOhm | 220nF       | 22ms   |   7.2Hz |
+| 100kOhm | 150nF       | 15ms   |  10.6Hz |
+| 100kOhm |  22nF       | 2.2ms  |  72Hz   |
+| 100kOhm |  15nF       | 1.5ms  | 106Hz   |
 | 100kOhm | 5.6nF       | 0.56ms | 283Hz   |
 
 ### Low-pass filter
