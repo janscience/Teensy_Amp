@@ -8,7 +8,8 @@ and potential for more.
 
 - [R2.0](R2.0) (in development)
 
-- [R3.0](R3.0) almost done
+- [R3.0](R3.0)
+  ![TeensyAmpR3](R3.0/images/Teensy_Amp-R3b-top.png)
 
 
 ## Use cases

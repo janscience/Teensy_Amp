@@ -4,6 +4,10 @@ by [jlm Innovation](https://www.jlm-innovation.de/) and [Jan
 Benda](https://github.com/janscience), based on the R2.0 circuit by
 [Stefan Mucha](https://github.com/muchaste).
 
+![top](images/Teensy_Amp-R3b-top.png)
+
+![bottom](images/Teensy_Amp-R3b-bottom.png)
+
 The input signals are processed in the following way:
 
 - simple RC high-pass filtering, cutoff frequencies selectable via
