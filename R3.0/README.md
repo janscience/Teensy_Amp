@@ -232,11 +232,10 @@ reports (sampling rate of 100kHz gives similar results):
 | med      | verylow  |    4 |  0.9 |  0.9 |
 | med      | verylow  |    8 |  0.7 |  0.7 |
 
-
 A good setting:
 
-![veryhigh-med-16 noise](images/averaging-gain015-044kHz-12bit-convveryhigh-samplmed-avrg16-noise.png)
-![veryhigh-med-16 traces](images/averaging-gain015-044kHz-12bit-convveryhigh-samplmed-avrg16-traces.png)
+![high-high-8 noise](images/averaging-gain024-020kHz-12bit-convhigh-samplhigh-avrg08-noise.png)
+![high-high-8 traces](averaging-gain024-020kHz-12bit-convhigh-samplhigh-avrg08-traces.png)
 
 
 With the same settings but with 16bit the results look like this:
@@ -301,3 +300,8 @@ With the same settings but with 16bit the results look like this:
 | med      | verylow  |    1 | 16.8 | 15.2 |
 | med      | verylow  |    4 | 12.4 | 11.4 |
 | med      | verylow  |    8 | 10.3 | 10.6 |
+
+A good setting:
+
+![high-high-8 noise](images/averaging-gain024-020kHz-16bit-convhigh-samplhigh-avrg08-noise.png)
+![high-high-8 traces](averaging-gain024-020kHz-16bit-convhigh-samplhigh-avrg08-traces.png)
