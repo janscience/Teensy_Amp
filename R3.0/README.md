@@ -235,7 +235,7 @@ reports (sampling rate of 100kHz gives similar results):
 A good setting:
 
 ![high-high-8 noise](images/averaging-gain024-020kHz-12bit-convhigh-samplhigh-avrg08-noise.png)
-![high-high-8 traces](averaging-gain024-020kHz-12bit-convhigh-samplhigh-avrg08-traces.png)
+![high-high-8 traces](images/averaging-gain024-020kHz-12bit-convhigh-samplhigh-avrg08-traces.png)
 
 
 With the same settings but with 16bit the results look like this:
@@ -304,4 +304,4 @@ With the same settings but with 16bit the results look like this:
 A good setting:
 
 ![high-high-8 noise](images/averaging-gain024-020kHz-16bit-convhigh-samplhigh-avrg08-noise.png)
-![high-high-8 traces](averaging-gain024-020kHz-16bit-convhigh-samplhigh-avrg08-traces.png)
+![high-high-8 traces](images/averaging-gain024-020kHz-16bit-convhigh-samplhigh-avrg08-traces.png)
