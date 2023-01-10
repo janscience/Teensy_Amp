@@ -97,9 +97,12 @@ where *R1 = RGAIN1* and *R2* = *R9* = 100kOhm.
 |   1MOhm |   5.5 |
 | 100kOhm |    10 |
 |  47kOhm |    15 |
+|  27kOhm |    24 |
+|  12kOhm |    47 |
 |  10kOhm |    55 |
 | 5.6kOhm |    94 |
 | 2.2kOhm |   232 |
+| 1.5kOhm |   338 |
 |   1kOhm |   505 |
 |  500Ohm |  1005 |
 |  200Ohm |  2505 |
@@ -122,6 +125,7 @@ where *R1 = RGAIN1* and *R2* = *R9* = 100kOhm.
 | 100kOhm |  22nF       | 2.2ms  |  72Hz   |
 | 100kOhm |  15nF       | 1.5ms  | 106Hz   |
 | 100kOhm | 5.6nF       | 0.56ms | 283Hz   |
+| 100kOhm | 4.7nF       | 0.47ms | 338Hz   |
 
 ### Low-pass filter
 
@@ -130,12 +134,16 @@ where *R1 = RGAIN1* and *R2* = *R9* = 100kOhm.
 *C* = 820pF
 *R* = RTP1 + 4.5kOhm
 
+*low-pass filter cutoff frequencies need to be measured again!*
 
 | RTP1, RTP2 | fcutoff | sampling rate |
 | ---------: | ------: | ------------: |
-| 27kOhm     |  7kHz   | 20kHz         |
-| 13kOhm     | 15kHz   | 44kHz         |
+|  27kOhm    |  7kHz   |  20kHz        |
+|  13kOhm    | 15kHz   |  44kHz        |
+| 5.6kOhm    | 20kHz   |  60kHz        |
+| 2.2kOhm    | 29kHz   |  87kHz        |
 | 1.5kOhm    | 33kHz   | 100kHz        |
+|   1kOhm    | 35kHz   | 106kHz        |
 
 
 ## SD write artifacts
@@ -153,175 +161,143 @@ Gain x50:
 
 ## Noise
 
-For a gain of 15x (47kOhm) and a sampling rate of 44.1kHz, the [averaging
+For a gain of 24x (27kOhm), highpass filter of 70Hz (22nF), lowpass
+filter of 7kHz (27kOhm) and a sampling rate of 20kHz, the [averaging
 sketch](https://github.com/janscience/TeeRec/tree/main/examples/averaging)
 reports (sampling rate of 100kHz gives similar results):
 
-| convers  | sampling | avrg |   A5 |  A10 |
+| convers  | sampling | avrg |   A2 |  A10 |
 | :------- | :------- | ---: | ---: | ---: |
-| veryhigh | veryhigh |    1 |  3.6 |  7.6 |
-| veryhigh | veryhigh |    4 |  2.2 |  5.4 |
-| veryhigh | veryhigh |    8 |  1.8 |  4.6 |
-| veryhigh | veryhigh |   16 |  1.8 |  4.1 |
-| veryhigh | high     |    1 |  3.2 |  8.1 |
-| veryhigh | high     |    4 |  1.4 |  2.6 |
-| veryhigh | high     |    8 |  1.0 |  1.4 |
-| veryhigh | high     |   16 |  0.9 |  1.1 |
-| veryhigh | med      |    1 |  3.1 |  7.5 |
-| veryhigh | med      |    4 |  1.4 |  2.7 |
-| veryhigh | med      |    8 |  1.0 |  1.8 |
-| veryhigh | med      |   16 |  0.8 |  1.2 |
-| veryhigh | low      |    1 |  3.7 |  7.6 |
-| veryhigh | low      |    4 |  1.3 |  2.1 |
-| veryhigh | low      |    8 |  0.9 |  1.3 |
-| veryhigh | low      |   16 |  1.0 |  1.1 |
-| veryhigh | verylow  |    1 |  3.1 |  8.2 |
-| veryhigh | verylow  |    4 |  1.2 |  2.3 |
-| veryhigh | verylow  |    8 |  1.0 |  1.6 |
-| veryhigh | verylow  |   16 |  0.9 |  1.3 |
-| high     | veryhigh |    1 |  3.5 |  8.9 |
-| high     | veryhigh |    4 |  2.5 |  5.7 |
-| high     | veryhigh |    8 |  2.0 |  5.6 |
-| high     | high     |    1 |  4.0 |  7.9 |
-| high     | high     |    4 |  1.5 |  3.4 |
-| high     | high     |    8 |  1.4 |  3.0 |
-| high     | med      |    1 |  3.2 |  7.7 |
-| high     | med      |    4 |  1.1 |  2.2 |
-| high     | med      |    8 |  0.9 |  1.4 |
-| high     | low      |    1 |  3.5 |  8.5 |
-| high     | low      |    4 |  1.5 |  3.0 |
-| high     | low      |    8 |  1.2 |  2.5 |
-| high     | verylow  |    1 |  3.5 |  7.5 |
-| high     | verylow  |    4 |  1.2 |  2.2 |
-| med      | veryhigh |    1 |  3.0 |  7.6 |
-| med      | veryhigh |    4 |  2.4 |  5.4 |
-| med      | veryhigh |    8 |  1.4 |  3.6 |
-| med      | high     |    1 |  3.0 |  7.9 |
-| med      | high     |    4 |  2.3 |  5.4 |
-| med      | med      |    1 |  2.8 |  7.4 |
-| med      | med      |    4 |  1.3 |  2.7 |
-| med      | low      |    1 |  3.1 |  7.0 |
-| med      | low      |    4 |  1.6 |  3.1 |
-| med      | verylow  |    1 |  2.9 |  7.8 |
-| med      | verylow  |    4 |  1.8 |  4.9 |
+| veryhigh | veryhigh |    1 |  1.4 |  1.3 |
+| veryhigh | veryhigh |    4 |  0.9 |  0.9 |
+| veryhigh | veryhigh |    8 |  0.9 |  0.9 |
+| veryhigh | veryhigh |   16 |  0.9 |  0.8 |
+| veryhigh | veryhigh |   32 |  0.7 |  0.8 |
+| veryhigh | high     |    1 |  1.2 |  1.1 |
+| veryhigh | high     |    4 |  0.9 |  0.9 |
+| veryhigh | high     |    8 |  0.8 |  0.9 |
+| veryhigh | high     |   16 |  0.8 |  0.7 |
+| veryhigh | high     |   32 |  0.9 |  0.9 |
+| veryhigh | med      |    1 |  1.1 |  1.1 |
+| veryhigh | med      |    4 |  0.9 |  0.8 |
+| veryhigh | med      |    8 |  0.8 |  0.8 |
+| veryhigh | med      |   16 |  0.8 |  0.8 |
+| veryhigh | med      |   32 |  0.9 |  1.0 |
+| veryhigh | low      |    1 |  1.2 |  1.2 |
+| veryhigh | low      |    4 |  0.9 |  0.9 |
+| veryhigh | low      |    8 |  0.7 |  0.8 |
+| veryhigh | low      |   16 |  0.8 |  0.8 |
+| veryhigh | low      |   32 |  0.8 |  0.7 |
+| veryhigh | verylow  |    1 |  1.3 |  1.2 |
+| veryhigh | verylow  |    4 |  0.8 |  0.9 |
+| veryhigh | verylow  |    8 |  0.8 |  0.9 |
+| veryhigh | verylow  |   16 |  0.8 |  0.8 |
+| veryhigh | verylow  |   32 |  0.8 |  0.7 |
+| high     | veryhigh |    1 |  1.1 |  1.4 |
+| high     | veryhigh |    4 |  0.8 |  0.9 |
+| high     | veryhigh |    8 |  0.8 |  1.0 |
+| high     | veryhigh |   16 |  0.8 |  0.9 |
+| high     | veryhigh |   32 |  0.7 |  0.7 |
+| high     | high     |    1 |  1.1 |  1.2 |
+| high     | high     |    4 |  0.9 |  1.0 |
+| high     | high     |    8 |  0.9 |  0.9 |
+| high     | high     |   16 |  0.8 |  0.7 |
+| high     | med      |    1 |  1.1 |  1.1 |
+| high     | med      |    4 |  0.9 |  0.8 |
+| high     | med      |    8 |  0.8 |  0.8 |
+| high     | med      |   16 |  0.8 |  0.8 |
+| high     | low      |    1 |  1.1 |  1.0 |
+| high     | low      |    4 |  0.9 |  0.8 |
+| high     | low      |    8 |  0.8 |  0.8 |
+| high     | low      |   16 |  0.8 |  0.7 |
+| high     | verylow  |    1 |  1.1 |  1.0 |
+| high     | verylow  |    4 |  0.8 |  0.8 |
+| high     | verylow  |    8 |  0.8 |  0.8 |
+| high     | verylow  |   16 |  0.7 |  0.7 |
+| med      | veryhigh |    1 |  1.1 |  1.3 |
+| med      | veryhigh |    4 |  0.9 |  0.8 |
+| med      | veryhigh |    8 |  0.8 |  0.8 |
+| med      | veryhigh |   16 |  0.7 |  0.8 |
+| med      | high     |    1 |  1.1 |  1.0 |
+| med      | high     |    4 |  0.8 |  0.8 |
+| med      | high     |    8 |  0.8 |  0.8 |
+| med      | high     |   16 |  0.7 |  0.7 |
+| med      | med      |    1 |  1.2 |  1.1 |
+| med      | med      |    4 |  0.8 |  0.8 |
+| med      | med      |    8 |  0.9 |  0.8 |
+| med      | low      |    1 |  1.2 |  1.0 |
+| med      | low      |    4 |  0.8 |  0.8 |
+| med      | low      |    8 |  0.8 |  0.7 |
+| med      | verylow  |    1 |  1.2 |  1.3 |
+| med      | verylow  |    4 |  0.9 |  0.9 |
+| med      | verylow  |    8 |  0.7 |  0.7 |
+
 
 A good setting:
 
 ![veryhigh-med-16 noise](images/averaging-gain015-044kHz-12bit-convveryhigh-samplmed-avrg16-noise.png)
 ![veryhigh-med-16 traces](images/averaging-gain015-044kHz-12bit-convveryhigh-samplmed-avrg16-traces.png)
 
-A bad setting:
 
-![veryhigh-veryhigh-1 noise](images/averaging-gain015-044kHz-12bit-convveryhigh-samplveryhigh-avrg01-noise.png)
-![veryhigh-veryhigh-1 traces](images/averaging-gain015-044kHz-12bit-convveryhigh-samplveryhigh-avrg01-traces.png)
+With the same settings but with 16bit the results look like this:
 
-For a gain of 55x (10kOhm) and a sampling rate of 44.1kHz, the [averaging
-sketch](https://github.com/janscience/TeeRec/tree/main/examples/averaging)
-reports somewhat higher noise values:
-
-| convers  | sampling | avrg |   A5 |  A10 |
+| convers  | sampling | avrg |   A2 |  A10 |
 | :------- | :------- | ---: | ---: | ---: |
-| veryhigh | veryhigh |    1 |  2.5 |  3.2 |
-| veryhigh | veryhigh |    4 |  2.0 |  2.3 |
-| veryhigh | veryhigh |    8 |  1.9 |  2.1 |
-| veryhigh | veryhigh |   16 |  1.9 |  2.1 |
-| veryhigh | high     |    1 |  2.7 |  3.3 |
-| veryhigh | high     |    4 |  2.2 |  2.3 |
-| veryhigh | high     |    8 |  1.9 |  2.0 |
-| veryhigh | high     |   16 |  1.9 |  1.9 |
-| veryhigh | med      |    1 |  2.7 |  2.9 |
-| veryhigh | med      |    4 |  2.0 |  2.2 |
-| veryhigh | med      |    8 |  2.0 |  2.1 |
-| veryhigh | med      |   16 |  1.8 |  2.0 |
-| veryhigh | low      |    1 |  2.5 |  2.9 |
-| veryhigh | low      |    4 |  2.1 |  2.1 |
-| veryhigh | low      |    8 |  1.9 |  1.9 |
-| veryhigh | low      |   16 |  1.8 |  1.8 |
-| veryhigh | verylow  |    1 |  2.5 |  3.0 |
-| veryhigh | verylow  |    4 |  2.0 |  2.2 |
-| veryhigh | verylow  |    8 |  1.9 |  2.0 |
-| veryhigh | verylow  |   16 |  1.9 |  1.8 |
-| high     | veryhigh |    1 |  2.4 |  3.0 |
-| high     | veryhigh |    4 |  2.0 |  2.2 |
-| high     | veryhigh |    8 |  1.9 |  2.1 |
-| high     | high     |    1 |  2.4 |  2.9 |
-| high     | high     |    4 |  2.0 |  2.1 |
-| high     | high     |    8 |  1.9 |  2.0 |
-| high     | med      |    1 |  2.4 |  2.9 |
-| high     | med      |    4 |  2.0 |  2.2 |
-| high     | med      |    8 |  1.9 |  2.0 |
-| high     | low      |    1 |  2.4 |  3.0 |
-| high     | low      |    4 |  1.9 |  2.0 |
-| high     | low      |    8 |  1.8 |  1.9 |
-| high     | verylow  |    1 |  2.5 |  2.8 |
-| high     | verylow  |    4 |  2.0 |  2.0 |
-| med      | veryhigh |    1 |  2.5 |  3.0 |
-| med      | veryhigh |    4 |  2.0 |  2.2 |
-| med      | veryhigh |    8 |  1.8 |  1.9 |
-| med      | high     |    1 |  2.5 |  2.9 |
-| med      | high     |    4 |  2.0 |  2.1 |
-| med      | med      |    1 |  2.5 |  2.9 |
-| med      | med      |    4 |  1.9 |  2.0 |
-| med      | low      |    1 |  2.4 |  2.9 |
-| med      | low      |    4 |  1.9 |  2.0 |
-| med      | verylow  |    1 |  2.4 |  3.1 |
-| med      | verylow  |    4 |  1.9 |  2.3 |
-
-A good setting:
-
-![veryhigh-low-16 noise](images/averaging-gain055-044kHz-12bit-convveryhigh-sampllow-avrg16-noise.png)
-![veryhigh-low-16 traces](images/averaging-gain055-044kHz-12bit-convveryhigh-sampllow-avrg16-traces.png)
-
-
-For a gain of 230x (2.2kOhm) and a sampling rate of 44.1kHz, the [averaging
-sketch](https://github.com/janscience/TeeRec/tree/main/examples/averaging)
-reports much higher noise values:
-
-| convers  | sampling | avrg |   A5 |  A10 |
-| :------- | :------- | ---: | ---: | ---: |
-| veryhigh | veryhigh |    1 |  7.2 |  7.2 |
-| veryhigh | veryhigh |    4 |  7.0 |  7.1 |
-| veryhigh | veryhigh |    8 |  7.0 |  7.2 |
-| veryhigh | veryhigh |   16 |  6.8 |  6.9 |
-| veryhigh | high     |    1 |  7.1 |  7.3 |
-| veryhigh | high     |    4 |  7.1 |  7.0 |
-| veryhigh | high     |    8 |  6.9 |  7.0 |
-| veryhigh | high     |   16 |  7.0 |  6.8 |
-| veryhigh | med      |    1 |  7.1 |  7.3 |
-| veryhigh | med      |    4 |  7.0 |  7.1 |
-| veryhigh | med      |    8 |  6.9 |  7.0 |
-| veryhigh | med      |   16 |  6.9 |  6.9 |
-| veryhigh | low      |    1 |  7.2 |  7.2 |
-| veryhigh | low      |    4 |  7.0 |  7.1 |
-| veryhigh | low      |    8 |  6.8 |  6.9 |
-| veryhigh | low      |   16 |  6.7 |  6.7 |
-| veryhigh | verylow  |    1 |  7.2 |  7.1 |
-| veryhigh | verylow  |    4 |  6.9 |  6.9 |
-| veryhigh | verylow  |    8 |  6.9 |  6.8 |
-| veryhigh | verylow  |   16 |  6.7 |  6.6 |
-| high     | veryhigh |    1 |  7.1 |  7.3 |
-| high     | veryhigh |    4 |  7.0 |  6.9 |
-| high     | veryhigh |    8 |  6.9 |  6.9 |
-| high     | high     |    1 |  7.1 |  7.0 |
-| high     | high     |    4 |  7.0 |  6.9 |
-| high     | high     |    8 |  6.8 |  6.9 |
-| high     | med      |    1 |  7.3 |  7.2 |
-| high     | med      |    4 |  7.0 |  6.9 |
-| high     | med      |    8 |  6.8 |  6.9 |
-| high     | low      |    1 |  7.1 |  7.1 |
-| high     | low      |    4 |  6.9 |  6.8 |
-| high     | low      |    8 |  6.6 |  6.7 |
-| high     | verylow  |    1 |  7.0 |  7.3 |
-| high     | verylow  |    4 |  6.9 |  6.9 |
-| med      | veryhigh |    1 |  7.1 |  7.3 |
-| med      | veryhigh |    4 |  7.0 |  7.0 |
-| med      | veryhigh |    8 |  6.7 |  6.6 |
-| med      | high     |    1 |  7.3 |  7.1 |
-| med      | high     |    4 |  6.9 |  6.8 |
-| med      | med      |    1 |  7.2 |  7.2 |
-| med      | med      |    4 |  6.8 |  6.8 |
-| med      | low      |    1 |  7.1 |  7.2 |
-| med      | low      |    4 |  6.8 |  6.8 |
-| med      | verylow  |    1 |  7.2 |  7.1 |
-| med      | verylow  |    4 |  6.7 |  6.5 |
-
+| veryhigh | veryhigh |    1 | 17.4 | 15.7 |
+| veryhigh | veryhigh |    4 | 15.1 | 12.7 |
+| veryhigh | veryhigh |    8 | 12.5 | 11.4 |
+| veryhigh | veryhigh |   16 | 12.3 | 11.7 |
+| veryhigh | veryhigh |   32 | 14.9 | 11.0 |
+| veryhigh | high     |    1 | 16.5 | 18.3 |
+| veryhigh | high     |    4 | 12.8 | 10.8 |
+| veryhigh | high     |    8 | 13.4 | 13.0 |
+| veryhigh | high     |   16 | 11.8 | 11.4 |
+| veryhigh | high     |   32 | 13.4 | 11.8 |
+| veryhigh | med      |    1 | 15.7 | 15.3 |
+| veryhigh | med      |    4 | 12.5 | 12.7 |
+| veryhigh | med      |    8 | 12.3 | 12.2 |
+| veryhigh | med      |   16 | 10.8 | 10.7 |
+| veryhigh | med      |   32 | 10.5 | 11.5 |
+| veryhigh | low      |    1 | 19.7 | 15.1 |
+| veryhigh | low      |    4 | 11.7 |  9.1 |
+| veryhigh | low      |    8 | 11.7 | 11.8 |
+| veryhigh | low      |   16 | 11.8 | 11.5 |
+| veryhigh | low      |   32 | 10.2 | 10.2 |
+| veryhigh | verylow  |    1 | 17.5 | 15.5 |
+| veryhigh | verylow  |    4 | 11.9 | 11.4 |
+| veryhigh | verylow  |    8 | 11.4 | 11.2 |
+| veryhigh | verylow  |   16 | 11.0 | 11.0 |
+| high     | veryhigh |    1 | 16.6 | 14.2 |
+| high     | veryhigh |    4 | 11.8 | 11.9 |
+| high     | veryhigh |    8 | 11.2 | 11.3 |
+| high     | veryhigh |   16 | 10.7 | 11.0 |
+| high     | high     |    1 | 15.3 | 14.5 |
+| high     | high     |    4 | 12.0 | 11.9 |
+| high     | high     |    8 | 11.2 | 11.0 |
+| high     | high     |   16 | 11.1 | 11.4 |
+| high     | med      |    1 | 15.5 | 15.4 |
+| high     | med      |    4 | 12.2 | 11.8 |
+| high     | med      |    8 | 11.7 | 12.2 |
+| high     | med      |   16 | 10.7 | 11.1 |
+| high     | low      |    1 | 16.1 | 14.9 |
+| high     | low      |    4 | 12.5 | 12.2 |
+| high     | low      |    8 | 11.7 | 10.9 |
+| high     | low      |   16 | 11.3 | 10.5 |
+| high     | verylow  |    1 | 16.0 | 15.5 |
+| high     | verylow  |    4 | 11.5 | 11.6 |
+| high     | verylow  |    8 | 11.4 | 10.8 |
+| med      | veryhigh |    1 | 17.6 | 14.3 |
+| med      | veryhigh |    4 | 12.9 | 11.8 |
+| med      | veryhigh |    8 | 11.0 | 10.5 |
+| med      | high     |    1 | 15.6 | 15.5 |
+| med      | high     |    4 | 11.8 | 11.5 |
+| med      | high     |    8 | 11.1 | 11.0 |
+| med      | med      |    1 | 17.1 | 15.1 |
+| med      | med      |    4 | 13.0 | 11.7 |
+| med      | med      |    8 | 11.9 | 11.1 |
+| med      | low      |    1 | 16.3 | 13.7 |
+| med      | low      |    4 | 12.5 | 12.2 |
+| med      | low      |    8 | 11.4 | 12.1 |
+| med      | verylow  |    1 | 16.8 | 15.2 |
+| med      | verylow  |    4 | 12.4 | 11.4 |
+| med      | verylow  |    8 | 10.3 | 10.6 |
