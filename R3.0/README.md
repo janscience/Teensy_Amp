@@ -150,13 +150,23 @@ where *R1 = RGAIN1* and *R2* = *R9* = 100kOhm.
 
 Much more stable baseline compared to [R1.0](../R1.0):
 
-Gain x15:
+Gain x24:
 
-![trace](images/sdwrites-gain015-zero-traces.png)
-
-Gain x50:
-
-![trace](images/sdwrites-gain050-zero-traces.png)
+- Teensy internal 3.3V VREF:
+  ![trace](images/sdwrites-gain024-teensyvref-zero-traces.png)
+- Teensy internal 3.3V VREF and GND connected to AGND:
+  ![trace](images/sdwrites-gain024-teensyvref-agnd-zero-traces.png)
+- Amplifier LDO 3.3V connected to AREF:
+  ![trace](images/sdwrites-gain024-ldoaref-zero-traces.png)
+- Amplifier LDO 3.3V connected to AREF:
+  ![trace](images/sdwrites-gain024-ldoaref-3v3-zero-traces.png)
+- Amplifier LDO 3.3V connected to AREF and GND connected to AGND:
+  ![trace](images/sdwrites-gain024-ldoaref-3v3-agnd-zero-traces.png)
+- Amplifier LDO 3.3V connected to AREF, using external reference:
+  ![trace](images/sdwrites-gain024-ldoaref-extref-zero-traces.png)
+- Amplifier LDO 3.3V connected to AREF, using external reference,
+  and GND connected to AGND:
+  ![trace](images/sdwrites-gain024-ldoaref-extref-agnd-zero-traces.png)
 
 
 ## Noise
