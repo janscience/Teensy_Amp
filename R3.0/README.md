@@ -167,6 +167,8 @@ Gain x24:
 - Amplifier LDO 3.3V connected to AREF, using external reference,
   and GND connected to AGND:
   ![trace](images/sdwrites-gain024-ldoaref-extref-agnd-zero-traces.png)
+- Amplifier LDO 3.3V connected to AREF, R3 resistance on Teensy removed:
+  ![trace](images/sdwrites-gain024-ldoaref-noR3-zero-traces.png)
 
 
 ## Noise
