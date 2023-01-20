@@ -184,9 +184,9 @@ Gain x24, HF 220nF, LW 27kOhm:
 Gain x24, HF 220nF, LW 27kOhm, external amplifier power, Teensy powered from power bank:
 
 - Amplifier on Teensy GND:
-  ![trace](images/sdwrites-gain024-ldoaref-externalamppower-gnd-zero-traces.png)
+  ![trace](images/sdwrites-gain024-ldoaref-noR3-externalamppower-gnd-zero-traces.png)
 - Amplifier on Teensy AGND:
-  ![trace](images/sdwrites-gain024-ldoaref-externalamppower-agnd-zero-traces.png)
+  ![trace](images/sdwrites-gain024-ldoaref-noR3-externalamppower-agnd-zero-traces.png)
 
 
 ## Noise
