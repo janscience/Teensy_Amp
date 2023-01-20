@@ -148,7 +148,16 @@ where *R1 = RGAIN1* and *R2* = *R9* = 100kOhm.
 
 ## SD write artifacts
 
-Much more stable baseline compared to [R1.0](../R1.0):
+Summary from measurements with ADC from Teensy or via an oscilloscope:
+
+- The LDO of the amplifier is able to produce a stable voltage, also if the
+  Teensy and the amplifier are powered by the same power bank.
+- Amplified short circuited signals are stable and do not show SD
+  write artifacts.
+- Using the Teensy's ADC however shows the SD write artifacts.
+- No matter whether we connect AREF to the amplifiers LDO voltage or
+  not, no matter whether the Teensy's R3 resistance is soldered out or
+  not. See graphs below.
 
 Gain x24, HF 22nF, LW 27kOhm:
 
@@ -171,6 +180,13 @@ Gain x24, HF 220nF, LW 27kOhm:
   ![trace](images/sdwrites-gain024-ldoaref-noR3-HP220nF-zero-traces.png)
 - Same, but recorded with 400kHz:
   ![trace](images/sdwrites-gain024-ldoaref-noR3-HP220nF-400kHz-zero-traces.png)
+
+Gain x24, HF 220nF, LW 27kOhm, external amplifier power, Teensy powered from power bank:
+
+- Amplifier on Teensy GND:
+  ![trace](images/sdwrites-gain024-ldoaref-externalamppower-gnd-zero-traces.png)
+- Amplifier on Teensy AGND:
+  ![trace](images/sdwrites-gain024-ldoaref-externalamppower-agnd-zero-traces.png)
 
 
 ## Noise
