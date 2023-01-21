@@ -61,21 +61,21 @@ which of the two ADCs those pins can be accessed on a Teensy 3.5 or
 
 Signal 1 (Channel1):
 
-| Pad    | Teensy | ADC0 | ADC1 |
-| ------ | ------ | ---- | ---- |
-| S1_A10 | A10    | 1    | 1    | 
-| S1_A11 | A11    | 0    | 1    | 
-| S1_A7  | A7     | 1    | 0    | 
-| S1_A6  | A6     | 1    | 0    | 
+| Pad    | Teensy | ADC0 | ADC1 | Board |
+| ------ | ------ | ---- | ---- | ----- |
+| S1_A10 | A10    | 1    | 1    | A X   | 
+| S1_A11 | A11    | 0    | 1    | B Y   | 
+| S1_A7  | A7     | 1    | 0    | C     | 
+| S1_A6  | A6     | 1    | 0    | D     | 
 
 Signal 2 (Channel2):
 
-| Pad    | Teensy | ADC0 | ADC1 |
-| ------ | ------ | ---- | ---- |
-| S2_A5  | A5     | 1    | 0    | 
-| S2_A4  | A4     | 1    | 0    | 
-| S2_A3  | A3     | 1    | 1    | 
-| S2_A2  | A2     | 1    | 1    | 
+| Pad    | Teensy | ADC0 | ADC1 | Board |
+| ------ | ------ | ---- | ---- | ----- |
+| S2_A5  | A5     | 1    | 0    | A     |  
+| S2_A4  | A4     | 1    | 0    | B     |  
+| S2_A3  | A3     | 1    | 1    | C Y   |  
+| S2_A2  | A2     | 1    | 1    | D X   |  
 
 
 ### Power
@@ -165,8 +165,6 @@ Gain x24, HF 22nF, LW 27kOhm:
   ![trace](images/sdwrites-gain024-teensyvref-zero-traces.png)
 - Teensy internal 3.3V VREF and GND connected to AGND:
   ![trace](images/sdwrites-gain024-teensyvref-agnd-zero-traces.png)
-- Amplifier LDO 3.3V connected to AREF:
-  ![trace](images/sdwrites-gain024-ldoaref-zero-traces.png)
 - Amplifier LDO 3.3V connected to AREF:
   ![trace](images/sdwrites-gain024-ldoaref-3v3-zero-traces.png)
 - Amplifier LDO 3.3V connected to AREF and GND connected to AGND:
