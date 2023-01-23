@@ -163,31 +163,40 @@ Summary from measurements with ADC from Teensy or via an oscilloscope:
 Gain x24, HF 22nF, LW 27kOhm:
 
 - Teensy internal 3.3V REF, signals via 2.4kOhm:
-  <table><tr>
-  <td><img src="images/sdwrites-gain024-teensy3v3-2400ohm-traces.png" width=30%></td>
-  <td><img src="images/sdwrites-gain024-teensy3v3-2400ohm-noise.png" width=20%></td>
-  <td><img src="images/sdwrites-gain024-teensy3v3-2400ohm-spectra.png" width=30%></td>
-  </tr></table>
+
+  <img src="images/sdwrites-gain024-teensy3v3-2400ohm-traces.png" width=30%>
+  <img src="images/sdwrites-gain024-teensy3v3-2400ohm-noise.png" width=20%>
+  <img src="images/sdwrites-gain024-teensy3v3-2400ohm-spectra.png" width=30%>
+  
 - Teensy internal 3.3V REF, signals via 0Ohm:
+
   <img src="images/sdwrites-gain024-teensy3v3-all0ohm-traces.png" width=30%>
   <img src="images/sdwrites-gain024-teensy3v3-all0ohm-noise.png" width=20%>
   <img src="images/sdwrites-gain024-teensy3v3-all0ohm-spectra.png" width=30%>
+
 - Amplifier LDO 3.3V connected to AREF via 2.4kOhm:
-  <img src="images/sdwrites-gain024-ldo2400ohm-traces.png" width=37.5%>
-  <img src="images/sdwrites-gain024-ldo2400ohm-noise.png" width=25%>
-  <img src="images/sdwrites-gain024-ldo2400ohm-spectra.png" width=37.5%>
+
+  <img src="images/sdwrites-gain024-ldo2400ohm-traces.png" width=30%>
+  <img src="images/sdwrites-gain024-ldo2400ohm-noise.png" width=20%>
+  <img src="images/sdwrites-gain024-ldo2400ohm-spectra.png" width=30%>
+  
 - Amplifier LDO 3.3V connected to AREF via 2.4kOhm, AGND connected to GND:
-  <img src="images/sdwrites-gain024-ldo2400ohm-agnd-traces.png" width=37.5%>
-  <img src="images/sdwrites-gain024-ldo2400ohm-agnd-noise.png" width=25%>
-  <img src="images/sdwrites-gain024-ldo2400ohm-agnd-spectra.png" width=37.5%>
+
+  <img src="images/sdwrites-gain024-ldo2400ohm-agnd-traces.png" width=30%>
+  <img src="images/sdwrites-gain024-ldo2400ohm-agnd-noise.png" width=20%>
+  <img src="images/sdwrites-gain024-ldo2400ohm-agnd-spectra.png" width=30%>
+  
 - Amplifier LDO 3.3V connected to AREF via 0Ohm:
-  <img src="images/sdwrites-gain024-ldo0ohm-traces.png" width=37.5%>
-  <img src="images/sdwrites-gain024-ldo0ohm-noise.png" width=25%>
-  <img src="images/sdwrites-gain024-ldo0ohm-spectra.png" width=37.5%>
+
+  <img src="images/sdwrites-gain024-ldo0ohm-traces.png" width=30%>
+  <img src="images/sdwrites-gain024-ldo0ohm-noise.png" width=20%>
+  <img src="images/sdwrites-gain024-ldo0ohm-spectra.png" width=30%>
+  
 - Amplifier LDO 3.3V connected to AREF via 0Ohm, signals via 0Ohm:
-  <img src="images/sdwrites-gain024-ldo-all0ohm-traces.png" width=37.5%>
-  <img src="images/sdwrites-gain024-ldo-all0ohm-noise.png" width=25%>
-  <img src="images/sdwrites-gain024-ldo-all0ohm-spectra.png" width=37.5%>
+
+  <img src="images/sdwrites-gain024-ldo-all0ohm-traces.png" width=30%>
+  <img src="images/sdwrites-gain024-ldo-all0ohm-noise.png" width=20%>
+  <img src="images/sdwrites-gain024-ldo-all0ohm-spectra.png" width=30%>
 
 
 Gain x24, HF 22nF, LW 27kOhm:
