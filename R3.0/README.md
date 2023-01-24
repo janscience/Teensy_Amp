@@ -197,6 +197,12 @@ Gain x24, HF 22nF, LW 27kOhm:
   <img src="images/sdwrites-gain024-ldo-all0ohm-traces.png" width=36%>
   <img src="images/sdwrites-gain024-ldo-all0ohm-noise.png" width=24%>
   <img src="images/sdwrites-gain024-ldo-all0ohm-spectra.png" width=36%>
+  
+- Amplifier LDO 3.3V connected to AREF via 0Ohm, signals via 0Ohm, AGND connected to GND:
+
+  <img src="images/sdwrites-gain024-ldo-all0ohm-agnd-traces.png" width=36%>
+  <img src="images/sdwrites-gain024-ldo-all0ohm-agnd-noise.png" width=24%>
+  <img src="images/sdwrites-gain024-ldo-all0ohm-agnd-spectra.png" width=36%>
 
 
 Gain x24, HF 22nF, LW 27kOhm:
