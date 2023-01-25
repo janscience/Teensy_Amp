@@ -98,12 +98,12 @@ where *R1 = RGAIN1* and *R2* = *R9* = 100kOhm.
 | 100kOhm |    10 |           |
 |  47kOhm |    15 |           |
 |  27kOhm |    24 |        40 |
-|  12kOhm |    47 |           |
+|  12kOhm |    47 |        80 |
 |  10kOhm |    55 |           |
-| 5.6kOhm |    94 |           |
-| 2.2kOhm |   232 |           |
+| 5.6kOhm |    94 |       160 |
+| 2.2kOhm |   232 |       400 |
 | 1.5kOhm |   338 |           |
-|   1kOhm |   505 |           |
+|   1kOhm |   505 |       870 |
 |  500Ohm |  1005 |           |
 |  200Ohm |  2505 |           |
 |  100Ohm |  5005 |           |
@@ -148,8 +148,28 @@ where *R1 = RGAIN1* and *R2* = *R9* = 100kOhm.
 
 RGAIN1=27kOhm with 20mV rms amplitude (56mV p-p):
 
-![gain](images/gain024-20mV-traces.png)
-![gainspectrum](images/gain024-20mV-spectra.png)
+![gain](images/gain27kOhm-20mV-traces.png)
+![gainspectrum](images/gain27kOhm-20mV-spectra.png)
+
+RGAIN1=12kOhm with 10mV rms amplitude (28mV p-p):
+
+![gain](images/gain12kOhm-10mV-traces.png)
+![gainspectrum](images/gain12kOhm-10mV-spectra.png)
+
+RGAIN1=5.6kOhm with 5mV rms amplitude (14mV p-p):
+
+![gain](images/gain5600Ohm-5mV-traces.png)
+![gainspectrum](images/gain5600Ohm-5mV-spectra.png)
+
+RGAIN1=2.2kOhm with 2mV rms amplitude (5.6mV p-p):
+
+![gain](images/gain2200Ohm-2mV-traces.png)
+![gainspectrum](images/gain2200Ohm-2mV-spectra.png)
+
+RGAIN1=1kOhm with 1mV rms amplitude (2.8mV p-p):
+
+![gain](images/gain1kOhm-1mV-traces.png)
+![gainspectrum](images/gain1kOhm-1mV-spectra.png)
 
 
 ### Filter tests
