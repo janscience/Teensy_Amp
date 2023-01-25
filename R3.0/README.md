@@ -146,27 +146,29 @@ where *R1 = RGAIN1* and *R2* = *R9* = 100kOhm.
 
 ### Gain tests
 
-RGAIN1=27kOhm with 20mV rms amplitude (56mV p-p):
+70Hz high-pass, 7kHz low-pass.
+
+x40: RGAIN1=27kOhm with 20mV rms amplitude (56mV p-p):
 
 ![gain](images/gain27kOhm-20mV-traces.png)
 ![gainspectrum](images/gain27kOhm-20mV-spectra.png)
 
-RGAIN1=12kOhm with 10mV rms amplitude (28mV p-p):
+x80: RGAIN1=12kOhm with 10mV rms amplitude (28mV p-p):
 
 ![gain](images/gain12kOhm-10mV-traces.png)
 ![gainspectrum](images/gain12kOhm-10mV-spectra.png)
 
-RGAIN1=5.6kOhm with 5mV rms amplitude (14mV p-p):
+x160: RGAIN1=5.6kOhm with 5mV rms amplitude (14mV p-p):
 
 ![gain](images/gain5600Ohm-5mV-traces.png)
 ![gainspectrum](images/gain5600Ohm-5mV-spectra.png)
 
-RGAIN1=2.2kOhm with 2mV rms amplitude (5.6mV p-p):
+x400: RGAIN1=2.2kOhm with 2mV rms amplitude (5.6mV p-p):
 
 ![gain](images/gain2200Ohm-2mV-traces.png)
 ![gainspectrum](images/gain2200Ohm-2mV-spectra.png)
 
-RGAIN1=1kOhm with 1mV rms amplitude (2.8mV p-p):
+x800: RGAIN1=1kOhm with 1mV rms amplitude (2.8mV p-p):
 
 ![gain](images/gain1kOhm-1mV-traces.png)
 ![gainspectrum](images/gain1kOhm-1mV-spectra.png)
@@ -217,7 +219,7 @@ Summary from measurements with ADC from Teensy or via an oscilloscope:
   not. See graphs below.
 
 
-Gain x24, HF 22nF, LW 27kOhm:
+Gain 27kOhm, HF 22nF, LW 27kOhm:
 
 - Teensy internal 3.3V REF, signals via 2.4kOhm:
 
@@ -262,7 +264,22 @@ Gain x24, HF 22nF, LW 27kOhm:
   <img src="images/sdwrites-gain024-ldo-all0ohm-agnd-spectra.png" width=36%>
 
 
-Gain x24, HF 22nF, LW 27kOhm:
+Gain 1kOhm, HF 220nF, LW 27kOhm:
+  
+- Amplifier LDO 3.3V connected to AREF via 0Ohm, signals via 0Ohm:
+
+  <img src="images/sdwrites-gain870-ldo-all0ohm-traces.png" width=36%>
+  <img src="images/sdwrites-gain870-ldo-all0ohm-noise.png" width=24%>
+  <img src="images/sdwrites-gain870-ldo-all0ohm-spectra.png" width=36%>
+  
+- Amplifier LDO 3.3V connected to AREF via 0Ohm, signals via 0Ohm, AGND connected to GND:
+
+  <img src="images/sdwrites-gain870-ldo-all0ohm-agnd-traces.png" width=36%>
+  <img src="images/sdwrites-gain870-ldo-all0ohm-agnd-noise.png" width=24%>
+  <img src="images/sdwrites-gain870-ldo-all0ohm-agnd-spectra.png" width=36%>
+
+
+Gain 27kOhm, HF 22nF, LW 27kOhm:
 
 - Teensy internal 3.3V VREF:
   ![trace](images/sdwrites-gain024-teensyvref-zero-traces.png)
@@ -275,14 +292,14 @@ Gain x24, HF 22nF, LW 27kOhm:
 - Amplifier LDO 3.3V connected to AREF, R3 resistance on Teensy removed:
   ![trace](images/sdwrites-gain024-ldoaref-noR3-HP22nF-zero-traces.png)
 
-Gain x24, HF 220nF, LW 27kOhm:
+Gain 27kOhm, HF 220nF, LW 27kOhm:
 
 - Amplifier LDO 3.3V connected to AREF, R3 resistance on Teensy removed, recorded with 44kHz:
   ![trace](images/sdwrites-gain024-ldoaref-noR3-HP220nF-zero-traces.png)
 - Same, but recorded with 400kHz:
   ![trace](images/sdwrites-gain024-ldoaref-noR3-HP220nF-400kHz-zero-traces.png)
 
-Gain x24, HF 220nF, LW 27kOhm, external amplifier power, Teensy powered from power bank:
+Gain 27kOhm, HF 220nF, LW 27kOhm, external amplifier power, Teensy powered from power bank:
 
 - Amplifier on Teensy GND:
   ![trace](images/sdwrites-gain024-ldoaref-noR3-externalamppower-gnd-zero-traces.png)
