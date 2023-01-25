@@ -92,22 +92,22 @@ Gain is given by
 
 where *R1 = RGAIN1* and *R2* = *R9* = 100kOhm.
 
-| RGAIN1  | Gain  |
-| ------: | ----: |
-|   1MOhm |   5.5 |
-| 100kOhm |    10 |
-|  47kOhm |    15 |
-|  27kOhm |    24 |
-|  12kOhm |    47 |
-|  10kOhm |    55 |
-| 5.6kOhm |    94 |
-| 2.2kOhm |   232 |
-| 1.5kOhm |   338 |
-|   1kOhm |   505 |
-|  500Ohm |  1005 |
-|  200Ohm |  2505 |
-|  100Ohm |  5005 |
-|   50Ohm | 10005 |
+| RGAIN1  | Gain  | Real gain |
+| ------: | ----: | --------: |
+|   1MOhm |   5.5 |           |
+| 100kOhm |    10 |           |
+|  47kOhm |    15 |           |
+|  27kOhm |    24 |        40 |
+|  12kOhm |    47 |           |
+|  10kOhm |    55 |           |
+| 5.6kOhm |    94 |           |
+| 2.2kOhm |   232 |           |
+| 1.5kOhm |   338 |           |
+|   1kOhm |   505 |           |
+|  500Ohm |  1005 |           |
+|  200Ohm |  2505 |           |
+|  100Ohm |  5005 |           |
+|   50Ohm | 10005 |           |
 
 
 ## Filter
@@ -118,14 +118,14 @@ where *R1 = RGAIN1* and *R2* = *R9* = 100kOhm.
 
 ![Ccutoff](images/Ccutoff.svg)
 
-| R1-R4   | CHP1A-CHP2B | tau    | fcutoff |
-| ------: | ----------: | -----: | ------: |
-| 100kOhm | 220nF       | 22ms   |   7.2Hz |
-| 100kOhm | 150nF       | 15ms   |  10.6Hz |
-| 100kOhm |  22nF       | 2.2ms  |  72Hz   |
-| 100kOhm |  15nF       | 1.5ms  | 106Hz   |
-| 100kOhm | 5.6nF       | 0.56ms | 283Hz   |
-| 100kOhm | 4.7nF       | 0.47ms | 338Hz   |
+| R1-R4   | CHP1A-CHP2B | tau    | fcutoff | real fcutoff |
+| ------: | ----------: | -----: | ------: | -----------: |
+| 100kOhm | 220nF       | 22ms   |   7.2Hz |        <10Hz |
+| 100kOhm | 150nF       | 15ms   |  10.6Hz |              |
+| 100kOhm |  22nF       | 2.2ms  |  72Hz   |         70Hz |
+| 100kOhm |  15nF       | 1.5ms  | 106Hz   |              |
+| 100kOhm | 5.6nF       | 0.56ms | 283Hz   |              |
+| 100kOhm | 4.7nF       | 0.47ms | 338Hz   |              |
 
 ### Low-pass filter
 
@@ -134,16 +134,53 @@ where *R1 = RGAIN1* and *R2* = *R9* = 100kOhm.
 *C* = 820pF
 *R* = RTP1 + 4.5kOhm
 
-*low-pass filter cutoff frequencies need to be measured again!*
+| RTP1, RTP2 | fcutoff | sampling rate | real fcutoff |
+| ---------: | ------: | ------------: | -----------: |
+|  27kOhm    |  7kHz   |  20kHz        |         8kHz |
+|  12kOhm    | 15kHz   |  44kHz        |        15kHz |
+| 5.6kOhm    | 20kHz   |  60kHz        |              |
+| 2.2kOhm    | 29kHz   |  87kHz        |       >20kHz |
+| 1.5kOhm    | 33kHz   | 100kHz        |              |
+|   1kOhm    | 35kHz   | 106kHz        |              |
 
-| RTP1, RTP2 | fcutoff | sampling rate |
-| ---------: | ------: | ------------: |
-|  27kOhm    |  7kHz   |  20kHz        |
-|  13kOhm    | 15kHz   |  44kHz        |
-| 5.6kOhm    | 20kHz   |  60kHz        |
-| 2.2kOhm    | 29kHz   |  87kHz        |
-| 1.5kOhm    | 33kHz   | 100kHz        |
-|   1kOhm    | 35kHz   | 106kHz        |
+
+### Gain tests
+
+RGAIN1=27kOhm with 20mV rms amplitude (56mV p-p):
+
+![gain](images/gain024-20mV-traces.png)
+![gainspectrum](images/gain024-20mV-spectra.png)
+
+
+### Filter tests
+
+In files [`tests/filter-*.wav`](tests) a 20mV rms signal was sampled with
+44kHz and its frequency was increased as follows: 10Hz, 12.5Hz, 16Hz,
+20Hz, 25Hz, 31.5Hz, 40Hz, 50Hz, 63Hz, 80Hz, 100Hz, 125Hz, 160Hz,
+200Hz, 250Hz, 315Hz, 400Hz, 500Hz, 630Hz, 800Hz, 1000Hz, 1250Hz,
+1600Hz, 2000Hz, 2500Hz, 3150Hz, 4000Hz, 5000Hz, 6300Hz, 8000Hz,
+10kHz, 12.5kHz, 16kHz, 20kHz.
+
+7Hz high-pass, 7kHz low-pass:
+
+![filter 7Hz-7kHz](images/filter-7Hz-7kHz-gain24-20mV-traces.png)
+
+70Hz high-pass, 7kHz low-pass:
+
+![filter 70Hz-7kHz](images/filter-70Hz-7kHz-gain24-20mV-traces.png)
+
+70Hz high-pass, 15kHz low-pass:
+
+![filter 70Hz-15kHz](images/filter-70Hz-15kHz-gain24-20mV-traces.png)
+
+70Hz high-pass, 29kHz low-pass:
+
+![filter 70Hz-29kHz](images/filter-70Hz-29kHz-gain24-20mV-traces.png)
+
+
+## Signal range and clipping
+
+![clipping](images/clipping-gain024-20mV-step1mV-traces.png)
 
 
 ## SD write artifacts
