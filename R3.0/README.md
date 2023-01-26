@@ -101,6 +101,7 @@ where *R1 = RGAIN1* and *R2* = *R9* = 100kOhm.
 |  12kOhm |    47 |        80 |
 |  10kOhm |    55 |           |
 | 5.6kOhm |    94 |       160 |
+| 4.7kOhm |   111 |           |
 | 2.2kOhm |   232 |       400 |
 | 1.5kOhm |   338 |           |
 |   1kOhm |   505 |       870 |
@@ -263,6 +264,29 @@ Gain 27kOhm, HF 22nF, LW 27kOhm:
   <img src="images/sdwrites-gain024-ldo-all0ohm-agnd-noise.png" width=24%>
   <img src="images/sdwrites-gain024-ldo-all0ohm-agnd-spectra.png" width=36%>
 
+Gain 12kOhm, HF 220nF, LW 27kOhm:
+  
+- Amplifier LDO 3.3V connected to AREF via 0Ohm, signals via 0Ohm:
+
+  <img src="images/sdwrites-gain080-ldo-all0ohm-traces.png" width=36%>
+  <img src="images/sdwrites-gain080-ldo-all0ohm-noise.png" width=24%>
+  <img src="images/sdwrites-gain080-ldo-all0ohm-spectra.png" width=36%>
+
+Gain 5.6kOhm, HF 220nF, LW 27kOhm:
+  
+- Amplifier LDO 3.3V connected to AREF via 0Ohm, signals via 0Ohm:
+
+  <img src="images/sdwrites-gain160-ldo-all0ohm-traces.png" width=36%>
+  <img src="images/sdwrites-gain160-ldo-all0ohm-noise.png" width=24%>
+  <img src="images/sdwrites-gain160-ldo-all0ohm-spectra.png" width=36%>
+
+Gain 2.2kOhm, HF 220nF, LW 27kOhm:
+  
+- Amplifier LDO 3.3V connected to AREF via 0Ohm, signals via 0Ohm:
+
+  <img src="images/sdwrites-gain400-ldo-all0ohm-traces.png" width=36%>
+  <img src="images/sdwrites-gain400-ldo-all0ohm-noise.png" width=24%>
+  <img src="images/sdwrites-gain400-ldo-all0ohm-spectra.png" width=36%>
 
 Gain 1kOhm, HF 220nF, LW 27kOhm:
   
