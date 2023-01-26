@@ -147,6 +147,11 @@ where *R1 = RGAIN1* and *R2* = *R9* = 100kOhm.
 
 ### Gain tests
 
+Control: sine wave recorded with Measurement Computing USB_1608_GX_2AO:
+
+![control](images/gaincontrol-20mV-traces.png)
+![controlspectrum](images/gaincontrol-20mV-spectra.png)
+
 70Hz high-pass, 7kHz low-pass.
 
 x40: RGAIN1=27kOhm with 20mV rms amplitude (56mV p-p):
