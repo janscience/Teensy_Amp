@@ -225,8 +225,8 @@ In files [`tests/filter-*.wav`](tests) a 20mV rms signal was sampled with
 
 ### Conclusion
 
-- High- and low-pass filter are working at expected.
-- Pass band should be flatter.
+- High- and low-pass filter are working as expected.
+- Pass-band should be flatter.
 
 
 ## Signal range and clipping
