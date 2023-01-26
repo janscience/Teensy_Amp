@@ -152,6 +152,9 @@ Control: sine wave recorded with Measurement Computing USB_1608_GX_2AO:
 ![control](images/gaincontrol-20mV-traces.png)
 ![controlspectrum](images/gaincontrol-20mV-spectra.png)
 
+The sine wave generator (NTI Minirator) produces a third harmonic
+ca. 70dB below fundamental. Very clean sine wave!
+
 70Hz high-pass, 7kHz low-pass.
 
 x40: RGAIN1=27kOhm with 20mV rms amplitude (56mV p-p):
@@ -178,6 +181,9 @@ x800: RGAIN1=1kOhm with 1mV rms amplitude (2.8mV p-p):
 
 ![gain](images/gain1kOhm-1mV-traces.png)
 ![gainspectrum](images/gain1kOhm-1mV-spectra.png)
+
+Amplifier and/or Teensy produce many harmonics. And they are only
+about 25dB below the fundamental.
 
 
 ### Filter tests
@@ -226,6 +232,13 @@ Summary from measurements with ADC from Teensy or via an oscilloscope:
 
 
 Gain 27kOhm, HF 22nF, LW 27kOhm:
+
+- Plain amplifier output recorded with Measurement Computing
+  USB_1608_GX_2AO (range 1V):
+
+  <img src="images/sdwrites-gain024-external-traces.png" width=36%>
+  <img src="images/sdwrites-gain024-external-noise.png" width=24%>
+  <img src="images/sdwrites-gain024-external-spectra.png" width=36%>
 
 - Teensy internal 3.3V REF, signals via 2.4kOhm:
 
