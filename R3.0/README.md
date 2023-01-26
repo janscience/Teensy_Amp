@@ -86,29 +86,32 @@ Signal 2 (Channel2):
 
 ## Gain
 
-Gain is given by
+Gain of the INA is given by
 
 ![gain](images/gain.svg)
 
 where *R1 = RGAIN1* and *R2* = *R9* = 100kOhm.
 
-| RGAIN1  | Gain  | Real gain |
-| ------: | ----: | --------: |
-|   1MOhm |   5.5 |           |
-| 100kOhm |    10 |           |
-|  47kOhm |    15 |           |
-|  27kOhm |    24 |        40 |
-|  12kOhm |    47 |        80 |
-|  10kOhm |    55 |           |
-| 5.6kOhm |    94 |       160 |
-| 4.7kOhm |   111 |           |
-| 2.2kOhm |   232 |       400 |
-| 1.5kOhm |   338 |           |
-|   1kOhm |   505 |       870 |
-|  500Ohm |  1005 |           |
-|  200Ohm |  2505 |           |
-|  100Ohm |  5005 |           |
-|   50Ohm | 10005 |           |
+The total gain of the amplifier is the INA gain times 1.7.
+
+
+| RGAIN1  | INA gain  | Total gain |
+| ------: | --------: | ---------: |
+|   1MOhm |       5.5 |            |
+| 100kOhm |        10 |            |
+|  47kOhm |        15 |            |
+|  27kOhm |        24 |         40 |
+|  12kOhm |        47 |         80 |
+|  10kOhm |        55 |            |
+| 5.6kOhm |        94 |        160 |
+| 4.7kOhm |       111 |            |
+| 2.2kOhm |       232 |        400 |
+| 1.5kOhm |       338 |            |
+|   1kOhm |       505 |        870 |
+|  500Ohm |      1005 |            |
+|  200Ohm |      2505 |            |
+|  100Ohm |      5005 |            |
+|   50Ohm |     10005 |            |
 
 
 ## Filter
@@ -145,9 +148,11 @@ where *R1 = RGAIN1* and *R2* = *R9* = 100kOhm.
 |   1kOhm    | 35kHz   | 106kHz        |              |
 
 
-### Gain tests
+## Gain and linearity tests
 
-Control: sine wave recorded with Measurement Computing USB_1608_GX_2AO:
+### Control
+
+Sine wave recorded with Measurement Computing USB_1608_GX_2AO:
 
 ![control](images/gaincontrol-20mV-traces.png)
 ![controlspectrum](images/gaincontrol-20mV-spectra.png)
@@ -155,7 +160,10 @@ Control: sine wave recorded with Measurement Computing USB_1608_GX_2AO:
 The sine wave generator (NTI Minirator) produces a third harmonic
 ca. 70dB below fundamental. Very clean sine wave!
 
-70Hz high-pass, 7kHz low-pass.
+### Gain tests
+
+In files [`tests/gain-*.wav`](tests) sine wave signals were recorded
+with various gains (70Hz high-pass, 7kHz low-pass).
 
 x40: RGAIN1=27kOhm with 20mV rms amplitude (56mV p-p):
 
@@ -182,11 +190,15 @@ x800: RGAIN1=1kOhm with 1mV rms amplitude (2.8mV p-p):
 ![gain](images/gain1kOhm-1mV-traces.png)
 ![gainspectrum](images/gain1kOhm-1mV-spectra.png)
 
-Amplifier and/or Teensy produce many harmonics. And they are only
-about 25dB below the fundamental.
+
+### Conclusion
+
+- Amplifier and/or Teensy produce many harmonics. And they are only
+  about 25dB below the fundamental.
+- Noisy at gains larger x100.
 
 
-### Filter tests
+## Transfer function and filter tests
 
 In files [`tests/filter-*.wav`](tests) a 20mV rms signal was sampled with
 44kHz and its frequency was increased as follows: 10Hz, 12.5Hz, 16Hz,
@@ -211,25 +223,24 @@ In files [`tests/filter-*.wav`](tests) a 20mV rms signal was sampled with
 
 ![filter 70Hz-29kHz](images/filter-70Hz-29kHz-gain24-20mV-traces.png)
 
+### Conclusion
+
+- High- and low-pass filter are working at expected.
+- Pass band should be flatter.
+
 
 ## Signal range and clipping
 
 ![clipping](images/clipping-gain024-20mV-step1mV-traces.png)
 
+### Conclusion
 
-## SD write artifacts
+- The full output voltage range is used.
 
-Summary from measurements with ADC from Teensy or via an oscilloscope:
 
-- The LDO of the amplifier is able to produce a stable voltage, also if the
-  Teensy and the amplifier are powered by the same power bank.
-- Amplified short circuited signals are stable and do not show SD
-  write artifacts.
-- Using the Teensy's ADC however shows the SD write artifacts.
-- No matter whether we connect AREF to the amplifiers LDO voltage or
-  not, no matter whether the Teensy's R3 resistance is soldered out or
-  not. See graphs below.
+## Noise and SD write artifacts
 
+### AREF configuration
 
 Gain 27kOhm, HF 22nF, LW 27kOhm:
 
@@ -239,119 +250,77 @@ Gain 27kOhm, HF 22nF, LW 27kOhm:
   <img src="images/sdwrites-gain024-external-traces.png" width=36%>
   <img src="images/sdwrites-gain024-external-noise.png" width=24%>
   <img src="images/sdwrites-gain024-external-spectra.png" width=36%>
-
-- Teensy internal 3.3V REF, signals via 2.4kOhm:
-
-  <img src="images/sdwrites-gain024-teensy3v3-2400ohm-traces.png" width=36%>
-  <img src="images/sdwrites-gain024-teensy3v3-2400ohm-noise.png" width=24%>
-  <img src="images/sdwrites-gain024-teensy3v3-2400ohm-spectra.png" width=36%>
   
-- Teensy internal 3.3V REF, signals via 0Ohm:
+- Teensy internal 3.3V REF:
 
   <img src="images/sdwrites-gain024-teensy3v3-all0ohm-traces.png" width=36%>
   <img src="images/sdwrites-gain024-teensy3v3-all0ohm-noise.png" width=24%>
   <img src="images/sdwrites-gain024-teensy3v3-all0ohm-spectra.png" width=36%>
-
-- Amplifier LDO 3.3V connected to AREF via 2.4kOhm:
-
-  <img src="images/sdwrites-gain024-ldo2400ohm-traces.png" width=36%>
-  <img src="images/sdwrites-gain024-ldo2400ohm-noise.png" width=24%>
-  <img src="images/sdwrites-gain024-ldo2400ohm-spectra.png" width=36%>
   
-- Amplifier LDO 3.3V connected to AREF via 2.4kOhm, AGND connected to GND:
-
-  <img src="images/sdwrites-gain024-ldo2400ohm-agnd-traces.png" width=36%>
-  <img src="images/sdwrites-gain024-ldo2400ohm-agnd-noise.png" width=24%>
-  <img src="images/sdwrites-gain024-ldo2400ohm-agnd-spectra.png" width=36%>
-  
-- Amplifier LDO 3.3V connected to AREF via 0Ohm:
-
-  <img src="images/sdwrites-gain024-ldo0ohm-traces.png" width=36%>
-  <img src="images/sdwrites-gain024-ldo0ohm-noise.png" width=24%>
-  <img src="images/sdwrites-gain024-ldo0ohm-spectra.png" width=36%>
-  
-- Amplifier LDO 3.3V connected to AREF via 0Ohm, signals via 0Ohm:
+- Amplifier LDO 3.3V connected to AREF:
 
   <img src="images/sdwrites-gain024-ldo-all0ohm-traces.png" width=36%>
   <img src="images/sdwrites-gain024-ldo-all0ohm-noise.png" width=24%>
   <img src="images/sdwrites-gain024-ldo-all0ohm-spectra.png" width=36%>
   
-- Amplifier LDO 3.3V connected to AREF via 0Ohm, signals via 0Ohm, AGND connected to GND:
+- Amplifier LDO 3.3V connected to AREF, AGND connected to GND:
 
   <img src="images/sdwrites-gain024-ldo-all0ohm-agnd-traces.png" width=36%>
   <img src="images/sdwrites-gain024-ldo-all0ohm-agnd-noise.png" width=24%>
   <img src="images/sdwrites-gain024-ldo-all0ohm-agnd-spectra.png" width=36%>
 
-Gain 12kOhm, HF 220nF, LW 27kOhm:
+### Gain dependence
+
+Amplifier LDO 3.3V connected to AREF, HF 220nF, LW 27kOhm.
   
-- Amplifier LDO 3.3V connected to AREF via 0Ohm, signals via 0Ohm:
+- Gain 12kOhm:
 
   <img src="images/sdwrites-gain080-ldo-all0ohm-traces.png" width=36%>
   <img src="images/sdwrites-gain080-ldo-all0ohm-noise.png" width=24%>
   <img src="images/sdwrites-gain080-ldo-all0ohm-spectra.png" width=36%>
 
-Gain 5.6kOhm, HF 220nF, LW 27kOhm:
-  
-- Amplifier LDO 3.3V connected to AREF via 0Ohm, signals via 0Ohm:
+- Gain 5.6kOhm:
 
   <img src="images/sdwrites-gain160-ldo-all0ohm-traces.png" width=36%>
   <img src="images/sdwrites-gain160-ldo-all0ohm-noise.png" width=24%>
   <img src="images/sdwrites-gain160-ldo-all0ohm-spectra.png" width=36%>
 
-Gain 2.2kOhm, HF 220nF, LW 27kOhm:
-  
-- Amplifier LDO 3.3V connected to AREF via 0Ohm, signals via 0Ohm:
+- Gain 2.2kOhm:
 
   <img src="images/sdwrites-gain400-ldo-all0ohm-traces.png" width=36%>
   <img src="images/sdwrites-gain400-ldo-all0ohm-noise.png" width=24%>
   <img src="images/sdwrites-gain400-ldo-all0ohm-spectra.png" width=36%>
 
-Gain 1kOhm, HF 220nF, LW 27kOhm:
-  
-- Amplifier LDO 3.3V connected to AREF via 0Ohm, signals via 0Ohm:
+- Gain 1kOhm:
 
   <img src="images/sdwrites-gain870-ldo-all0ohm-traces.png" width=36%>
   <img src="images/sdwrites-gain870-ldo-all0ohm-noise.png" width=24%>
   <img src="images/sdwrites-gain870-ldo-all0ohm-spectra.png" width=36%>
   
-- Amplifier LDO 3.3V connected to AREF via 0Ohm, signals via 0Ohm, AGND connected to GND:
+- Gain 1kOhm, AGND connected to GND:
 
   <img src="images/sdwrites-gain870-ldo-all0ohm-agnd-traces.png" width=36%>
   <img src="images/sdwrites-gain870-ldo-all0ohm-agnd-noise.png" width=24%>
   <img src="images/sdwrites-gain870-ldo-all0ohm-agnd-spectra.png" width=36%>
 
 
-Gain 27kOhm, HF 22nF, LW 27kOhm:
+### Conclusion
 
-- Teensy internal 3.3V VREF:
-  ![trace](images/sdwrites-gain024-teensyvref-zero-traces.png)
-- Teensy internal 3.3V VREF and GND connected to AGND:
-  ![trace](images/sdwrites-gain024-teensyvref-agnd-zero-traces.png)
-- Amplifier LDO 3.3V connected to AREF:
-  ![trace](images/sdwrites-gain024-ldoaref-3v3-zero-traces.png)
-- Amplifier LDO 3.3V connected to AREF and GND connected to AGND:
-  ![trace](images/sdwrites-gain024-ldoaref-3v3-agnd-zero-traces.png)
-- Amplifier LDO 3.3V connected to AREF, R3 resistance on Teensy removed:
-  ![trace](images/sdwrites-gain024-ldoaref-noR3-HP22nF-zero-traces.png)
-
-Gain 27kOhm, HF 220nF, LW 27kOhm:
-
-- Amplifier LDO 3.3V connected to AREF, R3 resistance on Teensy removed, recorded with 44kHz:
-  ![trace](images/sdwrites-gain024-ldoaref-noR3-HP220nF-zero-traces.png)
-- Same, but recorded with 400kHz:
-  ![trace](images/sdwrites-gain024-ldoaref-noR3-HP220nF-400kHz-zero-traces.png)
-
-Gain 27kOhm, HF 220nF, LW 27kOhm, external amplifier power, Teensy powered from power bank:
-
-- Amplifier on Teensy GND:
-  ![trace](images/sdwrites-gain024-ldoaref-noR3-externalamppower-gnd-zero-traces.png)
-- Amplifier on Teensy AGND:
-  ![trace](images/sdwrites-gain024-ldoaref-noR3-externalamppower-agnd-zero-traces.png)
+- The LDO of the amplifier seems to be able to produce a stable voltage from
+  the supply voltage of the Teensy:
+  Amplified short circuited signals are stable and do not show SD
+  write artifacts.
+- Using the Teensy's ADC however shows the SD write artifacts.
+- SD write artifact gets smaller when AREF is driven by LDO voltage.
+- Removing Teensy's R3 resistance does not make a difference
+  (see `../images/sdwrites-*noR3*`).
+- Connecting AGND to GND does not make a difference.
+- The larger the gain, the larger the baseline noise.
 
 
-## Noise
+## ADC settings
 
-For a gain of 24x (27kOhm), highpass filter of 70Hz (22nF), lowpass
+For a gain of 40x (27kOhm), highpass filter of 70Hz (22nF), lowpass
 filter of 7kHz (27kOhm) and a sampling rate of 20kHz, the [averaging
 sketch](https://github.com/janscience/TeeRec/tree/main/examples/averaging)
 reports (sampling rate of 100kHz gives similar results):
