@@ -41,13 +41,14 @@ The input signals are processed in the following way:
 
 ![pcb](images/teensy_amp_R3b_pcb.png)
 
+Note:
+- RTP1, RGAIN1, CHP1A, CHP1B are for channel 2
+- RTP2, RGAIN2, CHP2A, CHP2B are for channel 1
+
 ### Input
 
 The signal to be measured is connected via the screw-terminal block on
 the right.
-
-- Channel 1: top two pins.
-- Channel 2: bottom two pins.
 
 - The two inner pins are the positive V+ inputs.
 - The two outer pins are the negative V- inputs.

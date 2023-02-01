@@ -6,8 +6,7 @@ With digitaly adjustable gain and filter settings.
 
 ## TODO
 
-- check annotation of the PCB - CH1 and CH2 on the top side might be wrong. It is right!
-- check annotation of the PCB - RTP1/2, RGAIN1/2, CHP* on the bottom side might be wrong. 
+- annotation of the PCB - RTP1/2, RGAIN1/2, CHP* on the bottom side is switched. 
 - Only connect a single Teensy GND to ground plane (the one opposite of Vin).
 - Remove wholes for VBAT, GND, VUSB
 - Make connection REF_LDO permanent -> No, if stacked, we get loops.
