@@ -4,6 +4,11 @@ Work in progress.
 
 With digitaly adjustable gain and filter settings.
 
+## Audio chips
+
+- [TI PCM1865](https://www.ti.com/product/PCM1865): 8 input channels, but can only put out 4)
+- [TLV320ADC5140](https://www.ti.com/product/TLV320ADC5140), 4 channels and ADCs, can be daisy-chained.
+
 ## TODO
 
 - annotation of the PCB - RTP1/2, RGAIN1/2, CHP* on the bottom side is switched. 
