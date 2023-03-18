@@ -155,8 +155,8 @@ The total gain of the amplifier is the INA gain times 1.7.
 
 Sine wave recorded with Measurement Computing USB_1608_GX_2AO:
 
-![control](images/gaincontrol-20mV-traces.png)
-![controlspectrum](images/gaincontrol-20mV-spectra.png)
+![control](images/gaincontrol-20mV-floating-traces.png)
+![controlspectrum](images/gaincontrol-20mV-floating-spectra.png)
 
 The sine wave generator (NTI Minirator) produces a third harmonic
 ca. 70dB below fundamental. Very clean sine wave!
@@ -168,28 +168,28 @@ with various gains (70Hz high-pass, 7kHz low-pass).
 
 x40: RGAIN1=27kOhm with 20mV rms amplitude (56mV p-p):
 
-![gain](images/gain27kOhm-20mV-traces.png)
-![gainspectrum](images/gain27kOhm-20mV-spectra.png)
+![gain](images/gain27kOhm-20mV-floating-traces.png)
+![gainspectrum](images/gain27kOhm-20mV-floating-spectra.png)
 
 x80: RGAIN1=12kOhm with 10mV rms amplitude (28mV p-p):
 
-![gain](images/gain12kOhm-10mV-traces.png)
-![gainspectrum](images/gain12kOhm-10mV-spectra.png)
+![gain](images/gain12kOhm-10mV-floating-traces.png)
+![gainspectrum](images/gain12kOhm-10mV-floating-spectra.png)
 
 x160: RGAIN1=5.6kOhm with 5mV rms amplitude (14mV p-p):
 
-![gain](images/gain5600Ohm-5mV-traces.png)
-![gainspectrum](images/gain5600Ohm-5mV-spectra.png)
+![gain](images/gain5600Ohm-5mV-floating-traces.png)
+![gainspectrum](images/gain5600Ohm-5mV-floating-spectra.png)
 
 x400: RGAIN1=2.2kOhm with 2mV rms amplitude (5.6mV p-p):
 
-![gain](images/gain2200Ohm-2mV-traces.png)
-![gainspectrum](images/gain2200Ohm-2mV-spectra.png)
+![gain](images/gain2200Ohm-2mV-floating-traces.png)
+![gainspectrum](images/gain2200Ohm-2mV-floating-spectra.png)
 
 x800: RGAIN1=1kOhm with 1mV rms amplitude (2.8mV p-p):
 
-![gain](images/gain1kOhm-1mV-traces.png)
-![gainspectrum](images/gain1kOhm-1mV-spectra.png)
+![gain](images/gain1kOhm-1mV-floating-traces.png)
+![gainspectrum](images/gain1kOhm-1mV-floating-spectra.png)
 
 
 ### Conclusion
