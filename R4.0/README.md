@@ -9,7 +9,48 @@ With digitaly adjustable gain and filter settings.
 - [TI PCM1865](https://www.ti.com/product/PCM1865): 8 input channels, but can only put out 4)
 - [TLV320ADC5140](https://www.ti.com/product/TLV320ADC5140), 4 channels and ADCs, can be daisy-chained.
 
-## TODO
+### [TLV320ADC5140](https://www.ti.com/product/TLV320ADC5140)
+
+#### TDM
+
+- 256bit frame
+- 16 channels with each 16bit
+- 2 independent TDM channels on Tensy 4.1 would allow 32 channel maximum!
+
+#### BCLK
+
+- Teensy audio library generates LRCLK (44.1 kHz), BCLK (1.41 or 2.82
+  MHz) and MCLK (11.29 MHz) for an 41kHz audio signal.
+- bit clock ≥ (# channels/device) × (# devices) × (sample rate) × (word length)
+- bit clock = 4 x 4 x 96kHz x 16 = 24.5MHz < 25MHz possible for the chip
+- 25MHz is also the maximum for the Teensy 4.1
+- bit clock = 4 x 1 x 44.1kHz x 16 = 2.82MHz default support by audio library
+- higher frequencies seem to be possible
+
+See https://www.ti.com/lit/an/sbaa383b/sbaa383b.pdf?ts=1680563663210
+for configurations of multiple chips
+
+#### Power consumption
+
+- 25mA @ 3.3V for 4 channels at 96kHz
+- 100mA for 4x4=16 channels
+= Teensy 4.1: 100mA
+- 16 channel plus Teensy: 200mA
+- 20Ah battery / 0.2A = 100h
+- 4 x 16 channel plus control Teensy 200mA: 1A, lasts 20h
+
+We need power supply switching on the fly (4 USB ports, 2 running, 2 new ones)!
+
+
+#### Storage
+
+- 500 GB cost about 50 Euros
+- 1channel at 16bit and 20kHz needs 144MB per hour, 3.5GB per day
+- 4channel at 16bit and 20kHz needs 576MB per hour, 13.8GB per day
+- 8channel at 16bit and 20kHz needs 1.15GB per hour, 27.6GB per day
+- 16channel at 16bit and 20kHz needs 2.3GB per hour, 55.3GB per day
+
+## TODO for improving R3.0
 
 - annotation of the PCB - RTP1/2, RGAIN1/2, CHP* on the bottom side is switched. 
 - Only connect a single Teensy GND to ground plane (the one opposite of Vin).
@@ -19,14 +60,14 @@ With digitaly adjustable gain and filter settings.
   soldered without the 0Ohm resistance.
 
 
-## AGND vs GND:
+### AGND vs GND:
 
 https://forum.pjrc.com/threads/45742-Proper-use-of-Teensy-3-x-AGND
 
 https://forum.pjrc.com/attachment.php?attachmentid=11301&d=1503091846
 
 
-## New stuff
+### New stuff
 
 - put an ADC on the amplifier. The Teensy one is always corruped by
   noise no matter how it is used.
