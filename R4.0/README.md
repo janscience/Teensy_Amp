@@ -32,9 +32,17 @@ for configurations of multiple chips
 
 #### Power consumption
 
+- Teensy 4.1: 100mA
 - 25mA @ 3.3V for 4 channels at 96kHz
+
+#### 8 channel
+- 50mA for 4x2=8 channels
+- 8 channel plus Teensy: 150mA
+- 20Ah battery / 0.15A = 133h
+- 8 x 8 channel plus control Teensy 200mA: 1.4A, lasts 14h
+
+#### 16 channel
 - 100mA for 4x4=16 channels
-= Teensy 4.1: 100mA
 - 16 channel plus Teensy: 200mA
 - 20Ah battery / 0.2A = 100h
 - 4 x 16 channel plus control Teensy 200mA: 1A, lasts 20h
@@ -44,11 +52,14 @@ We need power supply switching on the fly (4 USB ports, 2 running, 2 new ones)!
 
 #### Storage
 
-- 500 GB cost about 50 Euros
-- 1channel at 16bit and 20kHz needs 144MB per hour, 3.5GB per day
-- 4channel at 16bit and 20kHz needs 576MB per hour, 13.8GB per day
-- 8channel at 16bit and 20kHz needs 1.15GB per hour, 27.6GB per day
-- 16channel at 16bit and 20kHz needs 2.3GB per hour, 55.3GB per day
+- 1channel at 16bit and 24kHz needs 173MB per hour, 4.2GB per day
+- 4channel at 16bit and 24kHz needs 691MB per hour, 16.6GB per day
+- 8channel at 16bit and 24kHz needs 1.4GB per hour, 33.2GB per day
+- 16channel at 16bit and 24kHz needs 2.8GB per hour, 66.4GB per day
+
+- 256 GB cost about 25 Euros (2023): 3.8 days for 16 channels, 7.7 days for 8 channels 
+- 500 GB cost about 50 Euros (2023): 7.7 days for 16 channels, 15.4 days for 8 channels
+
 
 ## TODO for improving R3.0
 
