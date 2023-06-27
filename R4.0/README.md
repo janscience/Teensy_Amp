@@ -11,11 +11,72 @@ With digitaly adjustable gain and filter settings.
 
 Use I2S or TDM protocol on [Teensy 4.1](https://www.pjrc.com/teensy/pinout.html#Teensy_4.1).
 
+
+## Teensy libraries
+
+See [Teensy
+forum](https://forum.pjrc.com/threads/38753-Discussion-about-a-simple-way-to-change-the-sample-rate/page4)
+for dicussions on how to change sampling frequency of I2S bus.
+And also [Frank's bat detector](https://forum.pjrc.com/threads/38988-Bat-detector).
+
+See Audio library for input_tdm module.
+
+See [Tympan](https://github.com/Tympan/Tympan_Library) project for
+setting sampling rate via their AudioSettings class.
+
+See
+[microSoundRecorder](https://github.com/WMXZ-EU/microSoundRecorder)
+for variable sampling rates (?), but only Teensy 3.5.
+
+The [Teensy
+Batdetector](https://github.com/CorBer/teensy_batdetector/releases/tag/v1.6)
+might also have some nice features that are intersiting for us ...
+
 ## TI PCM1865
 
 - [web site](https://www.ti.com/product/PCM1865)
-- [data sheet](https://www.ti.com/lit/gpn/pcm1865)
-- [evalutation board](https://www.ti.com/lit/pdf/slau615)
+- [PCM186x data sheet](https://www.ti.com/lit/gpn/pcm1865)
+- [PCM186xEVM evalutation board](https://www.ti.com/lit/pdf/slau615)
+
+### Evalutation board
+
+We use the [PCM186xEVM evalutation
+board](https://www.ti.com/lit/pdf/slau615) to figure out how to
+control and use the PCM186x chips by a Teensy 4.1:
+
+1. Connect it straight to USB and open Purpath console. On the first
+   tab select 'mode=2' for operating the PCM186x in slave mode. Use an
+   audio recording software (e.g. audacity) to record the I2S audio
+   stream (you need to select the right input source). This way you
+   can play around with various input sources, gains, and channel
+   configurations. Save register settings as C code.
+
+2. Test BCK input slave PLL mode (section 9.3.9.4.4, Figure 66 in data sheet):
+   - Supports only 8, 16, 48, 96, 192kHz (table 11)!
+   - Remove R3 on the evaluation board.
+   - Set MST_MODE to slave. Check CLK_MODE.
+   - Enable CLKDET_EN ! All clocks and dividers are then automatically
+     configured.
+   - No need to enable PLL_EN and to set PLL_REF_SEL to BCK.
+   - No need to set MST_SCK_SRC etc. (see Figure 33, Master mode only).
+   - Check CLK_ERR_STAT and current status registers (section 9.5.2).
+   - Save register settings from PurePath Console as C code.
+
+3. Read I2S stream with Teensy:
+   - Remove R20, R21, R22.
+   - Replace standoffs by header pins.
+   - Connect BCK, LRCK and DOUT to Teensy I2S bus.
+
+4. Read as TDM stream with Teensy:
+   - Configure TDM via PurePath Console (I2S_FMT, TDM_LRCK_MODE, TDM_OSEL, maybe also I2S_TX_OFFSET, RX_TDM_OFFSET).
+   - Play around with TDM offset.
+
+5. Control I2C from Teensy:
+   - Connect Teensy I2C via J1.
+   - Configure PCM186x using the configuation saved from PurePath Console.
+   - Improve control code.
+   - See section 9.3.9.8 for how to change sampling rates.
+
 
 ### Pins
 
