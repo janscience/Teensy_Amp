@@ -133,6 +133,17 @@ VSA-10uF/16V/ELECTROLYTIC, see evaluation board) to 4 input signals.
 VINL4, VINR4, VINL3, VINR3 get a possibility for connecting to a
 secondary PCB with some preamp.
 
+On the evaluation board (AVDD = 3.3V!) the largest sine waves that can
+be recorded without clipping are:
+
+| gain  | Vrms    | Vp-p    |
+| ----: | ------: | ------: |
+| -12dB |   4.1V  |   11.6V |
+|   0dB |     2V  |    5.7V |
+|  20dB |  200mV  |   565mV |
+|  32dB |   48mV  |   136mV |
+|  40dB |   16mV  |    45mV |
+
 
 ### TDM audio data stream
 
