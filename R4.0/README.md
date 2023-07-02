@@ -44,7 +44,7 @@ We use the [PCM186xEVM evalutation
 board](https://www.ti.com/lit/pdf/slau615) to figure out how to
 control and use the PCM186x chips by a Teensy 4.1:
 
-1. Connect it straight to USB and open Purpath console. On the first
+1. Connect it straight to USB and open PurePath console. On the first
    tab select 'mode=2' for operating the PCM186x in slave mode. Use an
    audio recording software (e.g. audacity) to record the I2S audio
    stream (you need to select the right input source). This way you
@@ -54,21 +54,25 @@ control and use the PCM186x chips by a Teensy 4.1:
 2. Test BCK input slave PLL mode (section 9.3.9.4.4, Figure 66 in data sheet):
    - Supports only 8, 16, 48, 96, 192kHz (table 11)!
    - Remove R3 on the evaluation board.
-   - Set MST_MODE to slave. Check CLK_MODE.
+   - Set MST_MODE to slave (default anyways).
    - Enable CLKDET_EN ! All clocks and dividers are then automatically
      configured.
    - No need to enable PLL_EN and to set PLL_REF_SEL to BCK.
    - No need to set MST_SCK_SRC etc. (see Figure 33, Master mode only).
-   - Check CLK_ERR_STAT and current status registers (section 9.5.2).
-   - Save register settings from PurePath Console as C code.
+   - Check CLK_ERR_STAT and current status registers (section 9.5.2):
+     all SCK related indicators report errors.
+   - Works!
 
 3. Read I2S stream with Teensy:
    - Remove R20, R21, R22.
    - Replace standoffs by header pins.
    - Connect BCK, LRCK and DOUT to Teensy I2S bus.
+   - Works!
 
 4. Read as TDM stream with Teensy:
-   - Configure TDM via PurePath Console (I2S_FMT, TDM_LRCK_MODE, TDM_OSEL, maybe also I2S_TX_OFFSET, RX_TDM_OFFSET).
+   - Configure TDM via PurePath Console:
+     - I2S_FMT register: FMT=TDM, TX_WLEN=16bit, TDM_LRCK_MODE=1/256, RX_WLEN=16bit.
+     - TDM_OSEL=4ch TDM
    - Play around with TDM offset.
 
 5. Control I2C from Teensy:
@@ -81,7 +85,7 @@ control and use the PCM186x chips by a Teensy 4.1:
 ### Pins
 
 See page 11 and Fig 22 in the data sheet and Figure 15 of the
-evaluation bard manual:
+evaluation board manual:
 
 | pin | name        | connects to |
 | --: | :---------- | :---------- |
@@ -133,6 +137,8 @@ VSA-10uF/16V/ELECTROLYTIC, see evaluation board) to 4 input signals.
 VINL4, VINR4, VINL3, VINR3 get a possibility for connecting to a
 secondary PCB with some preamp.
 
+### Gains and amplitudes
+
 On the evaluation board (AVDD = 3.3V!) the largest sine waves that can
 be recorded without clipping are:
 
@@ -143,6 +149,8 @@ be recorded without clipping are:
 |  20dB |  200mV  |   565mV |
 |  32dB |   48mV  |   136mV |
 |  40dB |   16mV  |    45mV |
+
+Maximum analog gain is 32dB, but bit depth is at least 24bit.
 
 
 ### TDM audio data stream
