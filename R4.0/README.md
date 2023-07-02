@@ -49,7 +49,7 @@ control and use the PCM186x chips by a Teensy 4.1:
    audio recording software (e.g. audacity) to record the I2S audio
    stream (you need to select the right input source). This way you
    can play around with various input sources, gains, and channel
-   configurations. Save register settings as C code.
+   configurations. Save register settings.
 
 2. Test BCK input slave PLL mode (section 9.3.9.4.4, Figure 66 in data sheet):
    - Supports only 8, 16, 48, 96, 192kHz (table 11)!
@@ -67,19 +67,15 @@ control and use the PCM186x chips by a Teensy 4.1:
    - Remove R20, R21, R22.
    - Replace standoffs by header pins.
    - Connect BCK, LRCK and DOUT to Teensy I2S bus.
+   - Only the first two channels are transmitted via DOUT.
+   - The last two channels are transmitted via DOUT2, use AudioInputI2CQuad.
    - Works!
 
-4. Read as TDM stream with Teensy:
-   - Configure TDM via PurePath Console:
-     - I2S_FMT register: FMT=TDM, TX_WLEN=16bit, TDM_LRCK_MODE=1/256, RX_WLEN=16bit.
-     - TDM_OSEL=4ch TDM
-   - Play around with TDM offset.
-
 5. Control I2C from Teensy:
-   - Connect Teensy I2C via J1.
-   - Configure PCM186x using the configuation saved from PurePath Console.
-   - Improve control code.
+   - Connect Teensy I2C via J7.
+   - Coded in TeeRec::ControlPCM186x
    - See section 9.3.9.8 for how to change sampling rates.
+   - Works!
 
 
 ### Pins
@@ -97,20 +93,20 @@ evaluation board manual:
 |  6  | VREF        | Connect 1-μF capacitor C5 to AGND |
 |  7  | AGND        | Analog ground to common ground |
 |  8  | AVDD        | 3.3V power supply, Fig 70/71. Connect 0.1-μF and 10-μF capacitors C8, C9, R1 from this pin to AGND. |
-|  9  | XO          | not used, capacitor to ground |
-| 10  | XI          | not used, capacitor to ground |
+|  9  | XO          | not used, open |
+| 10  | XI          | not used, open |
 | 11  | LDO         | Connect 0.1-μF and 10-μF capacitors from this pin to DGND? |
 | 12  | DGND        | Digital ground to common ground |
 | 13  | DVDD        | 3.3V power supply, Fig 70/71. Connect 0.1-μF and 10-μF capacitors from this pin to DGND. |
 | 14  | IOVDD       | 3.3V power supply, tied to DVDD, Fig 70/71. |
-| 15  | SCKI        | 3.3-V CMOS MCLK input, not needed for ADC slave PLL mode! See table 5 and CLKDET_EN |
+| 15  | SCKI        | 3.3-V CMOS MCLK input, not needed for ADC slave PLL mode! |
 | 16  | LRCK        | Audio data world clock (left right clock) input/output. |
 | 17  | BCK         | Audio data bit clock input/output. |
 | 18  | DOUT        | Audio data digital output.         |
 | 19  | GPIO3/INTC  | not needed  |
 | 20  | GPIO2/INTB/DMCLK | not needed |
 | 21  | GPIO1/INTA/DMIN  | not needed |
-| 22  | MISO/GPIO0/DMIN2 | not needed |
+| 22  | MISO/GPIO0/DMIN2 | needed for I2C channels 3 and 4 |
 | 23  | MOSI/SDA    | I2C bus SDA |
 | 24  | MC/SCL      | I2C bus CLOCK |
 | 25  | MS/AD       | I2C addres: one chip high, one chip low |
@@ -122,11 +118,11 @@ evaluation board manual:
 
 ### Power supply
 
-- LDO to generate 3.3 V on AVDD
+- LDO to generate 3.3 V on AVDD (see Evaluation board)
 - Supply DVDD and IOVDD from Teensy 3.3V or also from LDO?
 - What about AGND and DGND? DGND on Teensy, AGND on LDO?
 
-- we use the onbard LDO to generate VREF.
+- we use the onchip LDO to generate VREF.
 
 ### Signals and input channels
 
@@ -134,8 +130,9 @@ Signal pins VINL2, VINR2, VINL1, VINR1 connect via 100kOhm (R40-R47)
 and capacitor (C1-C4, C15-C18: DEFAULT: SMD0805 10uF/16V/X7R ALT:
 VSA-10uF/16V/ELECTROLYTIC, see evaluation board) to 4 input signals.
 
-VINL4, VINR4, VINL3, VINR3 get a possibility for connecting to a
-secondary PCB with some preamp.
+VINL4, VINR4, VINL3, VINR3 are connected to a preamp, see:
+- http://realhdaudio.de/wp-content/uploads/2018/12/A0_HSD_TMT2018_realHDaudio_V3.pdf
+- https://www.akm.com/content/dam/documents/products/audio/audio-adc/ak5397eq/ak5397eq-en-datasheet.pdf
 
 ### Gains and amplitudes
 
@@ -150,7 +147,7 @@ be recorded without clipping are:
 |  32dB |   48mV  |   136mV |
 |  40dB |   16mV  |    45mV |
 
-Maximum analog gain is 32dB, but bit depth is at least 24bit.
+Maximum analog gain is 32dB, but bit depth is 24bit.
 
 
 ### TDM audio data stream
@@ -214,19 +211,43 @@ Or just a single 20+ Ah car battery, lasting for two days!
 
 | channels | bits | sampling rate | per hour | per day |
 | -------: | ---: | ------------: | -------: | ------: |
+| 1        | 16   | 16kHz         | 115MB    | 2.8GB   |
+| 2        | 16   | 16kHz         | 230MB    | 5.5GB   |
+| 4        | 16   | 16kHz         | 461MB    | 11.1GB  |
+| 8        | 16   | 16kHz         | 922MB    | 22.1GB  |
+| 16       | 16   | 16kHz         | 1.8GB    | 44.2GB  |
 | 1        | 16   | 24kHz         | 173MB    | 4.2GB   |
-| 4        | 16   | 24kHz         | 691MB    | 16.6GB  |
+| 2        | 16   | 24kHz         | 346MB    | 8.4GB   |
+| 4        | 16   | 24kHz         | 692MB    | 16.6GB  |
 | 8        | 16   | 24kHz         | 1.4GB    | 33.2GB  |
 | 16       | 16   | 24kHz         | 2.8GB    | 66.4GB  |
+| 1        | 16   | 48kHz         | 346MB    |  8.4GB  |
+| 2        | 16   | 48kHz         | 692MB    | 16.6GB  |
+| 4        | 16   | 48kHz         | 1.4GB    | 33.2GB  |
+| 8        | 16   | 48kHz         | 2.8GB    | 66.4GB  |
+| 16       | 16   | 48kHz         | 5.6GB    |  133GB  |
 
 
 micro SD cards (prices from 2023):
 
-| capacity | costs | 8 channels | 16 channels |
-| -------: | ----: | ---------: | ----------: |
-| 128GB    | 12 €  | 3.8 days   | 1.9 days    |
-| 256GB    | 25 €  | 7.7 days   | 3.8 days    |
-| 500GB    | 50 €  | 15.4 days  | 7.7 days    |
+| capacity | costs | 8 channels @ 16kHz | 16 channels @ 16kHz |
+| -------: | ----: | -----------------: | ------------------: |
+| 128GB    | 12 €  |         5.8 days   |         2.9 days    |
+| 256GB    | 25 €  |        11.6 days   |         5.8 days    |
+| 500GB    | 50 €  |        23.1 days   |        11.6 days    |
+
+| capacity | costs | 8 channels @ 24kHz | 16 channels @ 24kHz |
+| -------: | ----: | -----------------: | ------------------: |
+| 128GB    | 12 €  |         3.8 days   |         1.9 days    |
+| 256GB    | 25 €  |         7.7 days   |         3.8 days    |
+| 500GB    | 50 €  |         15.4 days  |         7.7 days    |
+
+| capacity | costs | 8 channels @ 48kHz | 16 channels @ 48kHz |
+| -------: | ----: | -----------------: | ------------------: |
+| 128GB    | 12 €  |         1.9 days   |         0.9 days    |
+| 256GB    | 25 €  |         3.8 days   |         1.9 days    |
+| 500GB    | 50 €  |         7.7 days   |         3.8 days    |
+
 
 ## Design
 
