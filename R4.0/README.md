@@ -83,38 +83,49 @@ control and use the PCM186x chips by a Teensy 4.1:
 See page 11 and Fig 22 in the data sheet and Figure 15 of the
 evaluation board manual:
 
-| pin | name        | connects to |
-| --: | :---------- | :---------- |
-|  1  | VINL2/VIN1M | SIG 3 / 7   |
-|  2  | VINR2/VIN2M | SIG 2 / 6   |
-|  3  | VINL1/VIN1P | SIG 1 / 5   |
-|  4  | VINR1/VIN2P | SIG 0 / 4   |
-|  5  | Mic Bias    | unconnected |
-|  6  | VREF        | Connect 1-μF capacitor C5 to AGND |
-|  7  | AGND        | Analog ground to common ground |
-|  8  | AVDD        | 3.3V power supply, Fig 70/71. Connect 0.1-μF and 10-μF capacitors C8, C9, R1 from this pin to AGND. |
-|  9  | XO          | not used, open |
-| 10  | XI          | not used, open |
-| 11  | LDO         | Connect 0.1-μF and 10-μF capacitors from this pin to DGND? |
-| 12  | DGND        | Digital ground to common ground |
-| 13  | DVDD        | 3.3V power supply, Fig 70/71. Connect 0.1-μF and 10-μF capacitors from this pin to DGND. |
-| 14  | IOVDD       | 3.3V power supply, tied to DVDD, Fig 70/71. |
-| 15  | SCKI        | 3.3-V CMOS MCLK input, not needed for ADC slave PLL mode! |
-| 16  | LRCK        | Audio data world clock (left right clock) input/output. |
-| 17  | BCK         | Audio data bit clock input/output. |
-| 18  | DOUT        | Audio data digital output.         |
-| 19  | GPIO3/INTC  | not needed  |
-| 20  | GPIO2/INTB/DMCLK | not needed |
-| 21  | GPIO1/INTA/DMIN  | not needed |
-| 22  | MISO/GPIO0/DMIN2 | needed for I2C channels 3 and 4 |
-| 23  | MOSI/SDA    | I2C bus SDA |
-| 24  | MC/SCL      | I2C bus CLOCK |
-| 25  | MS/AD       | I2C addres: one chip high, one chip low |
-| 26  | MD0         | tied low for I2C communication |
-| 27  | VINL4/VIN4M | SIGALT 3 / 6|
-| 28  | VINR4/VIN3M | SIGALT 2 / 5|
-| 29  | VINL3/VIN4P | SIGALT 1 / 4|
-| 30  | VINR3/VIN3P | SIGALT 0 / 3|
+| pin | name        | connects to | Teensy pin |
+| --: | :---------- | :---------- | ---------: |
+|  1  | VINL2/VIN1M | SIG 3 / 7   |            |
+|  2  | VINR2/VIN2M | SIG 2 / 6   |            |
+|  3  | VINL1/VIN1P | SIG 1 / 5   |            |
+|  4  | VINR1/VIN2P | SIG 0 / 4   |            |
+|  5  | Mic Bias    | unconnected |            |
+|  6  | VREF        | Connect 1-μF capacitor C5 to AGND |            |
+|  7  | AGND        | Analog ground to common ground |            |
+|  8  | AVDD        | 3.3V power supply, Fig 70/71. Connect 0.1-μF and 10-μF capacitors C8, C9, R1 from this pin to AGND. |            |
+|  9  | XO          | not used, open |            |
+| 10  | XI          | not used, open |            |
+| 11  | LDO         | Connect 0.1-μF and 10-μF capacitors from this pin to AGND? |            |
+| 12  | DGND        | Digital ground connect to common ground |            |
+| 13  | DVDD        | 3.3V power supply, Fig 70/71. Connect 0.1-μF and 10-μF capacitors from this pin to DGND. |            |
+| 14  | IOVDD       | 3.3V power supply, tied to DVDD, Fig 70/71.  | From Teensy 3.3V? |
+| 15  | SCKI        | not used, open |            |
+| 16  | LRCK        | Audio data world clock (left right clock) input/output. | 20         |
+| 17  | BCK         | Audio data bit clock input/output. | 21         |
+| 18  | DOUT        | Audio data digital output.         |  8         |
+| 19  | GPIO3/INTC  | not needed  | 38 / 34 |
+| 20  | GPIO2/INTB/DMCLK | not needed | 39 / 35 |
+| 21  | GPIO1/INTA/DMIN  | not needed | 40 / 36 |
+| 22  | MISO/GPIO0/DMIN2 | needed for I2S channels 3 and 4 | 41 / 37 |
+| 23  | MOSI/SDA    | I2C bus SDA | 18         |
+| 24  | MC/SCL      | I2C bus CLOCK | 19         |
+| 25  | MS/AD       | I2C addres: first chip low, second chip high |            |
+| 26  | MD0         | tied low for I2C communication |            |
+| 27  | VINL4/VIN4M | SIGALT 3 / 6|            |
+| 28  | VINR4/VIN3M | SIGALT 2 / 5|            |
+| 29  | VINL3/VIN4P | SIGALT 1 / 4|            |
+| 30  | VINR3/VIN3P | SIGALT 0 / 3|            |
+
+GPIO pins: connect them somehow to pins 34 - 41 of the Teensy,
+so that I have access to them.
+
+Additional connections for the Teensy
+
+| Teensy pin |            |
+| ---------: | ---------: |
+| 0          | CAN RX     |
+| 1          | CAN TX     |
+
 
 ### Power supply
 
