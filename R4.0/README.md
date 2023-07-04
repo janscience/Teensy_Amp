@@ -153,6 +153,10 @@ VINL4, VINR4, VINL3, VINR3 are connected to a preamp, see:
 
 ![preamp](preamp.png)
 
+- Buffer with 10uF capacitors cleans up VREF
+  ![vrefbuffer](images/RECORD-VREFBUFFER-3x10uF-spectra.png)
+  (see Fig 6 in [Tips and Tricks for Designing with Voltage References](https://www.ti.com/lit/eb/slyc147a/slyc147a.pdf?ts=1688404208484&ref_url=https%253A%252F%252Fwww.google.com%252F))
+
 - VDD and VREF directly from PCM1865 (no capacitors) is bad:
   ![vddvref](images/RECORD-VDD-VREF-spectra.png)
 
