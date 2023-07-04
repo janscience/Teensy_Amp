@@ -130,10 +130,8 @@ Additional connections for the Teensy
 ### Power supply
 
 - LDO to generate 3.3 V on AVDD (see Evaluation board)
-- Supply DVDD and IOVDD from Teensy 3.3V or also from LDO?
+- Supply DVDD and IOVDD from Teensy 3.3V.
 - What about AGND and DGND? DGND on Teensy, AGND on LDO?
-
-- we use the onchip LDO to generate VREF.
 
 ### Signals and input channels
 
@@ -144,6 +142,21 @@ VSA-10uF/16V/ELECTROLYTIC, see evaluation board) to 4 input signals.
 VINL4, VINR4, VINL3, VINR3 are connected to a preamp, see:
 - http://realhdaudio.de/wp-content/uploads/2018/12/A0_HSD_TMT2018_realHDaudio_V3.pdf
 - https://www.akm.com/content/dam/documents/products/audio/audio-adc/ak5397eq/ak5397eq-en-datasheet.pdf
+
+
+### Pre-amplifier
+
+![preamp](preamp.png)
+
+- VDD and VREF directly from PCM1865 (no capacitors) is bad:
+  ![vddvref](images/RECORD-VDD-VREF-spectra.png)
+
+- VDD directly from PCM1865 (no capacitors), VREF via capacitor is better:
+  ![vddvref](images/RECORD-VDD-VREF10uF-spectra.png)
+
+- Both VDD and VREF from PCM1865 via capacitors is even better:
+  ![vddvref](images/RECORD-VDD10uF-VREF10uF-spectra.png)
+
 
 ### Gains and amplitudes
 
