@@ -144,6 +144,11 @@ VINL4, VINR4, VINL3, VINR3 are connected to a preamp, see:
 - https://www.akm.com/content/dam/documents/products/audio/audio-adc/ak5397eq/ak5397eq-en-datasheet.pdf
 
 
+### Signal-filter
+
+![filter](filter.png)
+
+
 ### Pre-amplifier
 
 ![preamp](preamp.png)

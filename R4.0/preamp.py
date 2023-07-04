@@ -7,6 +7,7 @@ plt.rcParams['font.size'] = 18
 fig, ax = plt.subplots()
 fig.subplots_adjust(nomargins=True)
 ax.show_spines('')
+
 pn, pp, po, pg, pw = ax.opamp_l((8, 5), 'OPA1662')
 gnd1 = ax.ground(pg.down(1), 'GND')
 ax.connect((pg, gnd1))
