@@ -151,10 +151,10 @@ VINL4, VINR4, VINL3, VINR3 are connected to a preamp, see:
 - VDD and VREF directly from PCM1865 (no capacitors) is bad:
   ![vddvref](images/RECORD-VDD-VREF-spectra.png)
 
-- VDD directly from PCM1865 (no capacitors), VREF via capacitor is better:
+- VDD directly from PCM1865 (no capacitors), VREF via capacitor C3 is better:
   ![vddvref](images/RECORD-VDD-VREF10uF-spectra.png)
 
-- Both VDD and VREF from PCM1865 via capacitors is even better:
+- Both VDD and VREF from PCM1865 via capacitors C3 and C4 is even better:
   ![vddvref](images/RECORD-VDD10uF-VREF10uF-spectra.png)
 
 
