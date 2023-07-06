@@ -9,13 +9,13 @@ fig.subplots_adjust(nomargins=True)
 ax.show_spines('')
 
 nn = ax.node((-4, 0), 'SIGNAL', align='left')
-c1l, c1r = ax.capacitance_h(nn.right(1), 'C1 10$\mu$F')
-nr = ax.node(c1r.right(1))
-r1l, r1r = ax.resistance_h(nr.right(1), 'R1 330')
+nr = ax.node(nn.right(1))
+c1l, c1r = ax.capacitance_h(nr.right(1), 'C1 10$\mu$F')
+r1l, r1r = ax.resistance_h(c1r.right(1.5), 'R2 330')
 nc = ax.node(r1r.right(1))
-ax.connect((nn, c1l, None, c1r, nr, r1l, None, r1r, nc, nc.right(2.5)))
+ax.connect((nn, nr, c1l, None, c1r, r1l, None, r1r, nc, nc.right(2)))
 
-r2b, r2t = ax.resistance_v(nr.down(1.5), 'R2 330')
+r2b, r2t = ax.resistance_v(nr.down(1.5), 'R1 50')
 gnd1 = ax.ground(r2b.down(1))
 ax.connect((nr, r2t, None, r2b, gnd1))
 
