@@ -121,10 +121,11 @@ so that I have access to them.
 
 Additional connections for the Teensy
 
-| Teensy 4.1 pin | Teensy 3.5 pin |            |
-| -------------: | -------------: | ---------: |
-| 0              | 4              | CAN RX     |
-| 1              | 3              | CAN TX     |
+| Teensy 4.1 pin | Teensy 3.5 pin |             |
+| -------------: | -------------: | ----------: |
+| 0              | 4              | CAN RX      |
+| 1              | 3              | CAN TX      |
+| 30             | 30             | Push button |
 
 
 ### Power supply
