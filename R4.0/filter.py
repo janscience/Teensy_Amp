@@ -15,7 +15,7 @@ r1l, r1r = ax.resistance_h(c1r.right(1.5), 'R2 330')
 nc = ax.node(r1r.right(1))
 ax.connect((nn, nr, c1l, None, c1r, r1l, None, r1r, nc, nc.right(2)))
 
-r2b, r2t = ax.resistance_v(nr.down(1.5), 'R1 50')
+r2b, r2t = ax.resistance_v(nr.down(1.5), 'R1 220')
 gnd1 = ax.ground(r2b.down(1))
 ax.connect((nr, r2t, None, r2b, gnd1))
 
