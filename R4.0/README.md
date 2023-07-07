@@ -125,6 +125,8 @@ Additional connections for the Teensy
 | -------------: | -------------: | ----------: |
 | 0              | 4              | CAN RX      |
 | 1              | 3              | CAN TX      |
+| 24             | 24             | I/O         |
+| 25             | 25             | I/O         |
 | 30             | 30             | Push button |
 
 
