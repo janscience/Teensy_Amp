@@ -154,12 +154,12 @@ VINL4, VINR4, VINL3, VINR3 are connected to a preamp, see:
 
 ### Pre-amplifier
 
-![preamp](preamp.png)
+![preampinv](preampinv.png)
 
-- No cross talk:
+- No cross talk?
   ![crosstalk](images/RECORD-VREFBUFFER-3x10uF-CROSSTALK-spectra.png)
 
-- Buffer with 10uF capacitors cleans up VREF:
+- Buffer with 10uF capacitors not needed to clean up VREF:
   ![vrefbuffer](images/RECORD-VREFBUFFER-3x10uF-spectra.png)
   (see Fig 6 in [Tips and Tricks for Designing with Voltage References](https://www.ti.com/lit/eb/slyc147a/slyc147a.pdf?ts=1688404208484&ref_url=https%253A%252F%252Fwww.google.com%252F))
 
