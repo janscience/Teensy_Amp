@@ -184,18 +184,26 @@ VINL4, VINR4, VINL3, VINR3 are connected to a preamp, see:
   high gains:
 
   10x gain at 40dB with R4=10 lowpass:
-  ![gain20lp](images/RECORD-R24700-R347k-R410-C2220nF-GAIN40dB-600uV-spectra.png)
+  ![gain40lp](images/RECORD-R24700-R347k-R410-C2220nF-GAIN40dB-600uV-spectra.png)
 
   10x gain at 20dB with R4=10 lowpass:
   ![gain20lp](images/RECORD-R24700-R347k-R410-C2220nF-GAIN20dB-6mV-spectra.png)
 
   10x gain at 0dB with R4=10 lowpass:
-  ![gain20lp](images/RECORD-R24700-R347k-R410-C2220nF-GAIN0dB-60mV-spectra.png)
+  ![gain0lp](images/RECORD-R24700-R347k-R410-C2220nF-GAIN0dB-60mV-spectra.png)
 
 - At low gain, removing the low-pass is better:
 
   10x gain at 0dB without lowpass:
-  ![gain20lp](images/RECORD-R24700-R347k-R40-GAIN0dB-60mV-spectra.png)
+  ![gain0nolp](images/RECORD-R24700-R347k-R40-GAIN0dB-60mV-spectra.png)
+
+- A good compromise seems to be a lowpass filter with R4=1:
+
+  10x gain at 0dB with R4=1 lowpass:
+  ![gain0lp1](images/RECORD-R24700-R347k-R41-C2220nF-GAIN0dB-60mV-spectra.png)
+
+  10x gain at 40dB with R4=1 lowpass:
+  ![gain40lp1](images/RECORD-R24700-R347k-R41-C2220nF-GAIN40dB-600uV-spectra.png)
 
 - The low-pass filter (R4, C2) is not really needed! For the following
   spectra, R4 and C2 were removed (no low-pass). First, a 1kHz signal
