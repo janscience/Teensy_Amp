@@ -156,14 +156,16 @@ VINL4, VINR4, VINL3, VINR3 are connected to a preamp, see:
 
 ![preampinv](preampinv.png)
 
-- No cross talk?
+- Cross talk (R1=10k, R3=220k, no low-pass) is at <60dB. Channel 0 got
+  1500Hz, channel 1 630Hz, channel 2 is terminated with 50Ohm, channel
+  3 is open:
   ![crosstalk](images/RECORD-CROSSTALK-spectra.png)
 
 - Both VDD and VREF from PCM1865 via capacitors C3, C4 and C5 with 10uF
   is good (R1=1k, R3=22k):
   ![vddvref](images/RECORD-VDD10uF-VREF10uF-R322k-POWERBANK-spectra.png)
 
-- Ten times larger R1 and R3 are better ((R1=10k, R3=220k, even larger is bad):
+- Ten times larger R1 and R3 are better (R1=10k, R3=220k, even larger is bad):
   ![rin](images/RECORD-VDD10uF-VREF10uF-R3220k-POWERBANK-spectra.png)
 
 - The low-pass filter (R4, C2) is not really needed! For the following
