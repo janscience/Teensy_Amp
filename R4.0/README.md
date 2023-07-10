@@ -168,6 +168,18 @@ VINL4, VINR4, VINL3, VINR3 are connected to a preamp, see:
 - Ten times larger R1 and R3 are better (R1=10k, R3=220k, even larger is bad):
   ![rin](images/RECORD-VDD10uF-VREF10uF-R3220k-POWERBANK-spectra.png)
 
+- BUT: at a gain of 40dB, the maximum possible R3 is 47k. Higher
+  values result in a recording with very low signal amplitude.
+
+  At both 20x gain (R2 = 2.2k) and 10x gain (R2 = 4.7k), adding the
+  low-pass filter (R4 and C2) substantially reduces harmonics:
+
+  20x gain at 40dB without lowpass:
+  ![gain20](images/RECORD-R22200-R347k-R40-GAIN40dB-300uV-spectra.png)
+  
+  20x gain at 40dB with lowpass:
+  ![gain20lp](images/RECORD-R22200-R347k-R4330-GAIN40dB-300uV-spectra.png)
+
 - The low-pass filter (R4, C2) is not really needed! For the following
   spectra, R4 and C2 were removed (no low-pass). First, a 1kHz signal
   was presented with a Hameg sinewave generator. It is a bit more
