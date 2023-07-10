@@ -177,6 +177,12 @@ VINL4, VINR4, VINL3, VINR3 are connected to a preamp, see:
   appears at 19.5kHz. And this is already well attenuated by about 70dB:
   ![1kHz](images/RECORD-28500Hz-spectra.png)
 
+- Highpass filter with R1=220 and C1=10uF results in a cutoff at about 20Hz:
+  ![HP](images/filter-R1220-R3220k-R40-traces.png)
+
+- Highpass filter with R1=47 and C1=10uF results in a cutoff at about 80Hz:
+  ![HP](images/filter-R147-R3220k-R40-traces.png)
+
 
 ### Gains and amplitudes
 
