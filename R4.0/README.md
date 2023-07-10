@@ -180,6 +180,23 @@ VINL4, VINR4, VINL3, VINR3 are connected to a preamp, see:
   20x gain at 40dB with lowpass:
   ![gain20lp](images/RECORD-R22200-R347k-R4330-GAIN40dB-300uV-spectra.png)
 
+- A smaller resistance R4 for the low pass improves the situation for
+  high gains:
+
+  10x gain at 40dB with R4=10 lowpass:
+  ![gain20lp](images/RECORD-R24700-R347k-R410-C2220nF-GAIN40dB-600uV-spectra.png)
+
+  10x gain at 20dB with R4=10 lowpass:
+  ![gain20lp](images/RECORD-R24700-R347k-R410-C2220nF-GAIN20dB-6mV-spectra.png)
+
+  10x gain at 0dB with R4=10 lowpass:
+  ![gain20lp](images/RECORD-R24700-R347k-R410-C2220nF-GAIN0dB-60mV-spectra.png)
+
+- At low gain, removing the low-pass is better:
+
+  10x gain at 0dB without lowpass:
+  ![gain20lp](images/RECORD-R24700-R347k-R40-GAIN0dB-60mV-spectra.png)
+
 - The low-pass filter (R4, C2) is not really needed! For the following
   spectra, R4 and C2 were removed (no low-pass). First, a 1kHz signal
   was presented with a Hameg sinewave generator. It is a bit more
