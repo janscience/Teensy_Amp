@@ -157,18 +157,23 @@ VINL4, VINR4, VINL3, VINR3 are connected to a preamp, see:
 ![preampinv](preampinv.png)
 
 - No cross talk?
-  ![crosstalk](images/RECORD-VREFBUFFER-3x10uF-CROSSTALK-spectra.png)
+  ![crosstalk](images/RECORD-CROSSTALK-spectra.png)
 
-- Buffer with 10uF capacitors not needed to clean up VREF:
-  ![vrefbuffer](images/RECORD-VREFBUFFER-3x10uF-spectra.png)
-  (see Fig 6 in [Tips and Tricks for Designing with Voltage References](https://www.ti.com/lit/eb/slyc147a/slyc147a.pdf?ts=1688404208484&ref_url=https%253A%252F%252Fwww.google.com%252F))
+- Both VDD and VREF from PCM1865 via capacitors C3, C4 and C5 with 10uF
+  is good (R1=1k, R3=22k):
+  ![vddvref](images/RECORD-VDD10uF-VREF10uF-R322k-POWERBANK-spectra.png)
 
-- VDD and VREF directly from PCM1865 (no capacitors) is bad:
-  ![vddvref](images/RECORD-VDD-VREF-spectra.png)
+- Ten times larger R1 and R3 are better ((R1=10k, R3=220k, even larger is bad):
+  ![rin](images/RECORD-VDD10uF-VREF10uF-R3220k-POWERBANK-spectra.png)
 
-- Both VDD and VREF from PCM1865 via capacitors C3 and C4 with 10uF
-  is better:
-  ![vddvref](images/RECORD-VDD10uF-VREF10uF-spectra.png)
+- The low-pass filter (R4, C2) is not really needed! For the following
+  spectra, R4 and C2 were removed (no low-pass). First, a 1kHz signal
+  was presented with a Hameg sinewave generator. It is a bit more
+  noisy compared to the Minirator sinewave generator:
+  ![1kHz](images/RECORD-1000Hz-spectra.png).
+  We record with 48kHz, Nyquist is at 24kHz. A 28.5kHz signal then
+  appears at 19.5kHz. And this is already well attenuated by about 70dB:
+  ![1kHz](images/RECORD-28500Hz-spectra.png)
 
 
 ### Gains and amplitudes
