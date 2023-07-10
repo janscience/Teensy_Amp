@@ -15,7 +15,7 @@ npwr = ax.node(pw.up(1), 'VDD')
 ax.connect((pw, npwr))
 
 ng1 = ax.node(pn.left(1))
-r1l, r1r = ax.resistance_h(ng1.left(1), 'R2 10k')
+r1l, r1r = ax.resistance_h(ng1.left(1), 'R2 4.7k')
 c1l, c1r = ax.capacitance_h(r1l.left(1), 'C1 10$\mu$F')
 n1 = ax.node(c1l.left(1))
 nn = ax.node(n1.left(1), 'SIGNAL', align='left')
@@ -29,15 +29,15 @@ gnd2 = ax.ground(r2b.down(0.7), 'GND')
 ax.connect((n1, r2t, None, r2b, gnd2))
 
 ng2 = ax.node(po.right(1.5))
-r4l, r4r = ax.resistance_h(ng2.right(1.5), 'R4 330')
+r4l, r4r = ax.resistance_h(ng2.right(1.5), 'R4 1')
 nlp = ax.node(r4r.right(1))
 no = ax.node(nlp.right(2), 'CH1L', 'right')
 ax.connect((po, ng2, r4l, None, r4r, nlp, no))
 
-r5l, r5r = ax.resistance_h(po.right(0.5).down(2), 'R3 220k')
+r5l, r5r = ax.resistance_h(po.right(0.5).down(2), 'R3 47k')
 ax.connect((ng1, r5l, None, r5r, ng2))
 
-c2b, c2t = ax.capacitance_v(nlp.down(1), 'C2 22nF')
+c2b, c2t = ax.capacitance_v(nlp.down(1), 'C2 220nF')
 gnd2 = ax.ground(c2b.down(1), 'GND')
 ax.connect((nlp, c2t, None, c2b, gnd2))
 
