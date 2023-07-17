@@ -4,6 +4,13 @@ Work in progress.
 
 With digitaly adjustable gain and filter settings.
 
+
+## Circuit
+
+- [EAGLE schematics file](teensy_amp_R4.0.sch)
+- [EAGLE circuit board](teensy_amp_R4.0.brd)
+
+
 ## Audio chips
 
 - [TI PCM1865](https://www.ti.com/product/PCM1865): 8 input channels (but can only put out 4)
