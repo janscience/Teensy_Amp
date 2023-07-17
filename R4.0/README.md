@@ -90,6 +90,8 @@ Components to test:
 | R2        | 0     | 0     | 0     | 0     | 100   | 100   | 100   | 100   | TP       | 
 | C2        | -     | -     | -     | -     | 10nF  | 10nF  | 10nF  | 10nF  | TP       |
 
+Each component is needed 8x25=200 times!
+
 
 ### Pre-amplifier
 
@@ -110,6 +112,7 @@ Components to test:
 | R4        | 100   | 0     | 100   | 0     | 100   | 0     | 100   | 0     | TP       |
 | C3        | 10nF  | -     | 10nF  | -     | 10nF  | -     | 10nF  | -     | TP       |
 
+Each component is needed 8x25=200 times!
 
 - Cross talk (R1=10k, R3=220k, no low-pass) is at <60dB. Channel 0 got
   1500Hz, channel 1 630Hz, channel 2 is terminated with 50Ohm, channel
