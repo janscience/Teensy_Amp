@@ -78,7 +78,17 @@ Additional connections for the Teensy
 
 ### Signal-filter
 
+See figure 61 of the [PCM186x data sheet](https://www.ti.com/lit/gpn/pcm1865).
+
 ![filter](filter.png)
+
+Components to test:
+
+| Component | A     | B     | C     | D     | E     | F     | G     | H     | Comment |
+| --------- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ------- |
+| R1        | -     | 220   |    1k |  2.2k | -     | 220   |    1k |  2.2k | 20Hz, 5Hz, 2Hz highpass |
+| R2        | 0     | 0     | 0     | 0     | 100   | 100   | 100   | 100   | TP       | 
+| C2        | -     | -     | -     | -     | 10nF  | 10nF  | 10nF  | 10nF  | TP       |
 
 
 ### Pre-amplifier
@@ -86,8 +96,20 @@ Additional connections for the Teensy
 Inspired by
 - http://realhdaudio.de/wp-content/uploads/2018/12/A0_HSD_TMT2018_realHDaudio_V3.pdf
 - https://www.akm.com/content/dam/documents/products/audio/audio-adc/ak5397eq/ak5397eq-en-datasheet.pdf
+- Figure 61 of the [PCM186x data sheet](https://www.ti.com/lit/gpn/pcm1865).
 
 ![preampinv](preampinv.png)
+
+Components to test:
+
+| Component | A     | B     | C     | D     | E     | F     | G     | H     | Comment |
+| --------- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ------- |
+| R1        | -     | -     | -     | -     | 1k    | 1k    | 1k    | 1k    | 5Hz highpass |
+| R2        | 1k    | 1k    |  4.7k |  4.7k | 1k    | 1k    |  4.7k |  4.7k | 20x gain |
+| R3        | 22k   | 22k   | 100k  | 100k  | 22k   | 22k   | 100k  | 100k  | 20x gain |
+| R4        | 100   | 0     | 100   | 0     | 100   | 0     | 100   | 0     | TP       |
+| C3        | 10nF  | -     | 10nF  | -     | 10nF  | -     | 10nF  | -     | TP       |
+
 
 - Cross talk (R1=10k, R3=220k, no low-pass) is at <60dB. Channel 0 got
   1500Hz, channel 1 630Hz, channel 2 is terminated with 50Ohm, channel
