@@ -2,87 +2,26 @@
 
 Work in progress.
 
-With digitaly adjustable gain and filter settings.
+With digitaly adjustable gain.
+
+
+## TI PCM1865
+
+- 8 input channels
+- can be routed onto 4 24bit ADCs and output channels
+- upto 192kHz sampling rate
+- -12 to 40dB gain!
+
+For details, see
+- [web site](https://www.ti.com/product/PCM1865)
+- [PCM186x data sheet](https://www.ti.com/lit/gpn/pcm1865)
+- [PCM186xEVM evalutation board](https://www.ti.com/lit/pdf/slau615)
 
 
 ## Circuit
 
 - [EAGLE schematics file](teensy_amp_R4.0.sch)
 - [EAGLE circuit board](teensy_amp_R4.0.brd)
-
-
-## Audio chips
-
-- [TI PCM1865](https://www.ti.com/product/PCM1865): 8 input channels (but can only put out 4)
-- [TLV320ADC5140](https://www.ti.com/product/TLV320ADC5140), 4 channels and ADCs, can be daisy-chained.
-
-Use I2S or TDM protocol on [Teensy 4.1](https://www.pjrc.com/teensy/pinout.html#Teensy_4.1).
-
-
-## Teensy libraries
-
-See [Teensy
-forum](https://forum.pjrc.com/threads/38753-Discussion-about-a-simple-way-to-change-the-sample-rate/page4)
-for dicussions on how to change sampling frequency of I2S bus.
-And also [Frank's bat detector](https://forum.pjrc.com/threads/38988-Bat-detector).
-
-See Audio library for input_tdm module.
-
-See [Tympan](https://github.com/Tympan/Tympan_Library) project for
-setting sampling rate via their AudioSettings class.
-
-See
-[microSoundRecorder](https://github.com/WMXZ-EU/microSoundRecorder)
-for variable sampling rates (?), but only Teensy 3.5.
-
-The [Teensy
-Batdetector](https://github.com/CorBer/teensy_batdetector/releases/tag/v1.6)
-might also have some nice features that are intersiting for us ...
-
-## TI PCM1865
-
-- [web site](https://www.ti.com/product/PCM1865)
-- [PCM186x data sheet](https://www.ti.com/lit/gpn/pcm1865)
-- [PCM186xEVM evalutation board](https://www.ti.com/lit/pdf/slau615)
-
-### Evalutation board
-
-We use the [PCM186xEVM evalutation
-board](https://www.ti.com/lit/pdf/slau615) to figure out how to
-control and use the PCM186x chips by a Teensy 4.1:
-
-1. Connect it straight to USB and open PurePath console. On the first
-   tab select 'mode=2' for operating the PCM186x in slave mode. Use an
-   audio recording software (e.g. audacity) to record the I2S audio
-   stream (you need to select the right input source). This way you
-   can play around with various input sources, gains, and channel
-   configurations. Save register settings.
-
-2. Test BCK input slave PLL mode (section 9.3.9.4.4, Figure 66 in data sheet):
-   - Supports only 8, 16, 48, 96, 192kHz (table 11)!
-   - Remove R3 on the evaluation board.
-   - Set MST_MODE to slave (default anyways).
-   - Enable CLKDET_EN ! All clocks and dividers are then automatically
-     configured.
-   - No need to enable PLL_EN and to set PLL_REF_SEL to BCK.
-   - No need to set MST_SCK_SRC etc. (see Figure 33, Master mode only).
-   - Check CLK_ERR_STAT and current status registers (section 9.5.2):
-     all SCK related indicators report errors.
-   - Works!
-
-3. Read I2S stream with Teensy:
-   - Remove R20, R21, R22.
-   - Replace standoffs by header pins.
-   - Connect BCK, LRCK and DOUT to Teensy I2S bus.
-   - Only the first two channels are transmitted via DOUT.
-   - The last two channels are transmitted via DOUT2, use AudioInputI2CQuad.
-   - Works!
-
-5. Control I2C from Teensy:
-   - Connect Teensy I2C via J7.
-   - Coded in TeeRec::ControlPCM186x
-   - See section 9.3.9.8 for how to change sampling rates.
-   - Works!
 
 
 ### Pins
@@ -137,29 +76,16 @@ Additional connections for the Teensy
 | 30             | 30             | Push button |
 
 
-### Power supply
-
-- LDO to generate 3.3 V on AVDD (see Evaluation board)
-- Supply DVDD and IOVDD from Teensy 3.3V.
-- What about AGND and DGND? DGND on Teensy, AGND on LDO?
-
-### Signals and input channels
-
-Signal pins VINL2, VINR2, VINL1, VINR1 connect via 100kOhm (R40-R47)
-and capacitor (C1-C4, C15-C18: DEFAULT: SMD0805 10uF/16V/X7R ALT:
-VSA-10uF/16V/ELECTROLYTIC, see evaluation board) to 4 input signals.
-
-VINL4, VINR4, VINL3, VINR3 are connected to a preamp, see:
-- http://realhdaudio.de/wp-content/uploads/2018/12/A0_HSD_TMT2018_realHDaudio_V3.pdf
-- https://www.akm.com/content/dam/documents/products/audio/audio-adc/ak5397eq/ak5397eq-en-datasheet.pdf
-
-
 ### Signal-filter
 
 ![filter](filter.png)
 
 
 ### Pre-amplifier
+
+Inspired by
+- http://realhdaudio.de/wp-content/uploads/2018/12/A0_HSD_TMT2018_realHDaudio_V3.pdf
+- https://www.akm.com/content/dam/documents/products/audio/audio-adc/ak5397eq/ak5397eq-en-datasheet.pdf
 
 ![preampinv](preampinv.png)
 
@@ -244,38 +170,6 @@ be recorded without clipping are:
 Maximum analog gain is 32dB, but bit depth is 24bit.
 
 
-### TDM audio data stream
-
-- SCKI
-- LRCK
-- BCK
-- DOUT
-
-
-## TLV320ADC5140
-
-[TLV320ADC5140 web site](https://www.ti.com/product/TLV320ADC5140)
-
-
-### TDM
-
-- 256bit frame
-- 16 channels with each 16bit
-- 2 independent TDM channels on Tensy 4.1 would allow 32 channel maximum!
-
-### BCLK
-
-- Teensy audio library generates LRCLK (44.1 kHz), BCLK (1.41 or 2.82
-  MHz) and MCLK (11.29 MHz) for an 41kHz audio signal.
-- bit clock ≥ (# channels/device) × (# devices) × (sample rate) × (word length)
-- bit clock = 4 x 4 x 96kHz x 16 = 24.5MHz < 25MHz possible for the chip
-- 25MHz is also the maximum for the Teensy 4.1
-- bit clock = 4 x 1 x 44.1kHz x 16 = 2.82MHz default support by audio library
-- higher frequencies seem to be possible
-
-See https://www.ti.com/lit/an/sbaa383b/sbaa383b.pdf?ts=1680563663210
-for configurations of multiple chips
-
 ## Power consumption
 
 - Teensy 4.1: 100mA
@@ -347,3 +241,38 @@ micro SD cards (prices from 2023):
 
 Use 8 channels (2 chips) and a 128GB, better 256GB microSD card and a
 single 50Ah car battery. That lasts for 4 days minimum.
+
+
+### Evalutation board
+
+We used the [PCM186xEVM evalutation
+board](https://www.ti.com/lit/pdf/slau615) to figure out how to
+control and use the PCM186x chips by a Teensy 4.1:
+
+1. Connect it straight to USB and open PurePath console. On the first
+   tab select 'mode=2' for operating the PCM186x in slave mode. Use an
+   audio recording software (e.g. audacity) to record the I2S audio
+   stream (you need to select the right input source). This way you
+   can play around with various input sources, gains, and channel
+   configurations. Save register settings.
+
+2. Read I2S stream with Teensy:
+   - Remove R3, R20, R21, R22.
+   - Replace standoffs by header pins.
+   - Connect BCK, LRCK and DOUT to Teensy I2S bus.
+   - Only the first two channels are transmitted via DOUT.
+   - The last two channels are transmitted via DOUT2, use AudioInputI2CQuad.
+   - Configure BCK input slave PLL mode
+     (section 9.3.9.4.4, Figure 66 in data sheet) via PurePath console:
+     - Set MST_MODE to slave (default anyways).
+     - Enable CLKDET_EN ! All clocks and dividers are then automatically
+       configured.
+     - No need to set MST_SCK_SRC etc. (see Figure 33, Master mode only).
+   - Works!
+
+3. Control I2C from Teensy:
+   - Connect Teensy I2C via J7.
+   - Coded in TeeRec::ControlPCM186x
+   - See section 9.3.9.8 for how to change sampling rates.
+   - Works!
+
