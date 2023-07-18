@@ -26,6 +26,8 @@ For details, see
 
 ### Pins
 
+![pcb](images/TeensyAmp_R4.0_pcb.png)
+
 See page 11 and Fig 22 in the data sheet and Figure 15 of the
 evaluation board manual:
 
