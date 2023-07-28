@@ -80,6 +80,22 @@ The two [TI PCM1865](https://www.ti.com/product/PCM1865) provide 8 channels:
 ![8-channels](images/8channels-traces.png)
 
 
+### Noise
+
+Inputs short circuited to ground.
+
+![zeros0dB](images/zeros-gain1x1.png)
+
+![zeros20dB](images/zeros-gain1x10.png)
+
+![zeros40dB](images/zeros-gain1x100.png)
+
+- No SD write artifacts.
+- Same offset in all channels.
+- Super low noise at 0dB gain.
+- Noise increases accordingly with gain.
+
+
 ### Signal-filter
 
 See figure 61 of the [PCM186x data sheet](https://www.ti.com/lit/gpn/pcm1865).
