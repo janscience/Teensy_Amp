@@ -1,8 +1,7 @@
 # TeensyAmp R4.0
 
-Work in progress.
-
-With digitaly adjustable gain.
+Based on two [TI PCM1865](https://www.ti.com/product/PCM1865) with ADC and
+adjustable gain.
 
 
 ## TI PCM1865
@@ -64,18 +63,21 @@ evaluation board manual:
 | 29  | VINL3/VIN4P | SIGALT 1 / 4 |    |   |
 | 30  | VINR3/VIN3P | SIGALT 0 / 3 |    |   |
 
-GPIO pins: connect them somehow to pins 34 - 41 of the Teensy,
-so that I have access to them.
-
-Additional connections for the Teensy
+Additional connections for the Teensy:
 
 | Teensy 4.1 pin | Teensy 3.5 pin |             |
 | -------------: | -------------: | ----------: |
 | 0              | 4              | CAN RX      |
 | 1              | 3              | CAN TX      |
 | 24             | 24             | I/O         |
-| 25             | 25             | I/O         |
 | 30             | 30             | Push button |
+
+
+### 8 channels
+
+The two [TI PCM1865](https://www.ti.com/product/PCM1865) provide 8 channels:
+
+![8-channels](8channels-traces.png)
 
 
 ### Signal-filter
