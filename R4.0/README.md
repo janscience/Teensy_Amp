@@ -77,7 +77,7 @@ Additional connections for the Teensy:
 
 The two [TI PCM1865](https://www.ti.com/product/PCM1865) provide 8 channels:
 
-![8-channels](8channels-traces.png)
+![8-channels](images/8channels-traces.png)
 
 
 ### Signal-filter
