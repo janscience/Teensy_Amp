@@ -84,11 +84,11 @@ The two [TI PCM1865](https://www.ti.com/product/PCM1865) provide 8 channels:
 
 Inputs short circuited to ground.
 
-![zeros0dB](images/zeros-gain1x1.png)
+![zeros0dB](images/zeros-gain1x1-noise.png)
 
-![zeros20dB](images/zeros-gain1x10.png)
+![zeros20dB](images/zeros-gain1x10-noise.png)
 
-![zeros40dB](images/zeros-gain1x100.png)
+![zeros40dB](images/zeros-gain1x100-noise.png)
 
 - No SD write artifacts.
 - Same offset in all channels.
