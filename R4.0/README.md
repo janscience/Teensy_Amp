@@ -75,7 +75,9 @@ Additional connections for the Teensy:
 
 ### 8 channels
 
-The two [TI PCM1865](https://www.ti.com/product/PCM1865) provide 8 channels:
+The two [TI PCM1865](https://www.ti.com/product/PCM1865) provide 8 channels.
+
+In the following plot a 1kHz signal was supplied to each input channel in turn:
 
 ![8-channels](images/8channels-traces.png)
 
@@ -84,16 +86,19 @@ The two [TI PCM1865](https://www.ti.com/product/PCM1865) provide 8 channels:
 
 Inputs short circuited to ground.
 
-![zeros0dB](images/zeros-gain1x1-noise.png)
+- 0dB gain:
+  ![variants-zeros0dB](images/variants-zeros-gain1x1-noise.png)
 
-![zeros20dB](images/zeros-gain1x10-noise.png)
+- 20dB gain:
+  ![variants-zeros20dB](images/variants-zeros-gain1x10-noise.png)
 
-![zeros40dB](images/zeros-gain1x100-noise.png)
+- 40dB gain:
+  ![variants-zeros40dB](images/variants-zeros-gain1x100-noise.png)
 
 - No SD write artifacts.
-- Same offset in all channels.
+- Same offset and noise in all channels.
 - Super low noise at 0dB gain.
-- Noise increases accordingly with gain.
+- Noise increases accordingly with gain of the PCM chip.
 
 
 ### Signal-filter
@@ -102,15 +107,7 @@ See figure 61 of the [PCM186x data sheet](https://www.ti.com/lit/gpn/pcm1865).
 
 ![filter](filter.png)
 
-Components to test:
-
-| Component | A     | B     | C     | D     | E     | F     | G     | H     | Comment |
-| --------- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ------- |
-| R1        | -     | 220   |    1k |  2.2k | -     | 220   |    1k |  2.2k | 20Hz, 5Hz, 2Hz highpass |
-| R2        | 0     | 0     | 0     | 0     | 100   | 100   | 100   | 100   | TP       | 
-| C2        | -     | -     | -     | -     | 10nF  | 10nF  | 10nF  | 10nF  | TP       |
-
-Each component is needed 8x25=200 times!
+For variants of the signal filter see [Testing filter and gain variants](variants.md).
 
 
 ### Pre-amplifier
@@ -122,17 +119,7 @@ Inspired by
 
 ![preampinv](preampinv.png)
 
-Components to test:
-
-| Component | A     | B     | C     | D     | E     | F     | G     | H     | Comment |
-| --------- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ------- |
-| R1        | -     | -     | -     | -     | 1k    | 1k    | 1k    | 1k    | 5Hz highpass |
-| R2        | 1k    | 1k    |  4.7k |  4.7k | 1k    | 1k    |  4.7k |  4.7k | 20x gain |
-| R3        | 22k   | 22k   | 100k  | 100k  | 22k   | 22k   | 100k  | 100k  | 20x gain |
-| R4        | 100   | 0     | 100   | 0     | 100   | 0     | 100   | 0     | TP       |
-| C3        | 10nF  | -     | 10nF  | -     | 10nF  | -     | 10nF  | -     | TP       |
-
-Each component is needed 8x25=200 times!
+For variants of the pre-amplifier see [Testing filter and gain variants](variant
 
 - Cross talk (R1=10k, R3=220k, no low-pass) is at <60dB. Channel 0 got
   1500Hz, channel 1 630Hz, channel 2 is terminated with 50Ohm, channel
