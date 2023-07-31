@@ -81,7 +81,9 @@ Inputs short circuited to ground.
 
   ![variants-zeros40dB](images/variants-zeros-gain20x100-noise.png)
 
-- More noise with low pass and 22k gain.
+- Twice as much noise with the 100k gain.
+- At 20dB gain, amounting to x200 overall gain, the noise standard
+  deviation is three times smaller than 40dB gain without preamp.
 
 
 ### Linearity
@@ -90,14 +92,14 @@ Inputs short circuited to ground.
 
 - 0dB gain, 30mV rms sine wave:
 
-  ![variants-sig-gain1x1](images/variants-sig1kHz30mV-gain1x1-spectra.png)
+  ![variants-sig-gain1x1](images/variants-sig1kHz30mV-gain20x1-spectra.png)
 
 - 20dB gain, 3mV rms sine wave:
 
-  ![variants-sig-gain1x10](images/variants-sig1kHz3mV-gain1x10-spectra.png)
+  ![variants-sig-gain1x10](images/variants-sig1kHz3mV-gain20x10-spectra.png)
 
 - 40dB gain, 300uV rms sine wave:
 
-  ![variants-sig-gain1x100](images/variants-sig1kHz300uV-gain1x100-spectra.png)
+  ![variants-sig-gain1x100](images/variants-sig1kHz300uV-gain20x100-spectra.png)
 
 
