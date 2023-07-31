@@ -104,6 +104,35 @@ Inputs short circuited to ground.
 - Noise increases accordingly with gain of the PCM chip.
 
 
+### Clipping
+
+The PCM1865 clips with inversion (a 1kHz signal with 2V rms):
+
+![clipped](images/sig1kHz2V-gain1x1-traces.png)
+
+This can be fixed by unwrapping:
+
+![unwrapped](images/sig1kHz2V-gain1x1-unwrapped-traces.png)
+
+The unwrapped trace, however, is distorted:
+
+![unwrappedspectrum](images/sig1kHz2V-gain1x1-unwrapped-spectra.png)
+
+The larger the signal amplitude, the stronger the distortion,
+until the unwrapped signal eventually clips at 3.3V:
+
+A 3V rms signal:
+![unwrapped](images/sig1kHz3V-gain1x1-unwrapped-traces.png)
+
+![unwrappedspectrum](images/sig1kHz3V-gain1x1-unwrapped-spectra.png)
+
+
+A 5V rms signal:
+![unwrapped](images/sig1kHz5V-gain1x1-unwrapped-traces.png)
+
+![unwrappedspectrum](images/sig1kHz5V-gain1x1-unwrapped-spectra.png)
+
+
 ### Signal-filter
 
 See figure 61 of the [PCM186x data sheet](https://www.ti.com/lit/gpn/pcm1865).
