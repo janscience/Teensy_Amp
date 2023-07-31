@@ -3,6 +3,9 @@
 Based on two [TI PCM1865](https://www.ti.com/product/PCM1865) with ADC and
 adjustable gain.
 
+by [jlm Innovation](https://www.jlm-innovation.de/) and [Jan
+Benda](https://github.com/janscience).
+
 
 ## TI PCM1865
 
