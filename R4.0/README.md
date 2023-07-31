@@ -90,12 +90,15 @@ In the following plot a 1kHz signal was supplied to each input channel in turn:
 Inputs short circuited to ground.
 
 - 0dB gain:
+
   ![variants-zeros0dB](images/variants-zeros-gain1x1-noise.png)
 
 - 20dB gain:
+
   ![variants-zeros20dB](images/variants-zeros-gain1x10-noise.png)
 
 - 40dB gain:
+
   ![variants-zeros40dB](images/variants-zeros-gain1x100-noise.png)
 
 - No SD write artifacts.

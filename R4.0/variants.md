@@ -15,12 +15,15 @@
 Inputs short circuited to ground.
 
 - 0dB gain:
+
   ![variants-zeros0dB](images/variants-zeros-gain1x1-noise.png)
 
 - 20dB gain:
+
   ![variants-zeros20dB](images/variants-zeros-gain1x10-noise.png)
 
 - 40dB gain:
+
   ![variants-zeros40dB](images/variants-zeros-gain1x100-noise.png)
 
 - Same offset and noise in all channels and variants.
@@ -31,12 +34,15 @@ Inputs short circuited to ground.
 1 kHz sine wave (Minirator) applied to each channel individually:
 
 - 0dB gain, 700mV rms sine wave:
+
   ![variants-sig-gain1x1](images/variants-sig1kHz700mV-gain1x1-spectra.png)
 
 - 20dB gain, 70mV rms sine wave:
+
   ![variants-sig-gain1x10](images/variants-sig1kHz70mV-gain1x10-spectra.png)
 
 - 40dB gain, 7mV rms sine wave:
+
   ![variants-sig-gain1x100](images/variants-sig1kHz7mV-gain1x100-spectra.png)
 
 - in all conditions harmonics ar at least 90 to 100dB below the signal!
@@ -57,3 +63,41 @@ Inputs short circuited to ground.
 | R3        | 22k   | 22k   | 100k  | 100k  | 22k   | 22k   | 100k  | 100k  | 20x gain |
 | R4        | 100   | 0     | 100   | 0     | 100   | 0     | 100   | 0     | TP       |
 | C3        | 10nF  | -     | 10nF  | -     | 10nF  | -     | 10nF  | -     | TP
+
+
+### Noise
+
+Inputs short circuited to ground.
+
+- 0dB gain:
+
+  ![variants-zeros0dB](images/variants-zeros-gain20x1-noise.png)
+
+- 20dB gain:
+
+  ![variants-zeros20dB](images/variants-zeros-gain20x10-noise.png)
+
+- 40dB gain:
+
+  ![variants-zeros40dB](images/variants-zeros-gain20x100-noise.png)
+
+- More noise with low pass and 22k gain.
+
+
+### Linearity
+
+1 kHz sine wave (Minirator) applied to each channel individually:
+
+- 0dB gain, 30mV rms sine wave:
+
+  ![variants-sig-gain1x1](images/variants-sig1kHz30mV-gain1x1-spectra.png)
+
+- 20dB gain, 3mV rms sine wave:
+
+  ![variants-sig-gain1x10](images/variants-sig1kHz3mV-gain1x10-spectra.png)
+
+- 40dB gain, 300uV rms sine wave:
+
+  ![variants-sig-gain1x100](images/variants-sig1kHz300uV-gain1x100-spectra.png)
+
+
