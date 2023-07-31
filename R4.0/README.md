@@ -122,15 +122,24 @@ The larger the signal amplitude, the stronger the distortion,
 until the unwrapped signal eventually clips at 3.3V:
 
 A 3V rms signal:
-![unwrapped](images/sig1kHz3V-gain1x1-unwrapped-traces.png)
+![unwrapped3V](images/sig1kHz3V-gain1x1-unwrapped-traces.png)
 
-![unwrappedspectrum](images/sig1kHz3V-gain1x1-unwrapped-spectra.png)
+![unwrapped3Vspectrum](images/sig1kHz3V-gain1x1-unwrapped-spectra.png)
 
 
 A 5V rms signal:
-![unwrapped](images/sig1kHz5V-gain1x1-unwrapped-traces.png)
+![unwrapped5V](images/sig1kHz5V-gain1x1-unwrapped-traces.png)
 
-![unwrappedspectrum](images/sig1kHz5V-gain1x1-unwrapped-spectra.png)
+![unwrapped5Vspectrum](images/sig1kHz5V-gain1x1-unwrapped-spectra.png)
+
+A 40dB gain (x100), a 20mV rms signal clips, but can be unwrapped:
+![unwrapped20mV](images/sig1kHz20mV-gain1x100-unwrapped-traces.png)
+
+A 50mV rms signal clips even after unwrapping:
+![unwrapped50mV](images/sig1kHz50mV-gain1x100-unwrapped-traces.png)
+
+But a 100mV rms signal cannot be fixed:
+![unwrapped100mV](images/sig1kHz100mV-gain1x100-unwrapped-traces.png)
 
 
 ### Signal-filter
