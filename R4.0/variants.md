@@ -5,7 +5,7 @@ If not noted otherwise, all measurements at 48kHz sampling rate.
 
 ## Signal-filter
 
-![filter](filter.png)
+![filter](images/filtervariants.png)
 
 | Component | 1-CH3R | 1-CH3L | 1-CH4R | 1-CH4L | 2-CH3R | 2-CH3L | 2-CH4R | 2-CH4L | Comment |
 | --------- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ------- |
@@ -77,7 +77,7 @@ With low-pass filter:
 
 ![39.2kHz LP](images/sig39200Hz1V-TP-gain1x1-spectra.png)
 
-- Low-pass filter is not really needed!
+- Low-pass filter is not really needed.
 
 
 ### High-pass filter
@@ -101,10 +101,12 @@ With R1=2.2k we get a 2Hz high-pass filter:
 
 ![HP2200](images/filter-700mV-gain1x1-HP2200-traces.png)
 
+- Let's use R1=1k for a 5Hz high-pass filter.
+
 
 ## Pre-amplifier
 
-![preampinv](preampinv.png)
+![preampinv](images/preampinvvariants.png)
 
 | Component | 1-CH1R | 1-CH1L | 1-CH2R | 1-CH2L | 2-CH1R | 2-CH1L | 2-CH2R | 2-CH2L | Comment |
 | --------- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ------- |

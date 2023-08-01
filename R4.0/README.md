@@ -149,7 +149,7 @@ But a 100mV rms signal cannot be fixed:
 
 See figure 61 of the [PCM186x data sheet](https://www.ti.com/lit/gpn/pcm1865).
 
-![filter](filter.png)
+![filter](images/filter.png)
 
 For variants of the signal filter see [Testing filter and gain variants](variants.md).
 
@@ -161,7 +161,7 @@ Inspired by
 - https://www.akm.com/content/dam/documents/products/audio/audio-adc/ak5397eq/ak5397eq-en-datasheet.pdf
 - Figure 61 of the [PCM186x data sheet](https://www.ti.com/lit/gpn/pcm1865).
 
-![preampinv](preampinv.png)
+![preampinv](images/preampinv.png)
 
 For variants of the pre-amplifier see [Testing filter and gain variants](variant
 
