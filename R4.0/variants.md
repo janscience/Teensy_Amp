@@ -88,7 +88,7 @@ Inputs short circuited to ground.
 
 - Twice as much noise with the 100k gain.
 - At 20dB gain, amounting to x200 overall gain, the noise standard
-  deviation is three times smaller than 40dB gain without preamp.
+  deviation is three times smaller than 40dB gain (x100) without preamp.
 
 
 ### Linearity
@@ -166,5 +166,5 @@ Without R1 we still have a 25Hz high-pass filter:
 
 Without R1 and R2=4.7kHz and R3=100kHz,  we still have a 5Hz high-pass filter:
 
-![noHPR3100k](images/filter-noHP-30mV-R3=100k-gain20x1-traces.png)
+![noHPR3100k](images/filter-noHP-30mV-R3100k-gain20x1-traces.png)
 
