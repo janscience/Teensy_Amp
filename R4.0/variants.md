@@ -1,10 +1,13 @@
 # Testing filter and gain variants
 
+If not noted otherwise, all measurements at 48kHz sampling rate.
+
+
 ## Signal-filter
 
 ![filter](filter.png)
 
-| Component | 1-CH3R | 1-CH3L | 1-CH4L | 1-CH4R | 2-CH3L | 2-CH3R | 2-CH4L | 2-CH4R | Comment |
+| Component | 1-CH3R | 1-CH3L | 1-CH4R | 1-CH4L | 2-CH3R | 2-CH3L | 2-CH4R | 2-CH4L | Comment |
 | --------- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ------- |
 | R1        | -     | 220   |    1k |  2.2k | -     | 220   |    1k |  2.2k | 20Hz, 5Hz, 2Hz highpass |
 | R2        | 0     | 0     | 0     | 0     | 100   | 100   | 100   | 100   | TP       | 
@@ -58,7 +61,7 @@ Inputs short circuited to ground.
 
 ![preampinv](preampinv.png)
 
-| Component | 1-CH1R | 1-CH1L | 1-CH2L | 1-CH2R | 2-CH1L | 2-CH1R | 2-CH2L | 2-CH2R | Comment |
+| Component | 1-CH1R | 1-CH1L | 1-CH2R | 1-CH2L | 2-CH1R | 2-CH1L | 2-CH2R | 2-CH2L | Comment |
 | --------- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ------- |
 | R1        | -     | -     | -     | -     | 1k    | 1k    | 1k    | 1k    | 5Hz highpass |
 | R2        | 1k    | 1k    |  4.7k |  4.7k | 1k    | 1k    |  4.7k |  4.7k | 20x gain |
@@ -109,4 +112,39 @@ Inputs short circuited to ground.
 - Effect of 22k versus 100k gain is small. 
 - Noise floor is similar in all variants (in contrast to the noise measurement).
 - At comparable gains, preamp introduces slightly more harmonics.
-- Let's take variant 2-CH1R (R1=1k, R2=1k, R3=22k, R4=0, C3=-).
+- Let's take variant 2-CH1L (R1=1k, R2=1k, R3=22k, R4=0, C3=-).
+
+
+### Low-pass filter
+
+An 1kHz signal without low-pass filter:
+
+![1kHz no LP](images/sig1kHz30mV-gain20x1-spectra.png)
+
+and with low-pass filter:
+
+![1kHz LP](images/sig1kHz30mV-TP-gain20x1-spectra.png)
+
+With a sampling rate of 48kHz a 47kHz signal will appear also at 1kHz.
+
+Without low-pass filter:
+
+![47kHz no LP](images/sig47kHz30mV-gain20x1-spectra.png)
+
+With low-pass filter:
+
+![47kHz LP](images/sig47kHz30mV-TP-gain20x1-spectra.png)
+
+The same for a 8.8kHz signal - a bit closer to the Nyquist frequency:
+
+![8.8kHz no LP](images/sig8800Hz30mV-gain20x1-spectra.png)
+
+A 39.2kHz signal also appears at 8.8kHz.
+
+Without low-pass filter:
+
+![39.2kHz no LP](images/sig39200Hz30mV-gain20x1-spectra.png)
+
+With low-pass filter:
+
+![39.2kHz LP](images/sig39200Hz30mV-TP-gain20x1-spectra.png)
