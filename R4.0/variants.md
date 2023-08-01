@@ -27,6 +27,7 @@ Inputs short circuited to ground.
   ![variants-zeros40dB](images/variants-zeros-gain1x100-noise.png)
 
 - Same offset and noise in all channels and variants.
+- Noise increases according to gain.
 
 
 ### Linearity
@@ -45,11 +46,12 @@ Inputs short circuited to ground.
 
   ![variants-sig-gain1x100](images/variants-sig1kHz7mV-gain1x100-spectra.png)
 
-- in all conditions harmonics ar at least 90 to 100dB below the signal!
-- with the low-pass filter (lower row) higher harmonics are stronger than
+- In all conditions harmonics ar at least 90 to 100dB below the signal!
+- With the low-pass filter (lower row) higher harmonics are stronger than
   without low-pass filter (upper row).
-- the 2Hz and 5Hz high-pass filters (two rightmost columns) have the smalles harmonics.
-- at higher gains the differences are marginally.
+- The 2Hz and 5Hz high-pass filters (two rightmost columns) have the smalles harmonics.
+- At higher gains the differences are marginally.
+- Noise increases according to gain (every x10 by 20dB).
 
 
 ## Pre-amplifier
@@ -102,4 +104,9 @@ Inputs short circuited to ground.
 
   ![variants-sig-gain1x100](images/variants-sig1kHz300uV-gain20x100-spectra.png)
 
-
+- Low-pass filter introduces stronger 2nd harmonics at 0dB gain.
+- Effect of high-pass filter is small.
+- Effect of 22k versus 100k gain is small. 
+- Noise floor is similar in all variants (in contrast to the noise measurement).
+- At comparable gains, preamp introduces slightly more harmonics.
+- Let's take variant 2-CH1R (R1=1k, R2=1k, R3=22k, R4=0, C3=-).
