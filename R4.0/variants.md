@@ -148,3 +148,23 @@ Without low-pass filter:
 With low-pass filter:
 
 ![39.2kHz LP](images/sig39200Hz30mV-TP-gain20x1-spectra.png)
+
+- Low-pass filter is not really needed!
+
+
+### High-pass filter
+
+All measurements with frequencies 10Hz to 20kHz in 1/3 octaves, each for 500ms.
+
+With R1=1k we get a 30Hz high-pass filter:
+
+![HP1k](images/filter-HP1k-30mV-gain20x1-traces.png)
+
+Without R1 we still have a 25Hz high-pass filter:
+
+![noHP](images/filter-noHP-30mV-gain20x1-traces.png)
+
+Without R1 and R2=4.7kHz and R3=100kHz,  we still have a 5Hz high-pass filter:
+
+![noHPR3100k](images/filter-noHP-30mV-R3=100k-gain20x1-traces.png)
+
