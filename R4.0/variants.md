@@ -80,6 +80,28 @@ With low-pass filter:
 - Low-pass filter is not really needed!
 
 
+### High-pass filter
+
+All measurements with frequencies 10Hz to 20kHz in 1/3 octaves, each for 500ms.
+
+Without highpass filter:
+
+![noHP](images/filter-700mV-gain1x1-noHP-traces.png)
+
+With R1=220 we get a 30Hz high-pass filter with strange behavior at
+lower freqencies:
+
+![HP220](images/filter-700mV-gain1x1-HP220-traces.png)
+
+With R1=1k we get a 5Hz high-pass filter:
+
+![HP1000](images/filter-700mV-gain1x1-HP1000-traces.png)
+
+With R1=2.2k we get a 2Hz high-pass filter:
+
+![HP2200](images/filter-700mV-gain1x1-HP2200-traces.png)
+
+
 ## Pre-amplifier
 
 ![preampinv](preampinv.png)
