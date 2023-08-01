@@ -57,6 +57,29 @@ Inputs short circuited to ground.
 - Noise increases according to gain (every x10 by 20dB).
 
 
+### Low-pass filter
+
+A 8.8kHz signal without low-pass filter:
+
+![8.8kHz no LP](images/sig8800Hz1V-gain1x1-spectra.png)
+
+and with low-pass filter:
+
+![8.8kHz LP](images/sig8800Hz1V-TP-gain1x1-spectra.png)
+
+A 39.2kHz signal also appears at 8.8kHz.
+
+Without low-pass filter:
+
+![39.2kHz no LP](images/sig39200Hz1V-gain1x1-spectra.png)
+
+With low-pass filter:
+
+![39.2kHz LP](images/sig39200Hz1V-TP-gain1x1-spectra.png)
+
+- Low-pass filter is not really needed!
+
+
 ## Pre-amplifier
 
 ![preampinv](preampinv.png)
@@ -156,11 +179,11 @@ With low-pass filter:
 
 All measurements with frequencies 10Hz to 20kHz in 1/3 octaves, each for 500ms.
 
-With R1=1k we get a 30Hz high-pass filter:
+With R1=1k we get a 30Hz high-pass filter (R2=1kHz and R3=22kHz):
 
 ![HP1k](images/filter-HP1k-30mV-gain20x1-traces.png)
 
-Without R1 we still have a 25Hz high-pass filter:
+Without R1 we still have a 25Hz high-pass filter (R2=1kHz and R3=22kHz):
 
 ![noHP](images/filter-noHP-30mV-gain20x1-traces.png)
 
