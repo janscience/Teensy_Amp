@@ -37,7 +37,7 @@ nlp = ax.node(r4r.right(1))
 no = ax.node(nlp.right(1), 'CH1L', 'right')
 ax.connect((po, ng2, c3l, None, c3r, r4l, None, r4r, nlp, no))
 
-r5l, r5r = ax.resistance_h(po.right(0.5).down(2), 'R3 100k', 'below')
+r5l, r5r = ax.resistance_h(po.right(0.5).down(2), 'R3 47k', 'below')
 ax.connect((ng1, r5l, None, r5r, ng2))
 
 #c2b, c2t = ax.capacitance_v(nlp.down(1), 'C3 10nF')
