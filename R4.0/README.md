@@ -151,7 +151,9 @@ See figure 61 of the [PCM186x data sheet](https://www.ti.com/lit/gpn/pcm1865).
 
 ![filter](images/filter.png)
 
-For variants of the signal filter see [Testing filter and gain variants](variants1.md).
+For variants of the signal filter see [Testing filter and gain
+variants](variants1.md) and [Testing high-pass filter without
+low-pass](variants2.md).
 
 
 ### Pre-amplifier
@@ -164,7 +166,8 @@ Inspired by
 ![preampinv](images/preampinv.png)
 
 For variants of the pre-amplifier see [Testing filter and gain
-variants](variants1.md).
+variants](variants1.md) and [Testing high-pass filter without
+low-pass](variants2.md).
 
 - Cross talk (R1=10k, R3=220k, no low-pass) is at <60dB. Channel 0 got
   1500Hz, channel 1 630Hz, channel 2 is terminated with 50Ohm, channel
