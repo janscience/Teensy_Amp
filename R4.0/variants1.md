@@ -5,7 +5,7 @@ If not noted otherwise, all measurements at 48kHz sampling rate.
 
 ## Signal-filter
 
-![filter](images/filtervariants.png)
+![filter](images/filtervariants1.png)
 
 | Component | 1-CH3R | 1-CH3L | 1-CH4R | 1-CH4L | 2-CH3R | 2-CH3L | 2-CH4R | 2-CH4L | Comment |
 | --------- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ------- |
@@ -19,15 +19,15 @@ Inputs short circuited to ground.
 
 - 0dB gain:
 
-  ![variants-zeros0dB](images/variants-zeros-gain1x1-noise.png)
+  ![variants1-zeros0dB](images/variants1-zeros-gain1x1-noise.png)
 
 - 20dB gain:
 
-  ![variants-zeros20dB](images/variants-zeros-gain1x10-noise.png)
+  ![variants1-zeros20dB](images/variants1-zeros-gain1x10-noise.png)
 
 - 40dB gain:
 
-  ![variants-zeros40dB](images/variants-zeros-gain1x100-noise.png)
+  ![variants1-zeros40dB](images/variants1-zeros-gain1x100-noise.png)
 
 - Same offset and noise in all channels and variants.
 - Noise increases according to gain.
@@ -39,15 +39,15 @@ Inputs short circuited to ground.
 
 - 0dB gain, 700mV rms sine wave:
 
-  ![variants-sig-gain1x1](images/variants-sig1kHz700mV-gain1x1-spectra.png)
+  ![variants1-sig-gain1x1](images/variants1-sig1kHz700mV-gain1x1-spectra.png)
 
 - 20dB gain, 70mV rms sine wave:
 
-  ![variants-sig-gain1x10](images/variants-sig1kHz70mV-gain1x10-spectra.png)
+  ![variants1-sig-gain1x10](images/variants1-sig1kHz70mV-gain1x10-spectra.png)
 
 - 40dB gain, 7mV rms sine wave:
 
-  ![variants-sig-gain1x100](images/variants-sig1kHz7mV-gain1x100-spectra.png)
+  ![variants1-sig-gain1x100](images/variants1-sig1kHz7mV-gain1x100-spectra.png)
 
 - In all conditions harmonics ar at least 90 to 100dB below the signal!
 - With the low-pass filter (lower row) higher harmonics are stronger than
@@ -106,7 +106,7 @@ With R1=2.2k we get a 2Hz high-pass filter:
 
 ## Pre-amplifier
 
-![preampinv](images/preampinvvariants.png)
+![preampinv](images/preampinvvariants1.png)
 
 | Component | 1-CH1R | 1-CH1L | 1-CH2R | 1-CH2L | 2-CH1R | 2-CH1L | 2-CH2R | 2-CH2L | Comment |
 | --------- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ------- |
@@ -123,15 +123,15 @@ Inputs short circuited to ground.
 
 - 0dB gain:
 
-  ![variants-zeros0dB](images/variants-zeros-gain20x1-noise.png)
+  ![variants1-zeros0dB](images/variants1-zeros-gain20x1-noise.png)
 
 - 20dB gain:
 
-  ![variants-zeros20dB](images/variants-zeros-gain20x10-noise.png)
+  ![variants1-zeros20dB](images/variants1-zeros-gain20x10-noise.png)
 
 - 40dB gain:
 
-  ![variants-zeros40dB](images/variants-zeros-gain20x100-noise.png)
+  ![variants1-zeros40dB](images/variants1-zeros-gain20x100-noise.png)
 
 - Twice as much noise with the 100k gain.
 - At 20dB gain, amounting to x200 overall gain, the noise standard
@@ -144,15 +144,15 @@ Inputs short circuited to ground.
 
 - 0dB gain, 30mV rms sine wave:
 
-  ![variants-sig-gain1x1](images/variants-sig1kHz30mV-gain20x1-spectra.png)
+  ![variants1-sig-gain1x1](images/variants1-sig1kHz30mV-gain20x1-spectra.png)
 
 - 20dB gain, 3mV rms sine wave:
 
-  ![variants-sig-gain1x10](images/variants-sig1kHz3mV-gain20x10-spectra.png)
+  ![variants1-sig-gain1x10](images/variants1-sig1kHz3mV-gain20x10-spectra.png)
 
 - 40dB gain, 300uV rms sine wave:
 
-  ![variants-sig-gain1x100](images/variants-sig1kHz300uV-gain20x100-spectra.png)
+  ![variants1-sig-gain1x100](images/variants1-sig1kHz300uV-gain20x100-spectra.png)
 
 - Low-pass filter introduces stronger 2nd harmonics at 0dB gain.
 - Effect of high-pass filter is small.
