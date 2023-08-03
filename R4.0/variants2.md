@@ -17,6 +17,19 @@ If not noted otherwise, all measurements at 48kHz sampling rate.
 
 1 kHz sine wave (Minirator) applied to each channel individually:
 
+- 0dB gain, 700mV rms sine wave:
+
+  ![variants2-sig-gain1x1](images/variants2-sig1kHz700mV-gain1x1-spectra.png)
+
+- 20dB gain, 70mV rms sine wave:
+
+  ![variants2-sig-gain1x10](images/variants2-sig1kHz70mV-gain1x10-spectra.png)
+
+- 40dB gain, 7mV rms sine wave:
+
+  ![variants2-sig-gain1x100](images/variants2-sig1kHz7mV-gain1x100-spectra.png)
+
+
 ### High-pass filter
 
 All measurements with frequencies 10Hz to 20kHz in 1/3 octaves, each for 500ms.
@@ -36,5 +49,20 @@ All measurements with frequencies 10Hz to 20kHz in 1/3 octaves, each for 500ms.
 
 
 ### Linearity
+
+1 kHz sine wave (Minirator) applied to each channel individually:
+
+- 0dB gain, 70mV rms sine wave:
+
+  ![variants2-sig-gain10x1](images/variants2-sig1kHz70mV-gain10x1-spectra.png)
+
+- 20dB gain, 7mV rms sine wave:
+
+  ![variants2-sig-gain10x10](images/variants2-sig1kHz7mV-gain10x10-spectra.png)
+
+- 40dB gain, 700uV rms sine wave:
+
+  ![variants2-sig-gain10x100](images/variants2-sig1kHz700uV-gain10x100-spectra.png)
+
 
 ### High-pass filter

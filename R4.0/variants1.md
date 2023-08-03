@@ -144,15 +144,15 @@ Inputs short circuited to ground.
 
 - 0dB gain, 30mV rms sine wave:
 
-  ![variants1-sig-gain1x1](images/variants1-sig1kHz30mV-gain20x1-spectra.png)
+  ![variants1-sig-gain20x1](images/variants1-sig1kHz30mV-gain20x1-spectra.png)
 
 - 20dB gain, 3mV rms sine wave:
 
-  ![variants1-sig-gain1x10](images/variants1-sig1kHz3mV-gain20x10-spectra.png)
+  ![variants1-sig-gain20x10](images/variants1-sig1kHz3mV-gain20x10-spectra.png)
 
 - 40dB gain, 300uV rms sine wave:
 
-  ![variants1-sig-gain1x100](images/variants1-sig1kHz300uV-gain20x100-spectra.png)
+  ![variants1-sig-gain20x100](images/variants1-sig1kHz300uV-gain20x100-spectra.png)
 
 - Low-pass filter introduces stronger 2nd harmonics at 0dB gain.
 - Effect of high-pass filter is small.
