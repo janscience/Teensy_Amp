@@ -32,7 +32,9 @@ If not noted otherwise, all measurements at 48kHz sampling rate.
 
 ### High-pass filter
 
-All measurements with frequencies 10Hz to 20kHz in 1/3 octaves, each for 500ms.
+Measurement with frequencies 10Hz to 20kHz in 1/3 octaves, each for 500ms.
+
+![HP1k](images/variants2-filter-700mV-gain1x1-traces.png)
 
 
 ## Pre-amplifier
@@ -66,3 +68,7 @@ All measurements with frequencies 10Hz to 20kHz in 1/3 octaves, each for 500ms.
 
 
 ### High-pass filter
+
+Measurement with frequencies 10Hz to 20kHz in 1/3 octaves, each for 500ms.
+
+![noHP](images/variants2-filter-70mV-gain10x1-traces.png)
