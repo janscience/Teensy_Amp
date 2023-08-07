@@ -80,7 +80,7 @@ With low-pass filter:
 - Low-pass filter is not really needed.
 
 
-### High-pass filter
+### High-pass filter without low-pass filter
 
 All measurements with frequencies 10Hz to 20kHz in 1/3 octaves, each for 500ms.
 
@@ -100,6 +100,30 @@ With R1=1k we get a 5Hz high-pass filter:
 With R1=2.2k we get a 2Hz high-pass filter:
 
 ![HP2200](images/filter-700mV-gain1x1-HP2200-traces.png)
+
+- Let's use R1=1k for a 5Hz high-pass filter.
+
+
+### High-pass filter with low-pass filter (R1=100, C2=10nF)
+
+All measurements with frequencies 10Hz to 20kHz in 1/3 octaves, each for 500ms.
+
+Without highpass filter:
+
+![noHP](images/variants1-filter-700mV-gain1x1-noR1-traces.png)
+
+With R1=220 we get a 30Hz high-pass filter with strange behavior at
+lower freqencies:
+
+![R1220](images/variants1-filter-700mV-gain1x1-R1220-traces.png)
+
+With R1=1k we get a 5Hz high-pass filter:
+
+![HP1000](images/variants1-filter-700mV-gain1x1-R11000-traces.png)
+
+With R1=2.2k we get a 2Hz high-pass filter:
+
+![HP2200](images/variants1-filter-700mV-gain1x1-R12200-traces.png)
 
 - Let's use R1=1k for a 5Hz high-pass filter.
 
