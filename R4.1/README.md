@@ -4,11 +4,7 @@ If not noted otherwise, all measurements at 48kHz sampling rate.
 
 ## Pre-amplifier
 
-![preampinv](images/preamp.png)
-
-## Pre-amplifier
-
-![preampinv](images/preamp.png)
+![preampinv](images/preampinv.png)
 
 ### Reference voltage
 
