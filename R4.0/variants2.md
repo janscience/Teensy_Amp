@@ -7,25 +7,33 @@ If not noted otherwise, all measurements at 48kHz sampling rate.
 
 ![filter](images/filtervariants2.png)
 
-| Component | 1-CH* | 2-CH* |
-| --------- | ----- | ----- |
-| R1        | 1k    | 1k    |
-| R2        | 0     | 0     |
-| C2        | -     | -     |
+| Component | 1-CH3R | 1-CH3L | 1-CH4R | 1-CH4L | 2-CH* |
+| --------- | ------ | ------ | ------ | ------ | ----- |
+| R1        | 1k     | 1k     | 1k     | 1k     | 1k    |
+| R2        | 0      | 0      | 0      | 0      | 0     |
+| C2=R3     | 330    | 1k     | 2.2k   | 10     | -     |
+| fcutoff   |        |        |        |        | 5Hz   |
+
+| Component | 1-CH3R | 1-CH3L | 1-CH4R | 1-CH4L |
+| --------- | ------ | ------ | ------ | ------ |
+| R1        | 100k   | 100k   | 100k   | 100k   |
+| R2        | 0      | 0      | 0      | 0      |
+| C2=R3     | 330    | 1k     | 2.2k   | 10     |
+| fcutoff   | 80Hz   | 30Hz   | 15Hz   | 3Hz    |
 
 ### Linearity
 
 1 kHz sine wave (Minirator) applied to each channel individually:
 
-- 0dB gain, 700mV rms sine wave:
+- R1=1k, no C2, 0dB gain, 700mV rms sine wave:
 
   ![variants2-sig-gain1x1](images/variants2-sig1kHz700mV-gain1x1-spectra.png)
 
-- 20dB gain, 70mV rms sine wave:
+- R1=1k, no C2, 20dB gain, 70mV rms sine wave:
 
   ![variants2-sig-gain1x10](images/variants2-sig1kHz70mV-gain1x10-spectra.png)
 
-- 40dB gain, 7mV rms sine wave:
+- R1=1k, no C2, 40dB gain, 7mV rms sine wave:
 
   ![variants2-sig-gain1x100](images/variants2-sig1kHz7mV-gain1x100-spectra.png)
 
@@ -34,7 +42,25 @@ If not noted otherwise, all measurements at 48kHz sampling rate.
 
 Measurement with frequencies 10Hz to 20kHz in 1/3 octaves, each for 500ms.
 
+- R1=1k, no C2, 0dB gain, 700mV rms sine wave:
+
 ![HP1k](images/variants2-filter-700mV-gain1x1-traces.png)
+
+- R1=100k, R3=330, 0dB gain, 700mV rms sine wave:
+
+![R3330HP1k](images/variants2b-filter-700mV-gain1x1-R1100k-R3330-traces.png)
+
+- R1=100k, R3=1k, 0dB gain, 700mV rms sine wave:
+
+![R31kHP1k](images/variants2b-filter-700mV-gain1x1-R1100k-R31k-traces.png)
+
+- R1=100k, R3=2.2k, 0dB gain, 700mV rms sine wave:
+
+![R32.2kHP1k](images/variants2b-filter-700mV-gain1x1-R1100k-R32200-traces.png)
+
+- R1=100k, R3=10k, 0dB gain, 700mV rms sine wave:
+
+![R310kHP1k](images/variants2b-filter-700mV-gain1x1-R1100k-R310k-traces.png)
 
 
 ## Pre-amplifier
