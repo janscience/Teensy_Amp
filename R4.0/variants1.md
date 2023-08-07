@@ -119,11 +119,11 @@ lower freqencies:
 
 With R1=1k we get a 5Hz high-pass filter:
 
-![HP1000](images/variants1-filter-700mV-gain1x1-R11000-traces.png)
+![R11000](images/variants1-filter-700mV-gain1x1-R11k-traces.png)
 
 With R1=2.2k we get a 2Hz high-pass filter:
 
-![HP2200](images/variants1-filter-700mV-gain1x1-R12200-traces.png)
+![R12200](images/variants1-filter-700mV-gain1x1-R12200-traces.png)
 
 - Let's use R1=1k for a 5Hz high-pass filter.
 
