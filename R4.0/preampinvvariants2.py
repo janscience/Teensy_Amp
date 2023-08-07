@@ -24,9 +24,7 @@ ax.connect((nn, n1, c1l, None, c1r, r1l, None, r1r, ng1, pn))
 np = ax.node(nn.up(2.65), 'VREF', align='left')
 ax.connect((np, np.right(4.7),  pp))
 
-#r2b, r2t = ax.resistance_v(n1.down(1.3), 'R1 1k')
-r2t = n1.down(1.3)
-r2b = r2t.down(0.7)
+r2b, r2t = ax.resistance_v(n1.down(1.3), 'R1 100k')
 gnd2 = ax.ground(r2b.down(0.7), 'GND')
 ax.connect((n1, r2t, None, r2b, gnd2))
 

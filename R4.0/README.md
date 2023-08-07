@@ -234,6 +234,11 @@ low-pass](variants2.md).
   ![HP](images/filter-R147-R3220k-R40-traces.png)
 
 
+### Reference voltage
+
+![vref](images/vref.png)
+
+
 ### Gains and amplitudes
 
 On the evaluation board (AVDD = 3.3V!) the largest sine waves that can
