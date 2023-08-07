@@ -11,15 +11,15 @@ If not noted otherwise, all measurements at 48kHz sampling rate.
 | --------- | ------ | ------ | ------ | ------ | ----- |
 | R1        | 1k     | 1k     | 1k     | 1k     | 1k    |
 | R2        | 0      | 0      | 0      | 0      | 0     |
-| C2=R3     | 330    | 1k     | 2.2k   | 10     | -     |
-| fcutoff   |        |        |        |        | 5Hz   |
+| C2=R3     | 330    | 1k     | 2.2k   | 10k    | -     |
+| fcutoff   | 80Hz   | 25Hz   | 12Hz   | 7Hz    | 5Hz   |
 
 | Component | 1-CH3R | 1-CH3L | 1-CH4R | 1-CH4L |
 | --------- | ------ | ------ | ------ | ------ |
 | R1        | 100k   | 100k   | 100k   | 100k   |
 | R2        | 0      | 0      | 0      | 0      |
-| C2=R3     | 330    | 1k     | 2.2k   | 10     |
-| fcutoff   | 80Hz   | 30Hz   | 15Hz   | 3Hz    |
+| C2=R3     | 330    | 1k     | 2.2k   | 10k    |
+| fcutoff   | 80Hz   | 25Hz   | 12Hz   | 7Hz    |
 
 ### Linearity
 
@@ -46,21 +46,43 @@ Measurement with frequencies 10Hz to 20kHz in 1/3 octaves, each for 500ms.
 
 ![HP1k](images/variants2-filter-700mV-gain1x1-traces.png)
 
-- R1=100k, R3=330, 0dB gain, 700mV rms sine wave:
 
-![R3330HP1k](images/variants2b-filter-700mV-gain1x1-R1100k-R3330-traces.png)
+### High-pass filter R1=1k
 
-- R1=100k, R3=1k, 0dB gain, 700mV rms sine wave:
+- R3=330, 0dB gain, 700mV rms sine wave:
 
-![R31kHP1k](images/variants2b-filter-700mV-gain1x1-R1100k-R31k-traces.png)
+![R3330HP1k](images/variants2a-filter-700mV-gain1x1-R11k-R3330-traces.png)
 
-- R1=100k, R3=2.2k, 0dB gain, 700mV rms sine wave:
+- R3=1k, 0dB gain, 700mV rms sine wave:
 
-![R32.2kHP1k](images/variants2b-filter-700mV-gain1x1-R1100k-R32200-traces.png)
+![R31kHP1k](images/variants2a-filter-700mV-gain1x1-R11k-R31k-traces.png)
 
-- R1=100k, R3=10k, 0dB gain, 700mV rms sine wave:
+- R3=2.2k, 0dB gain, 700mV rms sine wave:
 
-![R310kHP1k](images/variants2b-filter-700mV-gain1x1-R1100k-R310k-traces.png)
+![R32.2kHP1k](images/variants2a-filter-700mV-gain1x1-R11k-R32200-traces.png)
+
+- R3=10k, 0dB gain, 700mV rms sine wave:
+
+![R310kHP1k](images/variants2a-filter-700mV-gain1x1-R11k-R310k-traces.png)
+
+
+### High-pass filter R1=100k
+
+- R3=330, 0dB gain, 700mV rms sine wave:
+
+![R3330HP100k](images/variants2b-filter-700mV-gain1x1-R1100k-R3330-traces.png)
+
+- R3=1k, 0dB gain, 700mV rms sine wave:
+
+![R31kHP100k](images/variants2b-filter-700mV-gain1x1-R1100k-R31k-traces.png)
+
+- R3=2.2k, 0dB gain, 700mV rms sine wave:
+
+![R32.2kHP100k](images/variants2b-filter-700mV-gain1x1-R1100k-R32200-traces.png)
+
+- R3=10k, 0dB gain, 700mV rms sine wave:
+
+![R310kHP100k](images/variants2b-filter-700mV-gain1x1-R1100k-R310k-traces.png)
 
 
 ## Pre-amplifier
