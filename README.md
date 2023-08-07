@@ -15,8 +15,12 @@ Amplifiers for the [Teensy](https://www.pjrc.com/teensy/) development boards.
   A stackable two-channel differential amplifier with band-pass filter.
 
 - [R4.0](R4.0)
-  A eight-channel single-ended amplifier with analog-digital converter
-  based on [TI PCM1865](https://www.ti.com/product/PCM1865).
+  An eight-channel single-ended amplifier with analog-digital converter
+  based on [TI PCM1865](https://www.ti.com/product/PCM1865) on an 80x80mm PCB.
+
+- [R4.1](R4.1)
+  An eight-channel single-ended amplifier with analog-digital converter
+  based on [TI PCM1865](https://www.ti.com/product/PCM1865) on an 110x40mm PCB.
 
 - [R5.0](R5.0)
   Some still to be developed amplifier based on
@@ -29,7 +33,8 @@ Amplifiers for the [Teensy](https://www.pjrc.com/teensy/) development boards.
 | ------------ | -------- | --------- | --- | ------ | --------- | --------- | -------- | ----- | --- |
 | [R1.0](R1.0) | 2 | differential | 5V | [Teensy 3.5](https://www.pjrc.com/teensy/pinout.html#Teensy_3.5) | [AD8224HACPZ-WP](https://www.analog.com/media/en/technical-documentation/data-sheets/AD8224.pdf) | 0.1Hz, 100Hz, 300Hz switch | 10kHz, 33kHz switch | x5, x30, x180 switch | |
 | [R3.0](R3.0) | 2 - 8 | differential | 3.3 - 5.5V | [Teensy 3.5](https://www.pjrc.com/teensy/pinout.html#Teensy_3.5) | [TI INA2321-EA](https://www.ti.com/product/INA2321) | plug-in capacitors | plug-in resistances | plug-in resistances | stackable up to 8 channels |
-| [R4.0](R4.0) | 8 | single ended | 3.3 - 5.5V | [TI PCM1865](https://www.ti.com/product/PCM1865) | [TI OPA1662](https://www.ti.com/product/OPA1662) | 5Hz fixed | according to sampling rate | x1 - x100, x20 - x2000 | [Teensy 4.1](https://www.pjrc.com/teensy/pinout.html#Teensy_4.1) |
+| [R4.0](R4.0) | 8 | single ended | 3.3 - 5.5V | [TI PCM1865](https://www.ti.com/product/PCM1865) | [TI OPA1662](https://www.ti.com/product/OPA1662) | 5Hz fixed | according to sampling rate | x1 - x100, x10 - x1000 | [Teensy 4.1](https://www.pjrc.com/teensy/pinout.html#Teensy_4.1) |
+| [R4.1](R4.1) | 8 | single ended | 3.3 - 5.5V | [TI PCM1865](https://www.ti.com/product/PCM1865) | [TI OPA1662](https://www.ti.com/product/OPA1662) | 5Hz fixed | according to sampling rate | x10 - x1000 | [Teensy 4.1](https://www.pjrc.com/teensy/pinout.html#Teensy_4.1) |
 
 
 ## Use cases
