@@ -257,48 +257,79 @@ Maximum analog gain is 32dB, but bit depth is 24bit.
 
 ## Power consumption
 
-- Teensy 4.1: 100mA
-- 25mA @ 3.3V for 4 channels at 96kHz for TLV320ADC5140
-- 35mA @ 3.3V for 4 channels for TI PCM1865
+Teensy 4.1 on R4.0 board:
 
-### 8 channel
-- 50mA/70mA for 4x2=8 channels
-- 8 channel plus Teensy: 150mA/170mA
-- 20Ah power bank / 0.15A = 133h/117h
-- 8 x 8 = 64 channel plus control Teensy 200mA on 20Ah power bank: 1.4A/1.6Ah, lasts 14h/12.5h
-- 1.4A/1.6A for 64 channels at 3.3V for 24h: 111/127VAh. On 12V car battery is just 9Ah/11Ah.
+| V    | rate  | CPU    | I     | P    |
+| ---- | ----- | ------ | ----- | ---- |
+| 5V   | 48kHz | 600MHz | 280mA | 1.4W |
+| 3.7V | 48kHz | 600MHz | 280mA | 1.0W |
+| 5V   | 96kHz | 600MHz | 300mA | 1.5W |
+| 3.7V | 96kHz | 600MHz | 300mA | 1.1W |
+| 5V   | 48kHz | 450MHz | 260mA | 1.3W |
+| 3.7V | 48kHz | 450MHz | 260mA | 0.9W |
+| 5V   | 96kHz | 450MHz | 270mA | 1.3W |
+| 3.7V | 96kHz | 450MHz | 270mA | 1.0W |
+| 5V   | 48kHz | 150MHz | 220mA | 1.1W |
+| 3.7V | 48kHz | 150MHz | 220mA | 0.8W |
+| 5V   | 96kHz | 150MHz | 240mA | 1.2W |
+| 3.7V | 96kHz | 150MHz | 240mA | 0.9W |
 
-### 16 channel
-- 100mA/140mA for 4x4=16 channels
-- 16 channel plus Teensy: 200mA/240mA
-- 20Ah power bank / 0.2A = 100h/83h
-- 4 x 16 = 64 channel plus control Teensy 200mA on 20Ah power bank: 1A/1.2A, lasts 20h/16h
-- 1A/1.2A for 64 channels at 3.3V for 24h: 80VAh/95VAh. On 12V car battery is just 7Ah/8Ah.
+Underclocking works! But power savings are small.
 
-For power banks we need power supply switching every 24 hours on the fly (4 USB ports, 2 running, 2 new ones)!
+Teensy 4.1 *without* R4.0 board:
 
-Or just a single 20+ Ah car battery, lasting for two days!
+| V    | rate  | CPU    | I     | P    |
+| ---- | ----- | ------ | ----- | ---- |
+| 5V   | 48kHz | 600MHz | 180mA | 0.9W |
+| 5V   | 96kHz | 600MHz | 180mA | 0.9W |
+| 5V   | 48kHz | 150MHz | 120mA | 0.6W |
+| 5V   | 96kHz | 150MHz | 120mA | 0.6W |
+
+The R4.0 board draws about 100mA of power.
+
+
+## Battery life times
+
+8 channel variant assumes 220mA consumption of Teensy and R4.0 amplifier board.
+
+64 channel variant assumes 2A consumption (8x220mA consumption of Teensy and R4.0 amplifier board plus 240mA of control Teensy).
+
+Power banks (5V):
+
+| Capacity | 8 channels | 64 channels |
+| -------- | ---------- | ----------- |
+|  5Ah     |        22h |          2h |
+| 10Ah     |        45h |          5h |
+| 20Ah     |        90h |         10h |
+
+Car battery (12V):
+
+| Capacity | 8 channels | 64 channels |
+| -------- | ---------- | ----------- |
+| 10Ah     |       109h |         12h |
+| 20Ah     |       218h |         24h |
+| 40Ah     |       436h |         48h |
 
 
 ## Storage
 
 | channels | bits | sampling rate | per hour | per day |
 | -------: | ---: | ------------: | -------: | ------: |
-| 1        | 16   | 16kHz         | 115MB    | 2.8GB   |
-| 2        | 16   | 16kHz         | 230MB    | 5.5GB   |
-| 4        | 16   | 16kHz         | 461MB    | 11.1GB  |
-| 8        | 16   | 16kHz         | 922MB    | 22.1GB  |
-| 16       | 16   | 16kHz         | 1.8GB    | 44.2GB  |
-| 1        | 16   | 24kHz         | 173MB    | 4.2GB   |
-| 2        | 16   | 24kHz         | 346MB    | 8.4GB   |
-| 4        | 16   | 24kHz         | 692MB    | 16.6GB  |
-| 8        | 16   | 24kHz         | 1.4GB    | 33.2GB  |
-| 16       | 16   | 24kHz         | 2.8GB    | 66.4GB  |
-| 1        | 16   | 48kHz         | 346MB    |  8.4GB  |
-| 2        | 16   | 48kHz         | 692MB    | 16.6GB  |
-| 4        | 16   | 48kHz         | 1.4GB    | 33.2GB  |
-| 8        | 16   | 48kHz         | 2.8GB    | 66.4GB  |
-| 16       | 16   | 48kHz         | 5.6GB    |  133GB  |
+| 1        | 16   | 16kHz         |    115MB |   2.8GB |
+| 2        | 16   | 16kHz         |    230MB |   5.5GB |
+| 4        | 16   | 16kHz         |    461MB |  11.1GB |
+| 8        | 16   | 16kHz         |    922MB |  22.1GB |
+| 16       | 16   | 16kHz         |    1.8GB |  44.2GB |
+| 1        | 16   | 24kHz         |    173MB |   4.2GB |
+| 2        | 16   | 24kHz         |    346MB |   8.4GB |
+| 4        | 16   | 24kHz         |    692MB |  16.6GB |
+| 8        | 16   | 24kHz         |    1.4GB |  33.2GB |
+| 16       | 16   | 24kHz         |    2.8GB |  66.4GB |
+| 1        | 16   | 48kHz         |    346MB |   8.4GB |
+| 2        | 16   | 48kHz         |    692MB |  16.6GB |
+| 4        | 16   | 48kHz         |    1.4GB |  33.2GB |
+| 8        | 16   | 48kHz         |    2.8GB |  66.4GB |
+| 16       | 16   | 48kHz         |    5.6GB |   133GB |
 
 
 micro SD cards (prices from 2023):
@@ -307,25 +338,19 @@ micro SD cards (prices from 2023):
 | -------: | ----: | -----------------: | ------------------: |
 | 128GB    | 12 €  |         5.8 days   |         2.9 days    |
 | 256GB    | 25 €  |        11.6 days   |         5.8 days    |
-| 500GB    | 50 €  |        23.1 days   |        11.6 days    |
+| 512GB    | 35 €  |        23.1 days   |        11.6 days    |
 
 | capacity | costs | 8 channels @ 24kHz | 16 channels @ 24kHz |
 | -------: | ----: | -----------------: | ------------------: |
 | 128GB    | 12 €  |         3.8 days   |         1.9 days    |
 | 256GB    | 25 €  |         7.7 days   |         3.8 days    |
-| 500GB    | 50 €  |         15.4 days  |         7.7 days    |
+| 512GB    | 35 €  |         15.4 days  |         7.7 days    |
 
 | capacity | costs | 8 channels @ 48kHz | 16 channels @ 48kHz |
 | -------: | ----: | -----------------: | ------------------: |
 | 128GB    | 12 €  |         1.9 days   |         0.9 days    |
 | 256GB    | 25 €  |         3.8 days   |         1.9 days    |
-| 500GB    | 50 €  |         7.7 days   |         3.8 days    |
-
-
-## Design
-
-Use 8 channels (2 chips) and a 128GB, better 256GB microSD card and a
-single 50Ah car battery. That lasts for 4 days minimum.
+| 512GB    | 35 €  |         7.7 days   |         3.8 days    |
 
 
 ### Evalutation board
