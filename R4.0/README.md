@@ -61,10 +61,10 @@ evaluation board manual:
 | 24  | MC/SCL      | I2C bus CLOCK | 19 | 19 |
 | 25  | MS/AD       | I2C addres: first chip low, second chip high |  |   |
 | 26  | MD0         | tied low for I2C communication |  |   |
-| 27  | VINL4/VIN4M | SIGALT 3 / 6 |    |   |
-| 28  | VINR4/VIN3M | SIGALT 2 / 5 |    |   |
-| 29  | VINL3/VIN4P | SIGALT 1 / 4 |    |   |
-| 30  | VINR3/VIN3P | SIGALT 0 / 3 |    |   |
+| 27  | VINL4/VIN4M | SIGALT 3 / 7 |    |   |
+| 28  | VINR4/VIN3M | SIGALT 2 / 6 |    |   |
+| 29  | VINL3/VIN4P | SIGALT 1 / 5 |    |   |
+| 30  | VINR3/VIN3P | SIGALT 0 / 4 |    |   |
 
 Additional connections for the Teensy:
 
