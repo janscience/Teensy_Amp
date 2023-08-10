@@ -30,15 +30,15 @@ For details, see
 
 ![pcb](images/TeensyAmp_R4.0_pcb.png)
 
-See page 11 and Fig 22 in the data sheet and Figure 15 of the
-evaluation board manual:
+Pins of the PCM1865 - see page 11 and Fig 22 in the data sheet and
+Figure 15 of the evaluation board manual:
 
 | pin | name        | connects to | Teensy 4.1 pins | Teensy 3.5 pins |
 | --: | :---------- | :---------- | --------------: | --------------: |
-|  1  | VINL2/VIN1M | SIG 3 / 7   |                 |                 |
-|  2  | VINR2/VIN2M | SIG 2 / 6   |                 |                 |
-|  3  | VINL1/VIN1P | SIG 1 / 5   |                 |                 |
-|  4  | VINR1/VIN2P | SIG 0 / 4   |                 |                 |
+|  1  | VINL2/VIN1M | SIG 3       |                 |                 |
+|  2  | VINR2/VIN2M | SIG 2       |                 |                 |
+|  3  | VINL1/VIN1P | SIG 1       |                 |                 |
+|  4  | VINR1/VIN2P | SIG 0       |                 |                 |
 |  5  | Mic Bias    | unconnected |                 |                 |
 |  6  | VREF        | Connect 1-μF capacitor C5 to AGND |   |   |
 |  7  | AGND        | Analog ground to common ground |   |   |
@@ -61,15 +61,29 @@ evaluation board manual:
 | 24  | MC/SCL      | I2C bus CLOCK | 19 | 19 |
 | 25  | MS/AD       | I2C addres: first chip low, second chip high |  |   |
 | 26  | MD0         | tied low for I2C communication |  |   |
-| 27  | VINL4/VIN4M | SIGALT 3 / 7 |    |   |
-| 28  | VINR4/VIN3M | SIGALT 2 / 6 |    |   |
-| 29  | VINL3/VIN4P | SIGALT 1 / 5 |    |   |
-| 30  | VINR3/VIN3P | SIGALT 0 / 4 |    |   |
+| 27  | VINL4/VIN4M | SIGALT 3     |    |   |
+| 28  | VINR4/VIN3M | SIGALT 2     |    |   |
+| 29  | VINL3/VIN4P | SIGALT 1     |    |   |
+| 30  | VINR3/VIN3P | SIGALT 0     |    |   |
 
-Additional connections for the Teensy:
+Pins of the Teensy:
 
 | Teensy 4.1 pin | Teensy 3.5 pin |              |
 | -------------: | -------------: | :----------- |
+| Vin            | Vin            | Vin          |
+| GND            | GND            | GND          |
+| 3.3V           | 3.3V           | IOVDD        |
+| 18             | 18             | I2C SDA      |
+| 19             | 19             | I2C SCL      |
+| 21             | 9              | BCK          |
+| 20             | 23             | LRCK         |
+| 8              | 13             | DOUT         |
+| 28             | 28             | GPIO2 chip1  |
+| 35             | 35             | GPIO2 chip2  |
+| 29             | 29             | GPIO1 chip1  |
+| 36             | 36             | GPIO1 chip2  |
+| 6              | ?              | GPIO0 chip1  |
+| 32             | ?              | GPIO0 chip2  |
 | 0              | 4              | CAN RX       |
 | 1              | 3              | CAN TX       |
 | 24             | 24             | I/O          |
