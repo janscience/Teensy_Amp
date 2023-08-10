@@ -68,12 +68,13 @@ evaluation board manual:
 
 Additional connections for the Teensy:
 
-| Teensy 4.1 pin | Teensy 3.5 pin |             |
-| -------------: | -------------: | ----------: |
-| 0              | 4              | CAN RX      |
-| 1              | 3              | CAN TX      |
-| 24             | 24             | I/O         |
-| 30             | 30             | Push button |
+| Teensy 4.1 pin | Teensy 3.5 pin |              |
+| -------------: | -------------: | :----------- |
+| 0              | 4              | CAN RX       |
+| 1              | 3              | CAN TX       |
+| 24             | 24             | I/O          |
+| 30             | 30             | Push button  |
+| 31             | 31             | LED inverted |
 
 
 ### 8 channels
