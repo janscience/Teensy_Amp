@@ -80,3 +80,10 @@ Pins of the Teensy:
 | 24             | 24             | I/O          |
 | 31             | 31             | LED inverted |
 
+
+### 16 channels
+
+In the following plot a 1kHz signal was supplied to each input channel in turn, on two R4.0 boards onnected to a single Teensy 4.1:
+
+![16-channels](images/16channels-traces.png)
+
