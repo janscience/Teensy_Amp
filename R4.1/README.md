@@ -87,3 +87,7 @@ In the following plot a 1kHz signal was supplied to each input channel in turn, 
 
 ![16-channels](images/16channels-traces.png)
 
+The 16 channels are all in sync:
+
+![16-channels-sync](images/16channels-sync-traces.png)
+
