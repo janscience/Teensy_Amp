@@ -29,12 +29,12 @@ Amplifiers for the [Teensy](https://www.pjrc.com/teensy/) development boards.
 
 ## Comparison
 
-| Model        | Channels | Reference | Vin | ADC    | Amplifier | High-pass | Low-pass | Gains |     |
-| ------------ | -------- | --------- | --- | ------ | --------- | --------- | -------- | ----- | --- |
-| [R1.0](R1.0) | 2 | differential | 5V | [Teensy 3.5](https://www.pjrc.com/teensy/pinout.html#Teensy_3.5) | [AD8224HACPZ-WP](https://www.analog.com/media/en/technical-documentation/data-sheets/AD8224.pdf) | 0.1Hz, 100Hz, 300Hz switch | 10kHz, 33kHz switch | x5, x30, x180 switch | |
-| [R3.0](R3.0) | 2 - 8 | differential | 3.3 - 5.5V | [Teensy 3.5](https://www.pjrc.com/teensy/pinout.html#Teensy_3.5) | [TI INA2321-EA](https://www.ti.com/product/INA2321) | plug-in capacitors | plug-in resistances | plug-in resistances | stackable up to 8 channels |
-| [R4.0](R4.0) | 8 | single ended | 3.3 - 5.5V | [TI PCM1865](https://www.ti.com/product/PCM1865) | [TI OPA1662](https://www.ti.com/product/OPA1662) | 5Hz fixed | according to sampling rate | x1 - x100, x10 - x1000 | [Teensy 4.1](https://www.pjrc.com/teensy/pinout.html#Teensy_4.1) |
-| [R4.1](R4.1) | 8 | single ended | 3.3 - 5.5V | [TI PCM1865](https://www.ti.com/product/PCM1865) | [TI OPA1662](https://www.ti.com/product/OPA1662) | 5Hz fixed | according to sampling rate | x10 - x1000 | [Teensy 4.1](https://www.pjrc.com/teensy/pinout.html#Teensy_4.1) |
+| Model        | Channels | Reference | Vin | ADC    | Amplifier | High-pass | Low-pass | Gains | Size (mm) |     |
+| ------------ | -------- | --------- | --- | ------ | --------- | --------- | -------- | ----- | --- | --- |
+| [R1.0](R1.0) | 2 | differential | 5V | [Teensy 3.5](https://www.pjrc.com/teensy/pinout.html#Teensy_3.5) | [AD8224HACPZ-WP](https://www.analog.com/media/en/technical-documentation/data-sheets/AD8224.pdf) | 0.1Hz, 100Hz, 300Hz switch | 10kHz, 33kHz switch | x5, x30, x180 switch | 94x35 | |
+| [R3.0](R3.0) | 2 - 8 | differential | 3.3 - 5.5V | [Teensy 3.5](https://www.pjrc.com/teensy/pinout.html#Teensy_3.5) | [TI INA2321-EA](https://www.ti.com/product/INA2321) | plug-in capacitors | plug-in resistances | plug-in resistances | 69x18 | stackable up to 8 channels |
+| [R4.0](R4.0) | 8 | single ended | 3.3 - 5.5V | [TI PCM1865](https://www.ti.com/product/PCM1865) | [TI OPA1662](https://www.ti.com/product/OPA1662) | 5Hz fixed | according to sampling rate | x1 - x100, x10 - x1000 | 80x80 | [Teensy 4.1](https://www.pjrc.com/teensy/pinout.html#Teensy_4.1) |
+| [R4.1](R4.1) | 8 | single ended | 3.3 - 5.5V | [TI PCM1865](https://www.ti.com/product/PCM1865) | [TI OPA1662](https://www.ti.com/product/OPA1662) | 5Hz fixed | according to sampling rate | x10 - x1000 | 110x35 | [Teensy 4.1](https://www.pjrc.com/teensy/pinout.html#Teensy_4.1) |
 
 
 ## Use cases
