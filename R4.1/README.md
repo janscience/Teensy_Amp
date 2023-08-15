@@ -79,9 +79,9 @@ Pins of the Teensy on the main board:
 | 15             | GPIO3 chip2  | -               |
 | 6              | -            | GPIO3 chip1     |
 | 9              | -            | GPIO3 chip2     |
-| 0              | CAN RX       | -               |
-| 1              | CAN TX       | -               |
-| 6              | I/O          | -               |
+| 30             | CAN RX       | -               |
+| 31             | CAN TX       | -               |
+| 29             | I/O          | -               |
 | 22             | LED extern   | -               |
 
 
