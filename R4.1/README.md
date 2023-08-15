@@ -75,7 +75,7 @@ Pins of the Teensy on the main board:
 | 4              | -            | BCK             |
 | 3              | -            | LRCK            |
 | 5              | -            | DIN             |
-| 14             | GPIO3 chip1  | -               |
+| 22             | GPIO3 chip1  | -               |
 | 15             | GPIO3 chip2  | -               |
 | 0              | -            | GPIO3 chip1     |
 | 1              | -            | GPIO3 chip2     |
