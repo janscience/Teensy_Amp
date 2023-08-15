@@ -77,12 +77,15 @@ Pins of the Teensy on the main board:
 | 5              | -            | DIN             |
 | 14             | GPIO3 chip1  | -               |
 | 15             | GPIO3 chip2  | -               |
-| 6              | -            | GPIO3 chip1     |
-| 9              | -            | GPIO3 chip2     |
+| 0              | -            | GPIO3 chip1     |
+| 1              | -            | GPIO3 chip2     |
 | 30             | CAN RX       | -               |
 | 31             | CAN TX       | -               |
-| 29             | I/O          | -               |
-| 22             | LED extern   | -               |
+| 36             | CAN STB      | -               |
+| 37             | CAN SHDN     | -               |
+| 40             | I/O IN       | -               |
+| 41             | I/O OUT      | -               |
+| 26             | LED extern   | -               |
 
 
 ### 16 channels
