@@ -2818,29 +2818,29 @@ Covered vias can be set in Masks (Limit).
 <attribute name="NAME" x="45.505" y="34.45" size="1.27" layer="25" font="vector" rot="R180"/>
 </element>
 <element name="R28" library="jlm_resistors" library_urn="urn:adsk.eagle:library:22393478" package="R0603" package3d_urn="urn:adsk.eagle:package:16649223/2" value="4,7k" x="57.125" y="12.875" smashed="yes" rot="R90">
-<attribute name="NAME" x="56.236" y="11.236" size="1.27" layer="25" rot="R90"/>
+<attribute name="NAME" x="56.236" y="11.236" size="1.27" layer="25" font="vector" rot="R90"/>
 <attribute name="VALUE" x="57.657" y="11.486" size="1.016" layer="27" font="vector" ratio="20" rot="R90"/>
 </element>
 <element name="R27" library="jlm_resistors" library_urn="urn:adsk.eagle:library:22393478" package="R0603" package3d_urn="urn:adsk.eagle:package:16649223/2" value="4,7k" x="60.625" y="12.75" smashed="yes" rot="R90">
-<attribute name="NAME" x="59.736" y="11.236" size="1.27" layer="25" rot="R90"/>
+<attribute name="NAME" x="59.736" y="11.236" size="1.27" layer="25" font="vector" rot="R90"/>
 <attribute name="VALUE" x="61.157" y="11.361" size="1.016" layer="27" font="vector" ratio="20" rot="R90"/>
 </element>
 <element name="C36" library="jlm_cap" library_urn="urn:adsk.eagle:library:29887427" package="C0805" package3d_urn="urn:adsk.eagle:package:16649544/2" value="10µ" x="61.875" y="4.875" smashed="yes" rot="R270">
-<attribute name="NAME" x="63.145" y="6.145" size="1.27" layer="25" rot="R270"/>
+<attribute name="NAME" x="63.145" y="6.145" size="1.27" layer="25" font="vector" rot="R270"/>
 <attribute name="VALUE" x="62.29" y="3.605" size="1.016" layer="27" font="vector" ratio="20" rot="R90"/>
 </element>
 <element name="C35" library="jlm_cap" library_urn="urn:adsk.eagle:library:29887427" package="C0805" package3d_urn="urn:adsk.eagle:package:16649544/2" value="10µ" x="66" y="4.875" smashed="yes" rot="R270">
-<attribute name="NAME" x="67.27" y="6.145" size="1.27" layer="25" rot="R270"/>
+<attribute name="NAME" x="67.27" y="6.145" size="1.27" layer="25" font="vector" rot="R270"/>
 <attribute name="VALUE" x="66.415" y="3.605" size="1.016" layer="27" font="vector" ratio="20" rot="R90"/>
 </element>
 <element name="L1" library="jlm_inductor" library_urn="urn:adsk.eagle:library:25120685" package="R0805" package3d_urn="urn:adsk.eagle:package:16649225/2" value="BLM" x="64" y="8" smashed="yes" rot="R180">
-<attribute name="NAME" x="64.365" y="9.27" size="1.27" layer="25"/>
+<attribute name="NAME" x="64.365" y="9.27" size="1.27" layer="25" font="vector"/>
 <attribute name="VALUE" x="64.635" y="10.54" size="1.27" layer="27" rot="R180"/>
 </element>
 <element name="UART_PWR" library="jlm_con" library_urn="urn:adsk.eagle:library:22393022" package="1751277" package3d_urn="urn:adsk.eagle:package:41208590/3" value="1751277" x="47" y="7" smashed="yes">
 <attribute name="MF" value="" x="47" y="-12" size="1.778" layer="27" display="off"/>
 <attribute name="MPN" value="" x="47" y="-12" size="1.778" layer="27" display="off"/>
-<attribute name="NAME" x="36.645" y="1.1425" size="1.27" layer="25" rot="R90"/>
+<attribute name="NAME" x="36.645" y="1.1425" size="1.27" layer="25" font="vector" rot="R90"/>
 <attribute name="OC_FARNELL" value="unknown" x="47" y="-12" size="1.778" layer="27" display="off"/>
 <attribute name="OC_NEWARK" value="unknown" x="47" y="-12" size="1.778" layer="27" display="off"/>
 <attribute name="OC_RS" value="8024855" x="47" y="-12" size="1.778" layer="27" display="off"/>
@@ -2848,25 +2848,25 @@ Covered vias can be set in Masks (Limit).
 <attribute name="VALUE" x="44.9475" y="11.1275" size="1.27" layer="27"/>
 </element>
 <element name="D1" library="jlm_diode" library_urn="urn:adsk.eagle:library:29780204" package="SOD123" package3d_urn="urn:adsk.eagle:package:43420/1" value="SMF6V0TFTR" x="58" y="6" smashed="yes" rot="R270">
-<attribute name="NAME" x="59" y="7.1" size="1.27" layer="25" rot="R270"/>
+<attribute name="NAME" x="59" y="7.1" size="1.27" layer="25" font="vector" rot="R270"/>
 <attribute name="OC_FARNELL" value="2989529" x="45" y="6" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="POPULARITY" value="22" x="45" y="6" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="VALUE" x="58.55" y="1.775" size="1.016" layer="27" font="vector" ratio="20" rot="R90"/>
 </element>
 <element name="R29" library="jlm_resistors" library_urn="urn:adsk.eagle:library:22393478" package="R0603" package3d_urn="urn:adsk.eagle:package:16649223/2" value="1k" x="42" y="13" smashed="yes" rot="R270">
-<attribute name="NAME" x="41.111" y="11.361" size="1.27" layer="25" rot="R90"/>
+<attribute name="NAME" x="41.111" y="11.361" size="1.27" layer="25" font="vector" rot="R90"/>
 <attribute name="VALUE" x="42.532" y="12.111" size="1.016" layer="27" font="vector" ratio="20" rot="R90"/>
 </element>
 <element name="R30" library="jlm_resistors" library_urn="urn:adsk.eagle:library:22393478" package="R0603" package3d_urn="urn:adsk.eagle:package:16649223/2" value="1k" x="38.375" y="13" smashed="yes" rot="R270">
-<attribute name="NAME" x="37.736" y="11.361" size="1.27" layer="25" rot="R90"/>
+<attribute name="NAME" x="37.736" y="11.361" size="1.27" layer="25" font="vector" rot="R90"/>
 <attribute name="VALUE" x="38.907" y="12.236" size="1.016" layer="27" font="vector" ratio="20" rot="R90"/>
 </element>
 <element name="LED1" library="jlm_optical" library_urn="urn:adsk.eagle:library:22393424" package="LED5MM" package3d_urn="urn:adsk.eagle:package:29506708/2" value="red" x="19.75" y="36.5" smashed="yes" rot="R180">
-<attribute name="NAME" x="16.8416" y="34.3" size="1.27" layer="25" ratio="10" rot="R90"/>
+<attribute name="NAME" x="16.8416" y="34.3" size="1.27" layer="25" font="vector" ratio="10" rot="R90"/>
 <attribute name="VALUE" x="18.7004" y="35.9466" size="1.016" layer="27" font="vector" ratio="20"/>
 </element>
 <element name="R32" library="jlm_resistors" library_urn="urn:adsk.eagle:library:22393478" package="R0603" package3d_urn="urn:adsk.eagle:package:16649223/2" value="330" x="27" y="35" smashed="yes">
-<attribute name="NAME" x="26.111" y="35.889" size="1.27" layer="25"/>
+<attribute name="NAME" x="25.861" y="36.014" size="1.27" layer="25" font="vector"/>
 <attribute name="VALUE" x="25.736" y="34.468" size="1.016" layer="27" font="vector" ratio="20"/>
 </element>
 </elements>
@@ -3700,11 +3700,6 @@ Covered vias can be set in Masks (Limit).
 </signal>
 <signal name="LED">
 <contactref element="TEENSY4.1" pad="18"/>
-<contactref element="LED1" pad="K"/>
-<wire x1="25.03" y1="31.62" x2="22.65" y2="34" width="0.254" layer="1"/>
-<wire x1="22.65" y1="34" x2="20" y2="34" width="0.254" layer="1"/>
-<wire x1="20" y1="34" x2="18.48" y2="35.52" width="0.254" layer="1"/>
-<wire x1="18.48" y1="35.52" x2="18.48" y2="36.5" width="0.254" layer="1"/>
 </signal>
 <signal name="N$72">
 </signal>
@@ -3863,6 +3858,15 @@ Covered vias can be set in Masks (Limit).
 <contactref element="R32" pad="1"/>
 <wire x1="21.02" y1="36.5" x2="24.65" y2="36.5" width="0.254" layer="1"/>
 <wire x1="24.65" y1="36.5" x2="26.15" y2="35" width="0.254" layer="1"/>
+</signal>
+<signal name="LED2">
+<contactref element="TEENSY4.1" pad="19"/>
+<contactref element="LED1" pad="K"/>
+<wire x1="18.48" y1="36.5" x2="18.48" y2="35.52" width="0.254" layer="1"/>
+<wire x1="20" y1="34" x2="21" y2="34" width="0.254" layer="1"/>
+<wire x1="21" y1="34" x2="22.49" y2="32.51" width="0.254" layer="1"/>
+<wire x1="22.49" y1="32.51" x2="22.49" y2="31.62" width="0.254" layer="1"/>
+<wire x1="18.48" y1="35.52" x2="20" y2="34" width="0.254" layer="1"/>
 </signal>
 </signals>
 <mfgpreviewcolors>
