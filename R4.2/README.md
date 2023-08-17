@@ -1,4 +1,4 @@
-# TeensyAmp R4.1
+# TeensyAmp R4.2
 
 If not noted otherwise, all measurements at 48kHz sampling rate.
 
@@ -10,13 +10,6 @@ If not noted otherwise, all measurements at 48kHz sampling rate.
 - C1=10uF and R2=4.7k for a 5Hz high-pass filter
 - R2=4.7k and R3=47k for a 10x gain (gain=R3/R2)
 - no low-pass filter 
-
-
-### Reference voltage
-
-![vref](images/vref.png)
-
-- the voltage reference needs to be really stable!
 
 
 ### Pins
@@ -88,15 +81,4 @@ Teensy pins:
 | 41             | I/O IN       | -               |
 | 26             | LED extern   | -               |
 | 27             | -            | LED extern      |
-
-
-### 16 channels
-
-In the following plot a 1kHz signal was supplied to each input channel in turn, on two R4.0 boards connected to a single Teensy 4.1:
-
-![16-channels](images/16channels-traces.png)
-
-The 16 channels are all in sync (same 1kHz signal on all channels):
-
-![16-channels-sync](images/16channels-sync-traces.png)
 
