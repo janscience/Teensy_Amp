@@ -15,6 +15,7 @@ Amplifiers for the [Teensy](https://www.pjrc.com/teensy/) development boards.
   A stackable two-channel differential amplifier with band-pass filter.
 
 - [R4.0](R4.0)
+  ![R40](images/TeensyAmp_R40.png)
   An eight-channel single-ended amplifier with analog-digital converter
   based on [TI PCM1865](https://www.ti.com/product/PCM1865)
   together with CAN bus communication on an 80x80mm PCB.
