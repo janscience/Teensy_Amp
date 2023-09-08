@@ -6,6 +6,8 @@ adjustable gain.
 by [jlm Innovation](https://www.jlm-innovation.de/) and [Jan
 Benda](https://github.com/janscience).
 
+![R40](images/Teensy_Amp-R40.png)
+
 
 ## TI PCM1865
 
