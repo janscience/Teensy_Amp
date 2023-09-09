@@ -18,7 +18,7 @@ Benda](https://github.com/janscience).
 
 For details, see
 - [web site](https://www.ti.com/product/PCM1865)
-- [PCM186x data sheet](https://www.ti.com/lit/gpn/pcm1865)
+- [PCM186x data sheet](pcm1865.pdf)
 - [PCM186xEVM evalutation board](https://www.ti.com/lit/pdf/slau615)
 
 
