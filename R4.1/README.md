@@ -1,5 +1,13 @@
 # TeensyAmp R4.1
 
+Based on two [TI PCM1865](https://www.ti.com/product/PCM1865) with ADC and
+adjustable gain.
+
+by [jlm Innovation](https://www.jlm-innovation.de/) and [Jan
+Benda](https://github.com/janscience).
+
+![R4.1](images/Teensy_Amp-R41.jpg)
+
 If not noted otherwise, all measurements at 48kHz sampling rate.
 
 ## Pre-amplifier
@@ -88,15 +96,4 @@ Teensy pins:
 | 41             | I/O IN       | -               |
 | 26             | LED extern   | -               |
 | 27             | -            | LED extern      |
-
-
-### 16 channels
-
-In the following plot a 1kHz signal was supplied to each input channel in turn, on two R4.0 boards connected to a single Teensy 4.1:
-
-![16-channels](images/16channels-traces.png)
-
-The 16 channels are all in sync (same 1kHz signal on all channels):
-
-![16-channels-sync](images/16channels-sync-traces.png)
 

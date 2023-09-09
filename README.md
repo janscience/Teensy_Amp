@@ -21,13 +21,15 @@ Amplifiers for the [Teensy](https://www.pjrc.com/teensy/) development boards.
   together with CAN bus communication on an 80x80mm PCB.
 
 - [R4.1](R4.1)
+  ![R41](R4.1/images/Teensy_Amp-R41.jpg)
   Similar to the [R4.0](R4.0) circuit, but on a 110x40mm PCB.
 
 - [R4.2](R4.2)
+  ![R42](R4.2/images/Teensy_Amp-R42.jpg)
   Similar to the [R4.1](R4.1) board, but using the secondary TDM of the
   Teensy and without CAN bus. Can be used as a standalone 8-channel
   logger, or as an expansion of the [R4.1](R4.1) board, making it a 16 channel
-  recording unit.
+  recording unit: [read more](R4.1-R4.2).
 
 - [R5.0](R5.0)
   Some still to be developed amplifier based on

@@ -1,5 +1,13 @@
 # TeensyAmp R4.2
 
+Based on two [TI PCM1865](https://www.ti.com/product/PCM1865) with ADC and
+adjustable gain.
+
+by [jlm Innovation](https://www.jlm-innovation.de/) and [Jan
+Benda](https://github.com/janscience).
+
+![R4.2](images/Teensy_Amp-R42.jpg)
+
 If not noted otherwise, all measurements at 48kHz sampling rate.
 
 ## Pre-amplifier
