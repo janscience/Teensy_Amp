@@ -3,11 +3,11 @@
 The [TeensyAmp R4.1](../R4.1) can be stacked on top of the [TeensyAmp
 R4.2](../R4.2):
 
-![R4.1 + R4.2](images/Teensy_Amp-R41-R42.jpg)
+![R4.1 + R4.2](images/Teensy_Amp-R41-R42.png)
 
-![R4.1 + R4.2 side](images/Teensy_Amp-R41-R42-side.jpg)
+![R4.1 + R4.2 side](images/Teensy_Amp-R41-R42-side.png)
 
-![R4.1 + R4.2 front](images/Teensy_Amp-R41-R42-front.jpg)
+![R4.1 + R4.2 front](images/Teensy_Amp-R41-R42-front.png)
 
 
 ### 16 channels
