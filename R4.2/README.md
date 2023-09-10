@@ -6,7 +6,7 @@ adjustable gain.
 by [jlm Innovation](https://www.jlm-innovation.de/) and [Jan
 Benda](https://github.com/janscience).
 
-![R4.2](images/Teensy_Amp-R42.jpg)
+![R4.2](images/Teensy_Amp-R42.png)
 
 If not noted otherwise, all measurements at 48kHz sampling rate.
 
