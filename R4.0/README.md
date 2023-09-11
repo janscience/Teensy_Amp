@@ -102,29 +102,85 @@ In the following plot a 1kHz signal was supplied to each input channel in turn:
 ![8-channels](images/8channels-traces.png)
 
 
-### Noise
+### Pre-amplifier
+
+Inspired by
+- http://realhdaudio.de/wp-content/uploads/2018/12/A0_HSD_TMT2018_realHDaudio_V3.pdf
+- https://www.akm.com/content/dam/documents/products/audio/audio-adc/ak5397eq/ak5397eq-en-datasheet.pdf
+- Figure 61 of the [PCM186x data sheet](https://www.ti.com/lit/gpn/pcm1865).
+
+![preampinv](images/preampinv.png)
+
+For variants of the pre-amplifier see [Testing filter and gain
+variants](variants1.md) and [Testing high-pass filter without
+low-pass](variants2.md).
+
+#### Noise
 
 Inputs short circuited to ground.
 
 - 0dB gain:
 
-  ![variants-zeros0dB](images/variants-zeros-gain1x1-noise.png)
+  ![zeros-gain10x1](images/zeros-gain10x1-noise.png)
 
 - 20dB gain:
 
-  ![variants-zeros20dB](images/variants-zeros-gain1x10-noise.png)
+  ![zeros-gain10x10](images/zeros-gain10x10-noise.png)
 
 - 40dB gain:
 
-  ![variants-zeros40dB](images/variants-zeros-gain1x100-noise.png)
+  ![zeros-gain10x100](images/zeros-gain10x100-noise.png)
 
 - No SD write artifacts.
-- Same offset and noise in all channels.
 - Super low noise at 0dB gain.
 - Noise increases accordingly with gain of the PCM chip.
 
 
-### Clipping
+#### Linearity
+
+- 0dB gain, 150mV rms sine wave:
+
+  ![sig-gain10x1-traces](images/sig1kHz150mV-gain10x1-traces.png)
+
+  ![sig-gain10x1-sepctra](images/sig1kHz150mV-gain10x1-spectra.png)
+
+- 20dB gain, 7mV rms sine wave:
+
+  ![sig-gain10x10-traces](images/sig1kHz7mV-gain10x10-traces.png)
+
+  ![sig-gain10x10-sepctra](images/sig1kHz7mV-gain10x10-spectra.png)
+
+- 40dB gain, 700uV rms sine wave:
+
+  ![sig-gain10x100-traces](images/sig1kHz700uV-gain10x100-traces.png)
+
+  ![sig-gain10x100-sepctra](images/sig1kHz700uV-gain10x100-spectra.png)
+
+- In all conditions harmonics ar at least 80dB below the signal!
+- Noise increases according to gain (every x10 by 20dB).
+
+
+#### Filter
+
+Frequencies 10Hz to 20kHz in 1/3 octaves, each for 500ms:
+
+![sig-gain10x10](images/filter-7mV-gain10x10-traces.png)
+
+- 15Hz highpass filter
+
+
+### Signal-filter (without pre-amplifier)
+
+See figure 61 of the [PCM186x data sheet](https://www.ti.com/lit/gpn/pcm1865).
+
+![filter](images/filter.png)
+
+For variants of the signal filter see [Testing filter and gain
+variants](variants1.md) and [Testing high-pass filter without
+low-pass](variants2.md).
+
+
+#### Clipping
 
 The PCM1865 clips with inversion (a 1kHz signal with 2V rms):
 
@@ -162,78 +218,7 @@ But a 100mV rms signal cannot be fixed:
 ![unwrapped100mV](images/sig1kHz100mV-gain1x100-unwrapped-traces.png)
 
 
-### Signal-filter
-
-See figure 61 of the [PCM186x data sheet](https://www.ti.com/lit/gpn/pcm1865).
-
-![filter](images/filter.png)
-
-For variants of the signal filter see [Testing filter and gain
-variants](variants1.md) and [Testing high-pass filter without
-low-pass](variants2.md).
-
-
-### Pre-amplifier
-
-Inspired by
-- http://realhdaudio.de/wp-content/uploads/2018/12/A0_HSD_TMT2018_realHDaudio_V3.pdf
-- https://www.akm.com/content/dam/documents/products/audio/audio-adc/ak5397eq/ak5397eq-en-datasheet.pdf
-- Figure 61 of the [PCM186x data sheet](https://www.ti.com/lit/gpn/pcm1865).
-
-![preampinv](images/preampinv.png)
-
-For variants of the pre-amplifier see [Testing filter and gain
-variants](variants1.md) and [Testing high-pass filter without
-low-pass](variants2.md).
-
-- Cross talk (R1=10k, R3=220k, no low-pass) is at <60dB. Channel 0 got
-  1500Hz, channel 1 630Hz, channel 2 is terminated with 50Ohm, channel
-  3 is open:
-  ![crosstalk](images/RECORD-CROSSTALK-spectra.png)
-
-- Both VDD and VREF from PCM1865 via capacitors C3, C4 and C5 with 10uF
-  is good (R1=1k, R3=22k):
-  ![vddvref](images/RECORD-VDD10uF-VREF10uF-R322k-POWERBANK-spectra.png)
-
-- Ten times larger R1 and R3 are better (R1=10k, R3=220k, even larger is bad):
-  ![rin](images/RECORD-VDD10uF-VREF10uF-R3220k-POWERBANK-spectra.png)
-
-- BUT: at a gain of 40dB, the maximum possible R3 is 47k. Higher
-  values result in a recording with very low signal amplitude.
-
-  At both 20x gain (R2 = 2.2k) and 10x gain (R2 = 4.7k), adding the
-  low-pass filter (R4 and C2) substantially reduces harmonics:
-
-  20x gain at 40dB without lowpass:
-  ![gain20](images/RECORD-R22200-R347k-R40-GAIN40dB-300uV-spectra.png)
-  
-  20x gain at 40dB with lowpass:
-  ![gain20lp](images/RECORD-R22200-R347k-R4330-GAIN40dB-300uV-spectra.png)
-
-- A smaller resistance R4 for the low pass improves the situation for
-  high gains:
-
-  10x gain at 40dB with R4=10 lowpass:
-  ![gain40lp](images/RECORD-R24700-R347k-R410-C2220nF-GAIN40dB-600uV-spectra.png)
-
-  10x gain at 20dB with R4=10 lowpass:
-  ![gain20lp](images/RECORD-R24700-R347k-R410-C2220nF-GAIN20dB-6mV-spectra.png)
-
-  10x gain at 0dB with R4=10 lowpass:
-  ![gain0lp](images/RECORD-R24700-R347k-R410-C2220nF-GAIN0dB-60mV-spectra.png)
-
-- At low gain, removing the low-pass is better:
-
-  10x gain at 0dB without lowpass:
-  ![gain0nolp](images/RECORD-R24700-R347k-R40-GAIN0dB-60mV-spectra.png)
-
-- A good compromise seems to be a lowpass filter with R4=1:
-
-  10x gain at 0dB with R4=1 lowpass:
-  ![gain0lp1](images/RECORD-R24700-R347k-R41-C2220nF-GAIN0dB-60mV-spectra.png)
-
-  10x gain at 40dB with R4=1 lowpass:
-  ![gain40lp1](images/RECORD-R24700-R347k-R41-C2220nF-GAIN40dB-600uV-spectra.png)
+### Low-pass filter (old stuff)
 
 - The low-pass filter (R4, C2) is not really needed! For the following
   spectra, R4 and C2 were removed (no low-pass). First, a 1kHz signal
