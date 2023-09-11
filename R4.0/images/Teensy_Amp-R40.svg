@@ -4,9 +4,9 @@
 <svg
    version="1.1"
    id="svg2"
-   width="504.93048"
+   width="545.84973"
    height="361.43875"
-   viewBox="0 0 504.93048 361.43875"
+   viewBox="0 0 545.84973 361.43875"
    sodipodi:docname="Teensy_Amp-R40.svg"
    inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
    inkscape:export-filename="/home/benda/prj/Teensy_Amp/R4.0/images/Teensy_Amp-R40.png"
@@ -21,289 +21,337 @@
      id="defs6">
     <clipPath
        clipPathUnits="userSpaceOnUse"
-       id="clipPath88137">
+       id="clipPath12524">
       <rect
-         style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.33333;stroke-opacity:1"
-         id="rect88139"
-         width="504.93048"
+         style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.33334;stroke-opacity:1"
+         id="rect12526"
+         width="545.84973"
          height="361.43875"
          x="-4.2878432"
-         y="31.44169" />
+         y="34.691181"
+         transform="rotate(90)" />
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
-       id="clipPath88141">
+       id="clipPath12528">
       <rect
-         style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.33333;stroke-opacity:1"
-         id="rect88143"
-         width="504.93048"
+         style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.33334;stroke-opacity:1"
+         id="rect12530"
+         width="545.84973"
          height="361.43875"
          x="-4.2878432"
-         y="31.44169" />
+         y="34.691181"
+         transform="rotate(90)" />
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
-       id="clipPath88145">
+       id="clipPath12532">
       <rect
-         style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.33333;stroke-opacity:1"
-         id="rect88147"
-         width="504.93048"
+         style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.33334;stroke-opacity:1"
+         id="rect12534"
+         width="545.84973"
          height="361.43875"
          x="-4.2878432"
-         y="31.44169" />
+         y="34.691181"
+         transform="rotate(90)" />
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
-       id="clipPath88149">
+       id="clipPath12536">
       <rect
-         style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.33333;stroke-opacity:1"
-         id="rect88151"
-         width="504.93048"
+         style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.33334;stroke-opacity:1"
+         id="rect12538"
+         width="545.84973"
          height="361.43875"
          x="-4.2878432"
-         y="31.44169" />
+         y="34.691181"
+         transform="rotate(90)" />
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
-       id="clipPath88153">
+       id="clipPath12540">
       <rect
-         style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.33333;stroke-opacity:1"
-         id="rect88155"
-         width="504.93048"
+         style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.33334;stroke-opacity:1"
+         id="rect12542"
+         width="545.84973"
          height="361.43875"
          x="-4.2878432"
-         y="31.44169" />
+         y="34.691181" />
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
-       id="clipPath88157">
+       id="clipPath12544">
       <rect
-         style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.33333;stroke-opacity:1"
-         id="rect88159"
-         width="504.93048"
+         style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.33334;stroke-opacity:1"
+         id="rect12546"
+         width="545.84973"
          height="361.43875"
          x="-4.2878432"
-         y="31.44169" />
+         y="34.691181" />
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
-       id="clipPath88161">
+       id="clipPath12548">
       <rect
-         style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.33333;stroke-opacity:1"
-         id="rect88163"
-         width="504.93048"
+         style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.33334;stroke-opacity:1"
+         id="rect12550"
+         width="545.84973"
          height="361.43875"
          x="-4.2878432"
-         y="31.44169" />
+         y="34.691181" />
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
-       id="clipPath88165">
+       id="clipPath12552">
       <rect
-         style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.33333;stroke-opacity:1"
-         id="rect88167"
-         width="504.93048"
+         style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.33334;stroke-opacity:1"
+         id="rect12554"
+         width="545.84973"
          height="361.43875"
          x="-4.2878432"
-         y="31.44169" />
+         y="34.691181" />
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
-       id="clipPath88169">
+       id="clipPath12556">
       <rect
-         style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.33333;stroke-opacity:1"
-         id="rect88171"
-         width="504.93048"
+         style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.33334;stroke-opacity:1"
+         id="rect12558"
+         width="545.84973"
          height="361.43875"
          x="-4.2878432"
-         y="31.44169" />
+         y="34.691181" />
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
-       id="clipPath88173">
+       id="clipPath12560">
       <rect
-         style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.33333;stroke-opacity:1"
-         id="rect88175"
-         width="504.93048"
+         style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.33334;stroke-opacity:1"
+         id="rect12562"
+         width="545.84973"
          height="361.43875"
          x="-4.2878432"
-         y="31.44169" />
+         y="34.691181" />
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
-       id="clipPath88177">
+       id="clipPath12564">
       <rect
-         style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.33333;stroke-opacity:1"
-         id="rect88179"
-         width="504.93048"
+         style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.33334;stroke-opacity:1"
+         id="rect12566"
+         width="545.84973"
          height="361.43875"
          x="-4.2878432"
-         y="31.44169" />
+         y="34.691181" />
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
-       id="clipPath88181">
+       id="clipPath12568">
       <rect
-         style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.33333;stroke-opacity:1"
-         id="rect88183"
-         width="504.93048"
+         style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.33334;stroke-opacity:1"
+         id="rect12570"
+         width="545.84973"
          height="361.43875"
          x="-4.2878432"
-         y="31.44169" />
+         y="34.691181" />
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
-       id="clipPath88185">
+       id="clipPath12572">
       <rect
-         style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.33333;stroke-opacity:1"
-         id="rect88187"
-         width="504.93048"
+         style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.33334;stroke-opacity:1"
+         id="rect12574"
+         width="545.84973"
          height="361.43875"
          x="-4.2878432"
-         y="31.44169" />
+         y="34.691181" />
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
-       id="clipPath88189">
+       id="clipPath12576">
       <rect
-         style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.33333;stroke-opacity:1"
-         id="rect88191"
-         width="504.93048"
+         style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.33334;stroke-opacity:1"
+         id="rect12578"
+         width="545.84973"
          height="361.43875"
          x="-4.2878432"
-         y="31.44169" />
+         y="34.691181" />
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
-       id="clipPath88193">
+       id="clipPath12580">
       <rect
-         style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.33333;stroke-opacity:1"
-         id="rect88195"
-         width="504.93048"
+         style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.33334;stroke-opacity:1"
+         id="rect12582"
+         width="545.84973"
          height="361.43875"
          x="-4.2878432"
-         y="31.44169" />
+         y="34.691181" />
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
-       id="clipPath88197">
+       id="clipPath12584">
       <rect
-         style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.33333;stroke-opacity:1"
-         id="rect88199"
-         width="504.93048"
+         style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.33334;stroke-opacity:1"
+         id="rect12586"
+         width="545.84973"
          height="361.43875"
          x="-4.2878432"
-         y="31.44169" />
+         y="34.691181" />
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
-       id="clipPath88201">
+       id="clipPath12588">
       <rect
-         style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.33333;stroke-opacity:1"
-         id="rect88203"
-         width="504.93048"
+         style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.33334;stroke-opacity:1"
+         id="rect12590"
+         width="545.84973"
          height="361.43875"
          x="-4.2878432"
-         y="31.44169" />
+         y="34.691181" />
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
-       id="clipPath88205">
+       id="clipPath12592">
       <rect
-         style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.33333;stroke-opacity:1"
-         id="rect88207"
-         width="504.93048"
+         style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.33334;stroke-opacity:1"
+         id="rect12594"
+         width="545.84973"
          height="361.43875"
          x="-4.2878432"
-         y="31.44169" />
+         y="34.691181" />
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
-       id="clipPath88209">
+       id="clipPath12596">
       <rect
-         style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.33333;stroke-opacity:1"
-         id="rect88211"
-         width="504.93048"
+         style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.33334;stroke-opacity:1"
+         id="rect12598"
+         width="545.84973"
          height="361.43875"
          x="-4.2878432"
-         y="31.44169" />
+         y="34.691181" />
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
-       id="clipPath88213">
+       id="clipPath12600">
       <rect
-         style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.33333;stroke-opacity:1"
-         id="rect88215"
-         width="504.93048"
+         style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.33334;stroke-opacity:1"
+         id="rect12602"
+         width="545.84973"
          height="361.43875"
          x="-4.2878432"
-         y="31.44169" />
+         y="34.691181" />
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
-       id="clipPath88217">
+       id="clipPath12604">
       <rect
-         style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.33333;stroke-opacity:1"
-         id="rect88219"
-         width="504.93048"
+         style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.33334;stroke-opacity:1"
+         id="rect12606"
+         width="545.84973"
          height="361.43875"
          x="-4.2878432"
-         y="31.44169" />
+         y="34.691181" />
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
-       id="clipPath88221">
+       id="clipPath12608">
       <rect
-         style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.33333;stroke-opacity:1"
-         id="rect88223"
-         width="504.93048"
+         style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.33334;stroke-opacity:1"
+         id="rect12610"
+         width="545.84973"
          height="361.43875"
          x="-4.2878432"
-         y="31.44169" />
+         y="34.691181" />
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
-       id="clipPath88225">
+       id="clipPath12612">
       <rect
-         style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.33333;stroke-opacity:1"
-         id="rect88227"
-         width="504.93048"
+         style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.33334;stroke-opacity:1"
+         id="rect12614"
+         width="545.84973"
+         height="361.43875"
+         x="-4.2878432"
+         y="34.691181" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath12616">
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.33334;stroke-opacity:1"
+         id="rect12618"
+         width="545.84973"
+         height="361.43875"
+         x="-4.2878432"
+         y="34.691181" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath12620">
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.33334;stroke-opacity:1"
+         id="rect12622"
+         width="545.84973"
+         height="361.43875"
+         x="-4.2878432"
+         y="34.691181" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath12624">
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.33334;stroke-opacity:1"
+         id="rect12626"
+         width="545.84973"
+         height="361.43875"
+         x="-4.2878432"
+         y="34.691181" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath12628">
+      <rect
+         style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.33334;stroke-opacity:1"
+         id="rect12630"
+         width="545.84973"
          height="361.43875"
          x="-4.2878432"
          y="69.441689" />
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
-       id="clipPath88229">
+       id="clipPath12632">
       <rect
-         style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.33333;stroke-opacity:1"
-         id="rect88231"
-         width="504.93048"
+         style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.33334;stroke-opacity:1"
+         id="rect12634"
+         width="545.84973"
          height="361.43875"
          x="-4.2878432"
-         y="31.44169" />
+         y="34.691181" />
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
-       id="clipPath88233">
+       id="clipPath12636">
       <rect
-         style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.33333;stroke-opacity:1"
-         id="rect88235"
-         width="504.93048"
+         style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.33334;stroke-opacity:1"
+         id="rect12638"
+         width="545.84973"
          height="361.43875"
          x="-4.2878432"
-         y="31.44169" />
+         y="34.691181" />
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
-       id="clipPath88237">
+       id="clipPath12640">
       <rect
-         style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.33333;stroke-opacity:1"
-         id="rect88239"
-         width="504.93048"
+         style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:1.33334;stroke-opacity:1"
+         id="rect12642"
+         width="545.84973"
          height="361.43875"
          x="-4.2878432"
-         y="31.44169" />
+         y="34.691181" />
     </clipPath>
   </defs>
   <sodipodi:namedview
@@ -319,9 +367,9 @@
      fit-margin-left="0"
      fit-margin-right="0"
      fit-margin-bottom="0"
-     inkscape:zoom="0.95769474"
-     inkscape:cx="153.49359"
-     inkscape:cy="162.89115"
+     inkscape:zoom="1.4454851"
+     inkscape:cx="168.10965"
+     inkscape:cy="177.44908"
      inkscape:window-width="1920"
      inkscape:window-height="995"
      inkscape:window-x="0"
@@ -332,7 +380,7 @@
      inkscape:groupmode="layer"
      inkscape:label="Image"
      id="g8"
-     transform="translate(4.2878432,-31.44169)">
+     transform="translate(4.2878432,-34.691181)">
     <image
        width="935.94122"
        height="526.46686"
@@ -341,8 +389,8 @@
        xlink:href="Teensy_Amp-R40.jpg"
        id="image10"
        x="-130.40637"
-       y="-54.345238"
-       clip-path="url(#clipPath88237)"
+       y="-51.095745"
+       clip-path="url(#clipPath12640)"
        inkscape:export-filename="/home/benda/prj/Teensy_Amp/R4.0/images/image10.png"
        inkscape:export-xdpi="200.00069"
        inkscape:export-ydpi="200.00069" />
@@ -350,34 +398,34 @@
        xml:space="preserve"
        style="font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif"
        x="443.81308"
-       y="115.42578"
+       y="118.67528"
        id="text28906"
-       clip-path="url(#clipPath88233)"
+       clip-path="url(#clipPath12636)"
        inkscape:export-filename="/home/benda/prj/Teensy_Amp/R4.0/images/image10.png"
        inkscape:export-xdpi="200.00069"
        inkscape:export-ydpi="200.00069"><tspan
          sodipodi:role="line"
          id="tspan28904"
          x="443.81308"
-         y="115.42578"></tspan></text>
+         y="118.67528" /></text>
     <text
        xml:space="preserve"
        style="font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif"
        x="443.85275"
-       y="126.12436"
+       y="129.37384"
        id="text30106"
-       clip-path="url(#clipPath88229)"
+       clip-path="url(#clipPath12632)"
        inkscape:export-filename="/home/benda/prj/Teensy_Amp/R4.0/images/image10.png"
        inkscape:export-xdpi="200.00069"
        inkscape:export-ydpi="200.00069"><tspan
          sodipodi:role="line"
          id="tspan30104"
          x="443.85275"
-         y="126.12436"></tspan></text>
+         y="129.37384" /></text>
     <g
        id="g74939"
-       transform="translate(0,-38)"
-       clip-path="url(#clipPath88225)"
+       transform="translate(0,-34.750509)"
+       clip-path="url(#clipPath12628)"
        inkscape:export-filename="/home/benda/prj/Teensy_Amp/R4.0/images/image10.png"
        inkscape:export-xdpi="200.00069"
        inkscape:export-ydpi="200.00069">
@@ -426,309 +474,389 @@
        xml:space="preserve"
        style="font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#ffffff"
        x="431.61069"
-       y="144.7971"
+       y="148.04659"
        id="text53507"
-       clip-path="url(#clipPath88221)"
+       clip-path="url(#clipPath12624)"
        inkscape:export-filename="/home/benda/prj/Teensy_Amp/R4.0/images/image10.png"
        inkscape:export-xdpi="200.00069"
        inkscape:export-ydpi="200.00069"><tspan
          sodipodi:role="line"
          id="tspan53505"
          x="431.61069"
-         y="144.7971">1-CH3R</tspan></text>
+         y="148.04659">1-CH3R</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#ffffff"
        x="431.61069"
-       y="164.18481"
+       y="167.4343"
        id="text55271"
-       clip-path="url(#clipPath88217)"
+       clip-path="url(#clipPath12620)"
        inkscape:export-filename="/home/benda/prj/Teensy_Amp/R4.0/images/image10.png"
        inkscape:export-xdpi="200.00069"
        inkscape:export-ydpi="200.00069"><tspan
          sodipodi:role="line"
          id="tspan55269"
          x="431.61069"
-         y="164.18481">1-CH3L</tspan></text>
+         y="167.4343">1-CH3L</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#ffffff"
        x="431.61069"
-       y="183.57251"
+       y="186.82199"
        id="text56947"
-       clip-path="url(#clipPath88213)"
+       clip-path="url(#clipPath12616)"
        inkscape:export-filename="/home/benda/prj/Teensy_Amp/R4.0/images/image10.png"
        inkscape:export-xdpi="200.00069"
        inkscape:export-ydpi="200.00069"><tspan
          sodipodi:role="line"
          id="tspan56945"
          x="431.61069"
-         y="183.57251">1-CH4R</tspan></text>
+         y="186.82199">1-CH4R</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#ffffff"
        x="431.61069"
-       y="202.96022"
+       y="206.2097"
        id="text57655"
-       clip-path="url(#clipPath88209)"
+       clip-path="url(#clipPath12612)"
        inkscape:export-filename="/home/benda/prj/Teensy_Amp/R4.0/images/image10.png"
        inkscape:export-xdpi="200.00069"
        inkscape:export-ydpi="200.00069"><tspan
          sodipodi:role="line"
          id="tspan57653"
          x="431.61069"
-         y="202.96022">1-CH4L</tspan></text>
+         y="206.2097">1-CH4L</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#ffffff"
        x="432.02475"
-       y="234.34792"
+       y="237.5974"
        id="text59529"
-       clip-path="url(#clipPath88205)"
+       clip-path="url(#clipPath12608)"
        inkscape:export-filename="/home/benda/prj/Teensy_Amp/R4.0/images/image10.png"
        inkscape:export-xdpi="200.00069"
        inkscape:export-ydpi="200.00069"><tspan
          sodipodi:role="line"
          id="tspan59527"
          x="432.02475"
-         y="234.34792">2-CH1R</tspan></text>
+         y="237.5974">2-CH1R</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#ffffff"
        x="432.02475"
-       y="253.73563"
+       y="256.98511"
        id="text61513"
-       clip-path="url(#clipPath88201)"
+       clip-path="url(#clipPath12604)"
        inkscape:export-filename="/home/benda/prj/Teensy_Amp/R4.0/images/image10.png"
        inkscape:export-xdpi="200.00069"
        inkscape:export-ydpi="200.00069"><tspan
          sodipodi:role="line"
          id="tspan61511"
          x="432.02475"
-         y="253.73563">2-CH1L</tspan></text>
+         y="256.98511">2-CH1L</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#ffffff"
        x="432.02475"
-       y="273.12332"
+       y="276.3728"
        id="text63321"
-       clip-path="url(#clipPath88197)"
+       clip-path="url(#clipPath12600)"
        inkscape:export-filename="/home/benda/prj/Teensy_Amp/R4.0/images/image10.png"
        inkscape:export-xdpi="200.00069"
        inkscape:export-ydpi="200.00069"><tspan
          sodipodi:role="line"
          id="tspan63319"
          x="432.02475"
-         y="273.12332">2-CH2R</tspan></text>
+         y="276.3728">2-CH2R</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#ffffff"
        x="432.02475"
-       y="292.51102"
+       y="295.7605"
        id="text64431"
-       clip-path="url(#clipPath88193)"
+       clip-path="url(#clipPath12596)"
        inkscape:export-filename="/home/benda/prj/Teensy_Amp/R4.0/images/image10.png"
        inkscape:export-xdpi="200.00069"
        inkscape:export-ydpi="200.00069"><tspan
          sodipodi:role="line"
          id="tspan64429"
          x="432.02475"
-         y="292.51102">2-CH2L</tspan></text>
+         y="295.7605">2-CH2L</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#ffffff"
        x="432.02475"
-       y="323.89871"
+       y="327.14819"
        id="text68051"
-       clip-path="url(#clipPath88189)"
+       clip-path="url(#clipPath12592)"
        inkscape:export-filename="/home/benda/prj/Teensy_Amp/R4.0/images/image10.png"
        inkscape:export-xdpi="200.00069"
        inkscape:export-ydpi="200.00069"><tspan
          sodipodi:role="line"
          id="tspan68049"
          x="432.02475"
-         y="323.89871">2-CH3R</tspan></text>
+         y="327.14819">2-CH3R</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#ffffff"
        x="432.02475"
-       y="343.28644"
+       y="346.53592"
        id="text69749"
-       clip-path="url(#clipPath88185)"
+       clip-path="url(#clipPath12588)"
        inkscape:export-filename="/home/benda/prj/Teensy_Amp/R4.0/images/image10.png"
        inkscape:export-xdpi="200.00069"
        inkscape:export-ydpi="200.00069"><tspan
          sodipodi:role="line"
          id="tspan69747"
          x="432.02475"
-         y="343.28644">2-CH3L</tspan></text>
+         y="346.53592">2-CH3L</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#ffffff"
        x="432.02475"
-       y="362.67413"
+       y="365.92361"
        id="text71219"
-       clip-path="url(#clipPath88181)"
+       clip-path="url(#clipPath12584)"
        inkscape:export-filename="/home/benda/prj/Teensy_Amp/R4.0/images/image10.png"
        inkscape:export-xdpi="200.00069"
        inkscape:export-ydpi="200.00069"><tspan
          sodipodi:role="line"
          id="tspan71217"
          x="432.02475"
-         y="362.67413">2-CH4R</tspan></text>
+         y="365.92361">2-CH4R</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#ffffff"
        x="432.02475"
-       y="382.06183"
+       y="385.31131"
        id="text72477"
-       clip-path="url(#clipPath88177)"
+       clip-path="url(#clipPath12580)"
        inkscape:export-filename="/home/benda/prj/Teensy_Amp/R4.0/images/image10.png"
        inkscape:export-xdpi="200.00069"
        inkscape:export-ydpi="200.00069"><tspan
          sodipodi:role="line"
          id="tspan72475"
          x="432.02475"
-         y="382.06183">2-CH4L</tspan></text>
+         y="385.31131">2-CH4L</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#ffffff"
        x="46.917278"
-       y="129.20866"
+       y="132.45815"
        id="text77407"
-       clip-path="url(#clipPath88173)"
+       clip-path="url(#clipPath12576)"
        inkscape:export-filename="/home/benda/prj/Teensy_Amp/R4.0/images/image10.png"
        inkscape:export-xdpi="200.00069"
        inkscape:export-ydpi="200.00069"><tspan
          sodipodi:role="line"
          id="tspan77405"
          x="46.917278"
-         y="129.20866">5V</tspan></text>
+         y="132.45815">5V</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#ffffff"
        x="31.628218"
-       y="147.51357"
+       y="150.76305"
        id="text80029"
-       clip-path="url(#clipPath88169)"
+       clip-path="url(#clipPath12572)"
        inkscape:export-filename="/home/benda/prj/Teensy_Amp/R4.0/images/image10.png"
        inkscape:export-xdpi="200.00069"
        inkscape:export-ydpi="200.00069"><tspan
          sodipodi:role="line"
          id="tspan80027"
          x="31.628218"
-         y="147.51357">GND</tspan></text>
+         y="150.76305">GND</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#ffffff"
        x="7.6125841"
-       y="165.81847"
+       y="169.06795"
        id="text84443"
-       clip-path="url(#clipPath88165)"
+       clip-path="url(#clipPath12568)"
        inkscape:export-filename="/home/benda/prj/Teensy_Amp/R4.0/images/image10.png"
        inkscape:export-xdpi="200.00069"
        inkscape:export-ydpi="200.00069"><tspan
          sodipodi:role="line"
          id="tspan84441"
          x="7.6125841"
-         y="165.81847">CAN LO</tspan></text>
+         y="169.06795">CAN LO</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#ffffff"
        x="13.667272"
-       y="184.12335"
+       y="187.37283"
        id="text85481"
-       clip-path="url(#clipPath88161)"
+       clip-path="url(#clipPath12564)"
        inkscape:export-filename="/home/benda/prj/Teensy_Amp/R4.0/images/image10.png"
        inkscape:export-xdpi="200.00069"
        inkscape:export-ydpi="200.00069"><tspan
          sodipodi:role="line"
          id="tspan85479"
          x="13.667272"
-         y="184.12335">CAN HI</tspan></text>
+         y="187.37283">CAN HI</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#ffffff"
        x="50.292278"
-       y="202.42825"
+       y="205.67773"
        id="text86519"
-       clip-path="url(#clipPath88157)"
+       clip-path="url(#clipPath12560)"
        inkscape:export-filename="/home/benda/prj/Teensy_Amp/R4.0/images/image10.png"
        inkscape:export-xdpi="200.00069"
        inkscape:export-ydpi="200.00069"><tspan
          sodipodi:role="line"
          id="tspan86517"
          x="50.292278"
-         y="202.42825">IO</tspan></text>
+         y="205.67773">IO</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#ffffff"
        x="46.917278"
-       y="231.20866"
+       y="234.45815"
        id="text88073"
-       clip-path="url(#clipPath88153)"
+       clip-path="url(#clipPath12556)"
        inkscape:export-filename="/home/benda/prj/Teensy_Amp/R4.0/images/image10.png"
        inkscape:export-xdpi="200.00069"
        inkscape:export-ydpi="200.00069"><tspan
          sodipodi:role="line"
          id="tspan88071"
          x="46.917278"
-         y="231.20866">5V</tspan></text>
+         y="234.45815">5V</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#ffffff"
        x="31.628218"
-       y="249.51357"
+       y="252.76305"
        id="text88077"
-       clip-path="url(#clipPath88149)"
+       clip-path="url(#clipPath12552)"
        inkscape:export-filename="/home/benda/prj/Teensy_Amp/R4.0/images/image10.png"
        inkscape:export-xdpi="200.00069"
        inkscape:export-ydpi="200.00069"><tspan
          sodipodi:role="line"
          id="tspan88075"
          x="31.628218"
-         y="249.51357">GND</tspan></text>
+         y="252.76305">GND</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#ffffff"
        x="7.6125841"
-       y="267.81848"
+       y="271.06796"
        id="text88081"
-       clip-path="url(#clipPath88145)"
+       clip-path="url(#clipPath12548)"
        inkscape:export-filename="/home/benda/prj/Teensy_Amp/R4.0/images/image10.png"
        inkscape:export-xdpi="200.00069"
        inkscape:export-ydpi="200.00069"><tspan
          sodipodi:role="line"
          id="tspan88079"
          x="7.6125841"
-         y="267.81848">CAN LO</tspan></text>
+         y="271.06796">CAN LO</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#ffffff"
        x="13.667272"
-       y="286.12335"
+       y="289.37283"
        id="text88085"
-       clip-path="url(#clipPath88141)"
+       clip-path="url(#clipPath12544)"
        inkscape:export-filename="/home/benda/prj/Teensy_Amp/R4.0/images/image10.png"
        inkscape:export-xdpi="200.00069"
        inkscape:export-ydpi="200.00069"><tspan
          sodipodi:role="line"
          id="tspan88083"
          x="13.667272"
-         y="286.12335">CAN HI</tspan></text>
+         y="289.37283">CAN HI</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#ffffff"
        x="50.292278"
-       y="304.42825"
+       y="307.67773"
        id="text88089"
-       clip-path="url(#clipPath88137)"
+       clip-path="url(#clipPath12540)"
        inkscape:export-filename="/home/benda/prj/Teensy_Amp/R4.0/images/image10.png"
        inkscape:export-xdpi="200.00069"
        inkscape:export-ydpi="200.00069"><tspan
          sodipodi:role="line"
          id="tspan88087"
          x="50.292278"
-         y="304.42825">IO</tspan></text>
+         y="307.67773">IO</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#ffffff"
+       x="-114.79171"
+       y="510.91815"
+       id="text144"
+       clip-path="url(#clipPath12536)"
+       inkscape:export-filename="/home/benda/prj/Teensy_Amp/R4.0/images/image10.png"
+       inkscape:export-xdpi="200.00069"
+       inkscape:export-ydpi="200.00069"
+       transform="rotate(-90)"><tspan
+         sodipodi:role="line"
+         id="tspan142"
+         x="-114.79171"
+         y="510.91815">with</tspan><tspan
+         sodipodi:role="line"
+         x="-114.79171"
+         y="530.91815"
+         id="tspan10190">pre-amp</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#ffffff"
+       x="-206.34251"
+       y="510.91815"
+       id="text250"
+       clip-path="url(#clipPath12532)"
+       inkscape:export-filename="/home/benda/prj/Teensy_Amp/R4.0/images/image10.png"
+       inkscape:export-xdpi="200.00069"
+       inkscape:export-ydpi="200.00069"
+       transform="rotate(-90)"><tspan
+         sodipodi:role="line"
+         id="tspan248"
+         x="-206.34251"
+         y="510.91815"
+         style="writing-mode:lr-tb">without</tspan><tspan
+         sodipodi:role="line"
+         x="-206.34251"
+         y="530.91815"
+         id="tspan4134"
+         style="writing-mode:lr-tb">pre-amp</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#ffffff"
+       x="-385.44412"
+       y="510.91815"
+       id="text12276"
+       clip-path="url(#clipPath12528)"
+       inkscape:export-filename="/home/benda/prj/Teensy_Amp/R4.0/images/image10.png"
+       inkscape:export-xdpi="200.00069"
+       inkscape:export-ydpi="200.00069"
+       transform="rotate(-90)"><tspan
+         sodipodi:role="line"
+         id="tspan12272"
+         x="-385.44412"
+         y="510.91815"
+         style="writing-mode:lr-tb">without</tspan><tspan
+         sodipodi:role="line"
+         x="-385.44412"
+         y="530.91815"
+         id="tspan12274"
+         style="writing-mode:lr-tb">pre-amp</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#ffffff"
+       x="-295.89331"
+       y="510.91815"
+       id="text12282"
+       clip-path="url(#clipPath12524)"
+       inkscape:export-filename="/home/benda/prj/Teensy_Amp/R4.0/images/image10.png"
+       inkscape:export-xdpi="200.00069"
+       inkscape:export-ydpi="200.00069"
+       transform="rotate(-90)"><tspan
+         sodipodi:role="line"
+         id="tspan12278"
+         x="-295.89331"
+         y="510.91815">with</tspan><tspan
+         sodipodi:role="line"
+         x="-295.89331"
+         y="530.91815"
+         id="tspan12280">pre-amp</tspan></text>
   </g>
 </svg>
