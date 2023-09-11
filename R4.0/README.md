@@ -162,11 +162,11 @@ Inputs short circuited to ground.
 
 #### Filter
 
-Frequencies 10Hz to 20kHz in 1/3 octaves, each for 500ms:
+Frequencies 10Hz to 20kHz in 1/3 octaves, each for 500ms on channel 0:
 
-![sig-gain10x10](images/filter-7mV-gain10x10-traces.png)
+![sig-gain10x10](images/filter-7mV-c0-gain10x10-traces.png)
 
-- 15Hz highpass filter
+- 5Hz highpass filter
 
 
 ### Signal-filter (without pre-amplifier)
