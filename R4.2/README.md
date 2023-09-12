@@ -1,7 +1,8 @@
 # TeensyAmp R4.2
 
-Based on two [TI PCM1865](https://www.ti.com/product/PCM1865) with ADC and
-adjustable gain.
+Based on
+- 2 [TI PCM1865](pcm1865.md) with ADC and adjustable gain,
+- [TI OPA1622](opa1622.pdf) as inverting pre-amplifier.
 
 by [jlm Innovation](https://www.jlm-innovation.de/) and [Jan
 Benda](https://github.com/janscience).
