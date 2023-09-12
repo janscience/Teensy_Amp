@@ -117,7 +117,7 @@ low-pass](variants2.md).
 
 #### Noise
 
-Inputs short circuited to ground.
+All input channels short-circuited to ground.
 
 - 0dB gain:
 
@@ -132,17 +132,20 @@ Inputs short circuited to ground.
   ![zeros-gain10x100](images/zeros-gain10x100-noise.png)
 
 - No SD write artifacts.
-- Super low noise at 0dB gain.
+- Super low 1-bit noise at 0dB gain.
 - Noise increases accordingly with gain of the PCM chip.
 
 
 #### Linearity
 
-- 0dB gain, 150mV rms sine wave:
+For the spectra, the Sinewave stimuli have been applied to each
+channel individually.
+
+- 0dB gain, 150mV or 70mV rms sine wave:
 
   ![sig-gain10x1-traces](images/sig1kHz150mV-gain10x1-traces.png)
 
-  ![sig-gain10x1-sepctra](images/sig1kHz150mV-gain10x1-spectra.png)
+  ![sig-gain10x1-sepctra](images/sig1kHz70mV-gain10x1-spectra.png)
 
 - 20dB gain, 7mV rms sine wave:
 
@@ -156,7 +159,7 @@ Inputs short circuited to ground.
 
   ![sig-gain10x100-sepctra](images/sig1kHz700uV-gain10x100-spectra.png)
 
-- In all conditions harmonics ar at least 80dB below the signal!
+- In all conditions harmonics are about 100dB below the signal!
 - Noise increases according to gain (every x10 by 20dB).
 
 
