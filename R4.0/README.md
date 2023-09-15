@@ -37,7 +37,8 @@ Benda](https://github.com/janscience).
 | 32             | GPIO0 chip2  |
 | 0              | CAN RX       |
 | 1              | CAN TX       |
-| 24             | I/O          |
+| 24             | I/O In       |
+| 25             | I/O Out      |
 | 30             | Push button  |
 | 31             | LED inverted |
 
