@@ -94,8 +94,8 @@ Teensy pins:
 | 31             | CAN TX       | -               |
 | 36             | CAN STB      | -               |
 | 37             | CAN SHDN     | -               |
-| 40             | I/O OUT      | -               |
-| 41             | I/O IN       | -               |
+| 40             | I/O UP       | -               |
+| 41             | I/O DOWN     | -               |
 | 26             | LED extern   | -               |
 | 27             | -            | LED extern      |
 
