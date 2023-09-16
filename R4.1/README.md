@@ -105,3 +105,8 @@ Teensy pins:
 | 26             | LED extern   | -               |
 | 27             | -            | LED extern      |
 
+
+## CAN bus
+
+You need to terminate both ends with a 120Ohm resistance.
+

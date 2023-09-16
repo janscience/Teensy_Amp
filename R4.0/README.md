@@ -155,6 +155,11 @@ low-pass](variants2.md).
 ![vref](images/vref.png)
 
 
+## CAN bus
+
+You need to terminate both ends with a 120Ohm resistance.
+
+
 ## Power consumption
 
 Teensy 4.1 on R4.0 board:
