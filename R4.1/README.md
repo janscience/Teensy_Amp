@@ -10,7 +10,11 @@ Benda](https://github.com/janscience).
 
 ![R4.1](images/Teensy_Amp-R41.png)
 
-If not noted otherwise, all measurements at 48kHz sampling rate.
+## Circuit
+
+- [EAGLE schematics file](TeensyAmp_R4.1.sch)
+- [EAGLE circuit board](TeensyAmp_R4.1.brd)
+
 
 ## Pre-amplifier
 
@@ -20,6 +24,8 @@ If not noted otherwise, all measurements at 48kHz sampling rate.
 - C1=10uF and R2=4.7k for a 5Hz high-pass filter
 - R2=4.7k and R3=47k for a 10x gain (gain=R3/R2)
 - no low-pass filter 
+
+If not noted otherwise, all measurements at 48kHz sampling rate.
 
 
 ### Reference voltage

@@ -11,6 +11,13 @@ Benda](https://github.com/janscience).
 
 If not noted otherwise, all measurements at 48kHz sampling rate.
 
+
+## Circuit
+
+- [EAGLE schematics file](TeensyAmp_R4.2.sch)
+- [EAGLE circuit board](TeensyAmp_R4.2.brd)
+
+
 ## Pre-amplifier
 
 ![preampinv](images/preampinv.png)
