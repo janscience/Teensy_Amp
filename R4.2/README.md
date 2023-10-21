@@ -98,3 +98,18 @@ Teensy pins:
 | 26             | LED extern   | -               |
 | 27             | -            | LED extern      |
 
+
+## Improvements
+
+- Replace screw-terminals by some plugs for connecting the electrodes.
+- Add a coin-battery holder connected to Vbat for the Teensy real-time clock!
+- More GND inputs for the screw terminal:
+  - power GND (as we have it)
+  - shield of the electrode cable
+  - an optional reference
+- Add screw terminals for sensors:
+  - 3.3V, GND, and IO for Dallas DS18x20 temperature sensor 
+  - I2C (3.3V, GND, SDA, SCL) for light sensor, etc.
+- Some means of detecting a device ID for setting a uniqe file name.
+- Improve supported power supply to 3.5 to 14V, so that AA, LiPo and
+  car batteries, solar panels can be used.
