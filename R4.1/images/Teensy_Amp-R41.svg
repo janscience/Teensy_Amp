@@ -185,9 +185,9 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      showgrid="false"
-     inkscape:zoom="1.5091499"
-     inkscape:cx="244.50851"
-     inkscape:cy="106.35126"
+     inkscape:zoom="1.9193302"
+     inkscape:cx="312.34854"
+     inkscape:cy="139.89255"
      inkscape:window-width="1920"
      inkscape:window-height="995"
      inkscape:window-x="0"
@@ -204,15 +204,14 @@
      id="g8"
      transform="translate(-156.18227,-93.663239)">
     <image
-       width="879.96558"
-       height="399.98434"
+       width="625.02832"
+       height="280.36252"
        preserveAspectRatio="none"
-       style="stroke-width:4.05015;image-rendering:optimizeQuality"
+       style="stroke-width:4.14702;image-rendering:optimizeQuality"
        xlink:href="Teensy_Amp-R41.jpg"
-       id="image10"
-       x="0"
-       y="0"
-       clip-path="url(#clipPath38193)" />
+       id="image361"
+       x="156.18225"
+       y="93.737885" />
     <text
        xml:space="preserve"
        style="font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#ffffff"
