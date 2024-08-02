@@ -5,8 +5,8 @@
    version="1.1"
    id="svg2"
    width="625.02832"
-   height="252.5479"
-   viewBox="0 0 625.02832 252.54789"
+   height="252.44452"
+   viewBox="0 0 625.02832 252.44451"
    sodipodi:docname="Teensy_Amp-R42.svg"
    inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
    inkscape:export-filename="Teensy_Amp-R42.png"
@@ -172,9 +172,9 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      showgrid="false"
-     inkscape:zoom="1.5091499"
-     inkscape:cx="378.02739"
-     inkscape:cy="151.40974"
+     inkscape:zoom="1.6109991"
+     inkscape:cx="401.9245"
+     inkscape:cy="130.04352"
      inkscape:window-width="1920"
      inkscape:window-height="995"
      inkscape:window-x="0"
@@ -189,20 +189,19 @@
      inkscape:groupmode="layer"
      inkscape:label="Image"
      id="g8"
-     transform="translate(-156.18227,-93.663246)">
+     transform="translate(-156.18227,-92.348946)">
     <image
-       width="833.56641"
-       height="416.7832"
+       width="625.02832"
+       height="252.44452"
        preserveAspectRatio="none"
-       style="stroke-width:3.8869;image-rendering:optimizeQuality"
+       style="stroke-width:3.50704;image-rendering:optimizeQuality"
        xlink:href="Teensy_Amp-R42.jpg"
-       id="image10"
-       x="20.456354"
-       y="-4.4933629"
-       clip-path="url(#clipPath8865)" />
+       id="image118"
+       x="156.18227"
+       y="92.348946" />
     <text
        xml:space="preserve"
-       style="font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#ffffff"
+       style="font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;display:inline;fill:#ffffff"
        x="716.32843"
        y="126.13052"
        id="text47463"
@@ -213,7 +212,7 @@
          y="126.13052">1-CH2R</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#ffffff"
+       style="font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;display:inline;fill:#ffffff"
        x="716.32843"
        y="145.51822"
        id="text49689"
@@ -224,7 +223,7 @@
          y="145.51822">1-CH2L</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#ffffff"
+       style="font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;display:inline;fill:#ffffff"
        x="716.32843"
        y="164.90591"
        id="text50969"
@@ -235,7 +234,7 @@
          y="164.90591">1-CH3R</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#ffffff"
+       style="font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;display:inline;fill:#ffffff"
        x="716.32843"
        y="184.29362"
        id="text51479"
@@ -246,7 +245,7 @@
          y="184.29362">1-CH3L</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#ffffff"
+       style="font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;display:inline;fill:#ffffff"
        x="716.32843"
        y="230.13052"
        id="text15393"
@@ -257,7 +256,7 @@
          y="230.13052">2-CH2R</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#ffffff"
+       style="font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;display:inline;fill:#ffffff"
        x="314.11142"
        y="196.62384"
        id="text15393-3"
@@ -268,7 +267,7 @@
          y="196.62384">Teensy 4.1</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#ffffff"
+       style="font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;display:inline;fill:#ffffff"
        x="716.32843"
        y="249.51822"
        id="text15397"
@@ -279,7 +278,7 @@
          y="249.51822">2-CH2L</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#ffffff"
+       style="font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;display:inline;fill:#ffffff"
        x="716.32843"
        y="268.90591"
        id="text15401"
@@ -290,7 +289,7 @@
          y="268.90591">2-CH3R</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#ffffff"
+       style="font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;display:inline;fill:#ffffff"
        x="716.32843"
        y="288.29364"
        id="text15405"
@@ -301,19 +300,20 @@
          y="288.29364">2-CH3L</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#ffffff"
+       style="font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;display:none;fill:#ffffff"
        x="216.32843"
        y="330.13052"
        id="text25691"
        clip-path="url(#clipPath8825)"><tspan
          sodipodi:role="line"
          id="tspan25689"
-         x="216.32843"
-         y="330.13052" /></text>
+         x="0"
+         y="0" /></text>
     <g
        id="g7701"
        transform="translate(0,-24)"
-       clip-path="url(#clipPath8821)">
+       clip-path="url(#clipPath8821)"
+       style="display:inline">
       <text
          xml:space="preserve"
          style="font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#ffffff"
