@@ -101,9 +101,9 @@
      fit-margin-left="0"
      fit-margin-right="0"
      fit-margin-bottom="0"
-     inkscape:zoom="1.7858239"
-     inkscape:cx="447.13256"
-     inkscape:cy="188.42844"
+     inkscape:zoom="2.0829552"
+     inkscape:cx="289.73259"
+     inkscape:cy="114.50078"
      inkscape:window-width="1920"
      inkscape:window-height="995"
      inkscape:window-x="0"
@@ -116,15 +116,14 @@
      id="g8"
      transform="translate(-32.368793,-10.98859)">
     <image
-       width="627.43408"
-       height="261.43085"
+       width="581.51703"
+       height="228.95476"
        preserveAspectRatio="none"
-       style="stroke-width:3.82511;image-rendering:optimizeQuality"
+       style="stroke-width:3.79696;image-rendering:optimizeQuality"
        xlink:href="Teensy_Amp-R41-R42-side.jpg"
-       id="image10"
-       x="0"
-       y="0"
-       clip-path="url(#clipPath1523)" />
+       id="image124"
+       x="31.136038"
+       y="10.988584" />
     <text
        xml:space="preserve"
        style="font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#ffffff"
