@@ -1,8 +1,8 @@
 # TeensyAmp R4.1
 
 Based on
-- 2 [TI PCM1865](pcm1865.md) with ADC and adjustable gain,
-- [TI OPA1622](opa1622.pdf) as inverting pre-amplifier,
+- 2 [TI PCM1865](../R4.0/pcm1865.md) with ADC and adjustable gain,
+- [TI OPA1622](../R4.0/opa1622.pdf) as inverting pre-amplifier,
 - [TI TCAN334 D](../R4.0/tcan334.pdf) CAN-FD transceiver for synchronization.
 
 by [jlm Innovation](https://www.jlm-innovation.de/) and [Jan
@@ -109,19 +109,3 @@ Teensy pins:
 ## CAN bus
 
 You need to terminate both ends with a 120Ohm resistance.
-
-
-## Improvements
-
-- Replace screw-terminals by some plugs for connecting the electrodes.
-- Add a coin-battery holder connected to Vbat for the Teensy real-time clock!
-- More GND inputs for the screw terminal:
-  - power GND (as we have it)
-  - shield of the electrode cable
-  - an optional reference
-- Add screw terminals for sensors:
-  - 3.3V, GND, and IO for Dallas DS18x20 temperature sensor 
-  - I2C (3.3V, GND, SDA, SCL) for light sensor, etc.
-- Some means of detecting a device ID for setting a uniqe file name.
-- Improve supported power supply to 3.5 to 14V, so that AA, LiPo and
-  car batteries, solar panels can be used.
