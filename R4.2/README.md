@@ -97,3 +97,10 @@ Teensy pins:
 | 41             | I/O IN       | -               |
 | 26             | LED extern   | -               |
 | 27             | -            | LED extern      |
+
+
+## Improvements
+
+- Remove UART connectors
+- Replace signal screw-terminals by female pins (0.1" housing)
+- Add GND pin for electrode cable shield

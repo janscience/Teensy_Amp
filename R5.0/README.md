@@ -48,25 +48,60 @@ Pins of the TLV320ADC5140 - see page 4 in the data sheet:
 | 24  | DREG        | Digital regulator output voltage for digital core supply. Connect 0.1-μF and 10-μF capacitors to GND. |   |
 | VSS | Thermal pad is device ground. Short the thermal pad directly to the board ground plane. |   |
 
+For layout instructions of the PCB see page 116 and Fig. 179 of the [TI TLV320ADC5140 data sheet](tlv320adc5140.pdf).
 
-### Layout and programming instructions
 
-- For layout instructions of the PCB see page 116 and Fig. 179 of the [TI TLV320ADC5140 data sheet](tlv320adc5140.pdf).
-- For programming instructions see page 109 of the [TI TLV320ADC5140 data sheet](tlv320adc5140.pdf).
+Teensy pins:
+
+| Teensy 4.1 pin | Teensy_Amp R5.1 | Teensy_Amp R5.2 |
+| -------------: | :----------- | :-------------- |
+| Vin            | Vin +5V      | Vin +5V         |
+| GND            | GND          | GND             |
+| 3.3V           | VDD          | VDD             |
+| 18             | I2C SDA      | -               |
+| 19             | I2C SCL      | -               |
+| 17             | -            | I2C SDA         |
+| 16             | -            | I2C SCL         |
+| 21             | BCK          | -               |
+| 20             | FSYNC        | -               |
+| 8              | DIN          | -               |
+| 4              | -            | BCK             |
+| 3              | -            | FSYNC           |
+| 5              | -            | DIN             |
+| 14             | -            | -               |
+| 15             | GPIO3_1 chip1 | -              |
+| 22             | GPIO3_2 chip2 | -              |
+| 0              | -            | GPIO3 chip1     |
+| 1              | -            | GPIO3 chip2     |
+| 30             | -            | -               |
+| 31             | -            | -               |
+| 36             | -            | -               |
+| 37             | -            | -               |
+| 40             | -            | -               |
+| 41             | -            | -               |
+| 26             | LED extern   | -               |
+| 27             | -            | LED extern      |
+
+
+- Add data pin for Tempeature sensor
+- Add I2C pins for sensors
+
+
+
+### Programming instructions
+
+For programming instructions see page 109 of the [TI TLV320ADC5140 data sheet](tlv320adc5140.pdf).
 
 
 
 ## Improvements needed over R4.x
 
-- Replace screw-terminals by some plugs for connecting the electrodes.
 - Add a coin-battery holder connected to Vbat for the Teensy real-time clock!
-- More GND inputs for the screw terminal:
-  - power GND (as we have it)
-  - shield of the electrode cable
-  - an optional reference
-- Add screw terminals for sensors:
-  - 3.3V, GND, and IO for Dallas DS18x20 temperature sensor 
-  - I2C (3.3V, GND, SDA, SCL) for light sensor, etc.
-- Some means of detecting a device ID for setting a uniqe file name.
+- Replace signal screw-terminals by female pins (0.1" housing)
+- Add GND pin for electrode cable shield (2 times)
+- Add one-wire pins (GND, 3.3V, data) for Dallas DS18x20 temperature sensor with 4.7kOhm pull-up resistor
+- Add I2C (GND, 3.3V, SDA, SCL) pins for light sensor, etc. (2 times)
+- Some means of detecting a device ID for setting a uniqe file name?
 - Improve supported power supply to 3.5 to 14V, so that AA, LiPo and
-  car batteries, solar panels can be used.
+  car batteries, solar panels can be used? No
+  

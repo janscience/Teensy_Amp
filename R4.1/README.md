@@ -106,6 +106,22 @@ Teensy pins:
 | 27             | -            | LED extern      |
 
 
+- Add RTC coin battery connections
+- Add data pin for Tempeature sensor
+- Add I2C pins for sensors
+
+
 ## CAN bus
 
 You need to terminate both ends with a 120Ohm resistance.
+
+
+## Improvements
+
+- Remove CAN bus
+- Add a coin-battery holder connected to Vbat for the Teensy real-time clock!
+- Replace signal screw-terminals by dupont female pins (0.1" housing, right angle?)
+- Add GND pin for electrode cable shield (2 times)
+- Add one-wire pins (GND, 3.3V, data) for Dallas DS18x20 temperature sensor with 4.7kOhm pull-up resistor
+- Add I2C (GND, 3.3V, SDA, SCL) pins for light sensor, etc. (2 times)
+- Some means of detecting a device ID for setting a uniqe file name?
