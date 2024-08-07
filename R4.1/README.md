@@ -105,6 +105,8 @@ Teensy pins:
 | 26             | LED extern   | -               |
 | 27             | -            | LED extern      |
 
+![pinout](images/teensy41-R41-pinout.png)
+
 
 - Add RTC coin battery connections
 - Add data pin for Tempeature sensor

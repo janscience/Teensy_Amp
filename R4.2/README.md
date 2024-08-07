@@ -98,6 +98,8 @@ Teensy pins:
 | 26             | LED extern   | -               |
 | 27             | -            | LED extern      |
 
+![pinout](images/teensy41-R42-pinout.png)
+
 
 ## Improvements
 
