@@ -16,6 +16,8 @@ Benda](https://github.com/janscience).
 - [EAGLE schematics file](TeensyAmp_R4.0.sch)
 - [EAGLE circuit board](TeensyAmp_R4.0.brd)
 
+![pcb](images/TeensyAmp_R4.0_pcb.png)
+
 
 ## Pins
 
