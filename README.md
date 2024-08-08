@@ -49,14 +49,17 @@ Amplifiers for the [Teensy](https://www.pjrc.com/teensy/) development boards.
 
 ## Use cases
 
-- [EOD-Logger](https://github.com/muchaste/EOD-Logger): 2-channel
-  logger for recording EODs of electric fish.
-  ![EOD_Logger](https://github.com/muchaste/Teensy_Amp/blob/main/R1.0/images/amp%20configuration%20R1.png)
+- [16 channel logger](https://github.com/janscience/TeeGrid/tree/main/examples/R4-sensors-logger): A 16-channel logger with environmental sensors for recording electric fish behaviors. 
+  ![logger](https://github.com/janscience/TeeGrid/blob/main/examples/R4-sensors-logger/submergedlogger.jpg)
 
 - [8-channel
   logger](https://github.com/janscience/TeeGrid/blob/main/8channel-logger):
   A mini electrode-array for recording electric fish behaviors.
-  ![8channel](https://github.com/janscience/TeeGrid/blob/main/8channel-logger/images/amplifier-bottom.png)
+  ![8channel](https://github.com/janscience/TeeGrid/blob/main/examples/8channel-logger/images/amplifier-bottom.png)
+
+- [EOD-Logger](https://github.com/muchaste/EOD-Logger): 2-channel
+  logger for recording EODs of electric fish.
+  ![EOD_Logger](https://github.com/janscience/Teensy_Amp/blob/main/R1.0/images/TeensyAmpR1.png)
 
 - [FishFinder](https://github.com/janscience/FishFinder): A
   replacement for the usual and horrible RadioShack/MP3 player
