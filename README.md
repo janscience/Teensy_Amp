@@ -47,18 +47,27 @@ Amplifiers for the [Teensy](https://www.pjrc.com/teensy/) development boards.
 | [R1.0](R1.0) | 2 | differential | 5V | [Teensy 3.5](https://www.pjrc.com/teensy/pinout.html#Teensy_3.5) | [AD8224HACPZ-WP](https://www.analog.com/media/en/technical-documentation/data-sheets/AD8224.pdf) | 0.1Hz, 100Hz, 300Hz switch | 10kHz, 33kHz switch | x5, x30, x180 switch | - | 94x35 | |
 
 
+## Software
+
+The [TeeRec](https://github.com/janscience/TeeRec) library provides
+everything you need to program a recorder or logger.
+
+
 ## Use cases
 
-- [16 channel logger](https://github.com/janscience/TeeGrid/tree/main/examples/R4-sensors-logger): A 16-channel logger with environmental sensors for recording electric fish behaviors. 
+- [16 channel logger](https://github.com/janscience/TeeGrid/tree/main/examples/R4-sensors-logger): A 16-channel logger with environmental sensors for recording electric fish behaviors.
+
   ![logger](https://github.com/janscience/TeeGrid/blob/main/examples/R4-sensors-logger/submergedlogger.jpg)
 
 - [8-channel
   logger](https://github.com/janscience/TeeGrid/blob/main/8channel-logger):
   A mini electrode-array for recording electric fish behaviors.
+  
   ![8channel](https://github.com/janscience/TeeGrid/blob/main/examples/8channel-logger/images/amplifier-bottom.png)
 
 - [EOD-Logger](https://github.com/muchaste/EOD-Logger): 2-channel
   logger for recording EODs of electric fish.
+  
   ![EOD_Logger](https://github.com/janscience/Teensy_Amp/blob/main/R1.0/images/TeensyAmpR1.png)
 
 - [FishFinder](https://github.com/janscience/FishFinder): A
