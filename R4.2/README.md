@@ -9,7 +9,7 @@ Benda](https://github.com/janscience).
 
 ![R4.2](images/Teensy_Amp-R42.png)
 
-If not noted otherwise, all measurements at 48kHz sampling rate.
+See [R4.2b](r42b.md) for development of a new version.
 
 
 ## Circuit
