@@ -7,9 +7,11 @@ Based on
 by [jlm Innovation](https://www.jlm-innovation.de/) and [Jan
 Benda](https://github.com/janscience).
 
+See [R4.2b](r42b.md) for development of a new version.
+
 ![R4.2](images/Teensy_Amp-R42.png)
 
-See [R4.2b](r42b.md) for development of a new version.
+Together with the [R4.1](../R4.1), the R4.2 can be extended to a [16-channel logger](../R4.1-R4.2).
 
 
 ## Circuit
@@ -101,8 +103,13 @@ Teensy pins:
 ![pinout](images/teensy41-R42-pinout.png)
 
 
-## Improvements
+## Software
 
-- Remove UART connectors
-- Replace signal screw-terminals by female pins (0.1" housing)
-- Add GND pin for electrode cable shield
+Use
+[ControlPCM186x.h](https://github.com/janscience/TeeRec/blob/main/src/ControlPCM186x.h) of the [TeeRec library](https://github.com/janscience/TeeRec) for setting up the [TI PCM1865](../R4.0/pcm1865.md) chips. The TDM data stream can then be read in via [InputTDM.h](https://github.com/janscience/TeeRec/blob/main/src/InputTDM.h).
+
+Applications:
+
+- [R4-sensors-logger](https://github.com/janscience/TeeGrid/tree/main/examples/R4-sensors-logger) 
+- [R4-logger](https://github.com/janscience/TeeGrid/tree/main/examples/R4-logger) 
+

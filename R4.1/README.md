@@ -8,9 +8,11 @@ Based on
 by [jlm Innovation](https://www.jlm-innovation.de/) and [Jan
 Benda](https://github.com/janscience).
 
+See [R4.1b](r41b.md) for development of a new version.
+
 ![R4.1](images/Teensy_Amp-R41.png)
 
-See [R4.1b](r41b.md) for development of a new version.
+With the [R4.2](../R4.2), the R4.1 can be extended to a [16-channel logger](../R4.1-R4.2).
 
 
 ## Circuit
@@ -111,6 +113,23 @@ Teensy pins:
 ![pinout](images/teensy41-R41-pinout.png)
 
 
+## Software
+
+Use
+[ControlPCM186x.h](https://github.com/janscience/TeeRec/blob/main/src/ControlPCM186x.h) of the [TeeRec library](https://github.com/janscience/TeeRec) for setting up the [TI PCM1865](../R4.0/pcm1865.md) chips. The TDM data stream can then be read in via [InputTDM.h](https://github.com/janscience/TeeRec/blob/main/src/InputTDM.h).
+
+Applications:
+
+- [R4-sensors-logger](https://github.com/janscience/TeeGrid/tree/main/examples/R4-sensors-logger) 
+- [R4-logger](https://github.com/janscience/TeeGrid/tree/main/examples/R4-logger) 
+
+
 ## CAN bus
 
 You need to terminate both ends with a 120Ohm resistance.
+
+However, having two or more R4.1 amplifiers on the same power supply
+or ground does unfortunately not work. They interfere in weired ways
+and the recorded signals are just a lot of noise. So, connecting these
+devices over the CAN bus is not advisable...
+
