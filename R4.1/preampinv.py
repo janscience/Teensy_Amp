@@ -32,7 +32,7 @@ ng2 = ax.node(po.right(1.5))
 no = ax.node(ng2.right(1), 'CH1L', 'right')
 ax.connect((po, ng2, no))
 
-r5l, r5r = ax.resistance_h(po.right(0.5).down(2), 'R3 47k', 'below')
+r5l, r5r = ax.resistance_h(po.right(0.5).down(2), 'R3 4.7k', 'below')
 ax.connect((ng1, r5l, None, r5r, ng2))
 
 ax.set_xlim(0.5, 12.5)
