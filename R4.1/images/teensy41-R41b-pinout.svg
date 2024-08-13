@@ -6,8 +6,8 @@
    id="svg2"
    xml:space="preserve"
    width="362.39996"
-   height="289.81918"
-   viewBox="0 0 362.39996 289.81918"
+   height="290.01654"
+   viewBox="0 0 362.39996 290.01654"
    sodipodi:docname="teensy41-R41b-pinout.svg"
    inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
    inkscape:export-filename="/home/benda/prj/Teensy_Amp/R4.1/images/teensy41-R41b-pinout.png"
@@ -623,7 +623,7 @@
            sodipodi:role="line"
            id="tspan326">GPIO3_4</tspan></text></g><g
        id="g459"
-       transform="translate(0,0.101)"><path
+       transform="translate(-0.34758078,0.101)"><path
          d="m 199.34,168.969 h 3.801 c 1.988,0 3.601,1.336 3.601,2.984 v 20.305 c 0,1.648 -1.613,2.984 -3.601,2.984 h -3.801 c -1.988,0 -3.598,-1.336 -3.598,-2.984 v -20.305 c 0,-1.648 1.61,-2.984 3.598,-2.984 z"
          style="fill:#1fc6e8;fill-opacity:0.533333;fill-rule:evenodd;stroke:none"
          id="path330" /><g
@@ -651,7 +651,7 @@
            y="126.51608"
            sodipodi:role="line"
            id="tspan344">ONE WIRE</tspan></text></g><rect
-       style="fill:#ffffff;fill-opacity:0.66666669;stroke:none;stroke-width:0.75"
+       style="fill:#ffffff;fill-opacity:0.666667;stroke:none;stroke-width:0.75"
        id="rect5394"
        width="27.953327"
        height="10.020269"
@@ -688,7 +688,8 @@
            style="stroke-width:0.75"
            x="218.8121"
            y="116.79616">GND</tspan></text></g><g
-       id="g8767"><path
+       id="g8767"
+       transform="translate(22.5,130.20101)"><path
          d="m 186.78517,38.868985 h 60.12014 c 1.30032,0 2.35585,1.125639 2.35585,2.512972 v 17.084162 c 0,1.387334 -1.05553,2.510181 -2.35585,2.510181 h -60.12014 c -1.30815,0 -2.36368,-1.122847 -2.36368,-2.510181 V 41.381957 c 0,-1.387333 1.05553,-2.512972 2.36368,-2.512972 z"
          style="fill:#0000dd;fill-opacity:0.466667;fill-rule:evenodd;stroke:none;stroke-width:1.16903"
          id="path250-6" /><text
