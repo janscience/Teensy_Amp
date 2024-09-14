@@ -220,54 +220,6 @@ Car battery (12V):
 
 ## Storage
 
-| channels | bits | sampling rate | rate     | per hour | per day |
-| -------: | ---: | ------------: | -------: | -------: | ------: |
-| 1        | 16   | 16kHz         | 0.03MB/s |    115MB |   2.8GB |
-| 2        | 16   | 16kHz         | 0.06MB/s |    230MB |   5.5GB |
-| 4        | 16   | 16kHz         | 0.13MB/s |    461MB |  11.1GB |
-| 8        | 16   | 16kHz         | 0.26MB/s |    922MB |  22.1GB |
-| 16       | 16   | 16kHz         | 0.51MB/s |    1.8GB |  44.2GB |
-| 32       | 16   | 16kHz         | 1.02MB/s |    3.7GB |  88.4GB |
-| 1        | 16   | 24kHz         | 0.05MB/s |    173MB |   4.2GB |
-| 2        | 16   | 24kHz         | 0.10MB/s |    346MB |   8.4GB |
-| 4        | 16   | 24kHz         | 0.19MB/s |    692MB |  16.6GB |
-| 8        | 16   | 24kHz         | 0.38MB/s |    1.4GB |  33.2GB |
-| 16       | 16   | 24kHz         | 0.77MB/s |    2.8GB |  66.4GB |
-| 32       | 16   | 24kHz         | 1.58MB/s |    5.6GB |   133GB |
-| 1        | 16   | 48kHz         | 0.10MB/s |    346MB |   8.4GB |
-| 2        | 16   | 48kHz         | 0.19MB/s |    692MB |  16.6GB |
-| 4        | 16   | 48kHz         | 0.38MB/s |    1.4GB |  33.2GB |
-| 8        | 16   | 48kHz         | 0.77MB/s |    2.8GB |  66.4GB |
-| 16       | 16   | 48kHz         | 1.54MB/s |    5.6GB |   133GB |
-| 32       | 16   | 48kHz         | 3.07MB/s |   11.2GB |   266GB |
-| 1        | 16   | 96kHz         | 0.19MB/s |    692MB |  16.6GB |
-| 2        | 16   | 96kHz         | 0.38MB/s |    1,5GB |  33.2GB |
-| 4        | 16   | 96kHz         | 0.77MB/s |    2.8GB |  66.4GB |
-| 8        | 16   | 96kHz         | 1.54MB/s |    5.6GB |   133GB |
-| 16       | 16   | 96kHz         | 3.07MB/s |   11.2GB |   266GB |
-| 32       | 16   | 96kHz         | 6.14MB/s |   22.4GB |   532GB |
-
-Data rates are not that high (<10MB/s). Class 10 cards (min 10MB/s) or
-UHS-I cards with U1 speed class (10MB/s) should be sufficient.
-
-
-micro SD cards (prices from 2023):
-
-| capacity | costs | 8 channels @ 16kHz | 16 channels @ 16kHz |
-| -------: | ----: | -----------------: | ------------------: |
-| 128GB    | 12 €  |         5.8 days   |         2.9 days    |
-| 256GB    | 25 €  |        11.6 days   |         5.8 days    |
-| 512GB    | 35 €  |        23.1 days   |        11.6 days    |
-
-| capacity | costs | 8 channels @ 24kHz | 16 channels @ 24kHz |
-| -------: | ----: | -----------------: | ------------------: |
-| 128GB    | 12 €  |         3.8 days   |         1.9 days    |
-| 256GB    | 25 €  |         7.7 days   |         3.8 days    |
-| 512GB    | 35 €  |         15.4 days  |         7.7 days    |
-
-| capacity | costs | 8 channels @ 48kHz | 16 channels @ 48kHz |
-| -------: | ----: | -----------------: | ------------------: |
-| 128GB    | 12 €  |         1.9 days   |         0.9 days    |
-| 256GB    | 25 €  |         3.8 days   |         1.9 days    |
-| 512GB    | 35 €  |         7.7 days   |         3.8 days    |
-
+For selecting appropriate SD cards, depending on sampling rates and
+channels, see [data
+rates](https://github.com/janscience/TeeRec/blob/main/docs/datarates.md).
