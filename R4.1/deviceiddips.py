@@ -8,11 +8,12 @@ fig, ax = plt.subplots(figsize=(11, 7))
 fig.subplots_adjust(nomargins=True)
 ax.show_spines('')
 
-n = 6
+n = 5
+pins = [1, 2, 6, 7, 9]
 ax.text(-0.4, 0, 'Teensy pins:', ha='right', va='center')
-np = ax.pin((0, 0), '41', 'right')
+np = ax.pin((0, 0), '0', 'right')
 for i in range(n):
-    nti = ax.pin(np.right((i+1)*1.5), f'{40-i}', 'right')
+    nti = ax.pin(np.right((i+1)*1.5), f'{pins[i]}', 'right')
     sb, st = ax.switch_v(nti.ups(1.5), f'DIP{i}')
     nt = ax.node(st.ups(1))
     rb, rt = ax.resistance_v(nti.downs(1.5), f'R{i}')
