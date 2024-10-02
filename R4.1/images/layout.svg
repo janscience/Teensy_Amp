@@ -27,9 +27,9 @@
      inkscape:document-units="mm"
      showgrid="false"
      inkscape:snap-global="false"
-     inkscape:zoom="1.6367905"
-     inkscape:cx="241.63141"
-     inkscape:cy="138.38057"
+     inkscape:zoom="1.4185518"
+     inkscape:cx="278.10052"
+     inkscape:cy="138.52155"
      inkscape:window-width="1477"
      inkscape:window-height="995"
      inkscape:window-x="389"
@@ -1261,7 +1261,7 @@
          id="tspan8601">SPI</tspan></text>
     <g
        id="g12529"
-       transform="translate(8.0801861,-0.79374695)">
+       transform="rotate(-90,102.15157,142.38708)">
       <circle
          style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.264583;stroke-opacity:1"
          id="circle10093"
@@ -1437,7 +1437,7 @@
            id="tspan15470"
            style="stroke-width:0.264583"
            x="54.064575"
-           y="132.31947"></tspan></text>
+           y="132.31947" /></text>
     </g>
     <g
        id="g16537"
