@@ -7,9 +7,9 @@
    viewBox="0 0 147.05817 73.16755"
    version="1.1"
    id="svg5"
-   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
    sodipodi:docname="layout.svg"
-   inkscape:export-filename="/home/benda/prj/Teensy_Amp/R4.1/images/layout.png"
+   inkscape:export-filename="layout.png"
    inkscape:export-xdpi="199.946"
    inkscape:export-ydpi="199.946"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
@@ -27,20 +27,22 @@
      inkscape:document-units="mm"
      showgrid="false"
      inkscape:snap-global="false"
-     inkscape:zoom="1.4185518"
-     inkscape:cx="278.10052"
-     inkscape:cy="138.52155"
-     inkscape:window-width="1477"
-     inkscape:window-height="995"
-     inkscape:window-x="389"
+     inkscape:zoom="2.9517556"
+     inkscape:cx="277.97017"
+     inkscape:cy="137.37587"
+     inkscape:window-width="1920"
+     inkscape:window-height="996"
+     inkscape:window-x="0"
      inkscape:window-y="0"
-     inkscape:window-maximized="0"
-     inkscape:current-layer="layer1"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g14184"
      fit-margin-top="2"
      fit-margin-left="2"
      fit-margin-right="2"
      fit-margin-bottom="2"
-     lock-margins="true">
+     lock-margins="true"
+     inkscape:showpageshadow="2"
+     inkscape:deskcolor="#d1d1d1">
     <inkscape:grid
        type="xygrid"
        id="grid90228"
@@ -592,26 +594,29 @@
     <g
        id="g14184"
        transform="translate(4.2333335,30.69167)">
-      <rect
-         style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.264583;stroke-opacity:1"
-         id="rect126681-9"
-         width="19.751497"
-         height="8.4947672"
-         x="35.763287"
-         y="140.80643"
-         rx="0.79374999"
-         ry="0.79374999" />
-      <text
-         xml:space="preserve"
-         style="font-size:4.23333px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;stroke-width:0.264583"
-         x="39.255966"
-         y="146.51108"
-         id="text14095"><tspan
-           sodipodi:role="line"
-           id="tspan14093"
-           style="stroke-width:0.264583"
-           x="39.255966"
-           y="146.51108">6 DIPs</tspan></text>
+      <g
+         id="g609">
+        <rect
+           style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.264583;stroke-opacity:1"
+           id="rect126681-9"
+           width="10.128368"
+           height="8.4947662"
+           x="35.763287"
+           y="140.80643"
+           rx="0.79374999"
+           ry="0.79374999" />
+        <text
+           xml:space="preserve"
+           style="font-size:4.23333px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;stroke-width:0.264583"
+           x="37.236996"
+           y="146.51006"
+           id="text14095"><tspan
+             sodipodi:role="line"
+             id="tspan14093"
+             style="stroke-width:0.264583"
+             x="37.236996"
+             y="146.51006">DIP</tspan></text>
+      </g>
     </g>
     <g
        id="g2242"
@@ -744,30 +749,34 @@
          y="143.29521" /></text>
     <g
        id="g1798"
-       transform="translate(0,2.1166667)">
-      <rect
-         style="fill:none;stroke:#000000;stroke-width:0.352778;stroke-miterlimit:4;stroke-dasharray:none"
-         id="rect21373"
-         width="15.955837"
-         height="15.262988"
-         x="10.577496"
-         y="158.73097" />
-      <text
-         xml:space="preserve"
-         style="font-size:4.23333px;line-height:1.25;font-family:Sans;-inkscape-font-specification:'Sans, Normal';font-variant-ligatures:none;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.264583"
-         x="14.484348"
-         y="165.1739"
-         id="text21379"><tspan
-           sodipodi:role="line"
-           id="tspan21375"
-           style="text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.264583"
-           x="14.484348"
-           y="165.1739">SD</tspan><tspan
-           sodipodi:role="line"
-           style="text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.264583"
-           x="14.484348"
-           y="170.46556"
-           id="tspan21377">card</tspan></text>
+       transform="translate(7.9375004,7.6641335)">
+      <g
+         id="g468">
+        <rect
+           style="fill:none;stroke:#000000;stroke-width:0.352778;stroke-miterlimit:4;stroke-dasharray:none"
+           id="rect21373"
+           width="15.955837"
+           height="15.262988"
+           x="10.577496"
+           y="158.73097" />
+        <text
+           xml:space="preserve"
+           style="font-size:4.23333px;line-height:1.25;font-family:Sans;-inkscape-font-specification:'Sans, Normal';font-variant-ligatures:none;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.264583"
+           x="-170.43353"
+           y="17.366858"
+           id="text21379"
+           transform="rotate(-90)"><tspan
+             sodipodi:role="line"
+             id="tspan21375"
+             style="text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.264583"
+             x="-170.43353"
+             y="17.366858">SD</tspan><tspan
+             sodipodi:role="line"
+             style="text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.264583"
+             x="-170.43353"
+             y="22.65852"
+             id="tspan21377">card</tspan></text>
+      </g>
     </g>
     <g
        id="g3094"
@@ -797,7 +806,7 @@
     </g>
     <g
        id="g1985"
-       transform="translate(0,2.6458334)">
+       transform="translate(0,7.9375004)">
       <rect
          style="fill:none;stroke:#000000;stroke-width:0.352777;stroke-miterlimit:4;stroke-dasharray:none"
          id="rect25379"
@@ -1203,25 +1212,25 @@
       <text
          xml:space="preserve"
          style="font-size:2.82223px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;stroke-width:0.264583"
-         x="72.253349"
+         x="71.469933"
          y="117.30343"
          id="text5685"><tspan
            sodipodi:role="line"
            id="tspan5683"
            style="stroke-width:0.264583"
-           x="72.253349"
-           y="117.30343">LED</tspan></text>
+           x="71.469933"
+           y="117.30343">LED1</tspan></text>
       <text
          xml:space="preserve"
          style="font-size:2.82223px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;stroke-width:0.264583"
-         x="74.340393"
+         x="71.472"
          y="114.19965"
          id="text7283"><tspan
            sodipodi:role="line"
            id="tspan7281"
            style="stroke-width:0.264583"
-           x="74.340393"
-           y="114.19965">x</tspan></text>
+           x="71.472"
+           y="114.19965">LED2</tspan></text>
     </g>
     <text
        xml:space="preserve"
@@ -1401,7 +1410,7 @@
          style="stroke-width:0.264583"
          x="-137.71797"
          y="90.201653"
-         id="tspan13774">LED</tspan></text>
+         id="tspan13774">LED1</tspan></text>
     <g
        id="g14562"
        transform="translate(22.754168)">
