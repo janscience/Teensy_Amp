@@ -22,3 +22,12 @@ The 16 channels are all in sync (same 1kHz signal on all channels):
 
 ![16-channels-sync](images/16channels-sync-traces.png)
 
+
+### Power consumption
+
+10 Ah Powerbank (Realpower) @ 48kHz, 16 channels:
+
+| Duration | 
+| -------- | 
+| 17h20min | 
+
