@@ -25,9 +25,21 @@ The 16 channels are all in sync (same 1kHz signal on all channels):
 
 ### Power consumption
 
-10 Ah Powerbank (Realpower) @ 48kHz, 16 channels:
+| brand                       | capacity | voltage | duration | channels | sampling rate | CPU speed |
+| :-------------------------- | -------: | ------: | -------- | -------: | ------------: | --------: |
+| Realpower                   |     10Ah |      5V | 17h20min |       16 |         48kHz |    600MHz |
+| Realpower                   |     10Ah |      5V | 16h50min |       16 |         48kHz |    600MHz |
+| Realpower                   |     10Ah |      5V | 23h35min |       12 |         48kHz |     24MHz |
+| Anker PowerCore 10000 redux |     10Ah |      5V | 16h45min |       16 |         48kHz |    600MHz | 
+| Anker PowerCore 10000 redux |     10Ah |      5V | 19h35min |       16 |         48kHz |     24MHz |
+| Anker PowerCore 10000 redux |     10Ah |      5V | 19h35min |       16 |         48kHz |     24MHz |
+| Anker PowerCore 10000 redux |     10Ah |      5V | 22h30min |       12 |         48kHz |     24MHz |
+| Anker PowerCore 10000 redux |     10Ah |      5V | 21h50min |       12 |         48kHz |     24MHz |
+| Anker PowerCore 10000 redux |     10Ah |      5V | 22h25min |       12 |         48kHz |     24MHz |
+| Anker PowerCore 10000 redux |     10Ah |      5V | 27h35min |        8 |         48kHz |     24MHz |
+| Anker PowerCore 10000 redux |     10Ah |      5V | 28h05min |        8 |         48kHz |     24MHz |
+| Anker PowerCore 10000 redux |     10Ah |      5V | 32h50min |        4 |         48kHz |     24MHz |
+| 2x KeepPower 26650 5500mAh  |  2x5.5Ah |    3.6V | 33h05min |       16 |         48kHz |     24MHz |
+| 2x KeepPower 26650 5500mAh  |  2x5.5Ah |    3.6V | 49h00min |        8 |         48kHz |     24MHz |
 
-| Duration | 
-| -------- | 
-| 17h20min | 
 

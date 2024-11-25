@@ -168,18 +168,22 @@ Teensy 4.1 on R4.0 board:
 
 | V    | rate  | CPU    | I     | P    |
 | ---- | ----- | ------ | ----- | ---- |
-| 5V   | 48kHz | 600MHz | 280mA | 1.4W |
-| 3.7V | 48kHz | 600MHz | 280mA | 1.0W |
 | 5V   | 96kHz | 600MHz | 300mA | 1.5W |
-| 3.7V | 96kHz | 600MHz | 300mA | 1.1W |
-| 5V   | 48kHz | 450MHz | 260mA | 1.3W |
-| 3.7V | 48kHz | 450MHz | 260mA | 0.9W |
 | 5V   | 96kHz | 450MHz | 270mA | 1.3W |
-| 3.7V | 96kHz | 450MHz | 270mA | 1.0W |
-| 5V   | 48kHz | 150MHz | 220mA | 1.1W |
-| 3.7V | 48kHz | 150MHz | 220mA | 0.8W |
 | 5V   | 96kHz | 150MHz | 240mA | 1.2W |
+| 5V   | 96kHz |  24MHz |       |      |
+| 5V   | 48kHz | 600MHz | 280mA | 1.4W |
+| 5V   | 48kHz | 450MHz | 260mA | 1.3W |
+| 5V   | 48kHz | 150MHz | 220mA | 1.1W |
+| 5V   | 48kHz |  24MHz |       |      |
+| 3.7V | 96kHz | 600MHz | 300mA | 1.1W |
+| 3.7V | 96kHz | 450MHz | 270mA | 1.0W |
 | 3.7V | 96kHz | 150MHz | 240mA | 0.9W |
+| 3.7V | 96kHz |  24MHz |       |      |
+| 3.7V | 48kHz | 600MHz | 280mA | 1.0W |
+| 3.7V | 48kHz | 450MHz | 260mA | 0.9W |
+| 3.7V | 48kHz | 150MHz | 220mA | 0.8W |
+| 3.7V | 48kHz |  24MHz |       |      |
 
 Underclocking works! But power savings are small.
 
@@ -187,10 +191,10 @@ Teensy 4.1 *without* R4.0 board:
 
 | V    | rate  | CPU    | I     | P    |
 | ---- | ----- | ------ | ----- | ---- |
-| 5V   | 48kHz | 600MHz | 180mA | 0.9W |
 | 5V   | 96kHz | 600MHz | 180mA | 0.9W |
-| 5V   | 48kHz | 150MHz | 120mA | 0.6W |
+| 5V   | 48kHz | 600MHz | 180mA | 0.9W |
 | 5V   | 96kHz | 150MHz | 120mA | 0.6W |
+| 5V   | 48kHz | 150MHz | 120mA | 0.6W |
 
 The R4.0 board draws about 100mA of power.
 
