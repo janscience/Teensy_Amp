@@ -39,7 +39,7 @@ The 16 channels are all in sync (same 1kHz signal on all channels):
 | Anker PowerCore 10000 redux |     10Ah |      5V | 27h35min |        8 |         48kHz |     24MHz |
 | Anker PowerCore 10000 redux |     10Ah |      5V | 28h05min |        8 |         48kHz |     24MHz |
 | Anker PowerCore 10000 redux |     10Ah |      5V | 32h50min |        4 |         48kHz |     24MHz |
-| 2x KeepPower 26650 5500mAh  |  2x5.5Ah |    3.6V | 33h05min |       16 |         48kHz |     24MHz |
-| 2x KeepPower 26650 5500mAh  |  2x5.5Ah |    3.6V | 49h00min |        8 |         48kHz |     24MHz |
+| KeepPower 26650 5500mAh x2  |  2x5.5Ah |    3.6V | 33h05min |       16 |         48kHz |     24MHz |
+| KeepPower 26650 5500mAh x2  |  2x5.5Ah |    3.6V | 49h00min |        8 |         48kHz |     24MHz |
 
 
