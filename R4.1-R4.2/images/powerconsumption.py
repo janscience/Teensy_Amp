@@ -12,11 +12,14 @@ anker_data = [[16, '19h35min'],
               [12, '22h25min'],
               [ 8, '27h35min'],
               [ 8, '28h05min'],
-              [ 4, '32h50min']]
+              [ 8, '28h05min'],
+              [ 4, '32h50min'],
+              [ 4, '32h45min']]
 
 keep_capacity = 11 # Ah
 keep_efficiency = 1
 keep_data = [[16, '33h05min'],
+             [16, '33h05min'],
               [8, '49h00min']]
 
              
@@ -39,17 +42,34 @@ def analyze_power_consumption(brand, data, capacity):
     print(f'  Teensy draws {1000*r.intercept:.0f}mA of current')
     print(f'  Each pcm chip draws {1000*r.slope*4:.0f}mA of current')
     print(f'  16 channels draw {1000*c16:.0f}mA of current: {c16*volt:.2f}W')
+    chans = np.sort(np.unique(channels))
+    durs = []
+    curs = []
+    for c in chans:
+        durs.append(np.mean(durations[channels == c]))
+        curs.append(np.mean(currents[channels == c]))
+    durs = np.array(durs)
+    curs = np.array(curs)
 
-    fig, (axc, axp) = plt.subplots(1, 2, layout='constrained')
+    fig, (axd, axc, axp) = plt.subplots(1, 3, layout='constrained')
     fig.suptitle(brand)
-    axc.plot(channels, 1000*currents, '-o')
-    axc.plot(x, 1000*l)
+    jitter = 0.5*(np.random.rand(len(channels)) - 0.5)
+    axd.plot(channels + jitter, durations/60, 'o',  color='C0')
+    axd.plot(chans, durs/60, '-',  color='C0')
+    axd.set_xlabel('channels')
+    axd.set_ylabel('duration [h]')
+    axd.set_xlim(0, 18)
+    axd.set_ylim(0, 50)
+    axc.plot(channels + jitter, 1000*currents, 'o',  color='C0')
+    axc.plot(chans, 1000*curs, '-',  color='C0')
+    axc.plot(x, 1000*l, color='C1')
     axc.set_xlabel('channels')
     axc.set_ylabel('current [mA]')
     axc.set_xlim(0, 18)
     axc.set_ylim(0, 500)
-    axp.plot(channels, currents*volt, '-o')
-    axp.plot(x, l*volt)
+    axp.plot(channels + jitter, currents*volt, 'o', color='C0')
+    axp.plot(chans, curs*volt, '-', color='C0')
+    axp.plot(x, l*volt, color='C1')
     axp.set_xlabel('channels')
     axp.set_ylabel('power [W]')
     axp.set_xlim(0, 18)
