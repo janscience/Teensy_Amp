@@ -36,12 +36,12 @@ The 16 channels are all in sync (same 1kHz signal on all channels):
 
 ##### CPU speed
 
-| brand                       | capacity | voltage | duration | channels | sampling rate | CPU speed |
-| :-------------------------- | -------: | ------: | -------- | -------: | ------------: | --------: |
-| Anker PowerCore 10000 redux |     10Ah |      5V | 16h45min |       16 |         48kHz |    600MHz |
-| Anker PowerCore 10000 redux |     10Ah |      5V | 18h25min |       16 |         48kHz |    150MHz |
-| Anker PowerCore 10000 redux |     10Ah |      5V | 19h35min |       16 |         48kHz |     24MHz |
-| Anker PowerCore 10000 redux |     10Ah |      5V | 19h35min |       16 |         48kHz |     24MHz |
+| capacity | voltage | duration | channels | sampling rate | CPU speed |
+| -------: | ------: | -------- | -------: | ------------: | --------: |
+|     10Ah |      5V | 16h45min |       16 |         48kHz |    600MHz |
+|     10Ah |      5V | 18h25min |       16 |         48kHz |    150MHz |
+|     10Ah |      5V | 19h35min |       16 |         48kHz |     24MHz |
+|     10Ah |      5V | 19h35min |       16 |         48kHz |     24MHz |
 
 Reducing CPU speed spares about 1.1mA/10MHz. A reduction of at maximum
 66mA is possible from the 600MHz.
@@ -49,18 +49,18 @@ Reducing CPU speed spares about 1.1mA/10MHz. A reduction of at maximum
 
 ##### Channels
 
-| brand                       | capacity | voltage | duration | channels | sampling rate | CPU speed |
-| :-------------------------- | -------: | ------: | -------- | -------: | ------------: | --------: |
-| Anker PowerCore 10000 redux |     10Ah |      5V | 19h35min |       16 |         48kHz |     24MHz |
-| Anker PowerCore 10000 redux |     10Ah |      5V | 19h35min |       16 |         48kHz |     24MHz |
-| Anker PowerCore 10000 redux |     10Ah |      5V | 22h30min |       12 |         48kHz |     24MHz |
-| Anker PowerCore 10000 redux |     10Ah |      5V | 21h50min |       12 |         48kHz |     24MHz |
-| Anker PowerCore 10000 redux |     10Ah |      5V | 22h25min |       12 |         48kHz |     24MHz |
-| Anker PowerCore 10000 redux |     10Ah |      5V | 27h35min |        8 |         48kHz |     24MHz |
-| Anker PowerCore 10000 redux |     10Ah |      5V | 28h05min |        8 |         48kHz |     24MHz |
-| Anker PowerCore 10000 redux |     10Ah |      5V | 28h05min |        8 |         48kHz |     24MHz |
-| Anker PowerCore 10000 redux |     10Ah |      5V | 32h50min |        4 |         48kHz |     24MHz |
-| Anker PowerCore 10000 redux |     10Ah |      5V | 32h45min |        4 |         48kHz |     24MHz |
+| capacity | voltage | duration | channels | sampling rate | CPU speed |
+| -------: | ------: | -------- | -------: | ------------: | --------: |
+|     10Ah |      5V | 19h35min |       16 |         48kHz |     24MHz |
+|     10Ah |      5V | 19h35min |       16 |         48kHz |     24MHz |
+|     10Ah |      5V | 22h30min |       12 |         48kHz |     24MHz |
+|     10Ah |      5V | 21h50min |       12 |         48kHz |     24MHz |
+|     10Ah |      5V | 22h25min |       12 |         48kHz |     24MHz |
+|     10Ah |      5V | 27h35min |        8 |         48kHz |     24MHz |
+|     10Ah |      5V | 28h05min |        8 |         48kHz |     24MHz |
+|     10Ah |      5V | 28h05min |        8 |         48kHz |     24MHz |
+|     10Ah |      5V | 32h50min |        4 |         48kHz |     24MHz |
+|     10Ah |      5V | 32h45min |        4 |         48kHz |     24MHz |
 
 Teensy microcontroller draws 169mA of current.
 At a sampling rate of 48kHz, each pcm chip (including additional SD card activity) draws 54mA of current.
@@ -69,33 +69,33 @@ At a sampling rate of 48kHz, each pcm chip (including additional SD card activit
 
 ##### USB interface power savings
 
-| brand                       | capacity | voltage | duration | channels | sampling rate | CPU speed | comment        |
-| :-------------------------- | -------: | ------: | -------- | -------: | ------------: | --------: | :------------- |
-| Anker PowerCore 10000 redux |     10Ah |      5V | 19h35min |       16 |         48kHz |     24MHz |                |
-| Anker PowerCore 10000 redux |     10Ah |      5V | 19h35min |       16 |         48kHz |     24MHz |                |
-| Anker PowerCore 10000 redux |     10Ah |      5V | 19h20min |       16 |         48kHz |     24MHz | Serial.end()   |
-| Anker PowerCore 10000 redux |     10Ah |      5V | 19h40min |       16 |         48kHz |     24MHz | Serial.end(), setTeensySpeed(24)   |
-| Anker PowerCore 10000 redux |     10Ah |      5V | 19h55min |       16 |         48kHz |     24MHz | shutdown_usb() |
-| Anker PowerCore 10000 redux |     10Ah |      5V | 20h00min |       16 |         48kHz |     24MHz | shutdown_usb(), setTeensySpeed(24) |
-| Anker PowerCore 10000 redux |     10Ah |      5V | 19h40min |       16 |         48kHz |     24MHz | shutdown_usb(), setTeensySpeed(24) |
-| Anker PowerCore 10000 redux |     10Ah |      5V | 19h10min |       16 |         48kHz |     24MHz | shutdown_usb(), setTeensySpeed(24) |
-| Anker PowerCore 10000 redux |     10Ah |      5V | 19h45min |       16 |         48kHz |     24MHz | shutdown_usb(), setTeensySpeed(24) |
-| Anker PowerCore 10000 redux |     10Ah |      5V | 19h25min |       16 |         48kHz |     24MHz | shutdown_usb(), setTeensySpeed(24) |
+| capacity | voltage | duration | channels | sampling rate | CPU speed | comment        |
+| -------: | ------: | -------- | -------: | ------------: | --------: | :------------- |
+|     10Ah |      5V | 19h35min |       16 |         48kHz |     24MHz |                |
+|     10Ah |      5V | 19h35min |       16 |         48kHz |     24MHz |                |
+|     10Ah |      5V | 19h20min |       16 |         48kHz |     24MHz | Serial.end()   |
+|     10Ah |      5V | 19h40min |       16 |         48kHz |     24MHz | Serial.end(), setTeensySpeed(24)   |
+|     10Ah |      5V | 19h55min |       16 |         48kHz |     24MHz | shutdown_usb() |
+|     10Ah |      5V | 20h00min |       16 |         48kHz |     24MHz | shutdown_usb(), setTeensySpeed(24) |
+|     10Ah |      5V | 19h40min |       16 |         48kHz |     24MHz | shutdown_usb(), setTeensySpeed(24) |
+|     10Ah |      5V | 19h10min |       16 |         48kHz |     24MHz | shutdown_usb(), setTeensySpeed(24) |
+|     10Ah |      5V | 19h45min |       16 |         48kHz |     24MHz | shutdown_usb(), setTeensySpeed(24) |
+|     10Ah |      5V | 19h25min |       16 |         48kHz |     24MHz | shutdown_usb(), setTeensySpeed(24) |
 
 Shutting down the USB serial interface spares about 3mA. Just ending the serial interface is not noticable.
 
 
 ##### Sampling rate
 
-| brand                       | capacity | voltage | duration | channels | sampling rate | CPU speed | comment        |
-| :-------------------------- | -------: | ------: | -------- | -------: | ------------: | --------: | :------------- |
-| Anker PowerCore 10000 redux |     10Ah |      5V | 19h50min |       16 |         24kHz |     24MHz | shutdown_usb(), setTeensySpeed(24) |
-| Anker PowerCore 10000 redux |     10Ah |      5V | 19h45min |       16 |         24kHz |     24MHz | shutdown_usb(), setTeensySpeed(24) |
-| Anker PowerCore 10000 redux |     10Ah |      5V | 19h40min |       16 |         24kHz |     24MHz | shutdown_usb(), setTeensySpeed(24) |
-| Anker PowerCore 10000 redux |     10Ah |      5V | 17h25min |       16 |         96kHz |     48MHz | shutdown_usb(), setTeensySpeed(48) |
-| Anker PowerCore 10000 redux |     10Ah |      5V | 17h10min |       16 |         96kHz |     48MHz | shutdown_usb(), setTeensySpeed(48) |
-| Anker PowerCore 10000 redux |     10Ah |      5V | 17h10min |       16 |         96kHz |     48MHz | shutdown_usb(), setTeensySpeed(48) |
-| Anker PowerCore 10000 redux |     10Ah |      5V | 17h25min |       16 |         96kHz |     48MHz | shutdown_usb(), setTeensySpeed(48) |
+| capacity | voltage | duration | channels | sampling rate | CPU speed | comment        |
+| -------: | ------: | -------- | -------: | ------------: | --------: | :------------- |
+|     10Ah |      5V | 19h50min |       16 |         24kHz |     24MHz | shutdown_usb(), setTeensySpeed(24) |
+|     10Ah |      5V | 19h45min |       16 |         24kHz |     24MHz | shutdown_usb(), setTeensySpeed(24) |
+|     10Ah |      5V | 19h40min |       16 |         24kHz |     24MHz | shutdown_usb(), setTeensySpeed(24) |
+|     10Ah |      5V | 17h25min |       16 |         96kHz |     48MHz | shutdown_usb(), setTeensySpeed(48) |
+|     10Ah |      5V | 17h10min |       16 |         96kHz |     48MHz | shutdown_usb(), setTeensySpeed(48) |
+|     10Ah |      5V | 17h10min |       16 |         96kHz |     48MHz | shutdown_usb(), setTeensySpeed(48) |
+|     10Ah |      5V | 17h25min |       16 |         96kHz |     48MHz | shutdown_usb(), setTeensySpeed(48) |
 
 A sampling rate of 96kHz requires a higher CPU speed and thus consumes 54mA more current.
 Reducing the sampling rate to 24kHz seems not to spare any power.
@@ -103,12 +103,12 @@ Reducing the sampling rate to 24kHz seems not to spare any power.
 
 ##### Backup SD card on SPI bus
 
-| brand                       | capacity | voltage | duration | channels | sampling rate | CPU speed | comment        |
-| :-------------------------- | -------: | ------: | -------- | -------: | ------------: | --------: | :------------- |
-| Anker PowerCore 10000 redux |     10Ah |      5V | 16h40min |       16 |         48kHz |    150MHz | plus backup SD |
-| Anker PowerCore 10000 redux |     10Ah |      5V | 16h30min |       16 |         48kHz |    150MHz | plus backup SD |
-| Anker PowerCore 10000 redux |     10Ah |      5V | 18h20min |       16 |         48kHz |    150MHz |   no backup SD |
-| Anker PowerCore 10000 redux |     10Ah |      5V | 18h55min |       16 |         48kHz |    150MHz |   no backup SD |
+| capacity | voltage | duration | channels | sampling rate | CPU speed | comment        |
+| -------: | ------: | -------- | -------: | ------------: | --------: | :------------- |
+|     10Ah |      5V | 16h40min |       16 |         48kHz |    150MHz | plus backup SD |
+|     10Ah |      5V | 16h30min |       16 |         48kHz |    150MHz | plus backup SD |
+|     10Ah |      5V | 18h20min |       16 |         48kHz |    150MHz |   no backup SD |
+|     10Ah |      5V | 18h55min |       16 |         48kHz |    150MHz |   no backup SD |
 
 Additional backup SD card on SPI bus draws about 50mA of current.
 And CPU speed cannot be 24MHz.
@@ -118,11 +118,11 @@ And CPU speed cannot be 24MHz.
 
 10Ah power bank
 
-| brand                       | capacity | voltage | duration | channels | sampling rate | CPU speed |
-| :-------------------------- | -------: | ------: | -------- | -------: | ------------: | --------: |
-| Realpower                   |     10Ah |      5V | 17h20min |       16 |         48kHz |    600MHz |
-| Realpower                   |     10Ah |      5V | 16h50min |       16 |         48kHz |    600MHz |
-| Realpower                   |     10Ah |      5V | 23h35min |       12 |         48kHz |     24MHz |
+| capacity | voltage | duration | channels | sampling rate | CPU speed |
+| -------: | ------: | -------- | -------: | ------------: | --------: |
+|     10Ah |      5V | 17h20min |       16 |         48kHz |    600MHz |
+|     10Ah |      5V | 16h50min |       16 |         48kHz |    600MHz |
+|     10Ah |      5V | 23h35min |       12 |         48kHz |     24MHz |
 
 
 #### KeepPower Li-Ion battery
@@ -131,16 +131,16 @@ And CPU speed cannot be 24MHz.
 
 ![Keeppower 26650 - 5500mAh, 3,6V](https://cdn03.plentymarkets.com/i9a0e0hd8l6w/item/images/12060/full/Keeppower-26650-5500mAh-3-6V-3-7V-mit-BMS-P2655C-.jpg)
 
-| brand                       | capacity | voltage | duration | channels | sampling rate | CPU speed | comment        |
-| :-------------------------- | -------: | ------: | -------- | -------: | ------------: | --------: | :------------- |
-| 2x KeepPower 26650 5500mAh  |  2x5.5Ah |    3.6V | 33h05min |       16 |         24kHz |     24MHz | shutdown_usb(), setTeensySpeed(24) |
-| 2x KeepPower 26650 5500mAh  |  2x5.5Ah |    3.6V | 33h05min |       16 |         48kHz |     24MHz |                |
-| 2x KeepPower 26650 5500mAh  |  2x5.5Ah |    3.6V | 33h00min |       16 |         48kHz |     24MHz |                |
-| 2x KeepPower 26650 5500mAh  |  2x5.5Ah |    3.6V | 32h35min |       16 |         48kHz |     24MHz | shutdown_usb(), setTeensySpeed(24) |
-| 2x KeepPower 26650 5500mAh  |  2x5.5Ah |    3.6V | 29h00min |       16 |         96kHz |     48MHz | shutdown_usb(), setTeensySpeed(48) |
-| 2x KeepPower 26650 5500mAh  |  2x5.5Ah |    3.6V | 31h25min |       16 |         48kHz |    150MHz |                |
-| 2x KeepPower 26650 5500mAh  |  2x5.5Ah |    3.6V | 45h15min |        8 |         48kHz |    150MHz |                |
-| 2x KeepPower 26650 5500mAh  |  2x5.5Ah |    3.6V | 49h00min |        8 |         48kHz |     24MHz |                |
-| 2x KeepPower 26650 5500mAh  |  2x5.5Ah |    3.6V | 49h15min |        8 |         24kHz |     24MHz |shutdown_usb(), setTeensySpeed(24) |
+| capacity | voltage | duration | channels | sampling rate | CPU speed | comment        |
+| -------: | ------: | -------- | -------: | ------------: | --------: | :------------- |
+|  2x5.5Ah |    3.6V | 33h05min |       16 |         24kHz |     24MHz | shutdown_usb(), setTeensySpeed(24) |
+|  2x5.5Ah |    3.6V | 33h05min |       16 |         48kHz |     24MHz |                |
+|  2x5.5Ah |    3.6V | 33h00min |       16 |         48kHz |     24MHz |                |
+|  2x5.5Ah |    3.6V | 32h35min |       16 |         48kHz |     24MHz | shutdown_usb(), setTeensySpeed(24) |
+|  2x5.5Ah |    3.6V | 29h00min |       16 |         96kHz |     48MHz | shutdown_usb(), setTeensySpeed(48) |
+|  2x5.5Ah |    3.6V | 31h25min |       16 |         48kHz |    150MHz |                |
+|  2x5.5Ah |    3.6V | 45h15min |        8 |         48kHz |    150MHz |                |
+|  2x5.5Ah |    3.6V | 49h00min |        8 |         48kHz |     24MHz |                |
+|  2x5.5Ah |    3.6V | 49h15min |        8 |         24kHz |     24MHz |shutdown_usb(), setTeensySpeed(24) |
 
 
