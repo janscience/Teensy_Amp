@@ -29,12 +29,12 @@ The 16 channels are all in sync (same 1kHz signal on all channels):
   that using a power bank.  The power bank transforms the 3.6V from
   the LiPo battery up to 5V and the Teensy reduces this back to
   3.3V. Resulting in an efficieny of 75% (approx 86% squared) compared
-  to the LiIon battery.
+  to using the LiIon battery directly.
 
 - Power consumption can be dramatically reduced by reducing CPU
   speed. For 48kHz sampling rate, 24MHz is sufficient, this extends
   the recording duration by 15%. 96kHz sampling rate requires 48MHz
-  (because of data rats for the SD card).
+  (because of higher data rates required for the SD card).
 
 - Writing an additional backup SD card requires a higher CPU speed and
   consumes about 50mA more current. This is not a good idea.
@@ -182,7 +182,9 @@ And CPU speed cannot be 24MHz.
 
 #### Realpower
 
-10Ah power bank
+10Ah power bank.
+
+Very similar perfermonace to the Anker PowerCore.
 
 | capacity | voltage | duration | channels | sampling rate | CPU speed |
 | -------: | ------: | -------- | -------: | ------------: | --------: |
