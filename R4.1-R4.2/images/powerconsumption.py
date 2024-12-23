@@ -54,10 +54,14 @@ keep_capacity = 11 # Ah
 keep_efficiency = 1
 keep_capacity *= keep_efficiency
 keep_channel_data = [[16, '33h05min'],
-                     [16, '33h05min'],
                      [16, '33h00min'],
                      [16, '32h35min'],
                      [8, '49h00min']]
+keep_rate_data = [[24, '33h05min'],
+                  [48, '33h05min'],
+                  [48, '33h00min'],
+                  [48, '32h35min'],
+                  [96, '29h00min']]
 
 
 def analyze_currents(data, capacity):
@@ -232,4 +236,5 @@ analyze_usb_power(anker_brand, anker_usb_data, anker_capacity)
 analyze_rate_power(anker_brand, anker_rate_data, anker_capacity)
 analyze_channel_power(anker_brand, anker_channel_data, anker_capacity)
 analyze_channel_power(keep_brand, keep_channel_data, keep_capacity)
+analyze_rate_power(keep_brand, keep_rate_data, keep_capacity)
 
