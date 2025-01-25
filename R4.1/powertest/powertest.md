@@ -83,4 +83,34 @@ Signal as bad as with single board. The isolator does not solve the problem!
 ![12V2isolated100Ohm](12V-2-isolated-100Ohm-x100.png)
 
 Signal as bad as with single board. But better than two boards on
-non-isolated DC(DC converter.
+non-isolated DC/DC converter.
+
+
+## Conclusion
+
+- The main problem is the quality of the power supply!
+  The output of the 12V DC/DC converters is not good enough,
+  it introduces most of the noise.
+
+- Try to avoid DC/DC converters!
+
+- Easy and efficient solution:
+  Run three R4.1 boards in series on 12V battery!
+
+- Improve power supply by adding some low-pass filtering.
+  $$f_c = (2 \pi \tau)^{-1} \Leftrightarrow \tau = (2 \pi f_c)^{-1} $$
+  With $f_c = 10$Hz we get $\tau=16$ms. Let's aim for 5ms.
+
+  $$\tau = RC \Leftrightarrow C = \tau/R$$
+  The voltage drop over the resistance is $V=RI$.
+  With $I=500$mA and $R=1$Ohm this is 500mV.
+  And for the capacitance we then get 10mF.
+
+- The secondary problem is that when two or more R4.1 boards are
+  connected, then we still get noise spikes probably from SD card
+  writes or other digital noise from the other board.
+
+  This also requires to improve the power input.
+  
+  
+  
