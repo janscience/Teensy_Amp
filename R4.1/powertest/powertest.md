@@ -40,13 +40,18 @@ This is the problem we need to fix!
   it introduces most of the noise.
 
 - Improve power supply by adding some low-pass filtering.
+
   $$f_c = (2 \pi \tau)^{-1} \Leftrightarrow \tau = (2 \pi f_c)^{-1}$$
-  With $f_c = 10\,\text{Hz}$ we get $\tau=16\,\text{ms}$ . Let's aim for 5ms.
+  
+  With $f_c = 10\text{Hz}$ we get $\tau=16\text{ms}$ .
+  Let's better aim for 5ms, i.e. 32Hz.
 
   $$\tau = RC \Leftrightarrow C = \tau/R$$
+  
   The voltage drop over the resistance is $V=RI$.
-  With $I=500\,\text{mA}$ and $R=1\,\Ohm$ this is 500mV.
-  And for the capacitance we then get 10mF.
+  With $I=500\text{mA}$ and $R=1\Omega$ this is 500mV.
+  For such a $1\Omega$ resistance we then get for the capacitance 5mF.
+  For an $0.1\Omega$ resistance (50mV voltage drop) we then get for the capacitance 50mF.
 
 - The secondary problem is that when two or more R4.1 boards are
   connected, then we still get noise spikes probably from SD card
