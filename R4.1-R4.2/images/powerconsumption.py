@@ -116,6 +116,7 @@ def plot_regression(brand, parameters, durations, currents,
     axp.set_ylabel('power [W]')
     axp.set_xlim(0, max_x)
     axp.set_ylim(0, 2)
+    fig.savefig('powerconsumption.pdf')
     plt.show()
 
     
@@ -230,11 +231,11 @@ def analyze_sdspi_power(brand, data, capacity):
     print()
 
 
-analyze_cpu_power(anker_brand, anker_cpu_data, anker_capacity)
-analyze_sdspi_power(anker_brand, anker_sdspi_data, anker_capacity)
-analyze_usb_power(anker_brand, anker_usb_data, anker_capacity)
-analyze_rate_power(anker_brand, anker_rate_data, anker_capacity)
+#analyze_cpu_power(anker_brand, anker_cpu_data, anker_capacity)
+#analyze_sdspi_power(anker_brand, anker_sdspi_data, anker_capacity)
+#analyze_usb_power(anker_brand, anker_usb_data, anker_capacity)
+#analyze_rate_power(anker_brand, anker_rate_data, anker_capacity)
 analyze_channel_power(anker_brand, anker_channel_data, anker_capacity)
-analyze_channel_power(keep_brand, keep_channel_data, keep_capacity)
-analyze_rate_power(keep_brand, keep_rate_data, keep_capacity)
+#analyze_channel_power(keep_brand, keep_channel_data, keep_capacity)
+#analyze_rate_power(keep_brand, keep_rate_data, keep_capacity)
 

@@ -192,3 +192,9 @@ Very similar perfermonace to the Anker PowerCore.
 |     10Ah |      5V | 16h50min |       16 |         48kHz |    600MHz |
 |     10Ah |      5V | 23h35min |       12 |         48kHz |     24MHz |
 
+
+#### Heganus
+
+10 Ah
+
+https://www.amazon.de/dp/B082PPPWXY
