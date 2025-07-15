@@ -2,7 +2,7 @@
 
 Based on
 - 2 [TI PCM1865](pcm1865.md) with ADC and adjustable gain,
-- [TI OPA1622](opa1622.pdf) as inverting pre-amplifier,
+- [TI OPA1622](opa1662.pdf) as inverting pre-amplifier,
 - [TI TCAN330](tcan334.pdf) CAN transceiver for synchronization.
 
 by [jlm Innovation](https://www.jlm-innovation.de/) and [Jan

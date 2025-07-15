@@ -2,7 +2,7 @@
 
 Based on
 - 2 [TI PCM1865](../R4.0/pcm1865.md) with ADC and adjustable gain,
-- [TI OPA1622](../R4.0/opa1622.pdf) as inverting pre-amplifier.
+- [TI OPA1662](../R4.0/opa1662.pdf) as inverting pre-amplifier.
 
 by [jlm Innovation](https://www.jlm-innovation.de/) and [Jan
 Benda](https://github.com/janscience).
