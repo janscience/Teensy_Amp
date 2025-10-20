@@ -1,63 +1,67 @@
-# TeensyAmp R4.1
+# TeensyAmp R4.1b
+
+8-channel recorder
 
 Based on
+
 - 2 [TI PCM1865](../R4.0/pcm1865.md) with ADC and adjustable gain,
-- [TI OPA1662](../R4.0/opa1662.pdf) as inverting pre-amplifier,
-- [TI TCAN334 D](../R4.0/tcan334.pdf) CAN-FD transceiver for synchronization.
+- [TI OPA1662](../R4.0/opa1662.pdf) as inverting pre-amplifier
 
 by [jlm Innovation](https://www.jlm-innovation.de/) and [Jan
 Benda](https://github.com/janscience).
 
-See [R4.1b](r41b.md) for development of a new version.
+![R4.1b](images/Teensy_Amp-R41b.jpg)
 
-![R4.1](images/Teensy_Amp-R41.png)
+Layout:
 
-With the [R4.2](../R4.2), the R4.1 can be extended to a [16-channel logger](../R4.1-R4.2).
+![layout](images/layout.png)
+
+The R4.1b can be extended by the [R4.2b](../R4.2) to a [16-channel logger](../R4.1-R4.2).
+
+See [R4.1](r41.md) for the first version.
 
 
 ## Circuit
 
-- [EAGLE schematics file](TeensyAmp_R4.1.sch)
-- [EAGLE circuit board](TeensyAmp_R4.1.brd)
+- [EAGLE schematics file](TeensyAmp_R1.2b.sch)
+- [EAGLE circuit board](TeensyAmp_R1.2b.brd)
 
 
-## Pre-amplifier
+## Connectors
 
-![preampinv](images/preampinv.png)
+molex [Micro-Lock Plus](https://www.molex.com/en-us/products/connectors/wire-to-board-connectors/micro-lock-plus-connectors) with [1.25mm pitch](https://www.molex.com/content/dam/molex/molex-dot-com/en_us/pdf/datasheets/987652-6322.pdf). See [application specification](https://www.molex.com/content/dam/molex/molex-dot-com/products/automated/en-us/applicationspecificationspdf/505/505565/5055650000-AS-000.pdf) for an overview and part numbers.
 
-- R1=100k for grounding the signal
-- C1=10uF and R2=4.7k for a 5Hz high-pass filter
-- R2=4.7k and R3=47k for a 10x gain (gain=R3/R2)
-- no low-pass filter 
+Here we use two right-angle SMT male connectors, 4 pins, part number 5055670471, [datasheet](../R4.1/molex5055670471_sd.pdf) for
+the 8 input channels.
 
-If not noted otherwise, all measurements at 48kHz sampling rate.
+Use the precrimped cables from the cable assembly 45111 series for connecting your electrodes (30cm female/female 26 AWG cable, 7mm wide, part number 451110403).
 
 
-### Reference voltage
+## Pins
 
-![vref](images/vref.png)
-
-- the voltage reference needs to be really stable!
+![pinout](images/teensy41-R41b-pinout.png)
 
 
-### Pins
+## Pins of the PCM1865
 
-Pins of the PCM1865 - see page 11 and Fig 22 in the data sheet and
+See page 11 and Fig 22 in the data sheet and
 Figure 15 of the evaluation board manual:
+
+![PCM1865](https://www.ti.com/ods/images/SLAS831D/PCM186x-Q1_pin_out_2.svg)
 
 | pin | name        | connects to | Teensy 4.1 pins |
 | --: | :---------- | :---------- | --------------: |
 |  1  | VINL2/VIN1M | SIG 1       |                 |
 |  2  | VINR2/VIN2M | SIG 0       |                 |
-|  3  | VINL1/VIN1P |             |                 |
-|  4  | VINR1/VIN2P |             |                 |
+|  3  | VINL1/VIN1P | -           |                 |
+|  4  | VINR1/VIN2P | -           |                 |
 |  5  | Mic Bias    | unconnected |                 |
 |  6  | VREF        | Connect 1-μF capacitor C5 to AGND |   |
 |  7  | AGND        | Analog ground to common ground |   |
 |  8  | AVDD        | 3.3V power supply, Fig 70/71. Connect 0.1-μF and 10-μF capacitors C8, C9, R1 from this pin to AGND. |    |
 |  9  | XO          | not used |   |
 | 10  | XI          | not used |   |
-| 11  | LDO         | Connect 0.1-μF and 10-μF capacitors from this pin to AGND? |    |
+| 11  | LDO         | Connect 0.1-μF and 10-μF capacitors from this pin to AGND |    |
 | 12  | DGND        | Digital ground connect to common ground |   |
 | 13  | DVDD        | 3.3V power supply, Fig 70/71. Connect 0.1-μF and 10-μF capacitors from this pin to DGND. | Teensy 3.3V |
 | 14  | IOVDD       | 3.3V power supply, tied to DVDD, Fig 70/71.  | Teensy 3.3V |
@@ -65,7 +69,7 @@ Figure 15 of the evaluation board manual:
 | 16  | LRCK        | Audio data world clock (left right clock) input/output. | 20 |
 | 17  | BCK         | Audio data bit clock input/output. | 21 |
 | 18  | DOUT        | Audio data digital output.         |  8 |
-| 19  | GPIO3/INTC  | interrupt | chip1: 40, chip2: 41 |
+| 19  | GPIO3/INTC  | not needed | |
 | 20  | GPIO2/INTB/DMCLK | not needed |  |
 | 21  | GPIO1/INTA/DMIN  | not needed |  |
 | 22  | MISO/GPIO0/DMIN2 | not needed |  |
@@ -79,38 +83,135 @@ Figure 15 of the evaluation board manual:
 | 30  | VINR3/VIN3P | SIG 2        |    |
 
 
-Teensy pins:
+### Teensy pins connecting to TI PCM1865
 
-| Teensy 4.1 pin | Teensy_Amp R4.1 | Teensy_Amp R4.2 |
-| -------------: | :----------- | :-------------- |
-| Vin            | Vin +5V      | Vin +5V         |
-| GND            | GND          | GND             |
-| 3.3V           | VDD          | VDD             |
-| 18             | I2C SDA      | -               |
-| 19             | I2C SCL      | -               |
-| 17             | -            | I2C SDA         |
-| 16             | -            | I2C SCL         |
-| 21             | BCK          | -               |
-| 20             | LRCK         | -               |
-| 8              | DIN          | -               |
-| 4              | -            | BCK             |
-| 3              | -            | LRCK            |
-| 5              | -            | DIN             |
-| 14             | -            | UART TX         |
-| 15             | GPIO3_1 chip1 | UART RX        |
-| 22             | GPIO3_2 chip2 | -              |
-| 0              | -            | GPIO3 chip1     |
-| 1              | -            | GPIO3 chip2     |
-| 30             | CAN RX       | -               |
-| 31             | CAN TX       | -               |
-| 36             | CAN STB      | -               |
-| 37             | CAN SHDN     | -               |
-| 40             | I/O UP       | -               |
-| 41             | I/O DOWN     | -               |
-| 26             | LED extern   | -               |
-| 27             | -            | LED extern      |
+| Teensy 4.1 pin | Teensy_Amp R4.1b | Teensy_Amp R4.2b |
+| -------------: | :--------------- | :--------------- |
+| Vin            | Vin +5V          | Vin +5V          |
+| GND            | GND              | GND              |
+| 3.3V           | VDD              | VDD              |
+| 18             | I2C SDA          | -                |
+| 19             | I2C SCL          | -                |
+| 17             | -                | I2C SDA          |
+| 16             | -                | I2C SCL          |
+| 21             | BCK              | -                |
+| 20             | LRCK             | -                |
+| 8              | DIN              | -                |
+| 4              | -                | BCK              |
+| 3              | -                | LRCK             |
+| 5              | -                | DIN              |
 
-![pinout](images/teensy41-R41-pinout.png)
+
+### Pre-amplifier
+
+![preampinv](images/r41b-preampinv.png)
+
+- R1=100k for referencing the floating signal
+- C1=10uF and R2=47k for a <5Hz high-pass filter
+- R2=47k and R3=47k for a 1x gain (gain=R3/R2)
+- no low-pass filter 
+
+
+## Power
+
+LiIon battery connector:
+
+- [XT60 male connector](https://www.tme.eu/de/details/xt60pw-m/dc-steckverbinder/amass/)
+
+On/off switch closer to the analog side:
+
+- [CUS-12TB](cus2604293.pdf) 300mA
+
+
+## Real-time clock
+
+Add the [MAX31328](max31328.pdf) temperature compensated real-time
+clock to the PCB. It is a modernized and apparently software
+compatible
+[DS3231](https://www.analog.com/media/en/technical-documentation/data-sheets/ds3231.pdf).
+
+Use a CR2032 3V Battery to power the real-time clock with the SMD/SMT coin cell battery holder:
+
+- [TE connectivity BAT-HLD-001](https://www.mouser.de/ProductDetail/TE-Connectivity-Linx-Technologies/BAT-HLD-001?qs=K5ta8V%252BWhta7hbVGfm4dqA%3D%3D)
+
+Note that the RTC default implementation works only for the first I2C bus.
+
+| Teensy 4.1 pin  | MAX31328   |
+| --------------: | :--------- |
+| 3.3V            |  2 VCC     |
+| GND             |  7 GND     |
+| 19 SDA          |  9 SDA     |
+| 18 SCL          | 10 SCL     |
+| open            |  1 32kHz   |
+| open            |  3 INT     |
+| 40              |  4 RST     |
+| GND             |  5 N.C.    |
+| GND             |  6 N.C.    |
+| -               |  8 VBAT    |
+
+
+## External sensors and devices
+
+Potential external sensors and devices to be connected to the R4.1b:
+
+- One-wire bus (GND, 3.3V, data with 4.7kOhm pull-up resistor): e.g. Dallas DS18x20 temperature sensor.
+- I2C bus: temperature and illumination sensors.
+
+| Teensy 4.1 pin | Teensy_Amp R4.1b |
+| -------------: | :--------------- |
+| GND            | GND              |
+| 3.3V           | VDD              |
+| 9              | OneWire data + 4.7kOhm to 3.3V |
+| 24             | I2C2 SCL         |
+| 25             | I2C2 SDA         |
+
+Both
+
+- molex vertical-angle SMT male connector with 6 pins (GND, 3.3V, SCL, SDA. OneWire, LED2), part number 5055680671
+- 2x5 Jumper pins
+
+
+## Status LED
+
+| Teensy 4.1 pin | Teensy_Amp R4.1b | Teensy_Amp R4.2b |
+| -------------: | :--------------- | :--------------- |
+| 26             | LED1             | -                |
+| 27             | LED2             | -                |
+
+
+## Device identifier DIPs
+
+For setting a device identifier that can be used to name the recorded
+files, a 4-bit rotary DIP switch is connected to Teensy pins.
+
+- [cts rotary dip switch 220AD_16 with shaft through hole](cts220.pdf)
+
+| Teensy 4.1 pin    | Teensy_Amp R4.1b  |
+| ----------------: | :---------------- |
+| GND               | GND               |
+| 34, 35, 36, 37    | DIP bits 0 - 3    |
+
+
+## Connectors
+
+Let's go for the molex [Micro-Lock Plus](https://www.molex.com/en-us/products/connectors/wire-to-board-connectors/micro-lock-plus-connectors) with [1.25mm pitch](https://www.molex.com/content/dam/molex/molex-dot-com/en_us/pdf/datasheets/987652-6322.pdf). See [application specification](https://www.molex.com/content/dam/molex/molex-dot-com/products/automated/en-us/applicationspecificationspdf/505/505565/5055650000-AS-000.pdf) for an overview and part numbers.
+
+- Right-angle SMT male connector, 4 pins, part number 5055670471, [datasheet](molex5055670471_sd.pdf)
+- Vertical-angle SMT male connector, 6 pins, part number 5055680671, [datasheet]()
+- Cable assembly 45111 series: 30cm female/female 26 AWG cable, 7mm wide, part number 451110403
+
+
+## Summary of improvements
+
+- Default x1 pre-amp gain (R2 = R3 = 47kOhm).
+- Remove CAN bus (replace CAN bus by isolated CAN bus).
+- Add [MAX31328](max31328.pdf) real-time clock and coin battery holder.
+- Replace signal screw-terminals by molex micro-lock-plus connectors.
+- Add one-wire pins (GND, 3.3V, data) for Dallas DS18x20 temperature sensor with 4.7kOhm pull-up resistor.
+- Add I2C pins (GND, 3.3V, SDA, SCL) pins for light sensor, etc.
+- Add GND pins (for electrode cable shield, etc.).
+- Add 4 pin rotary dip switch for device identification.
+- Add XT60 connector for power input from LiIon battery pack.
 
 
 ## Software
@@ -118,18 +219,11 @@ Teensy pins:
 Use
 [ControlPCM186x.h](https://github.com/janscience/TeeRec/blob/main/src/ControlPCM186x.h) of the [TeeRec library](https://github.com/janscience/TeeRec) for setting up the [TI PCM1865](../R4.0/pcm1865.md) chips. The TDM data stream can then be read in via [InputTDM.h](https://github.com/janscience/TeeRec/blob/main/src/InputTDM.h).
 
-Applications:
+Use [ESensors](https://github.com/janscience/ESensors) library for communication with sensors connected to the OneWire and I2C bus.
+
+
+## Applications
 
 - [R4-sensors-logger](https://github.com/janscience/TeeGrid/tree/main/examples/R4-sensors-logger) 
 - [R4-logger](https://github.com/janscience/TeeGrid/tree/main/examples/R4-logger) 
-
-
-## CAN bus
-
-You need to terminate both ends with a 120Ohm resistance.
-
-However, having two or more R4.1 amplifiers on the same power supply
-or ground does unfortunately not work. They interfere in weired ways
-and the recorded signals are just a lot of noise. So, connecting these
-devices over the CAN bus is not advisable...
 
