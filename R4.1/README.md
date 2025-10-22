@@ -125,16 +125,13 @@ On/off switch closer to the analog side:
 
 ## Real-time clock
 
-Add the [MAX31328](max31328.pdf) temperature compensated real-time
-clock to the PCB. It is a modernized and apparently software
-compatible
+The [MAX31328](max31328.pdf) temperature compensated real-time clock
+is a modernized and software compatible
 [DS3231](https://www.analog.com/media/en/technical-documentation/data-sheets/ds3231.pdf).
 
-Use a CR2032 3V Battery to power the real-time clock with the SMD/SMT coin cell battery holder:
+A CR2032 3V Battery powers the real-time clock. SMD/SMT coin cell battery holder:
 
 - [TE connectivity BAT-HLD-001](https://www.mouser.de/ProductDetail/TE-Connectivity-Linx-Technologies/BAT-HLD-001?qs=K5ta8V%252BWhta7hbVGfm4dqA%3D%3D)
-
-Note that the RTC default implementation works only for the first I2C bus.
 
 | Teensy 4.1 pin  | MAX31328   |
 | --------------: | :--------- |
@@ -152,10 +149,13 @@ Note that the RTC default implementation works only for the first I2C bus.
 
 ## External sensors and devices
 
-Potential external sensors and devices to be connected to the R4.1b:
+Potential external sensors and devices to be connected to the R4.1b.
 
-- One-wire bus (GND, 3.3V, data with 4.7kOhm pull-up resistor): e.g. Dallas DS18x20 temperature sensor.
-- I2C bus: temperature and illumination sensors.
+- One-wire bus (GND, 3.3V, data with 4.7kOhm pull-up resistor):
+  e.g. [Dallas DS18x20 temperature sensor](https://github.com/janscience/ESensors/blob/main/docs/chips/ds18x20.md).
+- I2C bus: temperature, illumination, ... sensors.
+  See the [Sensors-V1
+  PCB](https://github.com/janscience/ESensors/tree/main/pcbs/sensorsv1).
 
 | Teensy 4.1 pin | Teensy_Amp R4.1b |
 | -------------: | :--------------- |
@@ -171,7 +171,7 @@ Both
 - 2x5 Jumper pins
 
 
-## Status LED
+## Status LEDs
 
 | Teensy 4.1 pin | Teensy_Amp R4.1b | Teensy_Amp R4.2b |
 | -------------: | :--------------- | :--------------- |
@@ -191,20 +191,25 @@ files, a 4-bit rotary DIP switch is connected to Teensy pins.
 | GND               | GND               |
 | 34, 35, 36, 37    | DIP bits 0 - 3    |
 
+See
+[DeviceID.h](https://github.com/janscience/TeeRec/blob/main/src/DeviceID.h)
+of the [TeeRec library](https://github.com/janscience/TeeRec) for a
+description and implementation.
+
 
 ## Connectors
 
-Let's go for the molex [Micro-Lock Plus](https://www.molex.com/en-us/products/connectors/wire-to-board-connectors/micro-lock-plus-connectors) with [1.25mm pitch](https://www.molex.com/content/dam/molex/molex-dot-com/en_us/pdf/datasheets/987652-6322.pdf). See [application specification](https://www.molex.com/content/dam/molex/molex-dot-com/products/automated/en-us/applicationspecificationspdf/505/505565/5055650000-AS-000.pdf) for an overview and part numbers.
+The molex [Micro-Lock Plus](https://www.molex.com/en-us/products/connectors/wire-to-board-connectors/micro-lock-plus-connectors) with [1.25mm pitch](https://www.molex.com/content/dam/molex/molex-dot-com/en_us/pdf/datasheets/987652-6322.pdf) is a small and nice connector. See [application specification](https://www.molex.com/content/dam/molex/molex-dot-com/products/automated/en-us/applicationspecificationspdf/505/505565/5055650000-AS-000.pdf) for an overview and part numbers.
 
 - Right-angle SMT male connector, 4 pins, part number 5055670471, [datasheet](molex5055670471_sd.pdf)
 - Vertical-angle SMT male connector, 6 pins, part number 5055680671, [datasheet]()
 - Cable assembly 45111 series: 30cm female/female 26 AWG cable, 7mm wide, part number 451110403
 
 
-## Summary of improvements
+## Summary of improvements over the [first version](r41.md)
 
 - Default x1 pre-amp gain (R2 = R3 = 47kOhm).
-- Remove CAN bus (replace CAN bus by isolated CAN bus).
+- Remove CAN bus.
 - Add [MAX31328](max31328.pdf) real-time clock and coin battery holder.
 - Replace signal screw-terminals by molex micro-lock-plus connectors.
 - Add one-wire pins (GND, 3.3V, data) for Dallas DS18x20 temperature sensor with 4.7kOhm pull-up resistor.
@@ -216,14 +221,20 @@ Let's go for the molex [Micro-Lock Plus](https://www.molex.com/en-us/products/co
 
 ## Software
 
-Use
-[ControlPCM186x.h](https://github.com/janscience/TeeRec/blob/main/src/ControlPCM186x.h) of the [TeeRec library](https://github.com/janscience/TeeRec) for setting up the [TI PCM1865](../R4.0/pcm1865.md) chips. The TDM data stream can then be read in via [InputTDM.h](https://github.com/janscience/TeeRec/blob/main/src/InputTDM.h).
+- [TeeRec library](https://github.com/janscience/TeeRec):
+  - Control analog-digital conversion: [ControlPCM186x.h](https://github.com/janscience/TeeRec/blob/main/src/ControlPCM186x.h) for setting up the [TI PCM1865](../R4.0/pcm1865.md) chips.
+  - Read out TDM data stream: [InputTDM.h](https://github.com/janscience/TeeRec/blob/main/src/InputTDM.h).
+  - Handle storage on SDCard: [SDCard.h](https://github.com/janscience/TeeRec/blob/main/src/SDCard.h) and [SDWriter.h](https://github.com/janscience/TeeRec/blob/main/src/SDWriter.h).
+  - Control LEDs: [Blink.h](https://github.com/janscience/TeeRec/blob/main/src/Blink.h)
 
-Use [ESensors](https://github.com/janscience/ESensors) library for communication with sensors connected to the OneWire and I2C bus.
+- [MicroConfig library](https://github.com/janscience/MicroConfig) for
+  providing conifguration and an interactive menu.
+
+- [ESensors library](https://github.com/janscience/ESensors) for
+  interfacing sensors connected to the OneWire and I2C bus.
 
 
 ## Applications
 
 - [R4-sensors-logger](https://github.com/janscience/TeeGrid/tree/main/examples/R4-sensors-logger) 
 - [R4-logger](https://github.com/janscience/TeeGrid/tree/main/examples/R4-logger) 
-
