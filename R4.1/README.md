@@ -192,10 +192,10 @@ files, a 4-bit rotary DIP switch is connected to Teensy pins.
 
 | Teensy 4.1 pin    | Teensy_Amp R4.1b  |
 | ----------------: | :---------------- |
-| 34                | DIP bits 0        |
-| 35                | DIP bits 1        |
-| 36                | DIP bits 2        |
-| 37                | DIP bits 3        |
+| 34                | DIP bit 0         |
+| 35                | DIP bit 1         |
+| 36                | DIP bit 2         |
+| 37                | DIP bit 3         |
 
 See
 [DeviceID.h](https://github.com/janscience/TeeRec/blob/main/src/DeviceID.h)

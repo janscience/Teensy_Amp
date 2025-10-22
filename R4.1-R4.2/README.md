@@ -14,7 +14,7 @@ For the first version of PCB boards, see [R4.1 + R4.2](r4142.md).
 
 molex [Micro-Lock Plus](https://www.molex.com/en-us/products/connectors/wire-to-board-connectors/micro-lock-plus-connectors) with [1.25mm pitch](https://www.molex.com/content/dam/molex/molex-dot-com/en_us/pdf/datasheets/987652-6322.pdf). See [application specification](https://www.molex.com/content/dam/molex/molex-dot-com/products/automated/en-us/applicationspecificationspdf/505/505565/5055650000-AS-000.pdf) for an overview and part numbers.
 
-Here we use two right-angle SMT male connectors, 4 pins, part number 5055670471, [datasheet](../R4.1/molex5055670471_sd.pdf) for
+Here we use right-angle SMT male connectors, 4 pins, part number 5055670471, [datasheet](../R4.1/molex5055670471_sd.pdf) for
 the 8 input channels.
 
 Use the precrimped cables from the cable assembly 45111 series for connecting your electrodes (30cm female/female 26 AWG cable, 7mm wide, part number 451110403).
@@ -22,7 +22,7 @@ Use the precrimped cables from the cable assembly 45111 series for connecting yo
 
 ### 16 channels
 
-The two boards provide 16 input channels.
+The two boards together provide 16 input channels.
 
 
 ### Power consumption
