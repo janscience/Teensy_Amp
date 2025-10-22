@@ -27,16 +27,6 @@ See [R4.1](r41.md) for the first version.
 - [EAGLE circuit board](TeensyAmp_R1.2b.brd)
 
 
-## Connectors
-
-molex [Micro-Lock Plus](https://www.molex.com/en-us/products/connectors/wire-to-board-connectors/micro-lock-plus-connectors) with [1.25mm pitch](https://www.molex.com/content/dam/molex/molex-dot-com/en_us/pdf/datasheets/987652-6322.pdf). See [application specification](https://www.molex.com/content/dam/molex/molex-dot-com/products/automated/en-us/applicationspecificationspdf/505/505565/5055650000-AS-000.pdf) for an overview and part numbers.
-
-Here we use two right-angle SMT male connectors, 4 pins, part number 5055670471, [datasheet](../R4.1/molex5055670471_sd.pdf) for
-the 8 input channels.
-
-Use the precrimped cables from the cable assembly 45111 series for connecting your electrodes (30cm female/female 26 AWG cable, 7mm wide, part number 451110403).
-
-
 ## Pins
 
 ![pinout](images/teensy41-R41b-pinout.png)
@@ -112,7 +102,21 @@ Figure 15 of the evaluation board manual:
 - no low-pass filter 
 
 
-## Power
+### Signal connectors
+
+We use two molex [Micro-Lock
+Plus](https://www.molex.com/en-us/products/connectors/wire-to-board-connectors/micro-lock-plus-connectors)
+with [1.25mm
+pitch](https://www.molex.com/content/dam/molex/molex-dot-com/en_us/pdf/datasheets/987652-6322.pdf)
+right-angle SMT male connectors, 4 pins, part number 5055670471,
+[datasheet](../R4.1/molex5055670471_sd.pdf) for the 8 input channels.
+
+Use the precrimped cables from the cable assembly 45111 series for
+connecting your electrodes (30cm female/female 26 AWG cable, 7mm wide,
+part number 451110403).
+
+
+## Power supply
 
 LiIon battery connector:
 
@@ -188,8 +192,10 @@ files, a 4-bit rotary DIP switch is connected to Teensy pins.
 
 | Teensy 4.1 pin    | Teensy_Amp R4.1b  |
 | ----------------: | :---------------- |
-| GND               | GND               |
-| 34, 35, 36, 37    | DIP bits 0 - 3    |
+| 34                | DIP bits 0        |
+| 35                | DIP bits 1        |
+| 36                | DIP bits 2        |
+| 37                | DIP bits 3        |
 
 See
 [DeviceID.h](https://github.com/janscience/TeeRec/blob/main/src/DeviceID.h)
@@ -201,9 +207,9 @@ description and implementation.
 
 The molex [Micro-Lock Plus](https://www.molex.com/en-us/products/connectors/wire-to-board-connectors/micro-lock-plus-connectors) with [1.25mm pitch](https://www.molex.com/content/dam/molex/molex-dot-com/en_us/pdf/datasheets/987652-6322.pdf) is a small and nice connector. See [application specification](https://www.molex.com/content/dam/molex/molex-dot-com/products/automated/en-us/applicationspecificationspdf/505/505565/5055650000-AS-000.pdf) for an overview and part numbers.
 
-- Right-angle SMT male connector, 4 pins, part number 5055670471, [datasheet](molex5055670471_sd.pdf)
-- Vertical-angle SMT male connector, 6 pins, part number 5055680671, [datasheet]()
-- Cable assembly 45111 series: 30cm female/female 26 AWG cable, 7mm wide, part number 451110403
+- Right-angle SMT male connector, 4 pins, part number 5055670471, [datasheet](molex5055670471_sd.pdf) for the 8 input channels.
+- Vertical-angle SMT male connector, 6 pins, part number 5055680671, [datasheet]() for connecting sensors.
+- Cable assembly 45111 series: 30cm female/female 26 AWG cable, 7mm wide, part number 451110403.
 
 
 ## Summary of improvements over the [first version](r41.md)
@@ -225,6 +231,7 @@ The molex [Micro-Lock Plus](https://www.molex.com/en-us/products/connectors/wire
   - Control analog-digital conversion: [ControlPCM186x.h](https://github.com/janscience/TeeRec/blob/main/src/ControlPCM186x.h) for setting up the [TI PCM1865](../R4.0/pcm1865.md) chips.
   - Read out TDM data stream: [InputTDM.h](https://github.com/janscience/TeeRec/blob/main/src/InputTDM.h).
   - Handle storage on SDCard: [SDCard.h](https://github.com/janscience/TeeRec/blob/main/src/SDCard.h) and [SDWriter.h](https://github.com/janscience/TeeRec/blob/main/src/SDWriter.h).
+  - Real-time clock: [RTClockDS1307.h](https://github.com/janscience/TeeRec/blob/main/src/RTClockDS1307.h)
   - Control LEDs: [Blink.h](https://github.com/janscience/TeeRec/blob/main/src/Blink.h)
 
 - [MicroConfig library](https://github.com/janscience/MicroConfig) for
