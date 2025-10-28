@@ -23,13 +23,21 @@ See [R4.1](r41.md) for the first version.
 
 ## Circuit
 
-- [EAGLE schematics file](TeensyAmp_R1.2b.sch)
-- [EAGLE circuit board](TeensyAmp_R1.2b.brd)
+
+R4.1c with 4-pin sensors connector:
+- [EAGLE schematics file](TeensyAmp_R4.1c.sch)
+- [EAGLE circuit board](TeensyAmp_R4.1c.brd)
+
+R4.1b with 6-pin sensors connector:
+- [EAGLE schematics file](TeensyAmp_R4.1b.sch)
+- [EAGLE circuit board](TeensyAmp_R4.1b.brd)
 
 
 ## Pins
 
-![pinout](images/teensy41-R41b-pinout.png)
+![pinout](images/teensy41-R41c-pinout.png)
+
+See [here](images/teensy41-R41b-pinout.png) for the pinout of the R4.1b.
 
 
 ## Pins of the PCM1865
@@ -153,34 +161,39 @@ A CR2032 3V Battery powers the real-time clock. SMD/SMT coin cell battery holder
 
 ## External sensors and devices
 
-Potential external sensors and devices to be connected to the R4.1b.
+Potential external sensors and devices to be connected to the R4.1b / R4.1c.
 
-- One-wire bus (GND, 3.3V, data with 4.7kOhm pull-up resistor):
-  e.g. [Dallas DS18x20 temperature sensor](https://github.com/janscience/ESensors/blob/main/docs/chips/ds18x20.md).
 - I2C bus: temperature, illumination, ... sensors.
   See the [Sensors-V1
   PCB](https://github.com/janscience/ESensors/tree/main/pcbs/sensorsv1).
+- One-wire bus (GND, 3.3V, data with 4.7kOhm pull-up resistor):
+  e.g. [Dallas DS18x20 temperature sensor](https://github.com/janscience/ESensors/blob/main/docs/chips/ds18x20.md).
+  NOTE: The OneWire bus crosstalks heavily with the signals.
+  This is why we removed it from R4.1b.
 
-| Teensy 4.1 pin | Teensy_Amp R4.1b |
-| -------------: | :--------------- |
-| GND            | GND              |
-| 3.3V           | VDD              |
-| 9              | OneWire data + 4.7kOhm to 3.3V |
-| 24             | I2C2 SCL         |
-| 25             | I2C2 SDA         |
+| Teensy 4.1 pin | Teensy_Amp R4.1b | Teensy_Amp R4.1c |
+| -------------: | :--------------- | :--------------- |
+| GND            | GND              | GND              |
+| 3.3V           | VDD              | VDD              |
+| 9              | OneWire data + 4.7kOhm to 3.3V | -  | 
+| 24             | I2C2 SCL         | I2C2 SCL         |
+| 25             | I2C2 SDA         | I2C2 SDA         |
 
-Both
+Connectors R4.1c:
+- molex vertical-angle SMT male connector with 4 pins (GND, 3.3V, SCL, SDA), part number 5055680471
+- 2x4 Jumper pins
 
-- molex vertical-angle SMT male connector with 6 pins (GND, 3.3V, SCL, SDA. OneWire, LED2), part number 5055680671
+Connectors R4.1b:
+- molex vertical-angle SMT male connector with 6 pins (GND, 3.3V, SCL, SDA, OneWire, LED2), part number 5055680671
 - 2x5 Jumper pins
 
 
 ## Status LEDs
 
-| Teensy 4.1 pin | Teensy_Amp R4.1b | Teensy_Amp R4.2b |
-| -------------: | :--------------- | :--------------- |
-| 26             | LED1             | -                |
-| 27             | LED2             | -                |
+| Teensy 4.1 pin | Teensy_Amp R4.1b | Teensy_Amp R4.1c | Teensy_Amp R4.2b |
+| -------------: | :--------------- | :--------------- | :--------------- |
+| 26             | LED1             | LED1             | -                |
+| 27             | LED2             | -                | -                |
 
 
 ## Device identifier DIPs
@@ -208,7 +221,7 @@ description and implementation.
 The molex [Micro-Lock Plus](https://www.molex.com/en-us/products/connectors/wire-to-board-connectors/micro-lock-plus-connectors) with [1.25mm pitch](https://www.molex.com/content/dam/molex/molex-dot-com/en_us/pdf/datasheets/987652-6322.pdf) is a small and nice connector. See [application specification](https://www.molex.com/content/dam/molex/molex-dot-com/products/automated/en-us/applicationspecificationspdf/505/505565/5055650000-AS-000.pdf) for an overview and part numbers.
 
 - Right-angle SMT male connector, 4 pins, part number 5055670471, [datasheet](molex5055670471_sd.pdf) for the 8 input channels.
-- Vertical-angle SMT male connector, 6 pins, part number 5055680671, [datasheet]() for connecting sensors.
+- Vertical-angle SMT male connector, 4 pins, part number 5055680471, [datasheet]() for connecting sensors.
 - Cable assembly 45111 series: 30cm female/female 26 AWG cable, 7mm wide, part number 451110403.
 
 
