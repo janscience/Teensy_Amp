@@ -117,7 +117,7 @@ Plus](https://www.molex.com/en-us/products/connectors/wire-to-board-connectors/m
 with [1.25mm
 pitch](https://www.molex.com/content/dam/molex/molex-dot-com/en_us/pdf/datasheets/987652-6322.pdf)
 right-angle SMT male connectors, 4 pins, part number 5055670471,
-[datasheet](../R4.1/molex5055670471_sd.pdf) for the 8 input channels.
+[datasheet](../R4.1/molex5055670471_sd.pdf), for the 8 input channels.
 
 Use the precrimped cables from the cable assembly 45111 series for
 connecting your electrodes (30cm female/female 26 AWG cable, 7mm wide,
@@ -169,7 +169,7 @@ Potential external sensors and devices to be connected to the R4.1b / R4.1c.
 - One-wire bus (GND, 3.3V, data with 4.7kOhm pull-up resistor):
   e.g. [Dallas DS18x20 temperature sensor](https://github.com/janscience/ESensors/blob/main/docs/chips/ds18x20.md).
   NOTE: The OneWire bus crosstalks heavily with the signals.
-  This is why we removed it from R4.1b.
+  This is why we removed it in R4.1c.
 
 | Teensy 4.1 pin | Teensy_Amp R4.1b | Teensy_Amp R4.1c |
 | -------------: | :--------------- | :--------------- |
@@ -257,4 +257,3 @@ The molex [Micro-Lock Plus](https://www.molex.com/en-us/products/connectors/wire
 ## Applications
 
 - [R4-sensors-logger](https://github.com/janscience/TeeGrid/tree/main/examples/R4-sensors-logger) 
-- [R4-logger](https://github.com/janscience/TeeGrid/tree/main/examples/R4-logger) 
