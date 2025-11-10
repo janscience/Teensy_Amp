@@ -51,6 +51,17 @@ All measurements reported here with shutdown USB and 24MHz CPU speed.
 | capacity | voltage | duration | channels | sampling rate | CPU speed| Sensors-V1       | comment        |
 | -------: | ------: | -------- | -------: | ------------: | --------:| :--------------- | :------------- |
 |  3x5.5Ah |    3.6V | 46h15min |       16 |         48kHz |     24MHz| 30s, with 3 LEDs |                |
+|  3x5.5Ah |    3.6V | 47h00min |       16 |         48kHz |     24MHz| 30s, with 3 LEDs |                |
+|  3x5.5Ah |    3.6V | 44h25min |       16 |         48kHz |     24MHz| 30s, with 3 LEDs |                |
+|  3x5.5Ah |    3.6V | 43h50min |       16 |         48kHz |     24MHz| 30s, with 3 LEDs | RC Plus Duo Power 100 |
+
+
+### Battery pack
+
+| capacity | voltage | duration | channels | sampling rate | CPU speed| Sensors-V1       | comment        |
+| -------: | ------: | -------- | -------: | ------------: | --------:| :--------------- | :------------- |
+|  7x3.5Ah |    3.6V | 54h35min |       16 |         48kHz |     24MHz| 30s, with 3 LEDs | RC Plus Duo Power 100 |
+|  7x3.5Ah |    3.6V | 54h50min |       16 |         48kHz |     24MHz| 30s, with 3 LEDs | RC Plus Duo Power 100 |
 
 
 ## Software
