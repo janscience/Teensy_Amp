@@ -54,6 +54,7 @@ All measurements reported here with shutdown USB and 24MHz CPU speed.
 |  3x5.5Ah |    3.6V | 47h00min |       16 |         48kHz |     24MHz| 30s, with 3 LEDs |                |
 |  3x5.5Ah |    3.6V | 44h25min |       16 |         48kHz |     24MHz| 30s, with 3 LEDs |                |
 |  3x5.5Ah |    3.6V | 43h50min |       16 |         48kHz |     24MHz| 30s, with 3 LEDs | RC Plus Duo Power 100 |
+|  3x5.5Ah |    3.6V | 44h55min |       16 |         48kHz |     24MHz| 30s, with 3 LEDs | RC Plus Duo Power 100 |
 
 
 ### Battery pack
@@ -62,6 +63,8 @@ All measurements reported here with shutdown USB and 24MHz CPU speed.
 | -------: | ------: | -------- | -------: | ------------: | --------:| :--------------- | :------------- |
 |  7x3.5Ah |    3.6V | 54h35min |       16 |         48kHz |     24MHz| 30s, with 3 LEDs | RC Plus Duo Power 100 |
 |  7x3.5Ah |    3.6V | 54h50min |       16 |         48kHz |     24MHz| 30s, with 3 LEDs | RC Plus Duo Power 100 |
+|  7x3.5Ah |    3.6V | 54h55min |       16 |         48kHz |     24MHz| 30s, with 3 LEDs | RC Plus Duo Power 100 |
+|  7x3.5Ah |    3.6V | 55h15min |       16 |         48kHz |     24MHz| 30s, with 3 LEDs | RC Plus Duo Power 100 |
 
 
 ## Software
