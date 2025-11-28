@@ -27,14 +27,14 @@ Pins of the TLV320ADC5140 - see page 4 in the data sheet:
 |  3  | VREF        | Analog reference voltage filter output. Connect min. 1uF to AVSS |   |
 |  4  | AVSS        | Analog ground. Short this pin directly to the board ground plane. All ground pins (AVSS and VSS) must be tied together. |   |
 |  5  | MICBIAS     | unconnected |                 |
-|  6  | IN1P_GPI1   | SIG ?, uncouple with 1uF      |                 |
-|  7  | IN1M_GPO1   | SIG ?       |                 |
-|  8  | IN2P_GPI2   | SIG ?       |                 |
-|  9  | IN2M_GPO2   | SIG ?       |                 |
-| 10  | IN3P_GPI3   | SIG ?       |                 |
-| 11  | IN3M_GPO3   | SIG ?       |                 |
-| 12  | IN4P_GPI4   | SIG ?       |                 |
-| 13  | IN4M_GPO4   | SIG ?       |                 |
+|  6  | IN1P_GPI1   | SIG 1P      |                 |
+|  7  | IN1M_GPO1   | SIG COMMON  |                 |
+|  8  | IN2P_GPI2   | SIG 2P      |                 |
+|  9  | IN2M_GPO2   | SIG COMMON  |                 |
+| 10  | IN3P_GPI3   | SIG 3P      |                 |
+| 11  | IN3M_GPO3   | SIG COMMON  |                 |
+| 12  | IN4P_GPI4   | SIG 4P      |                 |
+| 13  | IN4M_GPO4   | SIG COMMON  |                 |
 | 14  | SHDNZO      | Device hardware shutdown and reset (active low) | Some digital Pin  |
 | 15  | ADDR1_MISO  | I2C slave address A1 pin. Connect to GND. |  |
 | 16  | ADDR0_SCLK  | I2C slave address A0 pin. Connect to GND. |  |
@@ -46,7 +46,7 @@ Pins of the TLV320ADC5140 - see page 4 in the data sheet:
 | 22  | BCLK        | Audio serial data bus bit clock | 21 |
 | 23  | FSYNC       | Audio serial data bus frame synchronization signal (LRCLK) | 20 |
 | 24  | DREG        | Digital regulator output voltage for digital core supply. Connect 0.1-μF and 10-μF capacitors to GND. |   |
-| VSS | Thermal pad is device ground. Short the thermal pad directly to the board ground plane. |   |
+|     | VSS | Thermal pad is device ground. Short the thermal pad directly to the board ground plane. |   |
 
 For layout instructions of the PCB see page 116 and Fig. 179 of the [TI TLV320ADC5140 data sheet](tlv320adc5140.pdf).
 
@@ -93,15 +93,27 @@ Teensy pins:
 For programming instructions see page 109 of the [TI TLV320ADC5140 data sheet](tlv320adc5140.pdf).
 
 
+### Pre-amplifiers
+
+![preampinv](images/preampinv.png)
+
+- R1=100k for referencing the floating signal.
+- C1=10uF and R3=10k for a <5Hz high-pass filter.
+- R3=10k and R4=10k for a 1x gain (gain=R4/R3).
+- no low-pass filter, this is handled by the TLV chip.
+- each signal is amplified relative to VREF from the TLV chip.
+- the COMMON reference measures the average of all the signals.
+
+
+### Common-amplifier
+
+![refampinv](images/refampinv.png)
+
+- the COMMON reference is amplified in the same way as each signal
+- the amplified output provides the negative input against which the
+  TLV measures the amplified signals in differential mode.
+
 
 ## Improvements needed over R4.x
 
-- Add a coin-battery holder connected to Vbat for the Teensy real-time clock!
-- Replace signal screw-terminals by female pins (0.1" housing)
 - Add GND pin for electrode cable shield (2 times)
-- Add one-wire pins (GND, 3.3V, data) for Dallas DS18x20 temperature sensor with 4.7kOhm pull-up resistor
-- Add I2C (GND, 3.3V, SDA, SCL) pins for light sensor, etc. (2 times)
-- Some means of detecting a device ID for setting a uniqe file name?
-- Improve supported power supply to 3.5 to 14V, so that AA, LiPo and
-  car batteries, solar panels can be used? No
-  
