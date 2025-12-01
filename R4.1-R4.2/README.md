@@ -90,7 +90,7 @@ All chargers in the following table have
 - mains power input (no separate power supply necessary).
 
 | name         | channels | max charge current | max voltage | price | comment |
-| :----------- | -------: | -----------------: | ----: | :------ |
+| :----------- | -------: | -----------------: | ----------: | ----: | :------ |
 | [ToolkitRC Q6AC](https://www.toolkitrc.com/q6ac/) | 4 | 15A | | 220€ | Display broke |
 | [RC Plus - Power Quad 100](https://promodels.be/en/product/RC-CHA-214/rc-plus-power-quad-100-charger-ac-100w-dc-4x-100w-4x-4s-lixx-8-nixx-16v-pb) | 4 | 10A | | 100€ | |
 | [SkyRC Q100neo](https://www.skyrc.com/q100neo) | 4 | 6A | 4.05V - 4.25V | 82€ | |
