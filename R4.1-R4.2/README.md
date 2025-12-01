@@ -53,8 +53,8 @@ All measurements reported here with shutdown USB and 24MHz CPU speed.
 |  3x5.5Ah |    3.6V | 46h15min |       16 |         48kHz |     24MHz| 30s, with 3 LEDs |                |
 |  3x5.5Ah |    3.6V | 47h00min |       16 |         48kHz |     24MHz| 30s, with 3 LEDs |                |
 |  3x5.5Ah |    3.6V | 44h25min |       16 |         48kHz |     24MHz| 30s, with 3 LEDs |                |
-|  3x5.5Ah |    3.6V | 43h50min |       16 |         48kHz |     24MHz| 30s, with 3 LEDs | RC Plus Duo Power 100 |
-|  3x5.5Ah |    3.6V | 44h55min |       16 |         48kHz |     24MHz| 30s, with 3 LEDs | RC Plus Duo Power 100 |
+|  3x5.5Ah |    3.6V | 43h50min |       16 |         48kHz |     24MHz| 30s, with 3 LEDs | RC Plus Duo Power 100, 4.1V |
+|  3x5.5Ah |    3.6V | 44h55min |       16 |         48kHz |     24MHz| 30s, with 3 LEDs | RC Plus Duo Power 100, 4.1V |
 
 
 ### Battery pack
@@ -63,31 +63,45 @@ Charging time with the RC Plus Duo Power 100 on 10A is about 4h.
 
 | capacity | voltage | duration | channels | sampling rate | CPU speed| Sensors-V1       | comment        |
 | -------: | ------: | -------- | -------: | ------------: | --------:| :--------------- | :------------- |
-|  7x3.5Ah |    3.6V | 54h35min |       16 |         48kHz |     24MHz| 30s, with 3 LEDs | RC Plus Duo Power 100 |
-|  7x3.5Ah |    3.6V | 54h50min |       16 |         48kHz |     24MHz| 30s, with 3 LEDs | RC Plus Duo Power 100 |
-|  7x3.5Ah |    3.6V | 54h55min |       16 |         48kHz |     24MHz| 30s, with 3 LEDs | RC Plus Duo Power 100 |
-|  7x3.5Ah |    3.6V | 55h15min |       16 |         48kHz |     24MHz| 30s, with 3 LEDs | RC Plus Duo Power 100 |
-|  7x3.5Ah |    3.6V | 56h25min |       16 |         48kHz |     24MHz| no sensors       | RC Plus Duo Power 100 |
-|  7x3.5Ah |    3.6V | 55h00min |       16 |         48kHz |     24MHz| no sensors       | RC Plus Duo Power 100 |
+|  7x3.5Ah |    3.6V | 54h35min |       16 |         48kHz |     24MHz| 30s, with 3 LEDs | RC Plus Duo Power 100, 4.1V |
+|  7x3.5Ah |    3.6V | 54h50min |       16 |         48kHz |     24MHz| 30s, with 3 LEDs | RC Plus Duo Power 100, 4.1V |
+|  7x3.5Ah |    3.6V | 54h55min |       16 |         48kHz |     24MHz| 30s, with 3 LEDs | RC Plus Duo Power 100, 4.1V |
+|  7x3.5Ah |    3.6V | 55h15min |       16 |         48kHz |     24MHz| 30s, with 3 LEDs | RC Plus Duo Power 100, 4.1V |
+|  7x3.5Ah |    3.6V | 56h25min |       16 |         48kHz |     24MHz| no sensors       | RC Plus Duo Power 100, 4.1V |
+|  7x3.5Ah |    3.6V | 55h00min |       16 |         48kHz |     24MHz| no sensors       | RC Plus Duo Power 100, 4.1V |
+|  7x3.5Ah |    3.6V | 65h20min |       16 |         48kHz |     24MHz| no sensors       | SkyRC Q100neo, 4.2V |
+|  7x3.5Ah |    3.6V | 64h55min |       16 |         48kHz |     24MHz| no sensors       | SkyRC Q100neo, 4.2V |
 
 
 ## Battery charger
 
-All devices with XT60 output for 1S and mains power input:
+By means of the maximum charge voltage you can control the actual
+capacity of the battery. However, the higher the voltage the less life
+cycles you get. The numbers you can find in the internet are about 300
+to 500 life cycles when charging to 4.2V.  The capacity is reduced to
+90% when charging to 4.1V, but life cycles are doubled. For our
+applications a couple of 100 cycles should be more than enough, so we
+can easily go for 4.2V. Not all chargers support this!
 
-| name         | channels | max charge current | price | comment |
+All chargers in the following table have
+
+- XT60 output
+- support 1S LiIon battery packs
+- mains power input (no separate power supply necessary).
+
+| name         | channels | max charge current | max voltage | price | comment |
 | :----------- | -------: | -----------------: | ----: | :------ |
-| [ToolkitRC Q6AC](https://www.toolkitrc.com/q6ac/) | 4 | 15A | 220€ | Display broke |
-| [RC Plus - Power Quad 100](https://promodels.be/en/product/RC-CHA-214/rc-plus-power-quad-100-charger-ac-100w-dc-4x-100w-4x-4s-lixx-8-nixx-16v-pb) | 4 | 10A | 100€ | |
-| [SkyRC Q100neo](https://www.skyrc.com/q100neo) | 4 | 6A | 82€ | |
-| [SkyRC D200neo](https://www.skyrc.com/d200neo) | 2 | 20A | 120€ | |
-| [Gens Ace iMars D300 G-Tech Channel](https://gensace.de/de/collections/d300/products/gens-ace-imars-d300-g-tech-channel-ac-dc-300w-700w-rc-battery-charger-eu-black) | 2 | 16A | 120€ | |
-| [ToolkitRC M6DAC](https://www.toolkitrc.com/m6dac/) | 2 | 15A | 120€ | |
-| [SkyRC D100neo](https://www.skyrc.com/d100neo) | 2 | 10A | 90€ | |
-| [RC Plus Duo Power 100](https://promodels.be/en/product/RC-CHA-213/rc-plus-power-duo-100-charger-ac-100w-dc-2x-100w-2x-4s-lixx-8-nixx-16v-pb) | 2 | 10A | 60€ | refuses charging... |
-| [ToolkitRC M7AC](https://www.toolkitrc.com/m7ac/) | 1 | 15A | 90€ | |
-| [SkyRC B6ACneo](https://www.skyrc.com/b6acneo) | 1 | 10A | 60€ | |
-| [SkyRC S100 Neo](https://www.skyrc.com/s100neo) | 1 | 10A | 50€ | |
+| [ToolkitRC Q6AC](https://www.toolkitrc.com/q6ac/) | 4 | 15A | | 220€ | Display broke |
+| [RC Plus - Power Quad 100](https://promodels.be/en/product/RC-CHA-214/rc-plus-power-quad-100-charger-ac-100w-dc-4x-100w-4x-4s-lixx-8-nixx-16v-pb) | 4 | 10A | | 100€ | |
+| [SkyRC Q100neo](https://www.skyrc.com/q100neo) | 4 | 6A | 4.05V - 4.25V | 82€ | |
+| [SkyRC D200neo](https://www.skyrc.com/d200neo) | 2 | 20A | | 120€ | |
+| [Gens Ace iMars D300 G-Tech Channel](https://gensace.de/de/collections/d300/products/gens-ace-imars-d300-g-tech-channel-ac-dc-300w-700w-rc-battery-charger-eu-black) | 2 | 16A | 3.90V - 4.15V | 120€ | |
+| [ToolkitRC M6DAC](https://www.toolkitrc.com/m6dac/) | 2 | 15A | | 120€ | |
+| [SkyRC D100neo](https://www.skyrc.com/d100neo) | 2 | 10A | | 90€ | |
+| [RC Plus Duo Power 100](https://promodels.be/en/product/RC-CHA-213/rc-plus-power-duo-100-charger-ac-100w-dc-2x-100w-2x-4s-lixx-8-nixx-16v-pb) | 2 | 10A | 4.1V fixed | 60€ | refuses charging... |
+| [ToolkitRC M7AC](https://www.toolkitrc.com/m7ac/) | 1 | 15A | | 90€ | |
+| [SkyRC B6ACneo](https://www.skyrc.com/b6acneo) | 1 | 10A | | 60€ | |
+| [SkyRC S100 Neo](https://www.skyrc.com/s100neo) | 1 | 10A | | 50€ | |
 
 
 ## Software
