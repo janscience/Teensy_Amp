@@ -71,6 +71,10 @@ Charging time with the RC Plus Duo Power 100 on 10A is about 4h.
 |  7x3.5Ah |    3.6V | 55h00min |       16 |         48kHz |     24MHz| no sensors       | RC Plus Duo Power 100, 4.1V |
 |  7x3.5Ah |    3.6V | 65h20min |       16 |         48kHz |     24MHz| no sensors       | SkyRC Q100neo, 4.2V |
 |  7x3.5Ah |    3.6V | 64h55min |       16 |         48kHz |     24MHz| no sensors       | SkyRC Q100neo, 4.2V |
+|  7x3.5Ah |    3.6V | 64h35min |       16 |         48kHz |     24MHz| no sensors       | SkyRC Q100neo, 4.2V |
+|  7x3.5Ah |    3.6V | 65h05min |       16 |         48kHz |     24MHz| no sensors       | SkyRC Q100neo, 4.2V |
+|  7x3.5Ah |    3.6V |  |       16 |         48kHz |     24MHz| no sensors       | SkyRC Q100neo, 4.2V, 3:25, 20Ah |
+|  7x3.5Ah |    3.6V |  |       16 |         48kHz |     24MHz| no sensors       | SkyRC Q100neo, 4.2V, 3:25, 20Ah |
 
 
 ## Battery charger
