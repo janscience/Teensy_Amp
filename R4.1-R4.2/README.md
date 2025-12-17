@@ -73,10 +73,14 @@ Charging time with the RC Plus Duo Power 100 on 10A is about 4h.
 |  7x3.5Ah |    3.6V | 64h55min |       16 |         48kHz |     24MHz| no sensors       | SkyRC Q100neo, 4.2V |
 |  7x3.5Ah |    3.6V | 64h35min |       16 |         48kHz |     24MHz| no sensors       | SkyRC Q100neo, 4.2V |
 |  7x3.5Ah |    3.6V | 65h05min |       16 |         48kHz |     24MHz| no sensors       | SkyRC Q100neo, 4.2V |
-|  7x3.5Ah |    3.6V | 63h50min |       16 |         48kHz |     24MHz| no sensors       | SkyRC Q100neo, 4.2V, 3:25, 20Ah |
-|  7x3.5Ah |    3.6V | 62h15min |       16 |         48kHz |     24MHz| no sensors       | SkyRC Q100neo, 4.2V, 3:25, 20Ah |
+|  7x3.5Ah |    3.6V | 63h50min |       16 |         48kHz |     24MHz| no sensors       | SkyRC Q100neo, 4.2V, 3:25, 20Ah@6A |
+|  7x3.5Ah |    3.6V | 62h15min |       16 |         48kHz |     24MHz| no sensors       | SkyRC Q100neo, 4.2V, 3:25, 20Ah@6A |
 |  7x3.5Ah |    3.6V | 65h20min |       16 |         48kHz |     24MHz| 30s, with 2 LEDs | SkyRC Q100neo, 4.2V |
 |  7x3.5Ah |    3.6V | 63h55min |       16 |         48kHz |     24MHz| 30s, with 2 LEDs | SkyRC Q100neo, 4.2V |
+|  7x3.5Ah |    3.6V | 40h40min |       16 |         48kHz |     24MHz| 30s, with 2 LEDs | iMars D300, 4.15V, 6:30, 21Ah@5A |
+|  7x3.5Ah |    3.6V | 51h10min |       16 |         48kHz |     24MHz| 30s, with 2 LEDs | iMars D300, 4.15V, 6:30, 21Ah@5A |
+|  7x3.5Ah |    3.6V | 48h20min |       16 |         48kHz |     24MHz| 30s, with 2 LEDs | iMars D300, 4.15V, 3:00, 15Ah@10A |
+|  7x3.5Ah |    3.6V | 47h55min |       16 |         48kHz |     24MHz| 30s, with 2 LEDs | iMars D300, 4.15V, 3:00, 15Ah@10A |
 
 
 ## Battery charger
