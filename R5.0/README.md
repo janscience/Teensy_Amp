@@ -97,13 +97,14 @@ For programming instructions see page 109 of the [TI TLV320ADC5140 data sheet](t
 
 ![preampinv](images/preampinv.png)
 
-- R1=100k for referencing the floating signal.
-- C1=10uF and R3=10k for a <5Hz high-pass filter.
-- R3=10k and R4=10k for a 1x gain (gain=R4/R3).
+- R1=1M for a voltage divider attenuating strong signals by a factor of 10.
+- R2=100k for referencing the floating signal.
+- C1=10uF decoupling capacitor
+- R4=10k and R5=10k for a 2x gain (gain=1+R5/R4).
 - no low-pass filter, this is handled by the TLV chip.
-- each signal is amplified relative to VREF from the TLV chip.
+- each signal is amplified relative to VREF.
 - the COMMON reference measures the average of all the signals.
-
+- the TLV chip amplifies the pre-amplified signals versus the preamplified COMMON reference.
 
 ### Common-amplifier
 
