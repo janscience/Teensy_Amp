@@ -4,14 +4,14 @@ from matplotlib.patches import Rectangle
 
 plt.rcParams['font.size'] = 18
 
-fig, ax = plt.subplots(figsize=(16, 7))
+fig, ax = plt.subplots(figsize=(16, 8))
 fig.subplots_adjust(nomargins=True)
-ax.show_spines('')
-#ax.set_xticks_off()
-#ax.set_yticks_off()
+#ax.show_spines('')
+ax.set_xticks_off()
+ax.set_yticks_off()
 
 ax.set_xlim(-1, 15)
-ax.set_ylim(1.5, 8.5)
+ax.set_ylim(0.5, 8.5)
 ax.set_aspect('equal')
 
 pn, pp, po, pg, pw = ax.opamp_l((8.5, 5), 'OPA1662')
@@ -24,6 +24,8 @@ ng1 = ax.node(pn.left(0.5).down(1.5))
 r4l, r4r = ax.resistance_h(ng1.left(1), 'R4 10k', align='bottom')
 nr = ax.bus(r4l.left(0.5).up(3.5), 'VREF', align='top')
 ax.connect((pn, ng1, r4r, None, r4l, r4l.left(0.5), nr))
+nr = ax.bus(r4l.left(0.5).down(1), 'VREF', align='bottom')
+ax.connect((r4l.left(0.5), nr))
 
 nc = ax.bus(pp.left(3.5).up(1), 'COMMON ', align='top')
 ax.connect((nc,  pp))
