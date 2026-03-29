@@ -95,7 +95,7 @@ For programming instructions see page 109 of the [TI TLV320ADC5140 data sheet](t
 
 ### Pre-amplifiers
 
-![preampinv](images/preampinv.png)
+![preampinv](images/preampnoninv.png)
 
 - R1=1M for a voltage divider attenuating strong signals by a factor of 10.
 - R2=100k for referencing the floating signal.
@@ -108,7 +108,7 @@ For programming instructions see page 109 of the [TI TLV320ADC5140 data sheet](t
 
 ### Common-amplifier
 
-![refampinv](images/refampinv.png)
+![refampinv](images/refampnoninv.png)
 
 - the COMMON reference is amplified in the same way as each signal
 - the amplified output provides the negative input against which the
