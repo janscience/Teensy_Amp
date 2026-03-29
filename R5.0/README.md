@@ -95,46 +95,33 @@ For programming instructions see page 109 of the [TI TLV320ADC5140 data sheet](t
 
 ### Pre-amplifiers
 
-![preampinv](images/preampinv.png)
-
 - R1=1M for a voltage divider attenuating strong signals by a factor of 10.
 - R2=100k for referencing the floating signal.
-- C1=10uF decoupling capacitor
-- R4=10k and R5=10k for a 1x gain (gain=R5/R4).
+- C1=10uF decoupling capacitor.
+- R4=10k and R5=10k set the gain.
 - no low-pass filter, this is handled by the TLV chip.
 - each signal is amplified relative to VREF.
-- the VCOM reference measures the average of all the signals.
-- the TLV chip amplifies the pre-amplified signals versus the preamplified VCOM reference.
+- via R3 the AVRG reference measures the average of all the input signals.
+- the AVRG reference is amplified in the same way as each signal.
+- the TLV chip amplifies the pre-amplified signals against the preamplified AVRG reference AREF.
 
-### Common reference amplifier
+#### Inverting pre-amplifiers
+
+![preampinv](images/preampinv.png)
 
 ![refampinv](images/refampinv.png)
 
-- the VCOM reference is amplified in the same way as each signal
-- the amplified output provides the negative input against which the
-  TLV measures the amplified signals in differential mode.
+- R4=10k and R5=10k for a 1x gain (gain=R5/R4).
 
+#### Non-inverting pre-amplifiers
 
-### Non-inverting pre-amplifiers
+- R4=10k and R5=10k for a 2x gain (gain=1+R5/R4).
+- R6 should already part of the differential amplifier?
+- but then what is R7?
 
 ![preampinv](images/preampnoninv.png)
 
-- R1=1M for a voltage divider attenuating strong signals by a factor of 10.
-- R2=100k for referencing the floating signal.
-- C1=10uF decoupling capacitor
-- R4=10k and R5=10k for a 2x gain (gain=1+R5/R4).
-- no low-pass filter, this is handled by the TLV chip.
-- each signal is amplified relative to VREF.
-- the COMMON reference measures the average of all the signals.
-- the TLV chip amplifies the pre-amplified signals versus the preamplified COMMON reference.
-
-### Non-inverting common-amplifier
-
 ![refampinv](images/refampnoninv.png)
-
-- the COMMON reference is amplified in the same way as each signal
-- the amplified output provides the negative input against which the
-  TLV measures the amplified signals in differential mode.
 
 
 ## Improvements needed over R4.x

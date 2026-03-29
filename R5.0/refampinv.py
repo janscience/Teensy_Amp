@@ -17,12 +17,12 @@ ax.set_aspect('equal')
 pn, pp, po, pg, pw = ax.opamp_l((8, 5), 'OPA1662')
 gnd1 = ax.ground(pg.down(0.6), 'GND')
 ax.connect((pg, gnd1))
-npwr = ax.bus(pw.up(0.5), 'VDD', align='top')
+npwr = ax.bus(pw.up(1), 'VDD', align='top')
 ax.connect((pw, npwr))
 
 ng1 = ax.node(pn.left(0.5))
 r4l, r4r = ax.resistance_h(ng1.left(1), 'R4 10k', align='bottom')
-nc = ax.bus(r4l.left(1.5).up(2), 'VCOM', align='north')
+nc = ax.bus(r4l.left(1.5).up(2), 'AVRG', align='north')
 ax.connect((nc, r4l, None, r4r, ng1, pn))
 
 npr = ax.node(pp.left(2.5))
@@ -32,7 +32,7 @@ nr2 = ax.bus(npr.down(2), 'VREF', align='south')
 ax.connect((nr2,  npr))
 
 ng2 = ax.node(po.right(0.5))
-no = ax.pin(ng2.right(1), 'INxM', 'right')
+no = ax.bus(ng2.right(0.5).up(1.5), 'AREF', 'north')
 ax.connect((po, ng2, no))
 
 r5l, r5r = ax.resistance_h(po.left(0.5).down(2), 'R5 10k', 'below')
