@@ -4,14 +4,14 @@ from matplotlib.patches import Rectangle
 
 plt.rcParams['font.size'] = 18
 
-fig, ax = plt.subplots(figsize=(16, 7.1))
+fig, ax = plt.subplots(figsize=(16, 6.5))
 fig.subplots_adjust(nomargins=True)
 ax.show_spines('')
 #ax.set_xticks_off()
 #ax.set_yticks_off()
 
-ax.set_xlim(-1.5, 12)
-ax.set_ylim(1, 7)
+ax.set_xlim(-3, 12)
+ax.set_ylim(0.9, 7)
 ax.set_aspect('equal')
 
 pn, pp, po, pg, pw = ax.opamp_l((8, 5), 'OPA1662')
@@ -25,12 +25,14 @@ r4l, r4r = ax.resistance_h(ng1.left(1), 'R4 10k', align='bottom')
 ngr = ax.node(r4l.left(2.5), 'SIGNALx', 'north')
 c1l, c1r = ax.capacitance_h(ngr.left(1), 'C1 10$\\mu$F', align='top')
 nsc = ax.node(c1l.left(1))
-ns1 = ax.pin(nsc.left(1), 'CHx\nx1', align='left')
-ax.connect((ns1, nsc, c1l, None, c1r, r4l, None, r4r, ng1, pn))
+nj1 = ax.pin(nsc.left(0.7))
+nj2 = ax.pin(nj1.left(0.6), 'J1', 'southeast')
+nsj = ax.node(nj2.left(0.7))
+ns = ax.pin(nsj.left(1), 'CHx', align='left')
+ax.connect((ns, nsj, nj2, None, nj1, nsc, c1l, None, c1r, r4l, None, r4r, ng1, pn))
 
-r1b, r1t = ax.resistance_v(nsc.up(1), 'R1 1M', align='left')
-ns2 = ax.pin(r1t.up(0.5).left(1), 'CHx\nx0.1', align='left')
-ax.connect((nsc, r1b, None, r1t, ns2))
+r1l, r1r = ax.resistance_h(nsc.up(0.5).left(1), 'R1 1M', align='top')
+ax.connect((nsc, r1r, None, r1l, nsj))
 
 r3b, r3t = ax.resistance_v(ngr.down(1), 'R3 10k', align='left')
 nrc = ax.node(r3b.down(0.5).right(1))

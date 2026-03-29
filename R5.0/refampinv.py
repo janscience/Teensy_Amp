@@ -4,14 +4,14 @@ from matplotlib.patches import Rectangle
 
 plt.rcParams['font.size'] = 18
 
-fig, ax = plt.subplots(figsize=(16, 6))
+fig, ax = plt.subplots(figsize=(16, 5.6))
 fig.subplots_adjust(nomargins=True)
 ax.show_spines('')
 #ax.set_xticks_off()
 #ax.set_yticks_off()
 
-ax.set_xlim(-1.5, 12)
-ax.set_ylim(2.5, 7.5)
+ax.set_xlim(-3, 12)
+ax.set_ylim(2.4, 7.6)
 ax.set_aspect('equal')
 
 pn, pp, po, pg, pw = ax.opamp_l((8, 5), 'OPA1662')

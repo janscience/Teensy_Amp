@@ -87,7 +87,6 @@ Teensy pins:
 - Add I2C pins for sensors
 
 
-
 ### Programming instructions
 
 For programming instructions see page 109 of the [TI TLV320ADC5140 data sheet](tlv320adc5140.pdf).
@@ -96,6 +95,7 @@ For programming instructions see page 109 of the [TI TLV320ADC5140 data sheet](t
 ### Pre-amplifiers
 
 - R1=1M for a voltage divider attenuating strong signals by a factor of 10.
+- J1 short circuits voltage divider for x1 input signals (as 4x2 jumper pins).
 - R2=100k for referencing the floating signal.
 - C1=10uF decoupling capacitor.
 - R4=10k and R5=10k set the gain.
