@@ -95,6 +95,28 @@ For programming instructions see page 109 of the [TI TLV320ADC5140 data sheet](t
 
 ### Pre-amplifiers
 
+![preampinv](images/preampinv.png)
+
+- R1=1M for a voltage divider attenuating strong signals by a factor of 10.
+- R2=100k for referencing the floating signal.
+- C1=10uF decoupling capacitor
+- R4=10k and R5=10k for a 1x gain (gain=R5/R4).
+- no low-pass filter, this is handled by the TLV chip.
+- each signal is amplified relative to VREF.
+- the COMMON reference measures the average of all the signals.
+- the TLV chip amplifies the pre-amplified signals versus the preamplified COMMON reference.
+
+### Common-amplifier
+
+![refampinv](images/refampinv.png)
+
+- the COMMON reference is amplified in the same way as each signal
+- the amplified output provides the negative input against which the
+  TLV measures the amplified signals in differential mode.
+
+
+### Non-inverting pre-amplifiers
+
 ![preampinv](images/preampnoninv.png)
 
 - R1=1M for a voltage divider attenuating strong signals by a factor of 10.
@@ -106,7 +128,7 @@ For programming instructions see page 109 of the [TI TLV320ADC5140 data sheet](t
 - the COMMON reference measures the average of all the signals.
 - the TLV chip amplifies the pre-amplified signals versus the preamplified COMMON reference.
 
-### Common-amplifier
+### Non-inverting common-amplifier
 
 ![refampinv](images/refampnoninv.png)
 
