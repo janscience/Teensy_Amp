@@ -103,14 +103,14 @@ For programming instructions see page 109 of the [TI TLV320ADC5140 data sheet](t
 - R4=10k and R5=10k for a 1x gain (gain=R5/R4).
 - no low-pass filter, this is handled by the TLV chip.
 - each signal is amplified relative to VREF.
-- the COMMON reference measures the average of all the signals.
-- the TLV chip amplifies the pre-amplified signals versus the preamplified COMMON reference.
+- the VCOM reference measures the average of all the signals.
+- the TLV chip amplifies the pre-amplified signals versus the preamplified VCOM reference.
 
-### Common-amplifier
+### Common reference amplifier
 
 ![refampinv](images/refampinv.png)
 
-- the COMMON reference is amplified in the same way as each signal
+- the VCOM reference is amplified in the same way as each signal
 - the amplified output provides the negative input against which the
   TLV measures the amplified signals in differential mode.
 
