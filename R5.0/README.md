@@ -6,7 +6,7 @@ With digitaly adjustable gain and filter settings.
 
 Based on
 - 2 [TI TLV320ADC5140](tlv320adc5140.pdf) with 4-channel ADC and adjustable gain
-- [TI OPA1622](../R4.0/opa1622.pdf) as inverting pre-amplifier.
+- [TI TLV9002](tlv9002.pdf) as inverting pre-amplifier.
 
 ## TLV320ADC5140
 
@@ -87,23 +87,25 @@ Teensy pins:
 - Add I2C pins for sensors
 
 
-### Programming instructions
-
-For programming instructions see page 109 of the [TI TLV320ADC5140 data sheet](tlv320adc5140.pdf).
-
-
-### Pre-amplifiers
+## Pre-amplifiers
 
 - R1=1M for a voltage divider attenuating strong signals by a factor of 10.
 - J1 short circuits voltage divider for x1 input signals (as 4x2 jumper pins).
 - R2=100k for referencing the floating signal.
 - C1=10uF decoupling capacitor.
+- [TLV9002](tlv9002.pdf) opamp.
 - R4=10k and R5=10k for a 1x gain (gain=R5/R4).
 - no low-pass filter, this is handled by the TLV chip.
 - each signal is amplified relative to VREF.
 - via R3 the AVRG reference measures the average of all the input signals.
 - the AVRG reference is amplified in the same way as each signal.
 - the TLV chip amplifies the pre-amplified signals against the preamplified AVRG reference AREF.
+
+### TODO
+
+- measure the inverting amplifier: how does it deal with negative differntial input? Reference VREF or GND?
+- measure input of TLV320ADC in DC and AC: how does it deal with negative inputs?
+- have alternatives for VREF ready (resistance/short circuit to ground)?
 
 ![amplifiers](images/amplifiers.png)
 
@@ -122,3 +124,4 @@ For programming instructions see page 109 of the [TI TLV320ADC5140 data sheet](t
 ## Improvements needed over R4.x
 
 - Add GND pin for electrode cable shield (2 times)
+- Add voltage-divider for measuring supply power voltage
