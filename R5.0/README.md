@@ -98,20 +98,15 @@ For programming instructions see page 109 of the [TI TLV320ADC5140 data sheet](t
 - J1 short circuits voltage divider for x1 input signals (as 4x2 jumper pins).
 - R2=100k for referencing the floating signal.
 - C1=10uF decoupling capacitor.
-- R4=10k and R5=10k set the gain.
+- R4=10k and R5=10k for a 1x gain (gain=R5/R4).
 - no low-pass filter, this is handled by the TLV chip.
 - each signal is amplified relative to VREF.
 - via R3 the AVRG reference measures the average of all the input signals.
 - the AVRG reference is amplified in the same way as each signal.
 - the TLV chip amplifies the pre-amplified signals against the preamplified AVRG reference AREF.
 
-#### Inverting pre-amplifiers
+![amplifiers](images/amplifiers.png)
 
-![preampinv](images/preampinv.png)
-
-![refampinv](images/refampinv.png)
-
-- R4=10k and R5=10k for a 1x gain (gain=R5/R4).
 
 #### Non-inverting pre-amplifiers
 
