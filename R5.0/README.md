@@ -6,7 +6,7 @@ With digitaly adjustable gain and filter settings.
 
 Based on
 - 2 [TI TLV320ADC5140](tlv320adc5140.pdf) with 4-channel ADC and adjustable gain
-- 4 [TI OPA1662](../R4.0/opa1662.pdf) as pre-amplifier
+- 4 [TI OPA1662](opa1662.pdf) as pre-amplifier
 
 ## TLV320ADC5140
 
@@ -93,7 +93,7 @@ Teensy pins:
 - J1 short circuits voltage divider for x1 input signals (as 4x2 jumper pins).
 - R2=100k for referencing the floating signal.
 - C1=10uF decoupling capacitor.
-- [TI OPA1662](../R4.0/opa1662.pdf) audio opamp.
+- [TI OPA1662](opa1662.pdf) audio opamp.
 - Differential amplifiers with output voltage VREF - SIGNALx
 - R4=R6=47k and R5=R7=47k for a 1x gain (gain=R5/R4).
 - no low-pass filter, this is handled by the TLV chip.
