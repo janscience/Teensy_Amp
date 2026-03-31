@@ -94,7 +94,8 @@ Teensy pins:
 - R2=100k for referencing the floating signal.
 - C1=10uF decoupling capacitor.
 - [TLV9002](tlv9002.pdf) opamp.
-- R4=10k and R5=10k for a 1x gain (gain=R5/R4).
+- Differential amplifiers with output voltage VREF - SIGNALx
+- R4=R6=47k and R5=R7=47k for a 1x gain (gain=R5/R4).
 - no low-pass filter, this is handled by the TLV chip.
 - each signal is amplified relative to VREF.
 - via R3 the AVRG reference measures the average of all the input signals.
@@ -103,9 +104,8 @@ Teensy pins:
 
 ### TODO
 
-- measure the inverting amplifier: how does it deal with negative differntial input? Reference VREF or GND?
+- measure the inverting amplifier: how does it deal with negative differential input? Reference VREF or GND?
 - measure input of TLV320ADC in DC and AC: how does it deal with negative inputs?
-- have alternatives for VREF ready (resistance/short circuit to ground)?
 
 ![amplifiers](images/amplifiers.png)
 

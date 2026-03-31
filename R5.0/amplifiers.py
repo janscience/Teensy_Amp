@@ -8,6 +8,8 @@ R2 = '100k'
 R3 = '47k'
 R4 = R3
 R5 = R3
+R6 = R3
+R7 = R3
 C1 = '10$\\mu$F'
 
 
@@ -85,12 +87,16 @@ def refamp(pos):
     ax.connect((nc, r4l, None, r4r, ng1, pn))
 
     npr = ax.node(pp.left(2.5))
-    nr1 = npr.up(1)
     #nr1 = ax.bus(npr.up(1), 'VREF', align='north')
-    ax.connect((nr1,  npr, pp))
+    ax.connect((npr.up(1), npr, pp))
+    nrg = ax.node(npr.down(2.5))
+    r6b, r6t = ax.resistance_v(nrg.down(1), f'R7 {R7}', 'right')
+    gndr = ax.ground(r6b.down(0.5), 'GND', 'right')
+    ax.connect((npr, nrg, r6t, None, r6b, gndr))
     #nr2 = ax.bus(npr.down(2), 'VREF', align='south')
-    nr2 = ax.pin(npr.down(2.5).right(6), 'VREF', align='right')
-    ax.connect((npr,  nr2))
+    r7l, r7r = ax.resistance_h(nrg.right(2), f'R6 {R6}', 'bottom')
+    nr2 = ax.pin(r7r.right(3.5), 'VREF', align='right')
+    ax.connect((nrg, r7l, None, r7r, nr2))
 
     ng2 = ax.node(po.right(0.5))
     no = ng2.right(0.5).up(1.5)
@@ -104,14 +110,14 @@ def refamp(pos):
 
 plt.rcParams['font.size'] = 11
 
-fig, ax = plt.subplots(figsize=(8.3, 9))
+fig, ax = plt.subplots(figsize=(8, 9.7))
 fig.subplots_adjust(nomargins=True)
 ax.show_spines('')
 #ax.set_xticks_off()
 #ax.set_yticks_off()
 
 ax.set_xlim(0, 16)
-ax.set_ylim(-2.5, 15)
+ax.set_ylim(-4.5, 15)
 ax.set_aspect('equal')
 
 preamp((12, 12), 2, True)
