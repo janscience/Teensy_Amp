@@ -22,7 +22,7 @@ def preamp(pos, index, show_bus=True):
 
     ng1 = ax.node(pn.left(0.5))
     r4l, r4r = ax.resistance_h(ng1.left(1), f'R4 {R4}', 'above')
-    ngr = ax.node(r4l.left(3.5), f'SIGNAL{1 + index}', 'northeast')
+    ngr = ax.node(r4l.left(3.5), f'SIG{1 + index}', 'northeast')
     c1l, c1r = ax.capacitance_h(ngr.left(1), f'C1 {C1}', 'top')
     nsc = ax.node(c1l.left(1))
     nj1 = ax.pin(nsc.left(0.7))
@@ -34,14 +34,14 @@ def preamp(pos, index, show_bus=True):
     r1l, r1r = ax.resistance_h(nsc.up(0.5).left(1), f'R1 {R1}', 'top')
     ax.connect((nsc, r1r, None, r1l, nsj))
 
-    r3l, r3r = ax.resistance_h(ngr.down(0.5).right(1), f'R3 {R3}', 'below')
+    r3l, r3r = ax.resistance_h(ngr.down(1).right(1), f'R3 {R3}', 'below')
     nrc = ax.node(r3r.right(0.5))
     ax.connect((ngr, r3l, None, r3r, nrc))
     if show_bus:
-        nc = ax.bus(nrc.up(1.5), 'AVRG', 'north')
-        ax.connect((nrc.down(2.5), nc))
+        nc = ax.bus(nrc.up(2), 'AVRG', 'north')
+        ax.connect((nrc.down(2), nc))
     else:
-        ax.connect((nrc.down(2.5), nrc.up(1.5)))
+        ax.connect((nrc.down(2), nrc.up(2)))
 
     np = ax.node(pp.left(2.5))
     ax.connect((np.down(2), np,  pp))
@@ -59,7 +59,7 @@ def preamp(pos, index, show_bus=True):
     no = ax.pin(ng2.right(1.5), f'IN{1 + index%4}P', 'right')
     ax.connect((po, ng2, no))
 
-    r5l, r5r = ax.resistance_h(po.left(0.5).up(1.5), f'R5 {R5}', 'above')
+    r5l, r5r = ax.resistance_h(po.left(0.75).up(1.5), f'R5 {R5}', 'above')
     ax.connect((ng2, r5r, None, r5l, ng1))
 
     nm1 = ax.node(ng2.right(0.5).down(1))
@@ -99,7 +99,7 @@ def refamp(pos):
     no = ng2.right(0.5).up(1.5)
     ax.connect((po, ng2, no))
 
-    r5l, r5r = ax.resistance_h(po.left(0.5).up(1.5), f'R5 {R5}', 'above')
+    r5l, r5r = ax.resistance_h(po.left(0.75).up(1.5), f'R5 {R5}', 'above')
     ax.connect((ng2, r5r, None, r5l, ng1))
     
 

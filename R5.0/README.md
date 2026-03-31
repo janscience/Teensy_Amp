@@ -94,17 +94,52 @@ Teensy pins:
 - R2=100k for referencing the floating signal.
 - C1=10uF decoupling capacitor.
 - [TI OPA1662](opa1662.pdf) audio opamp.
-- Differential amplifiers with output voltage VREF - SIGNALx
-- R4=R6=47k and R5=R7=47k for a 1x gain (gain=R5/R4).
-- no low-pass filter, this is handled by the TLV chip.
-- each signal is amplified relative to VREF.
-- via R3 the AVRG reference measures the average of all the input signals.
+- Differential amplifiers with output voltage VREF - SIGx
+- R4=R6=47k and R5=R7=47k for a 1x gain (gain=R5/R4=R7/R6).
+- no high-pass and no low-pass filter, these are handled by the TLV320ADC chip.
+- via R3 the AVRG reference measures the average of all the input signals
+  (common mode = mean(SIGx)).
 - the AVRG reference is amplified in the same way as each signal.
-- the TLV chip amplifies the pre-amplified signals against the preamplified AVRG reference AREF.
+- the TLV chip amplifies the pre-amplified signals against the pre-amplified common mode AVRG.
 
+### working principle
+
+- via R2, the ground is the average of the input signals CHx: GND = mean(CHx).
+- the TLV320ADC provides VREF some voltage VR above ground,
+  that is VREF = mean(CHx) + VR
+- the opamps return the difference between VREF and SIGx (=CHx):
+  mean(CHx) + VR - CHx relative to GND = mean(CHx).
+- As single ended we measure exactly mean(CHx) + VR - CHx,
+  the difference between the actual potential CHx and
+  the average over all signals.
+- The subtraction of the average introduces
+  fake signals on channels without input, resembling the negative input
+  on another channel. Also the average over all recorded signals is zero:
+  mean(CHx - mean(CHx)) = mean(CHx) - mean(CHx) = 0.
+  The larger the number of input channels, the closer mean(CHx) to zero.
+
+What we want, however, is a measurement of CHx. We would get this with
+a fixed GND that is independent of the input potentials. We somehow
+need to stabilize the ground.
+
+- electrodes in a tank: connect amplifier ground to ground of building. Test it!
+- otherwise: use a reference electrode. Again... Details? Could be optional!
+
+Common mode rejection could be improved like this (requires fixed GND):
+
+- via R3 we get the common mode signal mean(CHx) as an input to OP0.
+- this is amplified in the same way as the signals: GND + VR - mean(CHx)
+- in a inverted differential measurement we then get
+  VR - mean(CHx) - VR + CHx = CHx - mean(CHx),
+  the signals minus common mode.
+- this does not result in a monopolar measurement!
+
+- read the Zlenko paper again.
+
+  
 ### TODO
 
-- measure the inverting amplifier: how does it deal with negative differential input? Reference VREF or GND?
+- measure the inverting amplifier: how does it deal with negative differential input?
 - measure input of TLV320ADC in DC and AC: how does it deal with negative inputs?
 
 ![amplifiers](images/amplifiers.png)
