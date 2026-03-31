@@ -117,6 +117,9 @@ Teensy pins:
   on another channel. Also the average over all recorded signals is zero:
   mean(CHx - mean(CHx)) = mean(CHx) - mean(CHx) = 0.
   The larger the number of input channels, the closer mean(CHx) to zero.
+- The ground will not only be set by the common mode of the signal, but
+  also by other loads in the system. The latter will still be present
+  in the single ended measurement. See below for improved common mode rejection.
 
 What we want, however, is a measurement of CHx. We would get this with
 a fixed GND that is independent of the input potentials. We somehow
@@ -125,16 +128,23 @@ need to stabilize the ground.
 - electrodes in a tank: connect amplifier ground to ground of building. Test it!
 - otherwise: use a reference electrode. Again... Details? Could be optional!
 
-Common mode rejection could be improved like this (requires fixed GND):
+Common mode rejection could be improved like this:
 
-- via R3 we get the common mode signal mean(CHx) as an input to OP0.
+- via R3 we get the common mode signal mean(CHx) as an input to OP0,
+  which is not contaminated by other sources.
 - this is amplified in the same way as the signals: GND + VR - mean(CHx)
-- in a inverted differential measurement we then get
+- in an inverted differential measurement we then get
   VR - mean(CHx) - VR + CHx = CHx - mean(CHx),
   the signals minus common mode.
 - this does not result in a monopolar measurement!
+- but it might clean up the measurements, because the GND is mean(CHx)
+  plus noise from other sources:
+  - signals: mean(CHx) + noise + VR - CHx
+  - common mode: mean(CHx) + noise + VR - mean(CHx)
+  - differential measurement: mean(CHx) + CHx
+  - without external noise!
 
-- read the Zlenko paper again.
+Make it optional via a jumper that sets AREF alternatively to GND.
 
   
 ### TODO
