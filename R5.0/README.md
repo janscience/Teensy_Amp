@@ -89,27 +89,30 @@ Teensy pins:
 
 ## Pre-amplifiers
 
+![amplifiers](images/amplifiers.png)
+
 - R1=1M for a voltage divider attenuating strong signals by a factor of 10.
 - J1 short circuits voltage divider for x1 input signals (as 4x2 jumper pins).
 - R2=100k for referencing the floating signal.
 - C1=10uF decoupling capacitor.
 - [TI OPA1662](opa1662.pdf) audio opamp.
-- Differential amplifiers with output voltage VREF - SIGx
+- Differential amplifiers with output voltage gain*(VREF - SIGx)
 - R4=R6=47k and R5=R7=47k for a 1x gain (gain=R5/R4=R7/R6).
-- no high-pass and no low-pass filter, these are handled by the TLV320ADC chip.
-- via R3 the AVRG reference measures the average of all the input signals
+- C1 and R4 form a high-pass filter of the differential amplification
+  with cutoff frequency 1/(2 pi R4 C1) = 0.34Hz.
+- Via R3 the AVRG reference measures the average of all the input signals
   (common mode = mean(SIGx)).
 - the AVRG reference is amplified in the same way as each signal.
 - the TLV chip amplifies the pre-amplified signals against the pre-amplified common mode AVRG.
+- High-pass and low-pass filtering is handled by the TLV320ADC chip.
 
-### working principle
+### Working principle
 
-- via R2, the ground is the average of the input signals CHx: GND = mean(CHx).
-- the TLV320ADC provides VREF some voltage VR above ground,
-  that is VREF = mean(CHx) + VR
-- the opamps return the difference between VREF and SIGx (=CHx):
+- Via R2, the ground is the average of the input signals CHx: GND = mean(CHx).
+- The TLV320ADC provides VREF at some voltage VR above ground: VREF = mean(CHx) + VR
+- The opamps return the difference between VREF and SIGx (=CHx):
   mean(CHx) + VR - CHx relative to GND = mean(CHx).
-- As single ended we measure exactly mean(CHx) + VR - CHx,
+- In single-ended mode we measure at INxP exactly mean(CHx) + VR - CHx,
   the difference between the actual potential CHx and
   the average over all signals.
 - The subtraction of the average introduces
@@ -130,29 +133,53 @@ need to stabilize the ground.
 
 Common mode rejection could be improved like this:
 
-- via R3 we get the common mode signal mean(CHx) as an input to OP0,
+- Via R3 we get the common mode signal mean(CHx) as an input to OP0,
   which is not contaminated by other sources.
-- this is amplified in the same way as the signals: GND + VR - mean(CHx)
-- in an inverted differential measurement we then get
-  VR - mean(CHx) - VR + CHx = CHx - mean(CHx),
-  the signals minus common mode.
-- this does not result in a monopolar measurement!
-- but it might clean up the measurements, because the GND is mean(CHx)
+- This is amplified in the same way as the signals: GND + VR - mean(CHx)
+- In an inverted differential measurement we then get
+  VR - mean(CHx) - VR + CHx = CHx - mean(CHx), the signals minus common mode.
+- This does not result in a monopolar measurement!
+- But it might clean up the measurements, because GND is mean(CHx)
   plus noise from other sources:
   - signals: mean(CHx) + noise + VR - CHx
   - common mode: mean(CHx) + noise + VR - mean(CHx)
   - differential measurement: mean(CHx) + CHx
   - without external noise!
 
-Make it optional via a jumper that sets AREF alternatively to GND.
+We can easily switch between single-ended and differntial measurements
+by configuring the TLV320ADC appropriately.
 
-  
+### Input ranges:
+
+#### OpAmps
+
+[TI OPA1662](opa1662.pdf)
+
+We have V- = GND and V+ = AVDD = 3.3V.
+
+The output of the OPA1662 is always clipped at GND and V+: GND < OUTx < V+
+(the datasheet actually says V- + 0.6V < OUTx < V+ - 0.6V).
+Then in our setting with unit gain, the output OUTx = VREF - SIGx, thus VREF - V+ < SIGx < VREF:
+- VREF = V+: GND < SIGx < V+
+- VREF = V+/2: -V+/2 < SIGx < V+/2  this is what we want for bipolar symmetric input signals!
+- VREF = GND: -V+ < SIGx < GND
+
+The datasheet says V- + 0.5V < common mode < V+ - 1V.
+In  our setting with unit gain this is 1V - VREF < SIGx < 2*V+ - 2V - VREF:
+- VREF = V+: 1V - V+ < SIGx < V+ - 2V , i.e. -2.3V < SIGx < 1.3V
+- VREF = V+/2: 1V - V+/2 < SIGx < 3/2*V+ - 2V, i.e. -0.65V < SIGx < 2.95V
+- VREF = GND: 1V < SIGx < 2*V+ - 2V, i.e. 1V < SIGx < 4.6V
+
+#### ADC
+
+[TI TLV320ADC5140](tlv320adc5140.pdf)
+
+
 ### TODO
 
-- measure the inverting amplifier: how does it deal with negative differential input?
-- measure input of TLV320ADC in DC and AC: how does it deal with negative inputs?
 
-![amplifiers](images/amplifiers.png)
+- Make shure that VREF in the circuit is AVDD/2 !
+- measure input of TLV320ADC in DC and AC: how does it deal with negative inputs?
 
 
 #### Non-inverting pre-amplifiers

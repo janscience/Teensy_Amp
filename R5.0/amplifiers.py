@@ -56,21 +56,21 @@ def preamp(pos, index, show_bus=True):
     ax.connect((nsc, r2t, None, r2b, gnd2))
 
     ng2 = ax.node(po.right(0.5))
-    no = ax.pin(ng2.right(1.5), f'IN{1 + index%4}M', 'right')
+    no = ax.pin(ng2.right(1.5), f'IN{1 + index%4}P', 'right')
     ax.connect((po, ng2, no))
 
     r5l, r5r = ax.resistance_h(po.left(0.75).up(1.5), f'R5 {R5}', 'above')
     ax.connect((ng2, r5r, None, r5l, ng1))
 
-    nm1 = ax.node(ng2.right(0.5).up(1))
-    nm = ax.pin(nm1.right(1), f'IN{1 + index%4}P', 'right')
+    nm1 = ax.node(ng2.right(0.5).down(1))
+    nm = ax.pin(nm1.right(1), f'IN{1 + index%4}M', 'right')
     if show_bus:
-        na = ax.bus(nm1.up(0.5), 'AREF', 'north')
+        na = ax.bus(nm1.up(2.5), 'AREF', 'north')
         ax.connect((na, nm1, nm))
-        ax.connect((nm1, nm1.down(3.5)))
+        ax.connect((nm1, nm1.down(1.5)))
     else:
         ax.connect((nm1, nm))
-        ax.connect((nm1.down(3.5), nm1.up(0.5)))
+        ax.connect((nm1.down(1.5), nm1.up(2.5)))
 
 
 def refamp(pos):
