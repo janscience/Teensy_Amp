@@ -91,12 +91,15 @@ Teensy pins:
 
 ![amplifiers](images/amplifiers.png)
 
-- R1=1M for a voltage divider attenuating strong signals by a factor of 10.
+- R1=1M for a voltage divider with R2 attenuating strong signals by a factor of 10.
 - J1 short circuits voltage divider for x1 input signals (as 4x2 jumper pins).
-- R2=100k for referencing the floating signal.
+- R2=100k for referencing the floating signal to ground.
 - C1=10uF decoupling capacitor.
-- [TI OPA1662](opa1662.pdf) audio opamp.
-- Differential amplifiers with output voltage gain*(VREF - SIGx)
+- [TI OPA1662](opa1662.pdf) opamp as differential amplifier
+  with output voltage gain*(VREF2 - SIGx).
+- VREF2 is half of the positivie supply for the opamps. Only then
+  can the input to the opamps oscillate around ground between -VREF2 and +VREF2
+  and is amplified to range between GND and positive supply.
 - R4=R6=47k and R5=R7=47k for a 1x gain (gain=R5/R4=R7/R6).
 - C1 and R4 form a high-pass filter of the differential amplification
   with cutoff frequency 1/(2 pi R4 C1) = 0.34Hz.
@@ -108,9 +111,10 @@ Teensy pins:
 
 ### Working principle
 
-- Via R2, the ground is the average of the input signals CHx: GND = mean(CHx).
-- The TLV320ADC provides VREF at some voltage VR above ground: VREF = mean(CHx) + VR
-- The opamps return the difference between VREF and SIGx (=CHx):
+- Via R2, the ground is the average of the input signals CHx: GND = mean(CHx)
+  and the input signals oscillate around ground.
+- VREF2 is provided at some voltage VR above ground: VREF2 = mean(CHx) + VR
+- The opamps return the difference between VREF2 and SIGx (=CHx):
   mean(CHx) + VR - CHx relative to GND = mean(CHx).
 - In single-ended mode we measure at INxP exactly mean(CHx) + VR - CHx,
   the difference between the actual potential CHx and
@@ -119,17 +123,18 @@ Teensy pins:
   fake signals on channels without input, resembling the negative input
   on another channel. Also the average over all recorded signals is zero:
   mean(CHx - mean(CHx)) = mean(CHx) - mean(CHx) = 0.
-  The larger the number of input channels, the closer mean(CHx) to zero.
-- The ground will not only be set by the common mode of the signal, but
-  also by other loads in the system. The latter will still be present
+  The larger the number of input channels, the more channels might
+  have no signal, the closer mean(CHx) to zero.
+- The ground is not only be set by the common mode of the signal, but
+  also by other loads in the system. The latter is still present
   in the single ended measurement. See below for improved common mode rejection.
 
-What we want, however, is a measurement of CHx. We would get this with
-a fixed GND that is independent of the input potentials. We somehow
-need to stabilize the ground.
+What we want, however, is a monopolar measurement of CHx. We would get this with
+a fixed GND that is independent of the input potentials. Thus, we somehow
+need to stabilize the ground:
 
-- electrodes in a tank: connect amplifier ground to ground of building. Test it!
-- otherwise: use a reference electrode. Again... Details? Could be optional!
+- Electrodes in a tank: connect amplifier ground to ground of building. Test it!
+- Otherwise: use a reference electrode. Again... Details? Could be optional!
 
 Common mode rejection could be improved like this:
 
@@ -141,12 +146,11 @@ Common mode rejection could be improved like this:
 - This does not result in a monopolar measurement!
 - But it might clean up the measurements, because GND is mean(CHx)
   plus noise from other sources:
-  - signals: mean(CHx) + noise + VR - CHx
-  - common mode: mean(CHx) + noise + VR - mean(CHx)
-  - differential measurement: mean(CHx) + CHx
-  - without external noise!
+  - pre-amplified signals: mean(CHx) + noise + VR - CHx
+  - pre-amplified common mode: mean(CHx) + noise + VR - mean(CHx)
+  - differential measurement: mean(CHx) + CHx -> without external noise!
 
-We can easily switch between single-ended and differntial measurements
+We can easily switch between single-ended and differential measurements
 by configuring the TLV320ADC appropriately.
 
 ### Input ranges:
@@ -155,7 +159,8 @@ by configuring the TLV320ADC appropriately.
 
 [TI OPA1662](opa1662.pdf)
 
-We have V- = GND and V+ = AVDD = 3.3V.
+We have negative supply V- = GND and positive supply V+ = AVDD = 3.3V
+for the opamp.
 
 The output of the OPA1662 is always clipped at GND and V+: GND < OUTx < V+
 (the datasheet actually says V- + 0.6V < OUTx < V+ - 0.6V).
@@ -178,22 +183,13 @@ In  our setting with unit gain this is 1V - VREF < SIGx < 2*V+ - 2V - VREF:
 ### TODO
 
 
-- Make shure that VREF in the circuit is AVDD/2 !
-- measure input of TLV320ADC in DC and AC: how does it deal with negative inputs?
-
-
-#### Non-inverting pre-amplifiers
-
-- R4=10k and R5=10k for a 2x gain (gain=1+R5/R4).
-- R6 should already part of the differential amplifier?
-- but then what is R7?
-
-![preampinv](images/preampnoninv.png)
-
-![refampinv](images/refampnoninv.png)
+- Make shure that VREF2 in the circuit is AVDD/2 or
+  VREF is positive supply for opam and VREF2 is VREF/2!
+- Measure input of TLV320ADC in DC and AC: how does it deal with negative inputs?
 
 
 ## Improvements needed over R4.x
 
+- Add GND pin for externel reference
 - Add GND pin for electrode cable shield (2 times)
 - Add voltage-divider for measuring supply power voltage

@@ -38,7 +38,7 @@ def preamp(pos, index, show_bus=True):
     nrc = ax.node(r3r.right(0.5))
     ax.connect((ngr, r3l, None, r3r, nrc))
     if show_bus:
-        nc = ax.bus(nrc.up(2), 'AVRG', 'north')
+        nc = ax.bus(nrc.up(2), 'AVRG ', 'north')
         ax.connect((nrc.down(2), nc))
     else:
         ax.connect((nrc.down(2), nrc.up(2)))
@@ -46,7 +46,7 @@ def preamp(pos, index, show_bus=True):
     np = ax.node(pp.left(2.5))
     ax.connect((np.down(2), np,  pp))
     if show_bus:
-        nr = ax.bus(np.up(2), 'VREF', 'north')
+        nr = ax.bus(np.up(2), 'VREF2', 'north')
         ax.connect((np, nr))
     else:
         ax.connect((np, np.up(2)))
@@ -65,7 +65,7 @@ def preamp(pos, index, show_bus=True):
     nm1 = ax.node(ng2.right(0.5).down(1))
     nm = ax.pin(nm1.right(1), f'IN{1 + index%4}M', 'right')
     if show_bus:
-        na = ax.bus(nm1.up(2.5), 'AREF', 'north')
+        na = ax.bus(nm1.up(2.5), 'AREF ', 'north')
         ax.connect((na, nm1, nm))
         ax.connect((nm1, nm1.down(1.5)))
     else:
@@ -92,7 +92,7 @@ def refamp(pos):
     gndr = ax.ground(r6b.down(0.5), 'GND', 'right')
     ax.connect((npr, nrg, r6t, None, r6b, gndr))
     r7l, r7r = ax.resistance_h(nrg.right(2), f'R6 {R6}', 'bottom')
-    nr2 = ax.pin(r7r.right(3.5), 'VREF', 'right')
+    nr2 = ax.pin(r7r.right(3.5), 'VREF2', 'right')
     ax.connect((nrg, r7l, None, r7r, nr2))
 
     ng2 = ax.node(po.right(0.5))
@@ -106,14 +106,14 @@ def refamp(pos):
 
 plt.rcParams['font.size'] = 11
 
-fig, ax = plt.subplots(figsize=(8, 9.5))
+fig, ax = plt.subplots(figsize=(8, 9.3))
 fig.subplots_adjust(nomargins=True)
 ax.show_spines('')
 #ax.set_xticks_off()
 #ax.set_yticks_off()
 
-ax.set_xlim(0, 16)
-ax.set_ylim(-4, 15)
+ax.set_xlim(0, 16.5)
+ax.set_ylim(-4, 15.2)
 ax.set_aspect('equal')
 
 preamp((12, 12), 2, True)
