@@ -155,6 +155,14 @@ by configuring the TLV320ADC appropriately.
 
 ### Input ranges:
 
+#### ADC
+
+[TI TLV320ADC5140](tlv320adc5140.pdf)
+
+- single ended, AC coupled, with decoupling: saturates at +-1.375V  (p-p amplitude of 2.75V!)
+- single ended, AC coupled, without decoupling: saturates at 0V - 2.75V, DC offset at 1.375V, not so tolerant against offsets.
+- single ended, DC coupled, without decoupling: saturates at 0V - 2.75V, DC offset at 1.375V, it tolerates negative inputs but they are distorted. DC offset can be quite positive, but not negative. -> matches the output of the preamp!
+
 #### OpAmps
 
 [TI OPA1662](opa1662.pdf)
@@ -175,17 +183,12 @@ In  our setting with unit gain this is 1V - VREF < SIGx < 2*V+ - 2V - VREF:
 - VREF = V+/2: 1V - V+/2 < SIGx < 3/2*V+ - 2V, i.e. -0.65V < SIGx < 2.95V
 - VREF = GND: 1V < SIGx < 2*V+ - 2V, i.e. 1V < SIGx < 4.6V
 
-#### ADC
+#### OpAmp with ADC
 
-[TI TLV320ADC5140](tlv320adc5140.pdf)
+For best results (full range from GND to 2.75V measurements) we need
 
-
-### TODO
-
-
-- Make shure that VREF2 in the circuit is AVDD/2 or
-  VREF is positive supply for opam and VREF2 is VREF/2!
-- Measure input of TLV320ADC in DC and AC: how does it deal with negative inputs?
+- positive supply of opamps at AVDD=3.3V (not 2.75V!)
+- VREF for opamps at 1.75V = AVDD/2 (neither 2.75V nor 2.75V/2!)
 
 
 ## Improvements needed over R4.x
