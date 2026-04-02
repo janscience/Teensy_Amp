@@ -190,6 +190,8 @@ For best results (full range from GND to 2.75V measurements) we need
 - positive supply of opamps at AVDD=3.3V (not 2.75V!)
 - VREF for opamps at 1.75V = AVDD/2 (neither 2.75V nor 2.75V/2!)
 
+Use [TI REF2033](ref2033.pdf) dual output vltage reference!
+
 
 ## Improvements needed over R4.x
 
