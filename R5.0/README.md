@@ -190,11 +190,27 @@ For best results (full range from GND to 2.75V measurements) we need
 - positive supply of opamps at AVDD=3.3V (not 2.75V!)
 - VREF for opamps at 1.75V = AVDD/2 (neither 2.75V nor 2.75V/2!)
 
-Use [TI REF2033](ref2033.pdf) dual output vltage reference!
+- TODO: check also 1.65V, 1.6V,and 1.8V
+
+Options:
+
+- [TI REF2033](ref2033.pdf) dual output voltage reference:
+  3.3V and 1.65V, however Imax=30mA.
+  This is just enough for the four opamps (ca. 5mA each)
+  but not for the TLV320ADC (21mA).
+- [onsemi NCP164CSN330T1G](ncp164c.pdf) 3.3V LDO with 300mA
+  for supplying both the TLV320ADC and the opamps.
+- 1.6V voltage reference for the opamps (e.g. TI REF35160QDBVRQ1).
+- or 1.8V voltage reference for the opamps (e.g. MCP1502T-18E/CHYVAO).
 
 
 ## Improvements needed over R4.x
 
-- Add GND pin for externel reference
-- Add GND pin for electrode cable shield (2 times)
-- Add voltage-divider for measuring supply power voltage
+- 32 channel with 4PCBs!
+- Alternative 0.1x input (2x 4pin molex connectors for x1 plus 2x 4pin molex connectors for x0.1).
+- Add GND pin for electrode cable shield
+  (2-4 times, 1-2 at each side of the main PCB).
+- Add GND pin for externel reference.
+- Add voltage-divider with 2x 100kOhm for measuring supply power voltage.
+- Add eeprom for storing PCB version and potential calibration values. 512Bytes?
+  e.g. microchip 24FC16T-E/OT36KVAO with 16kbit at I2C bus
