@@ -91,32 +91,37 @@ Teensy pins:
 
 ![amplifiers](images/amplifiers.png)
 
-- R1=1M for a voltage divider with R2 attenuating strong signals by a factor of 10.
-- J1 short circuits voltage divider for x1 input signals (as 4x2 jumper pins).
-- R2=100k for referencing the floating signal to ground.
+### Power supply
+
+- All opamps and the ADC are supplied by AVDD=3.3V relative to GND=0V.
+- AVDD is provided by [onsemi NCP164CSN330T1G](ncp164c.pdf) 3.3V LDO with 300mA.
+
+### Reference voltage
+
+- All signals oscillate around VREF=AVDD/2=1.6V
+- VREF is provided by voltage reference (e.g. MAX6018AEUR16+T)
+
+### Voltage divider
+
+- R1=1M for a voltage divider with R2=100k attenuating strong signals by a factor of 10 (gain=0.1x, red).
+- Alternatively, channels can be fed in directly.
+- Have two connectors, one for each option.
+
+### Pre-amplifier
+
+- R2 ties the input channels to VREF.
+  VREF is the average of the input signals CHx: VREF = mean(CHx) = AVVD/2.
 - C1=10uF decoupling capacitor.
-- [TI OPA1662](opa1662.pdf) opamp as differential amplifier
-  with output voltage gain*(VREF2 - SIGx).
-- VREF2 is half of the positivie supply for the opamps. Only then
-  can the input to the opamps oscillate around ground between -VREF2 and +VREF2
-  and is amplified to range between GND and positive supply.
-- R4=R6=47k and R5=R7=47k for a 1x gain (gain=R5/R4=R7/R6).
-- C1 and R4 form a high-pass filter of the differential amplification
-  with cutoff frequency 1/(2 pi R4 C1) = 0.34Hz.
-- Via R3 the AVRG reference measures the average of all the input signals
-  (common mode = mean(SIGx)).
-- the AVRG reference is amplified in the same way as each signal.
-- the TLV chip amplifies the pre-amplified signals against the pre-amplified common mode AVRG.
-- High-pass and low-pass filtering is handled by the TLV320ADC chip.
-
-### Working principle
-
-- Via R2, the ground is the average of the input signals CHx: GND = mean(CHx)
-  and the input signals oscillate around ground.
-- VREF2 is provided at some voltage VR above ground: VREF2 = mean(CHx) + VR
-- The opamps return the difference between VREF2 and SIGx (=CHx):
-  mean(CHx) + VR - CHx relative to GND = mean(CHx).
-- In single-ended mode we measure at INxP exactly mean(CHx) + VR - CHx,
+- The [TI OPA1662](opa1662.pdf) non-inverting opamps(green) operate on
+  virtual ground given by VREF.
+  They return the amplified SIGx (=CHx) relative to VREF:
+  gain*(CHx-VREF)+VREF. ...
+  Because of the common mode rejection (see below) non-inverting amplifiers
+  are the possibility.
+- gain=1+R5/R4. For changing gain change R5.
+  For R4=10k and R5=100k we get a x11 gain.
+  For R4=10k and R5=10k we get a x2 gain.
+- In single-ended mode we measure at INxP exactly CHx - mean(CHx),
   the difference between the actual potential CHx and
   the average over all signals.
 - The subtraction of the average introduces
@@ -125,33 +130,38 @@ Teensy pins:
   mean(CHx - mean(CHx)) = mean(CHx) - mean(CHx) = 0.
   The larger the number of input channels, the more channels might
   have no signal, the closer mean(CHx) to zero.
-- The ground is not only be set by the common mode of the signal, but
+- VREF is not only set by the common mode of the signal, but
   also by other loads in the system. The latter is still present
   in the single ended measurement. See below for improved common mode rejection.
 
 What we want, however, is a monopolar measurement of CHx. We would get this with
-a fixed GND that is independent of the input potentials. Thus, we somehow
-need to stabilize the ground:
+a fixed VREF that is independent of the input potentials. Thus, we somehow
+need to stabilize the VREF:
 
-- Electrodes in a tank: connect amplifier ground to ground of building. Test it!
-- Otherwise: use a reference electrode. Again... Details? Could be optional!
+- Somehow make VREF less dependent on signals by means of an opamp????
+- Electrodes in a tank: connect VREF to ground of building. Test it!
+- Otherwise: use a reference electrode on VREF.
+  Again... Details? Could be optional!
 
-Common mode rejection could be improved like this:
+### Common mode rejection:
 
-- Via R3 we get the common mode signal mean(CHx) as an input to OP0,
+- Via R3 we get the common mode signal AVRG=mean(CHx) as an input to OP0,
   which is not contaminated by other sources.
-- This is amplified in the same way as the signals: GND + VR - mean(CHx)
-- In an inverted differential measurement we then get
-  VR - mean(CHx) - VR + CHx = CHx - mean(CHx), the signals minus common mode.
-- This does not result in a monopolar measurement!
-- But it might clean up the measurements, because GND is mean(CHx)
+- This is amplified in the same way against VREF as the signals.
+- Only in this non-inverting configuration do we get an average signal
+  independent of the number of input channels!
+- VREF is (via R2) also the common mode signal, but it also is
+  contaminated by noise from other sources that affect GND.
+- This cleans up the measurements, because GND and thus VREF is mean(CHx)
   plus noise from other sources:
-  - pre-amplified signals: mean(CHx) + noise + VR - CHx
-  - pre-amplified common mode: mean(CHx) + noise + VR - mean(CHx)
-  - differential measurement: mean(CHx) + CHx -> without external noise!
+  - pre-amplified signals: CHx - VREF
+  - pre-amplified common mode: mean(CHx) - VREF
+  - differential measurement: CHx - mean(CHx) -> without external noise!
+- This does not result in a monopolar measurement!
 
 We can easily switch between single-ended and differential measurements
 by configuring the TLV320ADC appropriately.
+
 
 ### Input ranges:
 
@@ -168,17 +178,17 @@ by configuring the TLV320ADC appropriately.
 [TI OPA1662](opa1662.pdf)
 
 We have negative supply V- = GND and positive supply V+ = AVDD = 3.3V
-for the opamp.
+for the inverting opamp.
 
 The output of the OPA1662 is always clipped at GND and V+: GND < OUTx < V+
 (the datasheet actually says V- + 0.6V < OUTx < V+ - 0.6V).
-Then in our setting with unit gain, the output OUTx = VREF - SIGx, thus VREF - V+ < SIGx < VREF:
+Then as inverting amplifier with unit gain, the output OUTx = VREF - SIGx, thus VREF - V+ < SIGx < VREF:
 - VREF = V+: GND < SIGx < V+
 - VREF = V+/2: -V+/2 < SIGx < V+/2  this is what we want for bipolar symmetric input signals!
 - VREF = GND: -V+ < SIGx < GND
 
 The datasheet says V- + 0.5V < common mode < V+ - 1V.
-In  our setting with unit gain this is 1V - VREF < SIGx < 2*V+ - 2V - VREF:
+In our setting with inverting unit gain this is 1V - VREF < SIGx < 2*V+ - 2V - VREF:
 - VREF = V+: 1V - V+ < SIGx < V+ - 2V , i.e. -2.3V < SIGx < 1.3V
 - VREF = V+/2: 1V - V+/2 < SIGx < 3/2*V+ - 2V, i.e. -0.65V < SIGx < 2.95V
 - VREF = GND: 1V < SIGx < 2*V+ - 2V, i.e. 1V < SIGx < 4.6V
@@ -191,6 +201,8 @@ For best results (full range from GND to 2.75V measurements) we need
 - VREF for opamps at 1.75V = AVDD/2 (neither 2.75V nor 2.75V/2!)
 
 - TODO: check also 1.65V, 1.6V,and 1.8V
+- TODO: check non-unity gain!
+- TODO: position of decoupling capacitor! Could got before R2 to fom a proper high-pass filter?
 
 Options:
 
@@ -200,17 +212,19 @@ Options:
   but not for the TLV320ADC (21mA).
 - [onsemi NCP164CSN330T1G](ncp164c.pdf) 3.3V LDO with 300mA
   for supplying both the TLV320ADC and the opamps.
-- 1.6V voltage reference for the opamps (e.g. TI REF35160QDBVRQ1).
-- or 1.8V voltage reference for the opamps (e.g. MCP1502T-18E/CHYVAO).
+- 1.6V voltage reference for the opamps (e.g. MAX6018AEUR16+T).
+- or 1.8V voltage reference for the opamps (e.g. MCP1502T-18E/CHYVAO or TI REF35160QDBVRQ1).
 
 
 ## Improvements needed over R4.x
 
 - 32 channel with 4PCBs!
+- Properly clipping.
 - Alternative 0.1x input (2x 4pin molex connectors for x1 plus 2x 4pin molex connectors for x0.1).
 - Add GND pin for electrode cable shield
   (2-4 times, 1-2 at each side of the main PCB).
-- Add GND pin for externel reference.
+- Add VREF pin for externel reference.
 - Add voltage-divider with 2x 100kOhm for measuring supply power voltage.
-- Add eeprom for storing PCB version and potential calibration values. 512Bytes?
+- Add eeprom for storing PCB version and potential calibration values,
+  and all the configuration. 
   e.g. microchip 24FC16T-E/OT36KVAO with 16kbit at I2C bus
