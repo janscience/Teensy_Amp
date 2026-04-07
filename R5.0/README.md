@@ -96,10 +96,12 @@ Teensy pins:
 - All opamps and the ADC are supplied by AVDD=3.3V relative to GND=0V.
 - AVDD is provided by [onsemi NCP164CSN330T1G](ncp164c.pdf) 3.3V LDO with 300mA.
 
-### Reference voltage
+### Virtual ground and reference voltage
 
-- All signals oscillate around VREF=AVDD/2=1.6V
+- All signals oscillate around VGND=AVDD/2=1.6V
+- The opamps get VREF=AVDD/2=1.6V as a reference voltage
 - VREF is provided by voltage reference (e.g. MAX6018AEUR16+T)
+- How to implement VGND?
 
 ### Voltage divider
 
@@ -109,19 +111,19 @@ Teensy pins:
 
 ### Pre-amplifier
 
-- R2 ties the input channels to VREF.
-  VREF is the average of the input signals CHx: VREF = mean(CHx) = AVVD/2.
+- R2 ties the input channels to VGND.
+  VGND is the average of the input signals CHx: VGND = mean(CHx) = AVVD/2.
 - C1=10uF decoupling capacitor.
 - The [TI OPA1662](opa1662.pdf) non-inverting opamps(green) operate on
   virtual ground given by VREF.
   They return the amplified SIGx (=CHx) relative to VREF:
   gain*(CHx-VREF)+VREF. ...
   Because of the common mode rejection (see below) non-inverting amplifiers
-  are the possibility.
+  are the only possibility.
 - gain=1+R5/R4. For changing gain change R5.
   For R4=10k and R5=100k we get a x11 gain.
   For R4=10k and R5=10k we get a x2 gain.
-- In single-ended mode we measure at INxP exactly CHx - mean(CHx),
+- In single-ended mode we measure at INxP CHx - mean(CHx),
   the difference between the actual potential CHx and
   the average over all signals.
 - The subtraction of the average introduces
@@ -130,13 +132,13 @@ Teensy pins:
   mean(CHx - mean(CHx)) = mean(CHx) - mean(CHx) = 0.
   The larger the number of input channels, the more channels might
   have no signal, the closer mean(CHx) to zero.
-- VREF is not only set by the common mode of the signal, but
-  also by other loads in the system. The latter is still present
+- VREF andVGND are not only set by the common mode of the signal, but
+  also by other loads in the system (?). The latter is still present
   in the single ended measurement. See below for improved common mode rejection.
 
 What we want, however, is a monopolar measurement of CHx. We would get this with
 a fixed VREF that is independent of the input potentials. Thus, we somehow
-need to stabilize the VREF:
+need to stabilize VREF:
 
 - Somehow make VREF less dependent on signals by means of an opamp????
 - Electrodes in a tank: connect VREF to ground of building. Test it!
@@ -150,8 +152,6 @@ need to stabilize the VREF:
 - This is amplified in the same way against VREF as the signals.
 - Only in this non-inverting configuration do we get an average signal
   independent of the number of input channels!
-- VREF is (via R2) also the common mode signal, but it also is
-  contaminated by noise from other sources that affect GND.
 - This cleans up the measurements, because GND and thus VREF is mean(CHx)
   plus noise from other sources:
   - pre-amplified signals: CHx - VREF
