@@ -114,10 +114,11 @@ Teensy pins:
 - R2 ties the input channels to VGND.
   VGND is the average of the input signals CHx: VGND = mean(CHx) = AVVD/2.
 - C1=10uF decoupling capacitor.
-- The [TI OPA1662](opa1662.pdf) non-inverting opamps(green) operate on
+- The [TI OPA1662](opa1662.pdf) non-inverting opamps (green) operate on
   virtual ground given by VREF.
   They return the amplified SIGx (=CHx) relative to VREF:
-  gain*(CHx-VREF)+VREF. ...
+  gain*(CHx-VREF)+VREF.
+  The full-range output is then between GND and AVDD.
   Because of the common mode rejection (see below) non-inverting amplifiers
   are the only possibility.
 - gain=1+R5/R4. For changing gain change R5.
@@ -132,7 +133,7 @@ Teensy pins:
   mean(CHx - mean(CHx)) = mean(CHx) - mean(CHx) = 0.
   The larger the number of input channels, the more channels might
   have no signal, the closer mean(CHx) to zero.
-- VREF andVGND are not only set by the common mode of the signal, but
+- VREF and VGND are not only set by the common mode of the signal, but
   also by other loads in the system (?). The latter is still present
   in the single ended measurement. See below for improved common mode rejection.
 
@@ -171,49 +172,36 @@ by configuring the TLV320ADC appropriately.
 
 - single ended, AC coupled, with decoupling: saturates at +-1.375V  (p-p amplitude of 2.75V!)
 - single ended, AC coupled, without decoupling: saturates at 0V - 2.75V, DC offset at 1.375V, not so tolerant against offsets.
-- single ended, DC coupled, without decoupling: saturates at 0V - 2.75V, DC offset at 1.375V, it tolerates negative inputs but they are distorted. DC offset can be quite positive, but not negative. -> matches the output of the preamp!
+- single ended, DC coupled, without decoupling: saturates at 0V - 2.75V, DC offset at 1.375V, it tolerates negative inputs but they are distorted. DC offset can be quite positive, but not negative.
 
 #### OpAmps
 
 [TI OPA1662](opa1662.pdf)
 
 We have negative supply V- = GND and positive supply V+ = AVDD = 3.3V
-for the inverting opamp.
+for the non-inverting opamp.
 
 The output of the OPA1662 is always clipped at GND and V+: GND < OUTx < V+
 (the datasheet actually says V- + 0.6V < OUTx < V+ - 0.6V).
-Then as inverting amplifier with unit gain, the output OUTx = VREF - SIGx, thus VREF - V+ < SIGx < VREF:
-- VREF = V+: GND < SIGx < V+
-- VREF = V+/2: -V+/2 < SIGx < V+/2  this is what we want for bipolar symmetric input signals!
-- VREF = GND: -V+ < SIGx < GND
-
-The datasheet says V- + 0.5V < common mode < V+ - 1V.
-In our setting with inverting unit gain this is 1V - VREF < SIGx < 2*V+ - 2V - VREF:
-- VREF = V+: 1V - V+ < SIGx < V+ - 2V , i.e. -2.3V < SIGx < 1.3V
-- VREF = V+/2: 1V - V+/2 < SIGx < 3/2*V+ - 2V, i.e. -0.65V < SIGx < 2.95V
-- VREF = GND: 1V < SIGx < 2*V+ - 2V, i.e. 1V < SIGx < 4.6V
+With VREF=AVDD/2=1.6V any signal centered around VREF is properly mapped onto
+gain*(CHx-VREF)+VREF.
 
 #### OpAmp with ADC
 
 For best results (full range from GND to 2.75V measurements) we need
 
 - positive supply of opamps at AVDD=3.3V (not 2.75V!)
-- VREF for opamps at 1.75V = AVDD/2 (neither 2.75V nor 2.75V/2!)
+- VREF = 1.6V (neither 2.75V nor 2.75V/2 or 1.8V!) produces best results with lowest THD
+  for full scale signals.
+- VREF draws less than 0.1mA of current for a single channel.
 
-- TODO: check also 1.65V, 1.6V,and 1.8V
-- TODO: check non-unity gain!
 - TODO: position of decoupling capacitor! Could got before R2 to fom a proper high-pass filter?
 
 Options:
 
-- [TI REF2033](ref2033.pdf) dual output voltage reference:
-  3.3V and 1.65V, however Imax=30mA.
-  This is just enough for the four opamps (ca. 5mA each)
-  but not for the TLV320ADC (21mA).
 - [onsemi NCP164CSN330T1G](ncp164c.pdf) 3.3V LDO with 300mA
   for supplying both the TLV320ADC and the opamps.
 - 1.6V voltage reference for the opamps (e.g. MAX6018AEUR16+T).
-- or 1.8V voltage reference for the opamps (e.g. MCP1502T-18E/CHYVAO or TI REF35160QDBVRQ1).
 
 
 ## Improvements needed over R4.x
