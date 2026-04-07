@@ -110,14 +110,15 @@ def refamp(pos):
     r4l, r4r = ax.resistance_h(ng1.left(1), f'R4 {R4}', 'below',
                                **refamp_style)
     nr1 = ax.node(r4l.left(0.5))
-    pl, pr, pt, pb = ax.chip(nr1.left(3.1), pins_left=['', None, ''],
-                             pins_right=[None, '', None],
-                             pins_top=1, label='VREF\n1.6V', align='center')
+    pl, pr, pt, pb = ax.chip(nr1.left(1), pins_left=0,
+                             pins_right=[None, 'VREF\n1.6V', None],
+                             pins_top=[''], pins_bottom=[''],
+                             palign='bottom')
     ax.connect((pr[0], nr1, r4l, None, r4r, ng1, pp))
     ax.connect((nr1, nr1.up(2)))
-    ax.connect((npwr, pl[0]))
-    gnd2 = ax.ground(pl[1].down(1), 'GND')
-    ax.connect((pl[1], gnd2))
+    ax.connect((npwr, pt[0]))
+    gnd2 = ax.ground(pb[0].down(0.5), 'GND')
+    ax.connect((pb[0], gnd2))
 
     ng2 = ax.node(po.right(0.5))
     no = ng2.right(0.5).up(1.5)
