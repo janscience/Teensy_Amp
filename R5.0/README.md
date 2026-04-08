@@ -111,9 +111,9 @@ Teensy pins:
 
 ### Pre-amplifier
 
+- C1=10uF decoupling capacitor, forms a highpas filter with R2.
 - R2 ties the input channels to VGND.
   VGND is the average of the input signals CHx: VGND = mean(CHx) = AVVD/2.
-- C1=10uF decoupling capacitor.
 - The [TI OPA1662](opa1662.pdf) non-inverting opamps (green) operate on
   virtual ground given by VREF.
   They return the amplified SIGx (=CHx) relative to VREF:
@@ -194,8 +194,7 @@ For best results (full range from GND to 2.75V measurements) we need
 - VREF = 1.6V (neither 2.75V nor 2.75V/2 or 1.8V!) produces best results with lowest THD
   for full scale signals.
 - VREF draws less than 0.1mA of current for a single channel.
-
-- TODO: position of decoupling capacitor! Could got before R2 to fom a proper high-pass filter?
+- differential, AC or DC coupled, with or without decoupling capacitances, with constant voltage at INxM: input on INxP is still limited to single-ended full range, although readings suggest twice the range.
 
 Options:
 

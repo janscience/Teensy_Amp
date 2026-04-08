@@ -41,38 +41,38 @@ def preamp(pos, index, show_bus=True):
         ax.connect((np, np.up(2)))
     
     ngr = ax.node(pp.left(5), f'SIG{1 + index}', 'north')
-    c1l, c1r = ax.capacitance_h(ngr.left(1), f'C1 {C1}', 'top')
-    nsc = ax.node(c1l.left(1.5))
-    ns1 = ax.pin(nsc.left(2.5), f'x1 CH{1 + index}', 'left',
-                 **preamp_style)
-    ax.connect((ns1, nsc, c1l, None, c1r, pp))
-
-    r1l, r1r = ax.resistance_h(nsc.up(0.5).left(1), f'R1 {R1}', 'top',
-                               **vdiv_style)
-    ns2 = ax.pin(r1l.left(1), f'x0.1 qCH{1 + index}', 'left',
-                 **vdiv_style)
-    ax.connect((nsc, r1r, None, r1l, ns2))
-
     r3b, r3t = ax.resistance_v(ngr.down(1), f'R3\n{R3}', 'left',
                                **refamp_style)
-    nrc = ax.node(r3b.down(0.5).right(0.5))
-    ax.connect((ngr, r3t, None, r3b, nrc))
+    nra = ax.node(r3b.down(0.5).right(0.5))
+    ax.connect((ngr, r3t, None, r3b, nra))
     if show_bus:
-        nc = ax.bus(nrc.up(3), 'AVRG', 'north', **refamp_style)
-        ax.connect((nrc.down(1), nc))
+        ba = ax.bus(nra.up(3), 'AVRG', 'north', **refamp_style)
+        ax.connect((nra.down(1), ba))
     else:
-        ax.connect((nrc.down(1), nrc.up(3)))
+        ax.connect((nra.down(1), nra.up(3)))
 
-    r2b, r2t = ax.resistance_v(nsc.down(1), f'R2\n{R2}', 'left',
+    nrv = ax.node(ngr.left(1.5))
+    r2b, r2t = ax.resistance_v(nrv.down(1), f'R2\n{R2}', 'left',
                                **preamp_style)
-    #gnd2 = ax.ground(r2b.down(0.5), 'GND')
     nv = ax.node(r2b.down(0.5).right(0.5))
-    ax.connect((nsc, r2t, None, r2b, nv))
+    ax.connect((nrv, r2t, None, r2b, nv))
     if show_bus:
         bv = ax.bus(nv.up(3), 'VGND', 'north', **preamp_style)
         ax.connect((nv.down(1), bv))
     else:
         ax.connect((nv.down(1), nv.up(3)))
+
+    c1l, c1r = ax.capacitance_h(nrv.left(1), f'C1 {C1}', 'top')
+    nsc = ax.node(c1l.left(1))
+    ns1 = ax.pin(nsc.left(2.5), f'x1 CH{1 + index}', 'left',
+                 **preamp_style)
+    ax.connect((pp, ngr, nrv, c1r, None, c1l, nsc, ns1))
+
+    r1l, r1r = ax.resistance_h(nsc.up(0.5).left(1), f'R1 {R1}', 'top',
+                               **vdiv_style)
+    ns2 = ax.pin(r1l.left(1), f'x0.1 CH{1 + index}', 'left',
+                 **vdiv_style)
+    ax.connect((nsc, r1r, None, r1l, ns2))
 
     ng2 = ax.node(po.right(0.5))
     no = ax.pin(ng2.right(1.5), f'IN{1 + index%4}P', 'right',
@@ -128,19 +128,19 @@ def refamp(pos):
                                **refamp_style)
     ax.connect((ng1, r5l, None, r5r, ng2))
     
-    bv = ax.bus(pp.left(8.1), ' VGND', 'left', **preamp_style)
+    bv = ax.bus(pp.left(7), ' VGND', 'left', **preamp_style)
     ax.connect((bv, bv.right(1).up(1)))
 
 
 plt.rcParams['font.size'] = 11
 
-fig, ax = plt.subplots(figsize=(8.5, 9))
+fig, ax = plt.subplots(figsize=(9, 9))
 fig.subplots_adjust(nomargins=True)
 ax.show_spines('')
 #ax.set_xticks_off()
 #ax.set_yticks_off()
 
-ax.set_xlim(-0.3, 16.2)
+ax.set_xlim(-1.5, 16.2)
 ax.set_ylim(-2.5, 15)
 ax.set_aspect('equal')
 
