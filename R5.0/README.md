@@ -100,7 +100,7 @@ Teensy pins:
 
 - All signals oscillate around VGND=AVDD/2=1.6V
 - The opamps get VREF=AVDD/2=1.6V as a reference voltage
-- VREF is provided by voltage reference (e.g. MAX6018AEUR16+T)
+- VREF is provided by voltage reference (e.g. [MAX6018AEUR16+T](max6018.pdf))
 - How to implement VGND?
 
 ### Voltage divider
@@ -201,10 +201,10 @@ Options:
 
 - [onsemi NCP164CSN330T1G](ncp164c.pdf) 3.3V LDO with 300mA
   for supplying both the TLV320ADC and the opamps.
-- 1.6V voltage reference for the opamps (e.g. MAX6018AEUR16+T).
+- 1.6V voltage reference for the opamps (e.g. [MAX6018AEUR16+T](max6018.pdf)).
 
 
-## Improvements needed over R4.x
+## Improvements over R4.x
 
 - 32 channel with 4PCBs!
 - Properly clipping.
