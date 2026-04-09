@@ -2,7 +2,8 @@ import matplotlib.pyplot as plt
 import plottools.plottools as pt
 from matplotlib.patches import Rectangle
 
-R1 = '1M'   # voltage divider
+R0 = '500k' # voltage divider
+R1 = '100k' # voltage divider
 R2 = '100k' # referencing input
 R3 = '10k'  # averaging 
 R4 = '10k'
@@ -54,13 +55,14 @@ def preamp(pos, index, show_bus=True):
     nrv = ax.node(ngr.left(1.5))
     r2b, r2t = ax.resistance_v(nrv.down(1), f'R2\n{R2}', 'left',
                                **preamp_style)
-    nv = ax.node(r2b.down(0.5).right(0.5))
-    ax.connect((nrv, r2t, None, r2b, nv))
+    nv = ax.node(r2b.down(0.5))
+    nv1 = ax.node(nv.right(0.5))
+    ax.connect((nrv, r2t, None, r2b, nv, nv1))
     if show_bus:
-        bv = ax.bus(nv.up(3), 'VGND', 'north', **preamp_style)
-        ax.connect((nv.down(1), bv))
+        bv = ax.bus(nv1.up(3), 'VGND', 'north', **preamp_style)
+        ax.connect((nv1.down(1), bv))
     else:
-        ax.connect((nv.down(1), nv.up(3)))
+        ax.connect((nv1.down(1), nv1.up(3)))
 
     c1l, c1r = ax.capacitance_h(nrv.left(1), f'C1 {C1}', 'top')
     nsc = ax.node(c1l.left(1))
@@ -68,11 +70,14 @@ def preamp(pos, index, show_bus=True):
                  **preamp_style)
     ax.connect((pp, ngr, nrv, c1r, None, c1l, nsc, ns1))
 
-    r1l, r1r = ax.resistance_h(nsc.up(0.5).left(1), f'R1 {R1}', 'top',
+    r1b, r1t = ax.resistance_v(nsc.down(1), f'R1\n{R1}', 'left',
                                **vdiv_style)
-    ns2 = ax.pin(r1l.left(1), f'x0.1 CH{1 + index}', 'left',
+    ax.connect((nsc, r1t, None, r1b, nv))
+    r0l, r0r = ax.resistance_h(nsc.up(0.5).left(1), f'R0 {R0}', 'top',
+                               **vdiv_style)
+    ns2 = ax.pin(r0l.left(1), f'x0.1 CH{1 + index}', 'left',
                  **vdiv_style)
-    ax.connect((nsc, r1r, None, r1l, ns2))
+    ax.connect((nsc, r0r, None, r0l, ns2))
 
     ng2 = ax.node(po.right(0.5))
     no = ax.pin(ng2.right(1.5), f'IN{1 + index%4}P', 'right',

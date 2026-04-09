@@ -98,22 +98,27 @@ Teensy pins:
 
 ### Virtual ground and reference voltage
 
-- All signals oscillate around VGND=AVDD/2=1.6V
-- The opamps get VREF=AVDD/2=1.6V as a reference voltage
+- All signals oscillate around the virtual ground VGND=1.6V
+- The opamps get VREF=1.6V as a reference voltage
 - VREF is provided by voltage reference (e.g. [MAX6018AEUR16+T](max6018.pdf))
 - How to implement VGND?
 
 ### Voltage divider
 
-- R1=1M for a voltage divider with R2=100k attenuating strong signals by a factor of 10 (gain=0.1x, red).
-- Alternatively, channels can be fed in directly.
+- R0 forms a voltage divider with R1 and R2 (R1=R2) attenuating strong signals with a gain of R1/(2R0+R1) (gain=0.1x, red).
+- Alternatively, channels can be fed in directly (gain=1).
 - Have two connectors, one for each option.
+
+### High-pass filter
+
+- C1=10uF forms a highpass filter with R2, R1, and R0.
+- Time constant is tau=R2*C1*(R2+2*R0)/(R2+R0) , if R1=r2.
+  tau=1s (R0=0), tau=2s (R0=500k)
+- R1 and R2 reference the input channels to VGND.
+  VGND is the average of the input signals CHx: VGND = mean(CHx) = AVVD/2.
 
 ### Pre-amplifier
 
-- C1=10uF decoupling capacitor, forms a highpas filter with R2.
-- R2 ties the input channels to VGND.
-  VGND is the average of the input signals CHx: VGND = mean(CHx) = AVVD/2.
 - The [TI OPA1662](opa1662.pdf) non-inverting opamps (green) operate on
   virtual ground given by VREF.
   They return the amplified SIGx (=CHx) relative to VREF:
