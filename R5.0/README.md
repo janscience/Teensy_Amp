@@ -98,9 +98,9 @@ Teensy pins:
 
 ### Virtual ground and reference voltage
 
-- All signals oscillate around the virtual ground VGND=1.6V
-- The opamps get VREF=1.6V as a reference voltage
-- VREF is provided by voltage reference (e.g. [MAX6018AEUR16+T](max6018.pdf))
+- All signals oscillate around the virtual ground VGND=1.0/1.2/1.6V (1.0V seems the best over all conditions - missing x1 gain at the opamp).
+- The opamps get VREF=1.0/1.2/1.6V as a reference voltage
+- VREF is provided by voltage reference (e.g. 1.6V: [MAX6018AEUR16+T](max6018.pdf), 1.024V/1.2V/1.6V TI REF35, 1.024V/1.25V MicroChip MCP1502)
 - How to implement VGND?
 
 ### Voltage divider
@@ -190,14 +190,16 @@ The output of the OPA1662 is always clipped at GND and V+: GND < OUTx < V+
 (the datasheet actually says V- + 0.6V < OUTx < V+ - 0.6V).
 With VREF=AVDD/2=1.6V any signal centered around VREF is properly mapped onto
 gain*(CHx-VREF)+VREF.
+However, depending on the circuit, the optimal value of VREF can be considerably lower.
+
+The opamp draws about 3.5mA for a full-scale sinewave on a single channel (two still need to be tested).
 
 #### OpAmp with ADC
 
 For best results (full range from GND to 2.75V measurements) we need
 
 - positive supply of opamps at AVDD=3.3V (not 2.75V!)
-- VREF = 1.6V (neither 2.75V nor 2.75V/2 or 1.8V!) produces best results with lowest THD
-  for full scale signals.
+- VREF = 1.6V (neither 2.75V nor 2.75V/2 or 1.8V!) produces best results with lowest THD for full scale signals.
 - VREF draws less than 0.1mA of current for a single channel.
 - differential, AC or DC coupled, with or without decoupling capacitances, with constant voltage at INxM: input on INxP is still limited to single-ended full range, although readings suggest twice the range.
 

@@ -116,7 +116,7 @@ def refamp(pos):
                                **refamp_style)
     nr1 = ax.node(r4l.left(0.5))
     pl, pr, pt, pb = ax.chip(nr1.left(1), pins_left=0,
-                             pins_right=[None, '1.6V', None],
+                             pins_right=[None, '1.0V', None],
                              pins_top=[''], pins_bottom=[''],
                              palign='bottom', label='VREF',
                              align='center', rotation='vertical')
