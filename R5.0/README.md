@@ -2,8 +2,6 @@
 
 Work in progress.
 
-With digitaly adjustable gain and filter settings.
-
 Based on
 - 2 [TI TLV320ADC5140](tlv320adc5140.pdf) with 4-channel ADC and adjustable gain
 - 4 [TI OPA1662](opa1662.pdf) as pre-amplifier
@@ -83,7 +81,7 @@ Teensy pins:
 | 27             | -            | LED extern      |
 
 
-- Add data pin for Tempeature sensor
+- Add data pin for Temperature sensor
 - Add I2C pins for sensors
 
 
@@ -96,12 +94,12 @@ Teensy pins:
 - All opamps and the ADC are supplied by AVDD=3.3V relative to GND=0V.
 - AVDD is provided by [onsemi NCP164CSN330T1G](ncp164c.pdf) 3.3V LDO with 300mA.
 
-### Virtual ground and reference voltage
+### Reference voltage sets virtual ground 
 
-- All signals oscillate around the virtual ground VGND=1.0/1.2/1.6V (1.0V seems the best over all conditions - missing x1 gain at the opamp).
-- The opamps get VREF=1.0/1.2/1.6V as a reference voltage
+- All signals oscillate around a virtual ground VREF=1.0/1.2/1.6V (1.0V seems the best over all conditions - TODO: check again x1 gain at the opamp).
+- The opamps get VREF=1.0/1.2/1.6V as a virtual ground.
 - VREF is provided by voltage reference (e.g. 1.6V: [MAX6018AEUR16+T](max6018.pdf), 1.024V/1.2V/1.6V TI REF35, 1.024V/1.25V MicroChip MCP1502)
-- How to implement VGND?
+- TODO: estimate currents!
 
 ### Voltage divider
 
@@ -109,64 +107,64 @@ Teensy pins:
 - Alternatively, channels can be fed in directly (gain=1).
 - Have two connectors, one for each option.
 
+### Input impedance
+
+- Is given by R1, R2, and R3 in parallel.
+- TODO: make it as high as possible
+- TODO: make test measurements in water to see what high means
+
 ### High-pass filter
 
-- C1=10uF forms a highpass filter with R2, R1, and R0.
-- Time constant is tau=R2*C1*(R2+2*R0)/(R2+R0) , if R1=r2.
+- C1=10uF forms a high-pass filter with R2, R1, and R0.
+- Time constant is tau=R2*C1*(R2+2*R0)/(R2+R0) , if R1=R2.
   tau=1s (R0=0), tau=2s (R0=500k)
-- R1 and R2 reference the input channels to VGND.
-  VGND is the average of the input signals CHx: VGND = mean(CHx) = AVVD/2.
+- High-pass filter pulls signals to VREF by subtracting each signals DC offset.
+- This is crucial to keep the signals within the operating range of the opamps.
 
 ### Pre-amplifier
 
 - The [TI OPA1662](opa1662.pdf) non-inverting opamps (green) operate on
   virtual ground given by VREF.
-  They return the amplified SIGx (=CHx) relative to VREF:
-  gain*(CHx-VREF)+VREF.
+  They return the amplified SIGx relative to VREF:
+  gain*(SIGi-VREF)+VREF.
   The full-range output is then between GND and AVDD.
   Because of the common mode rejection (see below) non-inverting amplifiers
   are the only possibility.
 - gain=1+R5/R4. For changing gain change R5.
   For R4=10k and R5=100k we get a x11 gain.
   For R4=10k and R5=10k we get a x2 gain.
-- In single-ended mode we measure at INxP CHx - mean(CHx),
-  the difference between the actual potential CHx and
-  the average over all signals.
-- The subtraction of the average introduces
-  fake signals on channels without input, resembling the negative input
-  on another channel. Also the average over all recorded signals is zero:
-  mean(CHx - mean(CHx)) = mean(CHx) - mean(CHx) = 0.
-  The larger the number of input channels, the more channels might
-  have no signal, the closer mean(CHx) to zero.
-- VREF and VGND are not only set by the common mode of the signal, but
-  also by other loads in the system (?). The latter is still present
-  in the single ended measurement. See below for improved common mode rejection.
-
-What we want, however, is a monopolar measurement of CHx. We would get this with
-a fixed VREF that is independent of the input potentials. Thus, we somehow
-need to stabilize VREF:
-
-- Somehow make VREF less dependent on signals by means of an opamp????
-- Electrodes in a tank: connect VREF to ground of building. Test it!
-- Otherwise: use a reference electrode on VREF.
-  Again... Details? Could be optional!
+  TODO: check step responses for smaller resistances (1k),
+  and compare with data sheet.
+- In single-ended mode (S1 connected to MONO) we measure SIGi and thus
+  get an approximated monopolar measurement.
+- This does not reject the common mode, mean(SIGi), which might be a problem
+  with large external noise, or when coupling two or more loggers.
+- TODO: test the possibility of a optional reference electrode at VREF.
+- When having electrodes in a tank: connect VREF to ground of building. TOOD: Test it!
 
 ### Common mode rejection:
 
-- Via R3 we get the common mode signal AVRG=mean(CHx) as an input to OP0,
+- Set S1 to DIFF.
+- Via R3 we get the common mode signal AVRG=mean(SIGi) as an input to OP0,
   which is not contaminated by other sources.
 - This is amplified in the same way against VREF as the signals.
 - Only in this non-inverting configuration do we get an average signal
-  independent of the number of input channels!
-- This cleans up the measurements, because GND and thus VREF is mean(CHx)
-  plus noise from other sources:
-  - pre-amplified signals: CHx - VREF
-  - pre-amplified common mode: mean(CHx) - VREF
-  - differential measurement: CHx - mean(CHx) -> without external noise!
+  independent of the number of input channels,
+  because the current into the non-inverting input is zero and then
+  the currents via R3 add up to zero!
+- Measuring this in differential mode subtracts common mode from the signals:
+  SIGi - mean(SIGi).
 - This does not result in a monopolar measurement!
+  The subtraction of the average introduces
+  fake signals on channels without input, resembling the negative input
+  on another channel. Also the average over all recorded signals is zero:
+  mean(SIGi - mean(SIGi)) = mean(SIGi) - mean(SIGi) = 0.
+  The larger the number of input channels, the more channels might
+  have no signal, the closer mean(SIGi) to zero.
 
-We can easily switch between single-ended and differential measurements
-by configuring the TLV320ADC appropriately.
+- Use [CUS-22TB](../R4.1/cus2604293.pdf) to switch between MONO and DIFF.
+- Use a digital pin to check for the position of this pin.
+- Based on this configure the ADC to differential or single-ended measurement.
 
 
 ### Input ranges:
@@ -215,9 +213,9 @@ Options:
 - 32 channel with 4PCBs!
 - Properly clipping.
 - Alternative 0.1x input (2x 4pin molex connectors for x1 plus 2x 4pin molex connectors for x0.1).
-- Add GND pin for electrode cable shield
+- Add GND/VREF? pins for electrode cable shield
   (2-4 times, 1-2 at each side of the main PCB).
-- Add VREF pin for externel reference.
+- Add VREF pin for external reference.
 - Add voltage-divider with 2x 100kOhm for measuring supply power voltage.
 - Add eeprom for storing PCB version and potential calibration values,
   and all the configuration. 

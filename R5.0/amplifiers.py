@@ -2,13 +2,14 @@ import matplotlib.pyplot as plt
 import plottools.plottools as pt
 from matplotlib.patches import Rectangle
 
-R0 = '500k' # voltage divider
-R1 = '100k' # voltage divider
-R2 = '100k' # referencing input
-R3 = '10k'  # averaging 
+R0 = '1M'         # voltage divider
+R1 = '300k'       # voltage divider
+R2 = R1           # referencing input
+R3 = R1           # averaging 
 R4 = '10k'
-R5 = '100k' # gain = 1 + R4/R4
-C1 = '10$\\mu$F'
+R5 = '100k'       # gain = 1 + R4/R4
+C1 = '10$\\mu$F'  # tau=R2*C1*(R2+2*R0)/(R2+R0) , if R1=R2.
+                  # should be not longer than 1s
 
 preamp_style = dict(facecolor='#AADDAA')
 refamp_style = dict(facecolor='#AAAADD')
@@ -64,18 +65,19 @@ def preamp(pos, ident, top='none'):
     nrv = ax.node(ngr.left(1.5))
     r2b, r2t = ax.resistance_v(nrv.down(1), f'R2\n{R2}', 'left',
                                **preamp_style)
-    nv = ax.node(r2b.down(0.5))
-    nv1 = ax.node(nv.right(0.5))
+    nv = ax.node(r2b.down(1))
+    nv1 = ax.node(nv.right(3))
     ax.connect((nrv, r2t, None, r2b, nv, nv1))
+    """
     if top == 'bus':
-        bv = ax.bus(nv1.up(3.2), 'VGND', 'north', **preamp_style)
+        bv = ax.bus(nv1.up(3.2), 'VREF', 'north', **preamp_style)
         ax.connect((nv1.down(0.8), bv))
     elif top == 'break':
         bb, bt = ax.break_v(nv1.up(3.7))
         ax.connect((nv1.down(0.8), bb))
     else:
         ax.connect((nv1.down(0.8), nv1.up(3.2)))
-
+    """
     c1l, c1r = ax.capacitance_h(nrv.left(1), f'C1 {C1}', 'top')
     nsc = ax.node(c1l.left(1))
     ns1 = ax.pin(nsc.left(2.5), f'x1 CH{ident}', 'left',
@@ -124,22 +126,23 @@ def refamp(pos):
     npwr = ax.node(pw.up(0.6))
     ax.connect((pw, npwr, npwr.right(2), npwr.right(2).up(0.5)))
 
-    npr = pp.left(3.5)
-    ax.connect((npr.up(1.2), npr, pp))
+    pd = ax.pin(pp.left(3), 'DIFF', 'north')
+    ps = ax.pin(pd.left(0.5), 'S1', 'below')
+    pm = ax.pin(ps.left(0.5), 'MONO', 'north')
+    nr = ax.node(pm.left(0.5).down(1), '1.0V', 'below')
+    ax.connect((pp, pd, None, pm, nr, None, ps, ps.up(1.2)))
 
     ng1 = ax.node(pn.left(0.5))
     r4l, r4r = ax.resistance_h(ng1.left(1), f'R4 {R4}', 'below',
                                **refamp_style)
     nr1 = ax.node(r4l.left(0.5))
-    nr2 = ax.node(nr1.left(2.5), '1.0V', 'below')
-    pl, pr, pt, pb = ax.chip(nr2.left(1), pins_left=0,
+    pl, pr, pt, pb = ax.chip(nr1.left(3), pins_left=0,
                              pins_right=[None, '', None],
                              pins_top=[''], pins_bottom=[''],
                              palign='bottom', label='VREF',
                              align='center', rotation='vertical')
-    ax.connect((pr[0], nr2, nr1, r4l, None, r4r, ng1, pp))
+    ax.connect((pr[0], nr1, r4l, None, r4r, ng1, pp))
     ax.connect((nr1, nr1.up(2.2)))
-    ax.connect((nr2, nr2.up(2.2)))
     ax.connect((npwr, pt[0]))
     gnd2 = ax.ground(pb[0].down(0.5), 'GND')
     ax.connect((pb[0], gnd2))
