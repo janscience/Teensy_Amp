@@ -96,9 +96,15 @@ Teensy pins:
 
 ### Reference voltage sets virtual ground 
 
-- All signals oscillate around a virtual ground VREF=1.0/1.2/1.6V (1.0V seems the best over all conditions - TODO: check again x1 gain at the opamp).
+- All signals oscillate around a virtual ground VREF=1.0V/1.2V/1.6V/1.8V.
 - The opamps get VREF=1.0/1.2/1.6V as a virtual ground.
-- VREF is provided by voltage reference (e.g. 1.6V: [MAX6018AEUR16+T](max6018.pdf), 1.024V/1.2V/1.6V TI REF35, 1.024V/1.25V MicroChip MCP1502)
+- The best value for VREF (symmetric clipping at full range of ADC) depends somewhat on gain (R5/R4) and on R2.
+- For R2=1M, no R1, VREF=1.8V seems best for both an x1 and x10 gain.
+- For R2=1M and R1=1M, R0=5M, VREF=1.0V seems best for both an x1 and x10 gain.
+- For R2=1M and R1=1M, VREF=1.8V seems best for both an x1 and x10 gain.
+- For R2=100k, no R1, VREF=1.2V seems best for both an x1 and x10 gain.
+- For R2=10k, no R1, VREF=1.6V seems best for both an x1 and x10 gain.
+- VREF is provided by voltage reference (e.g. 1.6V: [MAX6018AEUR16+T](max6018.pdf), 1.024V/1.2V/1.6V/1.8V TI REF35, 1.024V/1.25V/1.8V MicroChip MCP1502)
 - TODO: estimate currents!
 
 ### Voltage divider
@@ -131,10 +137,9 @@ Teensy pins:
   Because of the common mode rejection (see below) non-inverting amplifiers
   are the only possibility.
 - gain=1+R5/R4. For changing gain change R5.
-  For R4=10k and R5=100k we get a x11 gain.
-  For R4=10k and R5=10k we get a x2 gain.
-  TODO: check step responses for smaller resistances (1k),
-  and compare with data sheet.
+  For R4=1k and R5=10k we get a x11 gain.
+  For R4=1k and R5=1k we get a x2 gain.
+  Smaller or larger R4 (and likewise R5) result in (slightly) worse (ringing) step responses.
 - In single-ended mode (S1 connected to MONO) we measure SIGi and thus
   get an approximated monopolar measurement.
 - This does not reject the common mode, mean(SIGi), which might be a problem

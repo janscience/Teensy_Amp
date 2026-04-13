@@ -1,3 +1,4 @@
+
 import matplotlib.pyplot as plt
 import plottools.plottools as pt
 from matplotlib.patches import Rectangle
@@ -6,8 +7,8 @@ R0 = '1M'         # voltage divider
 R1 = '300k'       # voltage divider
 R2 = R1           # referencing input
 R3 = R1           # averaging 
-R4 = '10k'
-R5 = '100k'       # gain = 1 + R4/R4
+R4 = '1k'
+R5 = '10k'       # gain = 1 + R4/R4
 C1 = '10$\\mu$F'  # tau=R2*C1*(R2+2*R0)/(R2+R0) , if R1=R2.
                   # should be not longer than 1s
 
