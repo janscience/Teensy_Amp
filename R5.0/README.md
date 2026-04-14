@@ -96,16 +96,12 @@ Teensy pins:
 
 ### Reference voltage sets virtual ground 
 
-- All signals oscillate around a virtual ground VREF=1.0V/1.2V/1.6V/1.8V.
-- The opamps get VREF=1.0/1.2/1.6V as a virtual ground.
-- The best value for VREF (symmetric clipping at full range of ADC) depends somewhat on gain (R5/R4) and on R2.
-- For R2=1M, no R1, VREF=1.8V seems best for both an x1 and x10 gain.
-- For R2=1M and R1=1M, R0=5M, VREF=1.0V seems best for both an x1 and x10 gain.
-- For R2=1M and R1=1M, VREF=1.8V seems best for both an x1 and x10 gain.
-- For R2=100k, no R1, VREF=1.2V seems best for both an x1 and x10 gain.
-- For R2=10k, no R1, VREF=1.6V seems best for both an x1 and x10 gain.
-- VREF is provided by voltage reference (e.g. 1.6V: [MAX6018AEUR16+T](max6018.pdf), 1.024V/1.2V/1.6V/1.8V TI REF35, 1.024V/1.25V/1.8V MicroChip MCP1502)
+- All signals oscillate around a virtual ground VGND.
+- VGND is created from half of MICBIAS of the TLV320ADC chip via a voltage divider.
 - TODO: estimate currents!
+- TODO: stabilize VGND via opamp?
+
+- no longer needed: VGND is provided by voltage reference (e.g. 1.6V: [MAX6018AEUR16+T](max6018.pdf), 1.024V/1.2V/1.6V/1.8V TI REF35, 1.024V/1.25V/1.8V MicroChip MCP1502)
 
 ### Voltage divider
 
@@ -124,35 +120,39 @@ Teensy pins:
 - C1=10uF forms a high-pass filter with R2, R1, and R0.
 - Time constant is tau=R2*C1*(R2+2*R0)/(R2+R0) , if R1=R2.
   tau=1s (R0=0), tau=2s (R0=500k)
-- High-pass filter pulls signals to VREF by subtracting each signals DC offset.
+- High-pass filter pulls signals to VGND by subtracting each signals DC offset.
 - This is crucial to keep the signals within the operating range of the opamps.
 
 ### Pre-amplifier
 
 - The [TI OPA1662](opa1662.pdf) non-inverting opamps (green) operate on
-  virtual ground given by VREF.
-  They return the amplified SIGx relative to VREF:
-  gain*(SIGi-VREF)+VREF.
+  virtual ground given by VGND.
+  They return the amplified SIGx relative to VGND:
+  gain*(SIGi-VGND)+VGND
+  (in theory... with a gain of x11 the mean of the output is higher than VGND.
+  This can be compensated for by a slightly lower VGND).
   The full-range output is then between GND and AVDD.
   Because of the common mode rejection (see below) non-inverting amplifiers
   are the only possibility.
 - gain=1+R5/R4. For changing gain change R5.
-  For R4=1k and R5=10k we get a x11 gain.
-  For R4=1k and R5=1k we get a x2 gain.
-  Smaller or larger R4 (and likewise R5) result in (slightly) worse (ringing) step responses.
+  For R4=10k and R5=100k we get a x11 gain.
+  For R4=10k and R5=10k we get a x2 gain.
+  Although for R4=1k, ringing in response to step inputs is slightly smaller,
+  R4=10k appears to be more stable and less noisy when having the R0/R1 voltage divider in front.
 - In single-ended mode (S1 connected to MONO) we measure SIGi and thus
   get an approximated monopolar measurement.
+- The INxM pins should be connected to VGND (or GND).
 - This does not reject the common mode, mean(SIGi), which might be a problem
   with large external noise, or when coupling two or more loggers.
-- TODO: test the possibility of a optional reference electrode at VREF.
-- When having electrodes in a tank: connect VREF to ground of building. TOOD: Test it!
+- TODO: test the possibility of an optional reference electrode at VGND.
+- When having electrodes in a tank: connect VGND to ground of building. TOOD: Test it!
 
 ### Common mode rejection:
 
 - Set S1 to DIFF.
 - Via R3 we get the common mode signal AVRG=mean(SIGi) as an input to OP0,
   which is not contaminated by other sources.
-- This is amplified in the same way against VREF as the signals.
+- This is amplified in the same way against VGND as the signals.
 - Only in this non-inverting configuration do we get an average signal
   independent of the number of input channels,
   because the current into the non-inverting input is zero and then
@@ -191,9 +191,9 @@ for the non-inverting opamp.
 
 The output of the OPA1662 is always clipped at GND and V+: GND < OUTx < V+
 (the datasheet actually says V- + 0.6V < OUTx < V+ - 0.6V).
-With VREF=AVDD/2=1.6V any signal centered around VREF is properly mapped onto
-gain*(CHx-VREF)+VREF.
-However, depending on the circuit, the optimal value of VREF can be considerably lower.
+With VGND=AVDD/2=1.6V any signal centered around VGND is properly mapped onto
+gain*(CHx-VGND)+VGND.
+However, depending on the circuit, the optimal value of VGND can be considerably lower.
 
 The opamp draws about 3.5mA for a full-scale sinewave on a single channel (two still need to be tested).
 
@@ -202,8 +202,8 @@ The opamp draws about 3.5mA for a full-scale sinewave on a single channel (two s
 For best results (full range from GND to 2.75V measurements) we need
 
 - positive supply of opamps at AVDD=3.3V (not 2.75V!)
-- VREF = 1.6V (neither 2.75V nor 2.75V/2 or 1.8V!) produces best results with lowest THD for full scale signals.
-- VREF draws less than 0.1mA of current for a single channel.
+- VGND = 1.6V (neither 2.75V nor 2.75V/2 or 1.8V!) produces best results with lowest THD for full scale signals.
+- VGND draws less than 0.1mA of current for a single channel.
 - differential, AC or DC coupled, with or without decoupling capacitances, with constant voltage at INxM: input on INxP is still limited to single-ended full range, although readings suggest twice the range.
 
 Options:
@@ -218,9 +218,9 @@ Options:
 - 32 channel with 4PCBs!
 - Properly clipping.
 - Alternative 0.1x input (2x 4pin molex connectors for x1 plus 2x 4pin molex connectors for x0.1).
-- Add GND/VREF? pins for electrode cable shield
+- Add GND/VGND pins for electrode cable shield
   (2-4 times, 1-2 at each side of the main PCB).
-- Add VREF pin for external reference.
+- Add VGND pin for external reference.
 - Add voltage-divider with 2x 100kOhm for measuring supply power voltage.
 - Add eeprom for storing PCB version and potential calibration values,
   and all the configuration. 
