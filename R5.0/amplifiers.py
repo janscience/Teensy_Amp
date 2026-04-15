@@ -11,7 +11,7 @@ R4 = '10k'
 R5 = '100k'       # gain = 1 + R5/R4
 C1 = '10$\\mu$F'  # tau=R2*C1*(R2+2*R0)/(R2+R0) , if R1=R2.
                   # should be less than 1s
-RB = '100'        # VGND voltage divider
+RB = '1k'         # VGND voltage divider R>=2.8V/20mA=140Ohm, I=2.8/2k=1.4mA
 
 preamp_style = dict(facecolor='#AADDAA')
 refamp_style = dict(facecolor='#AAAADD')
