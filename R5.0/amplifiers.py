@@ -128,11 +128,10 @@ def refamp(pos):
     npwr = ax.node(pw.up(0.6).right(2))
     ax.connect((npwr.up(0.5), npwr, pw))
 
-    pd = ax.pin(pp.left(3), 'DIFF', 'north')
-    ps = ax.pin(pd.left(0.5), 'S1', 'below')
-    pm = ax.pin(ps.left(0.5), 'MONO', 'north')
-    nr = pm.down(1)
-    ax.connect((pp, pd, None, pm, nr, None, ps, ps.up(1.2)))
+    ps = ax.pin(pp.left(3.5), 'S1', 'left')
+    pm = ax.pin(ps.down(0.5), 'MONO', 'left')
+    nr = pm.down(0.5)
+    ax.connect((pm, nr, None, pp, ps, ps.up(1.2)))
 
     ng1 = ax.node(pn.left(0.5))
     r4l, r4r = ax.resistance_h(ng1.left(1), f'R4 {R4}', 'below',
