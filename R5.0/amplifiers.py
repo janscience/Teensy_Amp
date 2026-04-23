@@ -4,11 +4,12 @@ import plottools.plottools as pt
 from matplotlib.patches import Rectangle
 
 R0 = '1M'         # voltage divider
-R1 = '300k'       # voltage divider
-R2 = R1           # referencing input
-R3 = R1           # averaging 
-R4 = '10k'
-R5 = '100k'       # gain = 1 + R5/R4
+C0 = '1$\\mu$F'   # voltage divider to keep filter time constant the same
+#R1 = '300k'      # voltage divider
+R2 = '200k'       # averaging 
+R3 = R2           # referencing input
+R4 = '47k'
+R5 = '47k'       # gain = 1 + R5/R4
 C1 = '10$\\mu$F'  # tau=R2*C1*(R2+2*R0)/(R2+R0) , if R1=R2.
                   # should be less than 1s
 RB = '1k'         # VGND voltage divider R>=2.8V/20mA=140Ohm, I=2.8/2k=1.4mA
@@ -21,7 +22,7 @@ vdiv_style = dict(facecolor='#DDAAAA')
 def preamp(pos, ident, top='none'):
     pn, pp, po, pg, pw = ax.opamp_l(pos, f'OP{ident}', 'center', False,
                                     **preamp_style)
-    gnd1 = ax.ground(pg.down(0.5), 'GND')
+    gnd1 = ax.ground(pg.down(0.4), 'GND')
     ax.connect((pg, gnd1))
     npwr = ax.node(pw.up(0.6).right(2))
     ax.connect((npwr, pw))
@@ -34,24 +35,31 @@ def preamp(pos, ident, top='none'):
     else:
         ax.connect((npwr.down(3.5), npwr.up(0.5)))
 
-    ng1 = ax.node(pn.left(0.5))
+    ng1 = ax.node(pn.left(0.5).down(1))
     r4l, r4r = ax.resistance_h(ng1.left(1), f'R4 {R4}', 'below',
                                **preamp_style)
     ax.connect((pn, ng1, r4r, None, r4l))
 
     np = ax.node(r4l.left(0.5))
-    ax.connect((np.down(1.8), np,  r4l))
+    ax.connect((np.down(0.8), np,  r4l))
     if top == 'bus':
-        nvr = ax.bus(np.up(2.2), 'VGND', 'north')
+        nvr = ax.bus(np.up(3.2), 'VGND', 'north')
         ax.connect((np, nvr))
     elif top == 'break':
-        bb, bt = ax.break_v(np.up(2.7))
+        bb, bt = ax.break_v(np.up(3.7))
         ax.connect((np, bb))
     else:
-        ax.connect((np, np.up(2.2)))
+        ax.connect((np, np.up(3.2)))
+
+    nrv = ax.node(pp.left(3))
+    r2b, r2t = ax.resistance_v(nrv.down(1), f'R3\n{R3}', 'left',
+                               **preamp_style)
+    nv = r2b.down(0.5)
+    nv1 = ax.node(nv.right(0.5))
+    ax.connect((nrv, r2t, None, r2b, nv, nv1))
     
-    ngr = ax.node(pp.left(4), f'SIG{ident}', 'north')
-    r3b, r3t = ax.resistance_v(ngr.down(1), f'R3\n{R3}', 'left',
+    ngr = ax.node(nrv.left(2), f'SIG{ident}', 'north')
+    r3b, r3t = ax.resistance_v(ngr.down(1), f'R2\n{R2}', 'left',
                                **refamp_style)
     nra = ax.node(r3b.down(0.5).right(0.5))
     ax.connect((ngr, r3t, None, r3b, nra))
@@ -64,43 +72,25 @@ def preamp(pos, ident, top='none'):
     else:
         ax.connect((nra.down(0.8), nra.up(3.2)))
 
-    nrv = ax.node(ngr.left(1.5))
-    r2b, r2t = ax.resistance_v(nrv.down(1), f'R2\n{R2}', 'left',
-                               **preamp_style)
-    nv = ax.node(r2b.down(1))
-    nv1 = ax.node(nv.right(3))
-    ax.connect((nrv, r2t, None, r2b, nv, nv1))
-    """
-    if top == 'bus':
-        bv = ax.bus(nv1.up(3.2), 'VGND', 'north', **preamp_style)
-        ax.connect((nv1.down(0.8), bv))
-    elif top == 'break':
-        bb, bt = ax.break_v(nv1.up(3.7))
-        ax.connect((nv1.down(0.8), bb))
-    else:
-        ax.connect((nv1.down(0.8), nv1.up(3.2)))
-    """
-    c1l, c1r = ax.capacitance_h(nrv.left(1), f'C1 {C1}', 'top')
+    c1l, c1r = ax.capacitance_h(ngr.left(1.5), f'C1 {C1}', 'top')
     nsc = ax.node(c1l.left(1))
-    ns1 = ax.pin(nsc.left(2.5), f'x1 CH{ident}', 'left',
+    ns1 = ax.pin(nsc.left(4.1), f'x1 CH{ident}', 'left',
                  **preamp_style)
-    ax.connect((pp, ngr, nrv, c1r, None, c1l, nsc, ns1))
+    ax.connect((pp, nrv, ngr, c1r, None, c1l, nsc, ns1))
 
-    r1b, r1t = ax.resistance_v(nsc.down(1), f'R1\n{R1}', 'left',
-                               **vdiv_style)
-    ax.connect((nsc, r1t, None, r1b, nv))
-    r0l, r0r = ax.resistance_h(nsc.up(0.5).left(1), f'R0 {R0}', 'top',
+    c0l, c0r = ax.capacitance_h(nsc.down(1).left(1), f'C0 {C0}', 'bottom')
+    r0l, r0r = ax.resistance_h(c0l.left(1.5), f'R0 {R0}', 'bottom',
                                **vdiv_style)
     ns2 = ax.pin(r0l.left(1), f'x0.1 CH{ident}', 'left',
                  **vdiv_style)
-    ax.connect((nsc, r0r, None, r0l, ns2))
+    ax.connect((nsc, c0r.right(0.9), c0r, None, c0l, r0r, None, r0l, ns2))
 
     ng2 = ax.node(po.right(0.5))
     no = ax.pin(ng2.right(2.5), f'IN{ident}P', 'right',
                 **preamp_style)
     ax.connect((po, ng2, no))
 
-    r5l, r5r = ax.resistance_h(po.left(0.75).down(1.75), f'R5 {R5}', 'below',
+    r5l, r5r = ax.resistance_h(po.left(0.75).down(1.5), f'R5 {R5}', 'below',
                                **preamp_style)
     ax.connect((ng1, r5l, None, r5r, ng2))
 
@@ -123,39 +113,27 @@ def preamp(pos, ident, top='none'):
 def refamp(pos):
     pn, pp, po, pg, pw = ax.opamp_l(pos, 'OP0', 'center', False,
                                     **refamp_style)
-    gnd1 = ax.ground(pg.down(0.5), 'GND')
+    gnd1 = ax.ground(pg.down(0.4), 'GND')
     ax.connect((pg, gnd1))
     npwr = ax.node(pw.up(0.6).right(2))
     ax.connect((npwr.up(0.5), npwr, pw))
 
-    ps = ax.pin(pp.left(3.5), 'S1', 'left')
+    ps = ax.pin(pp.left(4.5), 'S1', 'left')
     pm = ax.pin(ps.down(0.5), 'MONO', 'left')
-    nr = pm.down(0.5)
-    ax.connect((pm, nr, None, pp, ps, ps.up(1.2)))
+    ax.connect((pp, ps, ps.up(1.2)))
 
-    ng1 = ax.node(pn.left(0.5))
+    ng1 = ax.node(pn.left(0.5).down(1))
     r4l, r4r = ax.resistance_h(ng1.left(1), f'R4 {R4}', 'below',
                                **refamp_style)
     nr1 = ax.node(r4l.left(0.5))
-    """
-    pl, pr, pt, pb = ax.chip(nr1.left(3), pins_left=0,
-                             pins_right=[None, '', None],
-                             pins_top=[''], pins_bottom=[''],
-                             palign='bottom', label='VGND',
-                             align='center', rotation='vertical')
-    ax.connect((npwr, pt[0]))
-    gnd2 = ax.ground(pb[0].down(0.5), 'GND')
-    ax.connect((pb[0], gnd2))
-    br = ax.bus(nr1.down(0.5), 'VGND ', 'south')
-    """
-    ax.connect((nr, nr1, r4l, None, r4r, ng1, pp))
-    ax.connect((nr1, nr1.up(2.2)))
+    ax.connect((pm, nr1, r4l, None, r4r, ng1, pn.left(0.5), pn))
+    ax.connect((nr1, nr1.up(3.2)))
 
     ng2 = ax.node(po.right(0.5))
     spo = ax.pin(ng2.right(1), 'DIFF', 'above')
     no = ax.pin(spo.right(0.5), 'S2', 'below')
     ax.connect((po, ng2, spo, None, no, no.up(1.7)))
-    r5l, r5r = ax.resistance_h(po.left(0.75).down(1.75), f'R5 {R5}', 'below',
+    r5l, r5r = ax.resistance_h(po.left(0.75).down(1.5), f'R5 {R5}', 'below',
                                **refamp_style)
     ax.connect((ng1, r5l, None, r5r, ng2))
 
@@ -176,13 +154,13 @@ def vgnd(pos):
 
 plt.rcParams['font.size'] = 11
 
-fig, ax = plt.subplots(figsize=(9, 9.1))
+fig, ax = plt.subplots(figsize=(10, 9.3))
 fig.subplots_adjust(nomargins=True)
-ax.show_spines('')
-#ax.set_xticks_off()
-#ax.set_yticks_off()
+#ax.show_spines('')
+ax.set_xticks_off()
+ax.set_yticks_off()
 
-ax.set_xlim(-0.5, 18.5)
+ax.set_xlim(-2.1, 18.5)
 ax.set_ylim(-3, 16.2)
 ax.set_aspect('equal')
 

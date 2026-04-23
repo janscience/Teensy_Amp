@@ -99,27 +99,25 @@ Teensy pins:
 - All signals oscillate around a virtual ground VGND.
 - VGND is created from half of MICBIAS of the TLV320ADC chip via a voltage divider.
 - TODO: estimate currents!
-- TODO: stabilize VGND via opamp?
-
-- no longer needed: VGND is provided by voltage reference (e.g. 1.6V: [MAX6018AEUR16+T](max6018.pdf), 1.024V/1.2V/1.6V/1.8V TI REF35, 1.024V/1.25V/1.8V MicroChip MCP1502)
 
 ### Voltage divider
 
-- R0 forms a voltage divider with R1 and R2 (R1=R2) attenuating strong signals with a gain of R1/(2R0+R1) (gain=0.1x, red).
+- R0 forms a voltage divider with R2 and R3 (R2=R3) attenuating strong signals with a gain of R3/2/(R0 + R3/2) (gain=0.1x, red).
 - Alternatively, channels can be fed in directly (gain=1).
+- To keep the highpass-filter time constant the same we also need to add C0=C1*R3/2/R0
 - Have two connectors, one for each option.
 
 ### Input impedance
 
-- Is given by R1, R2, and R3 in parallel.
+- Is given by R2 and R3 in parallel.
 - TODO: make it as high as possible
 - TODO: make test measurements in water to see what high means
 
 ### High-pass filter
 
-- C1=10uF forms a high-pass filter with R2, R1, and R0.
-- Time constant is tau=R2*C1*(R2+2*R0)/(R2+R0) , if R1=R2.
-  tau=1s (R0=0), tau=2s (R0=500k)
+- C1=10uF forms a high-pass filter with R3.
+- Time constant for x1 input is tau=C1*R3 (or C1*R3/2 if AVRG=VREF)
+  tau=1s
 - High-pass filter pulls signals to VGND by subtracting each signals DC offset.
 - This is crucial to keep the signals within the operating range of the opamps.
 
@@ -136,7 +134,7 @@ Teensy pins:
   are the only possibility.
 - gain=1+R5/R4. For changing gain change R5.
   For R4=10k and R5=100k we get a x11 gain.
-  For R4=10k and R5=10k we get a x2 gain.
+  For R4=47k and R5=47k we get a x2 gain.
   Although for R4=1k, ringing in response to step inputs is slightly smaller,
   R4=10k appears to be more stable and less noisy when having the R0/R1 voltage divider in front.
 - In single-ended mode (S1 connected to MONO) we measure SIGi and thus
@@ -149,14 +147,14 @@ Teensy pins:
 
 ### Common mode rejection:
 
-- Set S1 to DIFF.
-- Via R3 we get the common mode signal AVRG=mean(SIGi) as an input to OP0,
+- Do not connect S1 to MONO. Connect S2 to DIFF.
+- Via R2 we get the common mode signal AVRG=mean(SIGi) as an input to OP0,
   which is not contaminated by other sources.
 - This is amplified in the same way against VGND as the signals.
 - Only in this non-inverting configuration do we get an average signal
   independent of the number of input channels,
   because the current into the non-inverting input is zero and then
-  the currents via R3 add up to zero!
+  the currents via R2 add up to zero!
 - Measuring this in differential mode subtracts common mode from the signals:
   SIGi - mean(SIGi).
 - This does not result in a monopolar measurement!
