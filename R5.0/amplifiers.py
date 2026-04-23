@@ -156,9 +156,9 @@ plt.rcParams['font.size'] = 11
 
 fig, ax = plt.subplots(figsize=(10, 9.3))
 fig.subplots_adjust(nomargins=True)
-#ax.show_spines('')
-ax.set_xticks_off()
-ax.set_yticks_off()
+ax.show_spines('')
+#ax.set_xticks_off()
+#ax.set_yticks_off()
 
 ax.set_xlim(-2.1, 18.5)
 ax.set_ylim(-3, 16.2)
