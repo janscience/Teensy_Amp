@@ -342,27 +342,35 @@ The molex [Micro-Lock Plus](https://www.molex.com/en-us/products/connectors/wire
 
 - R5.1 PCB goes directly under R5.0 and uses second TDM and I2C bus.
 - R5.2 PCB go above R5.0 and below R5.1 and use the higher I2C addresses of the TLV chips.
-- Use Amphenol Conan Lite 1.00mm 31pin connectors (vertical header and receptables):
+- Use [HIROSE DF17 Series](https://www.hirose.com/en/product/series/DF17#), 7mm stack height, 40pins:
+  - Receptable part no. DF17(3.0)-40DS-0.5V(57)
+  - Header part no. DF17(4.0)-40DP-0.5V(57)
+  - [Data sheet](df17.pdf)
+- Pinout:  
   - GND
-  - 5V
-  - Teensy 3.3V
+  - VDD Teensy 3.3V
+  - SHDNZ0
+  - SCL 1
+  - SDA 1
+  - SCL 2
+  - SDA 2
+  - SDOUT 1
+  - SDOUT 2
+  - SDOUT 3
+  - SDOUT 4
   - BCLK
   - FSYNC
-  - SDOUT 1/3
-  - SDOUT 2/4
-  - SHDNZ0
-  - SCL 1/2
-  - SDA 1/2
   - AVRG
   - VGNG
   - AREF
+  - 5V
 
 
 ## Improvements over R4.x
 
 - 32 channel with 4 PCBs!
 - Proper clipping.
-- Alternative x1/8 input selectable via additional connectors.
+- x2 or x1/8 input selectable via additional connectors.
 - VGND pins for electrode cable shield and external reference.
 - Voltage-divider with 2x 200kOhm for measuring supply power voltage.
 - EEPROM for storing PCB version and potential calibration values,
