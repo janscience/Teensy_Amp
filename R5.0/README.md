@@ -15,22 +15,21 @@ Based on
 | -------------: | :-------------- | :-------------- |
 | Vin            | Vin +5V         | Vin +5V         |
 | GND            | GND             | GND             |
-| 3.3V           | IOD             | IOVDD           |
+| 3.3V           | IOVDD           | IOVDD           |
 | 18             | I2C SDA         | -               |
 | 19             | I2C SCL         | -               |
 | 17             | -               | I2C SDA         |
 | 16             | -               | I2C SCL         |
-|                | SHDNZO          | SHDNZO          |
-| 21             | BCLK            | -               |
-| 20             | FSYNC           | -               |
+| 22             | SHDNZO          | SHDNZO          |
+| 21             | BCLK            | BCLK            |
+| 20             | FSYNC           | FSYNC           |
 | 8              | SDOUT1          | -               |
 | 6              | SDOUT2          | -               |
-| 4              | -               | BCLK            |
-| 3              | -               | FSYNC           |
-| 5              | -               | SDOUT1          |
-| 2              | -               | SDOUT2          |
+| 9              | -               | SDOUT3          |
+| 32             | -               | SDOUT4          |
 | 11             | LED1 (sync)     | -               |
 | 12             | LED2 (error)    | -               |
+| 14             | VIN             | -               |
 | 30             | CRX3            | -               |
 | 31             | CTX3            | -               |
 | 28             | CAN STB         | -               |
@@ -244,8 +243,8 @@ An EEPROM on the PCB stores the device configuration independent of the Teensy.
 | --------------: | :--------- |
 | 3.3V            |  VCC     |
 | GND             |  GND     |
-| 19 SDA          |  SDA     |
-| 18 SCL          |  SCL     |
+| 25 SDA2         |  SDA     |
+| 24 SCL2         |  SCL     |
 
 E.g. microchip 24FC16T-E/OT36KVAO with 16kbit at I2C bus.
 
@@ -315,20 +314,16 @@ See the [Sensors-V1
 | 24             | I2C2 SCL       |
 | 25             | I2C2 SDA       |
 
-Connectors R4.1c:
+Connectors:
 - molex vertical-angle SMT male connector with 4 pins (GND, 3.3V, SCL, SDA), part number 5055680471
 - 2x4 Jumper pins
-
-Connectors R4.1b:
-- molex vertical-angle SMT male connector with 6 pins (GND, 3.3V, SCL, SDA, OneWire, LED2), part number 5055680671
-- 2x5 Jumper pins
 
 
 ## Status LEDs
 
 | Teensy 4.1 pin | Teensy_Amp R50 |
 | -------------: | :------------- |
-| 11             | LED1 (sync)    |
+| 11             | LED1 (sync, extern)    |
 | 12             | LED2 (error, on board) |
 
 Red error on-board LED (Lite-On LTST-C190KRKT) with 65Ohm resistance.
@@ -351,8 +346,8 @@ The molex [Micro-Lock Plus](https://www.molex.com/en-us/products/connectors/wire
   - GND
   - 5V
   - Teensy 3.3V
-  - BCLK 1/2
-  - FSYNC 1/2
+  - BCLK
+  - FSYNC
   - SDOUT 1/3
   - SDOUT 2/4
   - SHDNZ0
@@ -365,12 +360,10 @@ The molex [Micro-Lock Plus](https://www.molex.com/en-us/products/connectors/wire
 
 ## Improvements over R4.x
 
-- 32 channel with 4PCBs!
-- Properly clipping.
-- Alternative 0.1x input (2x 4pin molex connectors for x1 plus 2x 4pin molex connectors for x0.1).
-- Add GND/VGND pins for electrode cable shield
-  (2-4 times, 1-2 at each side of the main PCB).
-- Add VGND pin for external reference.
-- Add voltage-divider with 2x 100kOhm for measuring supply power voltage.
-- Add eeprom for storing PCB version and potential calibration values,
+- 32 channel with 4 PCBs!
+- Proper clipping.
+- Alternative x1/8 input selectable via additional connectors.
+- VGND pins for electrode cable shield and external reference.
+- Voltage-divider with 2x 200kOhm for measuring supply power voltage.
+- EEPROM for storing PCB version and potential calibration values,
   and all the configuration. 
