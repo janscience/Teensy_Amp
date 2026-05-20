@@ -237,16 +237,19 @@ behind on-off switch.
 
 ## EEPROM
 
-An EEPROM on the PCB stores the device configuration independent of the Teensy.
+A [microchip 24CS128](24cs128.pdf) EEPROM with 128kbit
+stores the device configuration independently of the Teensy.
 
-| Teensy 4.1 pin  | XXX   |
-| --------------: | :--------- |
+| Teensy 4.1 pin  | 24CS218  |
+| --------------: | :--------|
 | 3.3V            |  VCC     |
-| GND             |  GND     |
+| GND             |  VSS     |
 | 25 SDA2         |  SDA     |
 | 24 SCL2         |  SCL     |
-
-E.g. microchip 24FC16T-E/OT36KVAO with 16kbit at I2C bus.
+| GND             |  A0      |
+| GND             |  A1      |
+| GND             |  A2      |
+| GND             |  WP      |
 
 
 ## Real-time clock
