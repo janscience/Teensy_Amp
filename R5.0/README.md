@@ -227,12 +227,16 @@ LiIon battery connector:
 
 - [XT60 male connector](https://www.tme.eu/de/details/xt60pw-m/dc-steckverbinder/amass/)
 
+USB micro B connector:
+
+- [molex SD-47346-001](microusb.pdf)
+
 On/off switch closer to the analog side:
 
 - [CUS-12TB](cus2604293.pdf) 300mA
 
-Measure power supply voltage via voltage divider with two 100kOhm resistances on pin 14 (A0)
-behind on-off switch.
+Measure power supply voltage via voltage divider with two 200kOhm
+resistances on pin 14 (A0) behind on-off switch.
 
 
 ## EEPROM
