@@ -7,6 +7,23 @@ Based on
 - 4 [TI OPA1662](opa1662.pdf) as pre-amplifier
 - [TI TCAN334 D](../R4.0/tcan334.pdf) CAN-FD transceiver for synchronization.
 
+## Improvements over R4.x
+
+- Single ended (mono) versus differential (diff, common mode
+  rejexction) measurement mode selectable via switch.
+- 32 channel with 4 PCBs!
+- Proper clipping.
+- x2 or x1/8 input selectable via additional connectors.
+- Inputs via molex Micro-Lock connectors or jumper pins.
+- VGND pins for electrode cable shield and external reference.
+- Voltage-divider with 2x 200kOhm for measuring supply power voltage.
+- Sensors connector with only 4 contacts.
+- CAN bus for synchonizing devices (if common mode rejection works...).
+- Error LED.
+- EEPROM for storing PCB version and potential calibration values,
+  and all the configuration.
+- Both XT60 and USB micro B power connector.
+
 ## Pinout
 
 ![pinout](images/teensy41-R50-pinout.png)
@@ -227,26 +244,33 @@ LiIon battery connector:
 
 - [XT60 male connector](https://www.tme.eu/de/details/xt60pw-m/dc-steckverbinder/amass/)
 
+USB micro B connector:
+
+- [molex SD-47346-001](microusb.pdf)
+
 On/off switch closer to the analog side:
 
 - [CUS-12TB](cus2604293.pdf) 300mA
 
-Measure power supply voltage via voltage divider with two 100kOhm resistances on pin 14 (A0)
-behind on-off switch.
+Measure power supply voltage via voltage divider with two 200kOhm
+resistances on pin 14 (A0) behind on-off switch.
 
 
 ## EEPROM
 
-An EEPROM on the PCB stores the device configuration independent of the Teensy.
+A [microchip 24CS128](24cs128.pdf) EEPROM with 128kbit
+stores the device configuration independently of the Teensy.
 
-| Teensy 4.1 pin  | XXX   |
-| --------------: | :--------- |
+| Teensy 4.1 pin  | 24CS218  |
+| --------------: | :--------|
 | 3.3V            |  VCC     |
-| GND             |  GND     |
+| GND             |  VSS     |
 | 25 SDA2         |  SDA     |
 | 24 SCL2         |  SCL     |
-
-E.g. [microchip 24FC16T-E/OT36KVAO](mc24fc.pdf) with 16kbit at I2C bus.
+| GND             |  A0      |
+| GND             |  A1      |
+| GND             |  A2      |
+| GND             |  WP      |
 
 
 ## Real-time clock
@@ -365,14 +389,4 @@ The molex [Micro-Lock Plus](https://www.molex.com/en-us/products/connectors/wire
   - VGNG
   - AREF
   - 5V
-
-
-## Improvements over R4.x
-
-- 32 channel with 4 PCBs!
-- Proper clipping.
-- x2 or x1/8 input selectable via additional connectors.
-- VGND pins for electrode cable shield and external reference.
-- Voltage-divider with 2x 200kOhm for measuring supply power voltage.
-- EEPROM for storing PCB version and potential calibration values,
-  and all the configuration. 
+ 
