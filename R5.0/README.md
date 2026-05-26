@@ -246,7 +246,7 @@ An EEPROM on the PCB stores the device configuration independent of the Teensy.
 | 25 SDA2         |  SDA     |
 | 24 SCL2         |  SCL     |
 
-E.g. microchip 24FC16T-E/OT36KVAO with 16kbit at I2C bus.
+E.g. [microchip 24FC16T-E/OT36KVAO](mc24fc.pdf) with 16kbit at I2C bus.
 
 
 ## Real-time clock
@@ -278,26 +278,27 @@ A CR2032 3V Battery powers the real-time clock. SMD/SMT coin cell battery holder
 [TI TCAN334 D](../R4.0/tcan334.pdf) CAN-FD transceiver for
 synchronizing devices.
 
-| Teensy 4.1 pin  | TCAN334 D  |
-| --------------: | :--------- |
+| Teensy 4.1 pin  | TCAN334 D  | SP0503 |
+| --------------: | :--------- | :----- |
 | 3.3V            |  3 VCC, connect 0.1-μF and 10-μF capacitors to GND. |
-| GND             |  2 GND     |
-| 30 CRX3         |  4 RXD     |
-| 31 CTX3         |  1 TXD     |
-| 28 CAN STB      |  8 STB     |
-| 29 CAN SHDN     |  5 SHDN    |
-| 26 I/O UP       |            |
-| 27 I/O DOWN     |            |
+| GND             |  2 GND     | 1      |
+| 30 CRX3         |  4 RXD     | -      |
+| 31 CTX3         |  1 TXD     | -      |
+| 28 CAN STB      |  8 STB     | -      |
+| 29 CAN SHDN     |  5 SHDN    | -      |
+| 26 I/O OUT      |  -         | 3      |
+| 27 I/O IN       |  -         | 2      |
+| -               |  -         | 4      |
 
 Two molex vertical-angle SMT male connectors with 4 pins (GND, CANH,
-CANL, I/O UP or I/O DOWN), part number 5055680471.
+CANL, I/O IN or I/O OUT), part number 5055680471.
 
-Add Littlefuse SP0502 to I/O UP and I/O DOWN for supressing transient
-signals. See R4.1 for details.
+[Littlefuse SP0503](sp05.pdf) to I/O IN and I/O OUT for
+supressing transient signals.
 
 You need to terminate both ends of the CAN bus with a 120Ohm
-resistance between CAN High and CAN Low. Put it on the board and
-enable it with a jumper!
+resistance between CAN High and CAN Low. This resistance is already on
+the board and can be enabled by shortcircuiting a umper.
 
 
 ## External sensors and devices
