@@ -266,6 +266,10 @@ A CR2032 3V Battery powers the real-time clock. SMD/SMT coin cell battery holder
 | GND             |  6 N.C.    |
 | -               |  8 VBAT    |
 
+Because the MAX31328 was out of stock (summer 2026), we added the
+option for using the older (and way more expensive)
+[DS3231M](ds3231m.pdf).
+
 
 ## CAN bus
 
