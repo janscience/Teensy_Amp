@@ -75,7 +75,7 @@ Pins of the TLV320ADC5140 - see page 4 in the data sheet:
 |  2  | AREG        | Analog on-chip regulator output voltage. Connect 0.1-μF and 10-μF capacitors to GND. |   |
 |  3  | VREF        | Analog reference voltage filter output. Connect min. 1μF to AVSS |   |
 |  4  | AVSS        | Analog ground. Short this pin directly to the board ground plane. All ground pins (AVSS and VSS) must be tied together. |   |
-|  5  | MICBIAS     | To voltage divider for generating VGND, plus 1μF to GND? |                 |
+|  5  | MICBIAS     | To voltage divider for generating VGND, plus 1μF to GND |                 |
 |  6  | IN1P_GPI1   | SIG1        |                 |
 |  7  | IN1M_GPO1   | AREF        |                 |
 |  8  | IN2P_GPI2   | SIG2        |                 |
@@ -114,8 +114,7 @@ For layout instructions of the PCB see page 116 and Fig. 179 of the [TI TLV320AD
 - All signals oscillate around a virtual ground VGND.
 - VGND draws less than 0.1mA of current for a single channel if supplied from a power source.
 - VGND is created from half of MICBIAS of the TLV320ADC chip via a voltage divider.
-- Voltage divider with two times R5=1kOhm takes 1.4mA.
-- Also test higher resistances for R5.
+- Voltage divider with two times R5=3kOhm takes 0.6mA.
 
 ### Input signal voltage divider
 
@@ -151,7 +150,7 @@ For layout instructions of the PCB see page 116 and Fig. 179 of the [TI TLV320AD
   For R3=47k and R4=47k we get a x2 gain.
 - In single-ended mode (S1 connected to MONO) we measure SIGi and thus
   get an approximated monopolar measurement.
-- The INxM pins should be connected to VGND (or GND).
+- The INxM pins should be connected to VGND.
 - This does not reject the common mode, mean(SIGi), which might be a problem
   with large external noise, or when coupling two or more loggers.
 - An optional reference electrode can be connected to VGND.
@@ -296,12 +295,12 @@ supressing transient signals.
 
 You need to terminate both ends of the CAN bus with a 120Ohm
 resistance between CAN High and CAN Low. This resistance is already on
-the board and can be enabled by shortcircuiting a umper.
+the board and can be enabled by shortcircuiting a jumper.
 
 
 ## External sensors and devices
 
-Potential external sensors and devices to be connected to the R5.0 via
+External sensors and devices to be connected to the R5.0 via
 an I2C bus.
 See the [Sensors-V1
   PCB](https://github.com/janscience/ESensors/tree/main/pcbs/sensorsv1).
@@ -315,7 +314,7 @@ See the [Sensors-V1
 
 Connectors:
 - molex vertical-angle SMT male connector with 4 pins (GND, 3.3V, SCL, SDA), part number 5055680471
-- 2x4 Jumper pins
+- 2x5 Jumper pins
 
 
 ## Status LEDs
