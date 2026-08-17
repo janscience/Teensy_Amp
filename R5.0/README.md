@@ -1,7 +1,5 @@
 # TeensyAmp R5.0
 
-Work in progress.
-
 Based on
 - 2 [TI TLV320ADC5140](tlv320adc5140.pdf) with 4-channel ADC and adjustable gain
 - 4 [TI OPA1662](opa1662.pdf) as pre-amplifier
