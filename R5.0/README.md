@@ -24,6 +24,20 @@ Based on
   and all the configuration.
 - Both XT60 and USB micro B power connector.
 
+
+## Circuit
+
+Base board for 8 channels:
+
+- [EAGLE schematics file](TeensyAmp_R5.0.sch)
+- [EAGLE circuit board](TeensyAmp_R5.0.brd)
+
+Extension board for up to 32 channels:
+
+- [EAGLE schematics file](TeensyAmp_R5.1.sch)
+- [EAGLE circuit board](TeensyAmp_R5.1.brd)
+
+
 ## Pinout
 
 ![pinout](images/teensy41-R50-pinout.png)

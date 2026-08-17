@@ -3,7 +3,7 @@
 Amplifiers for the [Teensy](https://www.pjrc.com/teensy/) development boards.
 
 - [R5.0](R5.0)
-  Some still to be developed amplifier based on
+  Single-ended or differential amplifier with up to 32 channels based on
   [TI TLV320ADC5140](https://www.ti.com/product/TLV320ADC5140).
 
 - [R4.1b](R4.1)
@@ -19,7 +19,8 @@ Amplifiers for the [Teensy](https://www.pjrc.com/teensy/) development boards.
 
 - [R4.0](R4.0)
   ![R40](R4.0/images/Teensy_Amp-R40.png)
-  An eight-channel single-ended amplifier with analog-digital converter
+  An eight-channel single-ended (but quasi-differential) amplifier
+  with analog-digital converter
   based on [TI PCM1865](https://www.ti.com/product/PCM1865)
   together with CAN bus communication on an 80x80mm PCB.
 
@@ -40,6 +41,7 @@ Amplifiers for the [Teensy](https://www.pjrc.com/teensy/) development boards.
 
 | Model        | Channels | Reference | Vin | ADC    | Amplifier | High-pass | Low-pass | Gains | Communication | Size (mm) | Comment |
 | ------------ | -------- | --------- | --- | ------ | --------- | --------- | -------- | ----- | --- | --- | --- |
+| [R5.0](R5.0) | 8 - 32 | single ended or differential | 3.3 - 5.5V | [TI TI TLV320ADC5140](https://www.ti.com/product/TLV320ADC5140) | [TI OPA1662](https://www.ti.com/product/OPA1662) | 12Hz fixed | according to sampling rate | x1 - x100 | CAN | 152x47 | [Teensy 4.1](https://www.pjrc.com/teensy/pinout.html#Teensy_4.1) TDM1 4pins |
 | [R4.1b](R4.1) | 8 | single ended | 3.3 - 5.5V | [TI PCM1865](https://www.ti.com/product/PCM1865) | [TI OPA1662](https://www.ti.com/product/OPA1662) | 5Hz fixed | according to sampling rate | x1 - x100 | - | 136x46 | [Teensy 4.1](https://www.pjrc.com/teensy/pinout.html#Teensy_4.1) TDM1 |
 | [R4.2b](R4.2) | 8 | single ended | 3.3 - 5.5V | [TI PCM1865](https://www.ti.com/product/PCM1865) | [TI OPA1662](https://www.ti.com/product/OPA1662) | 5Hz fixed | according to sampling rate | x1 - x100 | - | 105x46 | [Teensy 4.1](https://www.pjrc.com/teensy/pinout.html#Teensy_4.1) TDM2 |
 | [R4.0](R4.0) | 8 | single ended | 3.3 - 5.5V | [TI PCM1865](https://www.ti.com/product/PCM1865) | [TI OPA1662](https://www.ti.com/product/OPA1662) | 5Hz fixed | according to sampling rate | x1 - x100, x10 - x1000 | CAN | 80x80 | [Teensy 4.1](https://www.pjrc.com/teensy/pinout.html#Teensy_4.1) TDM1 |
@@ -51,11 +53,14 @@ Amplifiers for the [Teensy](https://www.pjrc.com/teensy/) development boards.
 
 The [TeeRec](https://github.com/janscience/TeeRec) library provides
 everything you need to program a recorder or logger.
-
+[TeeGrid](https://github.com/janscience/TeeGrid) has special applications
+based on [TeeRec](https://github.com/janscience/TeeRec).
 
 ## Use cases
 
-- [16 channel logger](https://github.com/janscience/TeeGrid/tree/main/examples/R4-sensors-logger): A 16-channel logger with environmental sensors for recording electric fish behaviors.
+- 16-channel logger with environmental sensors for recording electric fish behaviors:
+  - [R5-logger](https://github.com/janscience/TeeGrid/tree/main/examples/R5-logger)
+  - [R4-sensors-logger](https://github.com/janscience/TeeGrid/tree/main/examples/R4-sensors-logger) based on [R4.1 + R4.2](R4.1-R4.2) (superseded by R5-logger).
 
   ![logger](https://github.com/janscience/TeeGrid/blob/main/examples/R4-sensors-logger/submergedlogger.jpg)
 
