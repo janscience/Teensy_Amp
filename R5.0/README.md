@@ -344,3 +344,32 @@ The molex [Micro-Lock Plus](https://www.molex.com/en-us/products/connectors/wire
   - Receptable part no. DF17(3.0)-40DS-0.5V(57)
   - Header part no. DF17(4.0)-40DP-0.5V(57)
   - [Data sheet](df17.pdf)
+
+
+## Power consumption
+
+All measurements with [R5-logger](https://github.com/janscience/TeeGrid/tree/main/examples/R5-logger) software.
+
+See comments for
+[R4.1](https://github.com/janscience/Teensy_Amp/tree/main/R4.1-R4.2#power-consumption)
+for more detailes.
+
+
+### KeepPower Li-Ion battery
+
+[Keeppower 26650 - 5500mAh, 3.6V Li-Ion protected battery](https://www.akkushop.de/de/keeppower-26650-li-ion-akku-5500mah-36v-bis-37v-masse-699x265mm-pcb-geschuetzt/?_gl=1*3tpsz6*_up*MQ..*_gs*MQ..&gclid=Cj0KCQiAo5u6BhDJARIsAAVoDWt3GoXz8Iy4VtOCWRfemFEa7uiMu-8cfNHHLCeWJMEUk6c8qhZRTr8aAmmdEALw_wcB)
+
+| capacity | voltage | duration | channels | sampling rate | CPU speed| Sensors-V1       | comment        |
+| -------: | ------: | -------- | -------: | ------------: | --------:| :--------------- | :------------- |
+|  3x5.5Ah |    3.6V | 61h50min |       16 |         24kHz |     24MHz| none             |                |
+|  3x5.5Ah |    3.6V | 60h55min |       16 |         24kHz |     24MHz| none             |                |
+|  3x5.5Ah |    3.6V | 61h45min |       16 |         24kHz |     24MHz| none             |                |
+
+
+### Battery pack
+
+| capacity | voltage | duration | channels | sampling rate | CPU speed| Sensors-V1       | comment        |
+| -------: | ------: | -------- | -------: | ------------: | --------:| :--------------- | :------------- |
+|  7x3.5Ah |    3.6V | 82h40min |       16 |         24kHz |     24MHz| none             |                |
+|  7x3.5Ah |    3.6V | 82h40min |       16 |         24kHz |     24MHz| none             |                |
+|  7x3.5Ah |    3.6V | 84h00min |       16 |         24kHz |     24MHz| none             |                |

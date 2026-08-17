@@ -28,7 +28,7 @@ The two boards together provide 16 input channels.
 ## Power consumption
 
 - Powering directly from an 3.6V LiIon battery is way more efficient
-  that using a power bank.  The power bank transforms the 3.6V from
+  than using a power bank.  The power bank transforms the 3.6V from
   the LiPo battery up to 5V and the Teensy reduces this back to
   3.3V. Resulting in an efficieny of 75% (approx 86% squared) compared
   to using the LiIon battery directly.
