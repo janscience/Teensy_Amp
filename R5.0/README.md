@@ -361,6 +361,18 @@ The molex [Micro-Lock Plus](https://www.molex.com/en-us/products/connectors/wire
 
 All measurements with [R5-logger](https://github.com/janscience/TeeGrid/tree/main/examples/R5-logger) software.
 
+| voltage | current | power | channels | sampling rate | CPU speed |
+| ------: | ------: | ----: | -------: | ------------- | --------: |
+|    4.0V |  180mA  | 720mW |        8 |         24kHz |     24MHz |
+|    4.0V |  185mA  | 740mW |        8 |         48kHz |     24MHz |
+|    4.0V |  195mA  | 780mW |        8 |         96kHz |     24MHz |
+|    4.0V |  255mA  | 1.02W |       16 |         24kHz |     24MHz |
+|    4.0V |  265mA  | 1.06W |       16 |         48kHz |     24MHz |
+|    4.0V |  295mA  | 1.18W |       16 |         96kHz |     48MHz |
+|    4.0V |  415mA  | 1.66W |       32 |         24kHz |     24MHz |
+|    4.0V |  435mA  | 1.74W |       32 |         48kHz |     48MHz |
+|    4.0V |  485mA  | 1.94W |       32 |         96kHz |     96MHz |
+
 See comments for
 [R4.1](https://github.com/janscience/Teensy_Amp/tree/main/R4.1-R4.2#power-consumption)
 for more detailes.
