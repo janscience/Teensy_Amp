@@ -387,6 +387,10 @@ for more detailes.
 |  3x5.5Ah |    3.6V | 61h50min |       16 |         24kHz |     24MHz| none             |                |
 |  3x5.5Ah |    3.6V | 60h55min |       16 |         24kHz |     24MHz| none             |                |
 |  3x5.5Ah |    3.6V | 61h45min |       16 |         24kHz |     24MHz| none             |                |
+|  3x5.5Ah |    3.6V | 58h30min |       16 |         48kHz |     24MHz| none             | stop voltage of 3.48V did not work |
+|  3x5.5Ah |    3.6V | 59h00min |       16 |         48kHz |     24MHz| none             | stop voltage of 3.48V did not work |
+|  3x5.5Ah |    3.6V | 59h15min |       16 |         48kHz |     24MHz| none             | stop voltage of 3.48V did not work |
+|  3x5.5Ah |    3.6V | 11h30min |       32 |         48kHz |     24MHz| none             | stopped (?) at 3.8V although stop voltage was 3.5V  |
 
 
 ### Battery pack
