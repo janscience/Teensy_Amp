@@ -384,12 +384,15 @@ for more detailes.
 
 | capacity | voltage | duration | channels | sampling rate | CPU speed| Sensors-V1       | comment        |
 | -------: | ------: | -------- | -------: | ------------: | --------:| :--------------- | :------------- |
-|  3x5.5Ah |    3.6V | 61h50min |       16 |         24kHz |     24MHz| none             |                |
+|  3x5.5Ah |    3.6V | 61h50min |       16 |         24kHz |     24MHz| none             | gain=0dB       |
 |  3x5.5Ah |    3.6V | 60h55min |       16 |         24kHz |     24MHz| none             |                |
 |  3x5.5Ah |    3.6V | 61h45min |       16 |         24kHz |     24MHz| none             |                |
 |  3x5.5Ah |    3.6V | 58h30min |       16 |         48kHz |     24MHz| none             |                |
 |  3x5.5Ah |    3.6V | 59h00min |       16 |         48kHz |     24MHz| none             |                |
 |  3x5.5Ah |    3.6V | 59h15min |       16 |         48kHz |     24MHz| none             |                |
+|  3x5.5Ah |    3.6V | 35h40min |       16 |         48kHz |     24MHz| none             | Vstop=3.5V, Vbat=3.3V, gain=20dB |
+|  3x5.5Ah |    3.6V | 35h00min |       16 |         48kHz |     24MHz| none             | Vstop=3.5V, Vbat=3.3V, gain=20dB |
+|  3x5.5Ah |    3.6V | 46h20min |       16 |         48kHz |     24MHz| none             | Vstop=3.5V, Vbat=3.4V, gain=20dB |
 
 | capacity | voltage | duration | channels | sampling rate | CPU speed| Sensors-V1       | comment        |
 | -------: | ------: | -------- | -------: | ------------: | --------:| :--------------- | :------------- |
@@ -412,4 +415,8 @@ for more detailes.
 |  7x3.5Ah |    3.6V | 75h25min |       16 |         48kHz |     24MHz| none             |                |
 |  7x3.5Ah |    3.6V | 77h00min |       16 |         48kHz |     24MHz| none             |                |
 |  7x3.5Ah |    3.6V | 77h10min |       16 |         48kHz |     24MHz| V1.1 with IR LED |                |
+
+|  7x3.5Ah |    3.6V | 65h55min |       16 |         48kHz |     24MHz| none             | Vstop=3.5V, Vbat=3.5V, gain=20dB |
+|  7x3.5Ah |    3.6V | 89h20min |       16 |         48kHz |     24MHz| none             | Vstop=3.5V, Vbat=3.7V(!), gain=20dB |
+|  7x3.5Ah |    3.6V | 63h05min |       16 |         48kHz |     24MHz| none             | Vstop=3.5V, Vbat=3.5V, gain=20dB |
 
