@@ -125,7 +125,8 @@ For layout instructions of the PCB see page 116 and Fig. 179 of the [TI TLV320AD
 
 - All signals oscillate around a virtual ground VGND.
 - VGND draws less than 0.1mA of current for a single channel if supplied from a power source.
-- VGND is created from half of MICBIAS of the TLV320ADC chip via a voltage divider.
+- VGND is created from half of MICBIAS=2.75V of the TLV320ADC chip via a voltage divider: VGND=1.375V. In fact, this results in an offset that is 50mV too high.  So we need a voltage divider wchich results in a ratio of 1.325V/2.75V=0.482.
+  One 3kOhm and a 2770Ohm resistance should work.
 - Voltage divider with two times R5=3kOhm takes 0.6mA.
 
 ### Input signal voltage divider
